@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Backgrounds & Borders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .example-box {
+            margin: 15px 0;
+            padding: 15px;
+        }
+        
+        .border-examples div {
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; background-color: #f8f9fa; padding: 20px; border-bottom: 3px solid #dee2e6;">
+        CSS Backgrounds & Borders
+    </h1>
+    
+    <h2>Background Colors</h2>
+    <div class="example-box" style="background-color: #FF6B6B; color: white;">
+        Solid red background color
+    </div>
+    
+    <div class="example-box" style="background-color: #4ECDC4; color: white;">
+        Solid teal background color
+    </div>
+    
+    <div class="example-box" style="background-color: #FFE66D; color: #333;">
+        Solid yellow background color
+    </div>
+    
+    <hr>
+    
+    <h2>Background Gradients</h2>
+    <div class="example-box" style="background-image: linear-gradient(to right, #667eea, #764ba2); color: white;">
+        Linear gradient background (blue to purple)
+    </div>
+    
+    <div class="example-box" style="background-image: linear-gradient(45deg, #ff9a9e, #fad0c4); color: #333;">
+        Diagonal gradient background (pink to light pink)
+    </div>
+    
+    <hr>
+    
+    <h2>Border Styles</h2>
+    <div class="border-examples">
+        <div style="border: 2px solid #333;">
+            Solid border - 2px width
+        </div>
+        
+        <div style="border: 3px dashed #FF6B6B;">
+            Dashed border - 3px width, red color
+        </div>
+        
+        <div style="border: 4px dotted #4ECDC4;">
+            Dotted border - 4px width, teal color
+        </div>
+        
+        <div style="border: 1px double #333;">
+            Double border - 1px width
+        </div>
+    </div>
+    
+    <hr>
+    
+    <h2>Individual Border Sides</h2>
+    <div style="border-top: 4px solid #FF6B6B; padding: 15px; margin: 10px 0;">
+        Top border only - red
+    </div>
+    
+    <div style="border-right: 4px solid #4ECDC4; padding: 15px; margin: 10px 0;">
+        Right border only - teal
+    </div>
+    
+    <div style="border-bottom: 4px solid #FFE66D; padding: 15px; margin: 10px 0;">
+        Bottom border only - yellow
+    </div>
+    
+    <div style="border-left: 4px solid #667eea; padding: 15px; margin: 10px 0;">
+        Left border only - blue
+    </div>
+    
+    <hr>
+    
+    <h2>Border Radius (Rounded Corners)</h2>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <div style="background-color: #FF6B6B; color: white; padding: 20px; border-radius: 5px; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+            Small radius (5px)
+        </div>
+        
+        <div style="background-color: #4ECDC4; color: white; padding: 20px; border-radius: 15px; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+            Medium radius (15px)
+        </div>
+        
+        <div style="background-color: #FFE66D; color: #333; padding: 20px; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+            Circle (50%)
+        </div>
+    </div>
+    
+    <hr>
+    
+    <h2>Combined Background & Border</h2>
+    <div style="background-image: linear-gradient(135deg, #667eea, #764ba2); 
+                border: 4px solid #FFE66D; 
+                border-radius: 20px; 
+                color: white; 
+                padding: 30px; 
+                text-align: center;
+                margin: 20px 0;">
+        <h3>Styled Element</h3>
+        <p>This combines gradient background, colored border, and rounded corners</p>
+    </div>
+    
+    <div style="background-color: #f8f9fa; 
+                border-left: 6px solid #4ECDC4; 
+                padding: 15px; 
+                margin: 20px 0;">
+        <p>This uses a light gray background with a left border accent</p>
+    </div>
+    
+    <p style="text-align: center; color: #666; font-style: italic;">
+        Experiment with different background and border combinations to create visually appealing elements!
+    </p>
+</body>
+</html>

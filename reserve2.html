@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1: Basic HTML Page</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* Example Preview Box */
+        .example-preview {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .example-preview h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+        
+        .preview-box {
+            background: #34495e;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 200px;
+            margin-bottom: 15px;
+        }
+        
+        .preview-content {
+            background: white;
+            color: #2c3e50;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .view-full-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: block;
+            margin: 0 auto;
+            transition: background 0.3s ease;
+        }
+        
+        .view-full-btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Lesson Content */
+        .lesson-content {
+            padding: 30px;
+        }
+        
+        .lesson-content h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .lesson-content h2 {
+            color: #3498db;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        .code-explanation {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .html-tag {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .tag-example {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        /* Navigation */
+        .level-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #34495e;
+            border-top: 3px solid #3498db;
+        }
+        
+        .nav-btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+        }
+        
+        .nav-btn.disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .level-info {
+            color: #ecf0f1;
+            font-weight: bold;
+        }
+        
+        /* Full Design View */
+        .full-design {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            padding: 50px;
+            overflow-y: auto;
+        }
+        
+        .full-design-content {
+            background: white;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .design-preview {
+            border: 2px solid #bdc3c7;
+            padding: 30px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Example Preview Box -->
+        <div class="example-preview">
+            <h2>🎯 What You'll Build</h2>
+            <div class="preview-box">
+                <div class="preview-content">
+                    <h1>Welcome to My First Webpage</h1>
+                    <p>This is my first HTML page. I'm learning web development!</p>
+                    <p>This page has proper HTML structure with head and body sections.</p>
+                </div>
+            </div>
+            <button class="view-full-btn" onclick="showFullDesign()">👀 View Full Design</button>
+        </div>
+
+        <!-- Lesson Content -->
+        <div class="lesson-content">
+            <h1>LEVEL 1: Basic HTML Page Structure</h1>
+            <div class="subtitle">Learn the foundation of every webpage</div>
+            
+            <h2>📖 What is HTML?</h2>
+            <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It describes the structure of a web page using elements called "tags".</p>
+            
+            <h2>🔨 Essential HTML Tags</h2>
+            
+            <div class="code-explanation">
+                <span class="html-tag">&lt;!DOCTYPE html&gt;</span> - Tells the browser this is an HTML5 document
+            </div>
+            
+            <div class="code-explanation">
+                <span class="html-tag">&lt;html&gt;</span> - The root element that wraps all content
+            </div>
+            
+            <div class="code-explanation">
+                <span class="html-tag">&lt;head&gt;</span> - Contains meta information about the page
+            </div>
+            
+            <div class="code-explanation">
+                <span class="html-tag">&lt;body&gt;</span> - Contains the visible page content
+            </div>
+            
+            <div class="code-explanation">
+                <span class="html-tag">&lt;h1&gt;</span> - Main heading (largest text)
+            </div>
+            
+            <div class="code-explanation">
+                <span class="html-tag">&lt;p&gt;</span> - Paragraph for regular text
+            </div>
+            
+            <h2>💻 Your First HTML Code</h2>
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My First Webpage&lt;/h1&gt;
+    &lt;p&gt;This is my first HTML page. I'm learning web development!&lt;/p&gt;
+    &lt;p&gt;This page has proper HTML structure with head and body sections.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+            
+            <h2>🎯 Your Mission</h2>
+            <div class="tag-example">
+                <p><strong>Create a file called level1.html with:</strong></p>
+                <p>✅ Proper HTML5 structure</p>
+                <p>✅ A title in the head section</p>
+                <p>✅ One main heading (&lt;h1&gt;)</p>
+                <p>✅ Two paragraphs (&lt;p&gt;)</p>
+                <p>✅ All basic required tags</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="level-navigation">
+            <a href="#" class="nav-btn disabled">← Previous Level</a>
+            <div class="level-info">Level 1 of 100</div>
+            <a href="level2.html" class="nav-btn">Next Level →</a>
+        </div>
+    </div>
+
+    <!-- Full Design View -->
+    <div id="fullDesign" class="full-design">
+        <div class="full-design-content">
+            <button class="close-btn" onclick="hideFullDesign()">✕</button>
+            <h2>🎯 Full Design Preview - Level 1</h2>
+            <p>This is what your completed Level 1 should look like:</p>
+            
+            <div class="design-preview">
+                <h1>Welcome to My First Webpage</h1>
+                <p>This is my first HTML page. I'm learning web development!</p>
+                <p>This page has proper HTML structure with head and body sections.</p>
+            </div>
+            
+            <h3>📝 Requirements:</h3>
+            <ul>
+                <li>Proper HTML5 doctype declaration</li>
+                <li>HTML, head, and body tags</li>
+                <li>Page title in head section</li>
+                <li>One h1 heading</li>
+                <li>Two paragraph tags</li>
+                <li>All tags properly closed</li>
+            </ul>
+            
+            <button class="view-full-btn" onclick="hideFullDesign()">Close Preview</button>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide full design preview
+        function showFullDesign() {
+            document.getElementById('fullDesign').style.display = 'block';
+        }
+        
+        function hideFullDesign() {
+            document.getElementById('fullDesign').style.display = 'none';
+        }
+        
+        // Close full design when clicking outside content
+        document.getElementById('fullDesign').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideFullDesign();
+            }
+        });
+        
+        // Add keyboard shortcut (ESC to close)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideFullDesign();
+            }
+        });
+
+        console.log('🚀 Level 1 Loaded! Ready to learn HTML basics!');
+        console.log('💡 Tip: Always start with proper HTML structure');
+    </script>
+</body>
+</html>

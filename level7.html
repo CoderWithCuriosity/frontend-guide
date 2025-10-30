@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 7: Basic CSS Colors & Fonts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .preview-container {
+            border: 1px solid #ddd;
+            height: 400px;
+            margin: 20px 0;
+            overflow: auto;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Level 7: Basic CSS Colors & Fonts</h1>
+    
+    <p><strong>GOAL:</strong> Build a webpage demonstrating basic CSS colors and font properties</p>
+    
+    <h2>Skills You'll Use</h2>
+    <ul>
+        <li>HTML: html, head, title, style, body, h1, h2, p, div, span, ul, li, br, hr</li>
+        <li>CSS: color, background-color, font-family, font-size, font-weight, font-style, text-align</li>
+        <li>JS: No JavaScript used in this level</li>
+    </ul>
+    
+    <h2>Example Preview</h2>
+    <div class="preview-container">
+        <iframe src="example7.html" width="100%" height="100%" style="border: none;"></iframe>
+    </div>
+    
+    <button onclick="window.open('example7.html', '_blank')">View Full Design</button>
+    
+    <h2>Build It Step-by-Step</h2>
+    <ol>
+        <li>Create the basic HTML structure with html, head, title, and body tags</li>
+        <li>Add a style tag in the head section for CSS</li>
+        <li>Use color property to change text colors</li>
+        <li>Apply background-color property for element backgrounds</li>
+        <li>Use font-family to change typefaces</li>
+        <li>Implement font-size to control text size</li>
+        <li>Apply font-weight for bold text and font-style for italic</li>
+        <li>Use text-align for text alignment</li>
+        <li>Use div and span for applying styles to specific sections</li>
+    </ol>
+    
+    <div class="navigation">
+        <button onclick="location.href='level6.html'">Previous Level</button>
+        <button onclick="location.href='level8.html'">Next Level</button>
+    </div>
+</body>
+</html>

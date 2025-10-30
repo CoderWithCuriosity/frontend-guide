@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Div Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            background-color: white;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .nav {
+            background-color: #34495e;
+            padding: 10px;
+        }
+        
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .content {
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .main-content {
+            width: 500px;
+            float: left;
+            padding: 20px;
+            background-color: #ecf0f1;
+        }
+        
+        .sidebar {
+            width: 200px;
+            float: right;
+            padding: 20px;
+            background-color: #bdc3c7;
+        }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            clear: both;
+        }
+        
+        .box {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Website Layout</h1>
+            <p>Simple div-based structure</p>
+        </div>
+        
+        <div class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <h2>Main Content Area</h2>
+                <p>This is the primary content section of the webpage.</p>
+                
+                <div class="box">
+                    <h3>Content Box 1</h3>
+                    <p>This demonstrates how divs can be nested to create complex layouts.</p>
+                </div>
+                
+                <div class="box">
+                    <h3>Content Box 2</h3>
+                    <p>Each div can have its own styling and content structure.</p>
+                </div>
+                
+                <div style="background-color: #e74c3c; color: white; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                    <h3>Inline Styled Div</h3>
+                    <p>This div uses inline styles for demonstration.</p>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <h3>Sidebar</h3>
+                <p>This is the sidebar content area.</p>
+                
+                <div style="background-color: #27ae60; color: white; padding: 10px; margin: 10px 0; border-radius: 3px;">
+                    <h4>Sidebar Item 1</h4>
+                    <p>Additional information or links</p>
+                </div>
+                
+                <div style="background-color: #8e44ad; color: white; padding: 10px; margin: 10px 0; border-radius: 3px;">
+                    <h4>Sidebar Item 2</h4>
+                    <p>More sidebar content</p>
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 Simple Layout. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

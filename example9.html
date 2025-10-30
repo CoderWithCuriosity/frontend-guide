@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .box-model-visual {
+            background-color: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .content-box {
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .example-box {
+            margin: 15px 0;
+        }
+        
+        .comparison {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .comparison > div {
+            flex: 1;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #333;">CSS Box Model</h1>
+    
+    <h2>Understanding the Box Model</h2>
+    <div class="box-model-visual">
+        <div style="margin: 30px; background-color: #ffebee; padding: 10px; border: 2px solid #f44336;">
+            <div style="margin: 20px; background-color: #e3f2fd; padding: 10px; border: 2px solid #2196f3;">
+                <div class="content-box" style="border: 2px solid #4caf50;">
+                    Content Area
+                </div>
+                <p style="text-align: center; margin: 10px 0 0 0; font-size: 14px; color: #666;">
+                    Green: Content | Blue: Padding | Red: Border | Outside: Margin
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <h2>Margin Examples</h2>
+    <div class="example-box" style="background-color: #ffebee; padding: 15px; margin: 10px;">
+        Margin: 10px (all sides)
+    </div>
+    
+    <div class="example-box" style="background-color: #e8f5e8; padding: 15px; margin: 20px 10px;">
+        Margin: 20px (top/bottom) 10px (left/right)
+    </div>
+    
+    <div class="example-box" style="background-color: #e3f2fd; padding: 15px; margin: 10px 20px 30px 40px;">
+        Margin: 10px(top) 20px(right) 30px(bottom) 40px(left)
+    </div>
+    
+    <hr>
+    
+    <h2>Padding Examples</h2>
+    <div class="example-box" style="background-color: #fff3e0; padding: 10px; border: 2px solid #ff9800;">
+        Padding: 10px (all sides)
+    </div>
+    
+    <div class="example-box" style="background-color: #f3e5f5; padding: 20px 10px; border: 2px solid #9c27b0;">
+        Padding: 20px (top/bottom) 10px (left/right)
+    </div>
+    
+    <div class="example-box" style="background-color: #e0f2f1; padding: 10px 20px 30px 40px; border: 2px solid #009688;">
+        Padding: 10px(top) 20px(right) 30px(bottom) 40px(left)
+    </div>
+    
+    <hr>
+    
+    <h2>Box-Sizing Property</h2>
+    <div class="comparison">
+        <div style="background-color: #ffebee; padding: 20px; border: 5px solid #f44336; width: 200px; box-sizing: content-box;">
+            <strong>content-box</strong><br>
+            Width: 200px + padding + border<br>
+            Total: 200 + 40 + 10 = 250px
+        </div>
+        
+        <div style="background-color: #e8f5e8; padding: 20px; border: 5px solid #4caf50; width: 200px; box-sizing: border-box;">
+            <strong>border-box</strong><br>
+            Width: 200px includes padding & border<br>
+            Content: 200 - 40 - 10 = 150px
+        </div>
+    </div>
+    
+    <hr>
+    
+    <h2>Display Property</h2>
+    <div style="background-color: #f5f5f5; padding: 15px; margin: 10px 0;">
+        <span style="background-color: #ffcdd2; padding: 5px; margin: 5px; border: 1px solid #f44336;">
+            Inline Element 1
+        </span>
+        <span style="background-color: #c8e6c9; padding: 5px; margin: 5px; border: 1px solid #4caf50;">
+            Inline Element 2
+        </span>
+        <span style="background-color: #bbdefb; padding: 5px; margin: 5px; border: 1px solid #2196f3;">
+            Inline Element 3
+        </span>
+    </div>
+    
+    <div style="background-color: #e3f2fd; padding: 5px; margin: 10px 0; border: 1px solid #2196f3;">
+        Block Element - takes full width
+    </div>
+    
+    <div style="background-color: #f3e5f5; padding: 5px; margin: 10px 0; border: 1px solid #9c27b0;">
+        Another Block Element
+    </div>
+    
+    <div style="background-color: #fff3e0; padding: 15px; margin: 10px 0;">
+        <div style="display: inline-block; background-color: #ffecb3; padding: 10px; margin: 5px; border: 1px solid #ffc107; width: 100px;">
+            Inline-Block 1
+        </div>
+        <div style="display: inline-block; background-color: #d7ccc8; padding: 10px; margin: 5px; border: 1px solid #795548; width: 100px;">
+            Inline-Block 2
+        </div>
+        <div style="display: inline-block; background-color: #f0f4c3; padding: 10px; margin: 5px; border: 1px solid #cddc39; width: 100px;">
+            Inline-Block 3
+        </div>
+    </div>
+    
+    <hr>
+    
+    <h2>Practical Example</h2>
+    <div style="background-color: #ffffff; border: 2px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h3 style="margin-top: 0; color: #333;">Card Component</h3>
+        <p style="margin-bottom: 15px;">This card demonstrates box model properties:</p>
+        <ul style="margin-bottom: 15px;">
+            <li>Margin: Creates space around the card</li>
+            <li>Border: Defines the card boundary</li>
+            <li>Padding: Creates space inside the card</li>
+            <li>Content: The actual text and elements</li>
+        </ul>
+        <div style="background-color: #f5f5f5; padding: 10px; border-radius: 4px; text-align: center;">
+            Total width = margin + border + padding + content
+        </div>
+    </div>
+    
+    <p style="text-align: center; color: #666; font-style: italic;">
+        Master the box model to precisely control layout and spacing in your designs!
+    </p>
+</body>
+</html>

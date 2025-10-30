@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mastery - Complete Level System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .tagline {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin: 20px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .phase {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .phase h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .level-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #ecf0f1;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .level-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .level-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .level-name {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+        
+        .start-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .rules-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .rules-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Frontend Mastery</h1>
+            <p>Complete Level System - From Zero to Professional Frontend Developer</p>
+            <div class="tagline">
+                <strong>100 Levels • Structured Learning • Real Projects • Master Frontend Development</strong>
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>Welcome to Your Frontend Journey!</h2>
+                <p>This comprehensive learning system will guide you through 100 carefully designed levels that take you from absolute beginner to professional frontend developer.</p>
+                
+                <div class="rules-box">
+                    <h4>📋 How This System Works</h4>
+                    <p>Each level provides you with two files:</p>
+                    <ul>
+                        <li><strong>level[NUMBER].html</strong> - Instructions, preview, and navigation</li>
+                        <li><strong>example[NUMBER].html</strong> - The target design you need to recreate</li>
+                    </ul>
+                    <p><strong>Your mission:</strong> Study the example, then recreate it using ONLY the skills specified for that level.</p>
+                </div>
+                
+                <h3>🎯 Learning Philosophy</h3>
+                <p>This system follows a <strong>"Learn by Building"</strong> approach. Instead of just reading concepts, you'll immediately apply them by creating real components and layouts.</p>
+                
+                <h3>📚 Course Structure</h3>
+                
+                <div class="phase">
+                    <h3>Phase 1: Absolute Basics (Levels 1-20)</h3>
+                    <p>Master HTML fundamentals, basic CSS, and create your first complete webpage.</p>
+                    <div class="level-grid">
+                        <a href="level1.html" class="level-card">
+                            <div class="level-number">1</div>
+                            <div class="level-name">HTML Structure</div>
+                        </a>
+                        <a href="level2.html" class="level-card">
+                            <div class="level-number">2</div>
+                            <div class="level-name">Headings & Paragraphs</div>
+                        </a>
+                        <a href="level3.html" class="level-card">
+                            <div class="level-number">3</div>
+                            <div class="level-name">Text Formatting</div>
+                        </a>
+                        <a href="level4.html" class="level-card">
+                            <div class="level-number">4</div>
+                            <div class="level-name">Lists</div>
+                        </a>
+                        <a href="level5.html" class="level-card">
+                            <div class="level-number">5</div>
+                            <div class="level-name">Links & Anchors</div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="phase">
+                    <h3>Phase 2: Layout Fundamentals (Levels 21-40)</h3>
+                    <p>Dive into CSS layout systems: Flexbox, Grid, responsive design, and modern layouts.</p>
+                </div>
+                
+                <div class="phase">
+                    <h3>Phase 3: Interactive Components (Levels 41-60)</h3>
+                    <p>Add JavaScript interactivity: forms, modals, sliders, games, and practical applications.</p>
+                </div>
+                
+                <div class="phase">
+                    <h3>Phase 4: Advanced UI/UX (Levels 61-80)</h3>
+                    <p>Master animations, advanced effects, modern design trends, and complex interfaces.</p>
+                </div>
+                
+                <div class="phase">
+                    <h3>Phase 5: Real-World Clones (Levels 81-100)</h3>
+                    <p>Build professional projects by recreating components from popular platforms like YouTube, Instagram, Netflix, and more.</p>
+                </div>
+                
+                <h3>🚦 Getting Started</h3>
+                <ol>
+                    <li><strong>Start with Level 1</strong> - Don't skip basics even if you think you know them</li>
+                    <li><strong>Create both files</strong> for each level (level.html and example.html)</li>
+                    <li><strong>Study the example</strong> by clicking "View Full Design"</li>
+                    <li><strong>Recreate it yourself</strong> using only the specified skills</li>
+                    <li><strong>Use navigation</strong> to move between levels systematically</li>
+                    <li><strong>Practice consistently</strong> - even 1 level per day will make you proficient</li>
+                </ol>
+            </div>
+            
+            <div class="sidebar">
+                <h2>Quick Links</h2>
+                
+                <div class="feature">
+                    <div class="feature-icon">1</div>
+                    <div>
+                        <strong>Start Learning</strong><br>
+                        <a href="level1.html">Begin with Level 1</a>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">💡</div>
+                    <div>
+                        <strong>Pro Tips</strong><br>
+                        Don't rush - master each concept
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div>
+                        <strong>Fast Track</strong><br>
+                        Already know basics? Test yourself!
+                    </div>
+                </div>
+                
+                <h3>🛠 Tools You'll Need</h3>
+                <ul>
+                    <li>Text Editor (VS Code recommended)</li>
+                    <li>Web Browser (Chrome/Firefox)</li>
+                    <li>Basic file management skills</li>
+                    <li>Persistence and curiosity!</li>
+                </ul>
+                
+                <h3>🎖 Skill Outcomes</h3>
+                <ul>
+                    <li>HTML5 & Semantic Markup</li>
+                    <li>CSS3 & Modern Layouts</li>
+                    <li>JavaScript Fundamentals</li>
+                    <li>Responsive Design</li>
+                    <li>UI/UX Principles</li>
+                    <li>Real Project Experience</li>
+                </ul>
+                
+                <h3>📞 Need Help?</h3>
+                <p>Each level is self-contained with clear instructions. If you get stuck:</p>
+                <ul>
+                    <li>Re-read the instructions</li>
+                    <li>Study the example file carefully</li>
+                    <li>Check if you're using ONLY the specified skills</li>
+                    <li>Take a break and come back fresh</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Ready to Begin Your Journey?</h2>
+            <p>Start with Level 1 and build your way to frontend mastery. Each level builds upon the previous one, creating a solid foundation for your development career.</p>
+            <a href="level1.html" class="start-button">Start Level 1 Now</a>
+            <p style="margin-top: 15px; color: #7f8c8d;">
+                <em>"The expert in anything was once a beginner." - Helen Hayes</em>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Simple script to enhance the experience
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click tracking for analytics (optional)
+            const levelCards = document.querySelectorAll('.level-card');
+            levelCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const levelNum = this.querySelector('.level-number').textContent;
+                    console.log(`Navigating to Level ${levelNum}`);
+                });
+            });
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
