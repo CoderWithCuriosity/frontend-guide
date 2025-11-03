@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Classes & IDs Example</title>
+    <style>
+        .container {
+            margin: 20px;
+            padding: 15px;
+            border: 2px solid #333;
+        }
+        
+        .highlight {
+            background-color: yellow;
+            padding: 5px;
+        }
+        
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        #main-title {
+            color: darkblue;
+            text-align: center;
+            font-size: 2em;
+        }
+        
+        #special-item {
+            background-color: lightgreen;
+            border: 2px dashed green;
+            padding: 8px;
+        }
+        
+        #footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-title">CSS Classes & IDs Demonstration</h1>
+    
+    <div class="container">
+        <p>This is a regular paragraph in a container.</p>
+        <p class="highlight">This paragraph has the highlight class.</p>
+        <p class="warning">This paragraph has the warning class.</p>
+    </div>
+    
+    <div class="container">
+        <p>Another container with different content.</p>
+        <div class="info-box">
+            This is an info box using a class.
+        </div>
+        <p>Regular text followed by <span class="highlight">highlighted text</span> within a paragraph.</p>
+    </div>
+    
+    <div class="container">
+        <p id="special-item">This paragraph has a unique ID for special styling.</p>
+        <p class="info-box warning">This element uses multiple classes combined.</p>
+    </div>
+    
+    <div id="footer">
+        Footer content with ID styling
+    </div>
+</body>
+</html>

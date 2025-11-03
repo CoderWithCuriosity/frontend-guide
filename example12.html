@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Button Styling Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        .button-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .primary-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .primary-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .secondary-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .secondary-btn:hover {
+            background-color: #545b62;
+        }
+        
+        .success-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .success-btn:hover {
+            background-color: #1e7e34;
+        }
+        
+        .danger-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .danger-btn:hover {
+            background-color: #bd2130;
+        }
+        
+        .outline-btn {
+            background-color: transparent;
+            border: 2px solid #007bff;
+            color: #007bff;
+        }
+        
+        .outline-btn:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .link-btn {
+            background-color: transparent;
+            color: #007bff;
+            text-decoration: underline;
+            padding: 5px 10px;
+        }
+        
+        .link-btn:hover {
+            color: #0056b3;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .rounded-btn {
+            border-radius: 25px;
+            padding: 12px 25px;
+        }
+        
+        .large-btn {
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+        
+        .small-btn {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Button Styling Examples</h1>
+    
+    <div class="button-container">
+        <h3>Basic Buttons</h3>
+        <button class="primary-btn">Primary Button</button>
+        <button class="secondary-btn">Secondary Button</button>
+        <button class="success-btn">Success Button</button>
+        <button class="danger-btn">Danger Button</button>
+    </div>
+    
+    <div class="button-container">
+        <h3>Outline Buttons</h3>
+        <button class="outline-btn">Outline Button</button>
+        <button class="outline-btn success-btn" style="border-color: #28a745; color: #28a745;">Success Outline</button>
+        <button class="outline-btn danger-btn" style="border-color: #dc3545; color: #dc3545;">Danger Outline</button>
+    </div>
+    
+    <div class="button-container">
+        <h3>Link Buttons</h3>
+        <button class="link-btn">Link Style Button</button>
+        <a href="#" class="link-btn">Actual Link Styled as Button</a>
+    </div>
+    
+    <div class="button-container">
+        <h3>Different Sizes</h3>
+        <button class="primary-btn small-btn">Small Button</button>
+        <button class="primary-btn">Normal Button</button>
+        <button class="primary-btn large-btn">Large Button</button>
+    </div>
+    
+    <div class="button-container">
+        <h3>Rounded Buttons</h3>
+        <button class="primary-btn rounded-btn">Rounded Primary</button>
+        <button class="success-btn rounded-btn">Rounded Success</button>
+        <button class="outline-btn rounded-btn">Rounded Outline</button>
+    </div>
+    
+    <div class="button-container">
+        <h3>Button Group</h3>
+        <button class="primary-btn">First</button>
+        <button class="primary-btn">Second</button>
+        <button class="primary-btn">Third</button>
+    </div>
+</body>
+</html>

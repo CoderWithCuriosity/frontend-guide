@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Margins & Padding Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #333;
+        }
+        
+        .box {
+            background-color: lightblue;
+            border: 2px solid darkblue;
+            margin: 10px;
+            padding: 15px;
+        }
+        
+        .no-margin {
+            margin: 0;
+        }
+        
+        .no-padding {
+            padding: 0;
+        }
+        
+        .large-margin {
+            margin: 30px;
+        }
+        
+        .large-padding {
+            padding: 30px;
+        }
+        
+        .different-margins {
+            margin: 5px 20px;
+        }
+        
+        .different-paddings {
+            padding: 5px 25px;
+        }
+        
+        .four-values-margin {
+            margin: 5px 10px 15px 20px;
+        }
+        
+        .four-values-padding {
+            padding: 10px 20px 30px 40px;
+        }
+        
+        .auto-margin {
+            margin: 20px auto;
+            width: 50%;
+        }
+        
+        .negative-margin {
+            margin: -10px;
+            background-color: lightcoral;
+        }
+        
+        .nested-box {
+            background-color: lightgreen;
+            border: 1px solid darkgreen;
+            margin: 10px;
+            padding: 10px;
+        }
+        
+        .inline-demo {
+            background-color: yellow;
+            margin: 10px;
+            padding: 10px;
+        }
+        
+        .code {
+            font-family: monospace;
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Margins & Padding Demonstration</h1>
+        
+        <div class="box">
+            <h3>Standard Box</h3>
+            <p>This box has standard margin (10px) and padding (15px).</p>
+            <p>Margin creates space outside the border, padding creates space inside.</p>
+        </div>
+        
+        <div class="box no-margin">
+            <h3>No Margin Box</h3>
+            <p>This box has <span class="code">margin: 0</span> but normal padding.</p>
+        </div>
+        
+        <div class="box no-padding">
+            <h3>No Padding Box</h3>
+            <p>This box has <span class="code">padding: 0</span> but normal margin.</p>
+        </div>
+        
+        <div class="box large-margin">
+            <h3>Large Margin Box</h3>
+            <p>This box has <span class="code">margin: 30px</span> creating more outside space.</p>
+        </div>
+        
+        <div class="box large-padding">
+            <h3>Large Padding Box</h3>
+            <p>This box has <span class="code">padding: 30px</span> creating more inside space.</p>
+        </div>
+        
+        <div class="box different-margins">
+            <h3>Different Margins (Top/Bottom vs Left/Right)</h3>
+            <p>This box has <span class="code">margin: 5px 20px</span> (5px top/bottom, 20px left/right).</p>
+        </div>
+        
+        <div class="box different-paddings">
+            <h3>Different Paddings (Top/Bottom vs Left/Right)</h3>
+            <p>This box has <span class="code">padding: 5px 25px</span> (5px top/bottom, 25px left/right).</p>
+        </div>
+        
+        <div class="box four-values-margin">
+            <h3>Four Value Margin</h3>
+            <p>This box has <span class="code">margin: 5px 10px 15px 20px</span></p>
+            <p>(top: 5px, right: 10px, bottom: 15px, left: 20px)</p>
+        </div>
+        
+        <div class="box four-values-padding">
+            <h3>Four Value Padding</h3>
+            <p>This box has <span class="code">padding: 10px 20px 30px 40px</span></p>
+            <p>(top: 10px, right: 20px, bottom: 30px, left: 40px)</p>
+        </div>
+        
+        <div class="box auto-margin">
+            <h3>Auto Margin for Centering</h3>
+            <p>This box has <span class="code">margin: 20px auto</span> and <span class="code">width: 50%</span></p>
+            <p>Auto margin centers the element horizontally.</p>
+        </div>
+        
+        <div class="box">
+            <h3>Nested Boxes</h3>
+            <p>Outer box with normal margin/padding containing inner boxes:</p>
+            <div class="nested-box">
+                <p>First nested box with its own margin and padding</p>
+            </div>
+            <div class="nested-box">
+                <p>Second nested box with its own margin and padding</p>
+            </div>
+        </div>
+        
+        <div class="box">
+            <h3>Inline Element Demo</h3>
+            <p>This is a paragraph with <span class="inline-demo">inline elements</span> that have <span class="inline-demo">margin and padding</span>. Notice how margin works differently on inline elements.</p>
+        </div>
+        
+        <div class="box negative-margin">
+            <h3>Negative Margin</h3>
+            <p>This box has <span class="code">margin: -10px</span> which pulls it closer to surrounding elements.</p>
+        </div>
+    </div>
+</body>
+</html>

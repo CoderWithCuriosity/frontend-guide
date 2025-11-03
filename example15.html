@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Text Alignment Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .demo-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+        }
+        
+        .left-align {
+            text-align: left;
+        }
+        
+        .center-align {
+            text-align: center;
+        }
+        
+        .right-align {
+            text-align: right;
+        }
+        
+        .justify-align {
+            text-align: justify;
+        }
+        
+        .normal-line-height {
+            line-height: normal;
+        }
+        
+        .tight-line-height {
+            line-height: 1.2;
+        }
+        
+        .loose-line-height {
+            line-height: 2;
+        }
+        
+        .no-indent {
+            text-indent: 0;
+        }
+        
+        .standard-indent {
+            text-indent: 40px;
+        }
+        
+        .negative-indent {
+            text-indent: -20px;
+            margin-left: 20px;
+        }
+        
+        .normal-spacing {
+            letter-spacing: normal;
+            word-spacing: normal;
+        }
+        
+        .wide-letter-spacing {
+            letter-spacing: 3px;
+        }
+        
+        .tight-letter-spacing {
+            letter-spacing: -1px;
+        }
+        
+        .wide-word-spacing {
+            word-spacing: 10px;
+        }
+        
+        .tight-word-spacing {
+            word-spacing: -2px;
+        }
+        
+        .inline-demo {
+            background-color: yellow;
+            padding: 2px 5px;
+        }
+        
+        .top-align {
+            vertical-align: top;
+        }
+        
+        .middle-align {
+            vertical-align: middle;
+        }
+        
+        .bottom-align {
+            vertical-align: bottom;
+        }
+        
+        .baseline-align {
+            vertical-align: baseline;
+        }
+        
+        .code {
+            font-family: monospace;
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .image-container {
+            margin: 10px 0;
+        }
+        
+        .image-container img {
+            width: 100px;
+            height: 60px;
+            background-color: lightblue;
+            border: 1px solid darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">Text Alignment & Spacing Demonstration</h1>
+        
+        <div class="demo-section">
+            <h2>Text Alignment</h2>
+            
+            <div class="left-align">
+                <h3>Left Aligned (Default)</h3>
+                <p>This text is aligned to the left side of the container. This is the default alignment for most languages that read left-to-right.</p>
+            </div>
+            
+            <div class="center-align">
+                <h3>Center Aligned</h3>
+                <p>This text is centered within its container. Center alignment is often used for headings, titles, and special emphasis.</p>
+            </div>
+            
+            <div class="right-align">
+                <h3>Right Aligned</h3>
+                <p>This text is aligned to the right side of the container. Right alignment is common for numbers and dates in tables.</p>
+            </div>
+            
+            <div class="justify-align">
+                <h3>Justified Alignment</h3>
+                <p>This text is justified, meaning it stretches to fill the entire width of the container. Justified text creates clean edges on both sides but can sometimes create uneven spacing between words. This is commonly used in newspapers, books, and magazines for a formal appearance.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Line Height</h2>
+            
+            <div class="normal-line-height">
+                <h3>Normal Line Height</h3>
+                <p>This paragraph has normal line height. The spacing between lines is determined by the browser's default settings. This text demonstrates how normal line spacing appears in a typical paragraph with multiple lines to show the vertical rhythm of the text.</p>
+            </div>
+            
+            <div class="tight-line-height">
+                <h3>Tight Line Height (1.2)</h3>
+                <p>This paragraph has tight line height (1.2 times the font size). The lines are closer together which can be useful for saving space. However, text that is too tightly spaced can become difficult to read, especially with longer paragraphs or smaller font sizes.</p>
+            </div>
+            
+            <div class="loose-line-height">
+                <h3>Loose Line Height (2.0)</h3>
+                <p>This paragraph has loose line height (2.0 times the font size). The increased spacing between lines improves readability and gives a more open, airy feel to the text. This is often used in designs that prioritize readability and accessibility.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Text Indentation</h2>
+            
+            <div class="no-indent">
+                <h3>No Indentation</h3>
+                <p>This paragraph has no first line indentation. All lines start at the same position, which is common in web content and digital media where space is limited and readability is prioritized.</p>
+            </div>
+            
+            <div class="standard-indent">
+                <h3>Standard Indentation (40px)</h3>
+                <p>This paragraph has a standard first line indentation of 40 pixels. The first line is indented while subsequent lines start at the normal margin. This traditional formatting style is common in printed books and formal documents.</p>
+            </div>
+            
+            <div class="negative-indent">
+                <h3>Negative Indentation (-20px)</h3>
+                <p>This paragraph has a negative first line indentation of -20 pixels with a compensating left margin. The first line extends to the left of the normal text block, creating a hanging indent effect often used in bibliographies and reference lists.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Letter & Word Spacing</h2>
+            
+            <div class="normal-spacing">
+                <h3>Normal Spacing</h3>
+                <p>This text has normal letter and word spacing. The distance between characters and words follows the font's default metrics, providing optimal readability for continuous text.</p>
+            </div>
+            
+            <div class="wide-letter-spacing">
+                <h3>Wide Letter Spacing (3px)</h3>
+                <p>This text has increased letter spacing of 3 pixels. Wider letter spacing can improve readability for headings, logos, or text in all caps, but may reduce reading speed for body text.</p>
+            </div>
+            
+            <div class="tight-letter-spacing">
+                <h3>Tight Letter Spacing (-1px)</h3>
+                <p>This text has reduced letter spacing of -1 pixel. Tighter letter spacing can create a denser, more compact appearance but may reduce legibility if overused.</p>
+            </div>
+            
+            <div class="wide-word-spacing">
+                <h3>Wide Word Spacing (10px)</h3>
+                <p>This text has increased word spacing of 10 pixels. Wider word spacing creates more separation between words which can sometimes improve readability in justified text or specific design contexts.</p>
+            </div>
+            
+            <div class="tight-word-spacing">
+                <h3>Tight Word Spacing (-2px)</h3>
+                <p>This text has reduced word spacing of -2 pixels. Tighter word spacing brings words closer together, which can be useful for fitting more text in limited spaces but may reduce readability.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Vertical Alignment</h2>
+            
+            <p>Vertical alignment controls how inline and inline-block elements align with surrounding text:</p>
+            
+            <div class="image-container">
+                <span>Baseline: <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iNjAiIGZpbGw9ImxpZ2h0Ymx1ZSIgc3Ryb2tlPSJkYXJrYmx1ZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNTAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9ImJsYWNrIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+QmFzZWxpbmU8L3RleHQ+PC9zdmc+" class="baseline-align"></span>
+                <span>Top: <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iNjAiIGZpbGw9ImxpZ2h0Ymx1ZSIgc3Ryb2tlPSJkYXJrYmx1ZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNTAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9ImJsYWNrIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+VG9wPC90ZXh0Pjwvc3ZnPg==" class="top-align"></span>
+                <span>Middle: <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iNjAiIGZpbGw9ImxpZ2h0Ymx1ZSIgc3Ryb2tlPSJkYXJrYmx1ZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNTAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9ImJsYWNrIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+TWlkZGxlPC90ZXh0Pjwvc3ZnPg==" class="middle-align"></span>
+                <span>Bottom: <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iNjAiIGZpbGw9ImxpZ2h0Ymx1ZSIgc3Ryb2tlPSJkYXJrYmx1ZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNTAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9ImJsYWNrIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Qm90dG9tPC90ZXh0Pjwvc3ZnPg==" class="bottom-align"></span>
+            </div>
+            
+            <p>Inline elements with different vertical alignments: 
+                <span class="inline-demo top-align">top</span>,
+                <span class="inline-demo middle-align">middle</span>,
+                <span class="inline-demo baseline-align">baseline</span>,
+                <span class="inline-demo bottom-align">bottom</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
