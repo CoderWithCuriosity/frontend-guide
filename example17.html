@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .hover-card {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .hover-card:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .hover-button {
+            padding: 1rem 2rem;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .hover-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+            background-color: #2ecc71;
+        }
+        
+        .fade-element {
+            width: 200px;
+            height: 200px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .fade-element:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="hover-card">Hover Me!</div>
+    <button class="hover-button">Hover Button</button>
+    <div class="fade-element">Fade on Hover</div>
+</body>
+</html>
