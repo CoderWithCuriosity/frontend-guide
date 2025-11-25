@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-title {
+            margin: 30px 0 15px 0;
+            color: #333;
+        }
+        /* Basic Grid */
+        .basic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .grid-item {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid blue;
+        }
+        /* Grid Template Areas */
+        .areas-grid {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "sidebar main main"
+                "footer footer footer";
+            grid-template-rows: 100px 200px 80px;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .area-header { grid-area: header; background-color: lightcoral; }
+        .area-sidebar { grid-area: sidebar; background-color: lightgreen; }
+        .area-main { grid-area: main; background-color: lightyellow; }
+        .area-footer { grid-area: footer; background-color: lightgray; }
+        /* Grid Column/Row Span */
+        .span-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 80px);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .span-item {
+            background-color: lightpink;
+            padding: 10px;
+            text-align: center;
+        }
+        .span-1 { grid-column: 1 / 3; }
+        .span-2 { grid-row: 1 / 3; grid-column: 4 / 5; }
+        .span-3 { grid-column: 1 / 2; grid-row: 2 / 4; }
+        .span-4 { grid-column: 2 / 4; grid-row: 2 / 3; }
+        .span-5 { grid-column: 3 / 5; grid-row: 3 / 4; }
+        /* Auto Grid */
+        .auto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .auto-item {
+            background-color: lightseagreen;
+            padding: 25px;
+            text-align: center;
+        }
+        /* Alignment Grid */
+        .align-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 100px 100px;
+            gap: 10px;
+            justify-items: center;
+            align-items: center;
+            background-color: #ddd;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .align-item {
+            background-color: lightsalmon;
+            padding: 15px;
+            width: 80%;
+            height: 60%;
+        }
+        .align-start { justify-self: start; align-self: start; }
+        .align-end { justify-self: end; align-self: end; }
+        .align-stretch { justify-self: stretch; align-self: stretch; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Grid Basics</h1>
+        
+        <h2 class="section-title">Basic 3-Column Grid</h2>
+        <div class="basic-grid">
+            <div class="grid-item">Item 1</div>
+            <div class="grid-item">Item 2</div>
+            <div class="grid-item">Item 3</div>
+            <div class="grid-item">Item 4</div>
+            <div class="grid-item">Item 5</div>
+            <div class="grid-item">Item 6</div>
+        </div>
+
+        <h2 class="section-title">Grid Template Areas</h2>
+        <div class="areas-grid">
+            <div class="area-header">Header</div>
+            <div class="area-sidebar">Sidebar</div>
+            <div class="area-main">Main Content</div>
+            <div class="area-footer">Footer</div>
+        </div>
+
+        <h2 class="section-title">Grid Column & Row Span</h2>
+        <div class="span-grid">
+            <div class="span-item span-1">Span 2 Columns</div>
+            <div class="span-item">Item 2</div>
+            <div class="span-item">Item 3</div>
+            <div class="span-item span-2">Span 2 Rows</div>
+            <div class="span-item span-3">Span 2 Rows</div>
+            <div class="span-item span-4">Span 2 Columns</div>
+            <div class="span-item span-5">Span 2 Columns</div>
+        </div>
+
+        <h2 class="section-title">Auto-Fit Grid</h2>
+        <div class="auto-grid">
+            <div class="auto-item">Auto 1</div>
+            <div class="auto-item">Auto 2</div>
+            <div class="auto-item">Auto 3</div>
+            <div class="auto-item">Auto 4</div>
+            <div class="auto-item">Auto 5</div>
+            <div class="auto-item">Auto 6</div>
+        </div>
+
+        <h2 class="section-title">Grid Alignment</h2>
+        <div class="align-grid">
+            <div class="align-item align-start">Start</div>
+            <div class="align-item">Center</div>
+            <div class="align-item align-end">End</div>
+            <div class="align-item align-stretch">Stretch</div>
+            <div class="align-item">Center</div>
+            <div class="align-item align-start">Start</div>
+        </div>
+    </div>
+</body>
+</html>

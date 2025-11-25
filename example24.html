@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+        }
+        .item {
+            padding: 20px;
+            margin: 5px;
+            background-color: lightblue;
+            border: 1px solid blue;
+        }
+        .row {
+            flex-direction: row;
+        }
+        .column {
+            flex-direction: column;
+            height: 300px;
+        }
+        .justify-start {
+            justify-content: flex-start;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+        .justify-end {
+            justify-content: flex-end;
+        }
+        .justify-between {
+            justify-content: space-between;
+        }
+        .justify-around {
+            justify-content: space-around;
+        }
+        .align-start {
+            align-items: flex-start;
+        }
+        .align-center {
+            align-items: center;
+        }
+        .align-end {
+            align-items: flex-end;
+        }
+        .wrap {
+            flex-wrap: wrap;
+            width: 300px;
+        }
+        .wrap .item {
+            width: 80px;
+        }
+        .grow-1 {
+            flex-grow: 1;
+        }
+        .grow-2 {
+            flex-grow: 2;
+        }
+    </style>
+</head>
+<body>
+    <h3>Flex Direction: Row</h3>
+    <div class="container row">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <h3>Flex Direction: Column</h3>
+    <div class="container column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <h3>Justify Content</h3>
+    <div class="container row justify-start">
+        <div class="item">Start</div>
+        <div class="item">Start</div>
+    </div>
+    <div class="container row justify-center">
+        <div class="item">Center</div>
+        <div class="item">Center</div>
+    </div>
+    <div class="container row justify-end">
+        <div class="item">End</div>
+        <div class="item">End</div>
+    </div>
+    <div class="container row justify-between">
+        <div class="item">Between</div>
+        <div class="item">Between</div>
+        <div class="item">Between</div>
+    </div>
+    <div class="container row justify-around">
+        <div class="item">Around</div>
+        <div class="item">Around</div>
+        <div class="item">Around</div>
+    </div>
+
+    <h3>Align Items</h3>
+    <div class="container row align-start" style="height: 100px;">
+        <div class="item">Top</div>
+        <div class="item" style="height: 60px;">Tall</div>
+        <div class="item">Top</div>
+    </div>
+    <div class="container row align-center" style="height: 100px;">
+        <div class="item">Center</div>
+        <div class="item" style="height: 60px;">Tall</div>
+        <div class="item">Center</div>
+    </div>
+    <div class="container row align-end" style="height: 100px;">
+        <div class="item">Bottom</div>
+        <div class="item" style="height: 60px;">Tall</div>
+        <div class="item">Bottom</div>
+    </div>
+
+    <h3>Flex Wrap</h3>
+    <div class="container row wrap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+
+    <h3>Flex Grow</h3>
+    <div class="container row">
+        <div class="item grow-1">Grow 1</div>
+        <div class="item grow-2">Grow 2</div>
+        <div class="item">No Grow</div>
+    </div>
+</body>
+</html>

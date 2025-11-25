@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position Property</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            height: 1500px;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+        }
+        .static {
+            position: static;
+            background-color: lightblue;
+            padding: 10px;
+            margin: 5px;
+        }
+        .relative {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background-color: lightgreen;
+            padding: 10px;
+            width: 200px;
+        }
+        .absolute {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: lightcoral;
+            padding: 10px;
+            width: 100px;
+        }
+        .fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: lightyellow;
+            padding: 15px;
+            border: 2px solid orange;
+        }
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: lightpink;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky">Sticky Position - Sticks when scrolling</div>
+
+    <div class="static">Static Position (default)</div>
+
+    <div class="relative">Relative Position (offset from normal position)</div>
+
+    <div class="container">
+        Container with Relative Positioning
+        <div class="absolute">Absolute Position (inside container)</div>
+    </div>
+
+    <div class="fixed">Fixed Position (always in viewport)</div>
+
+    <p>Scroll down to see sticky behavior...</p>
+    <div style="height: 800px;"></div>
+</body>
+</html>

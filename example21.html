@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display Property</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 30px;
+        }
+        .block {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: 5px;
+            padding: 10px;
+            background-color: lightblue;
+            border: 1px solid blue;
+        }
+        .inline {
+            display: inline;
+            margin: 5px;
+            padding: 10px;
+            background-color: lightgreen;
+            border: 1px solid green;
+        }
+        .inline-block {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            margin: 5px;
+            padding: 10px;
+            background-color: lightcoral;
+            border: 1px solid red;
+        }
+        .hidden {
+            display: none;
+        }
+        .list-item {
+            display: list-item;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Block Elements</h3>
+        <div class="block">Block 1</div>
+        <div class="block">Block 2</div>
+    </div>
+
+    <div class="container">
+        <h3>Inline Elements</h3>
+        <span class="inline">Inline 1</span>
+        <span class="inline">Inline 2</span>
+        <span class="inline">Inline 3</span>
+    </div>
+
+    <div class="container">
+        <h3>Inline-Block Elements</h3>
+        <div class="inline-block">Inline-Block 1</div>
+        <div class="inline-block">Inline-Block 2</div>
+        <div class="inline-block">Inline-Block 3</div>
+    </div>
+
+    <div class="container">
+        <h3>List Items</h3>
+        <div class="list-item">List Item 1</div>
+        <div class="list-item">List Item 2</div>
+        <div class="list-item">List Item 3</div>
+    </div>
+
+    <div class="container">
+        <h3>Hidden Element</h3>
+        <div class="block">Visible Element</div>
+        <div class="block hidden">Hidden Element</div>
+        <div class="block">Visible Element</div>
+    </div>
+</body>
+</html>

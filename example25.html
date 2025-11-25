@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Navigation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #333;
+            color: white;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        .nav-menu a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .centered-nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .centered-nav .nav-menu {
+            gap: 3rem;
+        }
+        .vertical-nav {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 1rem;
+            height: 300px;
+        }
+        .vertical-nav .nav-menu {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .vertical-nav a {
+            color: #333;
+            padding: 0.75rem;
+            display: block;
+        }
+        .vertical-nav a:hover {
+            background-color: #ddd;
+        }
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            background-color: #333;
+            padding: 1rem;
+        }
+        .mobile-nav .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .mobile-nav .nav-menu {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="logo">MySite</div>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="btn">Login</button>
+            <button class="btn">Sign Up</button>
+        </div>
+    </nav>
+
+    <nav class="centered-nav">
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Solutions</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Company</a></li>
+        </ul>
+    </nav>
+
+    <div style="display: flex;">
+        <nav class="vertical-nav">
+            <ul class="nav-menu">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </nav>
+        
+        <div style="padding: 2rem;">
+            <h3>Main Content Area</h3>
+            <p>This demonstrates a sidebar navigation with flexbox.</p>
+        </div>
+    </div>
+
+    <nav class="mobile-nav">
+        <div class="nav-header">
+            <div class="logo">MobileNav</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

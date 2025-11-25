@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Grail Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: grid;
+            grid-template: 
+                "header header header" 80px
+                "nav main aside" 1fr
+                "footer footer footer" 60px
+                / 200px 1fr 200px;
+        }
+        header {
+            grid-area: header;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav {
+            grid-area: nav;
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+        }
+        main {
+            grid-area: main;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+        aside {
+            grid-area: aside;
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+        }
+        footer {
+            grid-area: footer;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-menu {
+            list-style: none;
+        }
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .nav-menu a:hover {
+            background-color: #3d566e;
+        }
+        .content-block {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .sidebar-widget {
+            background-color: #3d566e;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .widget-title {
+            margin-bottom: 10px;
+            color: #ecf0f1;
+        }
+        @media (max-width: 768px) {
+            body {
+                grid-template: 
+                    "header" 80px
+                    "nav" auto
+                    "main" 1fr
+                    "aside" auto
+                    "footer" 60px
+                    / 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">HolyGrail Layout</div>
+        <div>Welcome User</div>
+    </header>
+
+    <nav>
+        <h3>Main Navigation</h3>
+        <ul class="nav-menu">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="content-block">
+            <h2>Main Content Area</h2>
+            <p>The Holy Grail layout refers to a web page layout that has multiple equal-height columns that are defined with style sheets.</p>
+        </div>
+
+        <div class="content-block">
+            <h3>Features of Holy Grail</h3>
+            <p>This layout includes a header, footer, and three columns. The center column contains the main content, while the left and right columns contain supplemental content like navigation and sidebar widgets.</p>
+        </div>
+
+        <div class="content-block">
+            <h3>Modern Implementation</h3>
+            <p>With CSS Grid, creating the Holy Grail layout has become much simpler and more maintainable compared to older methods using floats or flexbox.</p>
+        </div>
+    </main>
+
+    <aside>
+        <div class="sidebar-widget">
+            <h4 class="widget-title">Sidebar Widget</h4>
+            <p>Additional content and features appear in the sidebar area.</p>
+        </div>
+
+        <div class="sidebar-widget">
+            <h4 class="widget-title">Recent Activity</h4>
+            <p>Latest updates and notifications appear here.</p>
+        </div>
+
+        <div class="sidebar-widget">
+            <h4 class="widget-title">Quick Links</h4>
+            <p>Shortcuts to important sections of the application.</p>
+        </div>
+    </aside>
+
+    <footer>
+        <p>&copy; 2024 Holy Grail Layout. Built with CSS Grid.</p>
+    </footer>
+</body>
+</html>

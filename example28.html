@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "nav main aside"
+                "footer footer footer";
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 200px 1fr 250px;
+        }
+        header {
+            grid-area: header;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            grid-area: nav;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        main {
+            grid-area: main;
+            background-color: white;
+            padding: 20px;
+        }
+        aside {
+            grid-area: aside;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .nav-menu {
+            list-style: none;
+        }
+        .nav-menu li {
+            margin-bottom: 10px;
+        }
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            background-color: #e9e9e9;
+        }
+        .nav-menu a:hover {
+            background-color: #ddd;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+        }
+        .widget {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .widget-title {
+            color: #333;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #007bff;
+        }
+        @media (max-width: 768px) {
+            body {
+                grid-template-areas: 
+                    "header"
+                    "nav"
+                    "main"
+                    "aside"
+                    "footer";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Grid Layout Website</h1>
+        <p>Using CSS Grid for complete page layout</p>
+    </header>
+
+    <nav>
+        <h3>Navigation</h3>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="content-section">
+            <h2>Main Content Area</h2>
+            <p>This is the main content section of the website. It contains the primary information and features.</p>
+        </div>
+
+        <div class="content-section">
+            <h3>Featured Articles</h3>
+            <p>Grid layout provides excellent control over the placement and alignment of elements on the page.</p>
+        </div>
+
+        <div class="content-section">
+            <h3>Recent Updates</h3>
+            <p>Using grid-template-areas makes it easy to visualize and manage the layout structure.</p>
+        </div>
+    </main>
+
+    <aside>
+        <div class="widget">
+            <h4 class="widget-title">Sidebar Widget</h4>
+            <p>Additional content and features can be placed in the sidebar area.</p>
+        </div>
+
+        <div class="widget">
+            <h4 class="widget-title">Recent Posts</h4>
+            <p>Latest updates and news items appear here in the sidebar.</p>
+        </div>
+
+        <div class="widget">
+            <h4 class="widget-title">Newsletter</h4>
+            <p>Subscribe to stay updated with the latest content and features.</p>
+        </div>
+    </aside>
+
+    <footer>
+        <p>&copy; 2024 Grid Layout Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
