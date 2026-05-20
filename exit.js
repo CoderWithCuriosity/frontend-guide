@@ -8,7 +8,7 @@
     function detectWindowDevtools() {
         const widthThreshold = window.outerWidth - window.innerWidth > 150;
         const heightThreshold = window.outerHeight - window.innerHeight > 150;
-        if(window.innerHeight == 300){
+        if(window.innerHeight >= 300 <= 700){
             return;
         }
 
