@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 31: console.log and Comments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #15151f;
+            --bg-base-2: #1b1b29;
+            --bg-panel: #1e1e2e;
+            --bg-panel-alt: #23233a;
+            --bg-elevated: #272741;
+            --border: #34344f;
+            --border-soft: #2a2a40;
+
+            --text-primary: #e9e9f5;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6c6c8c;
+
+            --accent-html: #f3a072;
+            --accent-css: #7ec8e3;
+            --accent-js: #f0c674;
+            --accent-sql: #8ec07c;
+            --accent-react: #6fd3e0;
+            --accent-php: #b58aef;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
+                var(--bg-base);
+            min-height: 100vh;
+            padding: 32px 20px 60px;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent-js);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-css);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ---------------- HERO / TERMINAL WINDOW ---------------- */
+        .terminal-window {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 18px;
+            background: var(--bg-base-2);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+        .terminal-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: block;
+        }
+        .terminal-dots span:nth-child(1) {
+            background: #ec6a5e;
+        }
+        .terminal-dots span:nth-child(2) {
+            background: #f4bf4f;
+        }
+        .terminal-dots span:nth-child(3) {
+            background: #61c454;
+        }
+
+        .terminal-tab {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            background: var(--bg-panel-alt);
+            border-radius: 5px;
+        }
+
+        .terminal-body {
+            padding: 40px 44px 36px;
+        }
+
+        .terminal-comment {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+        }
+
+        .cursor {
+            display: inline-block;
+            color: var(--accent-js);
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 26px;
+        }
+
+        .chip-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--chip-c, var(--border));
+            color: var(--chip-c, var(--text-secondary));
+            background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
+        }
+        .chip.js {
+            --chip-c: var(--accent-js);
+        }
+        .chip.level {
+            --chip-c: var(--accent-sql);
+        }
+
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .console-output {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .console-output .log {
+            color: var(--accent-js);
+            margin-bottom: 4px;
+        }
+
+        .console-output .comment {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .console-output .arrow {
+            color: var(--accent-sql);
+            margin-right: 8px;
+        }
+
+        .console-output .highlight {
+            color: var(--accent-css);
+        }
+
+        .info-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-js);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .info-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-js);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        .info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+        .info-box li strong {
+            color: var(--text-primary);
+        }
+
+
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .nav-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            text-align: center;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-sql);
+            color: #0e1410;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .btn-secondary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+        .btn-ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        /* ---------------- QUIZ STATUS ---------------- */
+        .quiz-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(142, 192, 124, 0.15);
+            color: var(--accent-sql);
+        }
+
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+            .terminal-body {
+                padding: 24px 20px 28px;
+            }
+            .panel {
+                padding: 20px;
+            }
+            .nav-row {
+                flex-direction: column;
+            }
+            .nav-row .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-tab">level31.js</div>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-comment">// Level 31: console.log and Comments</p>
+                <h1 class="hero-title">
+                    <span id="typedTitle">console.log() &amp; Comments</span><span class="cursor">_</span>
+                </h1>
+                <p class="hero-sub">
+                    Learn how to output messages to the console and write comments in JavaScript.
+                    Open your browser's developer tools to see the magic happen!
+                </p>
+                <div class="chip-row">
+                    <span class="chip js">JavaScript</span>
+                    <span class="chip level">Level 31</span>
+                    <span class="chip js">Quiz Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h1>Welcome to Level 31!</h1>
+            <p>
+                This is your first interactive JavaScript level. You'll learn two fundamental
+                concepts that every developer uses daily: <code>console.log()</code> and
+                <strong>comments</strong>.
+            </p>
+
+            <h2>Console Output</h2>
+            <p>
+                Below is what you'll see in your browser's console when you run this page:
+            </p>
+
+            <div class="console-output">
+                <div class="comment">// This is a single-line comment</div>
+                <div class="comment">/* This is a multi-line comment</div>
+                <div class="comment">   It can span multiple lines */</div>
+                <br>
+                <div class="log"><span class="arrow">&gt;</span> console.log("Hello World!");</div>
+                <div class="log"><span class="arrow">&gt;</span> console.log("Welcome to JavaScript!");</div>
+                <div class="log"><span class="arrow">&gt;</span> console.log(2 + 2);</div>
+                <br>
+                <div class="log"><span class="arrow">&gt;</span> <span class="highlight">Hello World!</span></div>
+                <div class="log"><span class="arrow">&gt;</span> <span class="highlight">Welcome to JavaScript!</span></div>
+                <div class="log"><span class="arrow">&gt;</span> <span class="highlight">4</span></div>
+                <div class="log"><span class="arrow">&gt;</span> <span class="highlight">The answer is: 4</span></div>
+            </div>
+
+            <div class="info-box">
+                <h4>Developer Tools Shortcut</h4>
+                <ul>
+                    <li><strong>Windows/Linux:</strong> Press <code>F12</code> or <code>Ctrl + Shift + I</code></li>
+                    <li><strong>Mac:</strong> Press <code>Cmd + Option + I</code></li>
+                    <li>Then click on the <strong>"Console"</strong> tab to see the output</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>
+                    Open the browser console and try adding your own
+                    <code>console.log()</code> statements. See what happens when you log:
+                </p>
+                <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <li>Your name: <code>console.log("Your Name");</code></li>
+                    <li>A math operation: <code>console.log(10 * 5);</code></li>
+                    <li>A boolean: <code>console.log(true);</code></li>
+                    <li>Multiple items: <code>console.log("Age:", 25);</code></li>
+                </ul>
+            </div>
+
+            <div class="quiz-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Pass the 10-question quiz to unlock Level 32
+            </div>
+
+            <div class="nav-row">
+                <a href="level30.html" class="btn btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    Previous Level
+                </a>
+                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Take Quiz
+                </a>
+                <a href="level32.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                    Next Level
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/level31.js"></script>
+</body>
+</html>
