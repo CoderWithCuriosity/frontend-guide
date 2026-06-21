@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 35: String Operations</title>
+    <title>Level 39: Switch Statements</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,14 +221,14 @@
             margin-bottom: 14px;
         }
 
-        .string-grid {
+        .switch-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 16px;
             margin: 20px 0;
         }
 
-        .string-card {
+        .switch-card {
             background: var(--bg-panel-alt);
             border: 2px solid var(--card-color);
             border-radius: var(--radius-md);
@@ -237,44 +237,35 @@
             transition: all 0.15s ease;
         }
 
-        .string-card:hover {
+        .switch-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .string-card .icon {
-            font-size: 2em;
-            display: block;
-            margin-bottom: 8px;
+        .switch-card .keyword {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--card-color);
+            font-size: 1.3rem;
         }
 
-        .string-card .operation {
-            font-family: var(--font-mono);
-            font-weight: 600;
-            color: var(--card-color);
-            font-size: 1.05rem;
+        .switch-card .description {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             margin: 8px 0;
         }
 
-        .string-card .example {
+        .switch-card .example {
             font-family: var(--font-mono);
             color: var(--text-primary);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             margin: 5px 0;
         }
 
-        .string-card .result {
-            color: var(--accent-sql);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 5px;
-            font-family: var(--font-mono);
-        }
-
-        .string-card.concatenation { --card-color: #e74c3c; }
-        .string-card.length { --card-color: #3498db; }
-        .string-card.uppercase { --card-color: #2ecc71; }
-        .string-card.lowercase { --card-color: #f39c12; }
+        .switch-card.switch { --card-color: var(--accent-sql); }
+        .switch-card.case { --card-color: var(--accent-css); }
+        .switch-card.default { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -302,21 +293,16 @@
             margin-right: 8px;
         }
 
-        .console-output .string {
-            color: var(--accent-html);
-        }
-
-        .console-output .result {
-            color: var(--accent-html);
-        }
-
-        .console-output .highlight {
+        .console-output .keyword {
             color: var(--accent-css);
         }
 
-        .console-output .output-value {
+        .console-output .value {
             color: var(--accent-html);
-            padding-left: 20px;
+        }
+
+        .console-output .output {
+            color: var(--accent-sql);
         }
 
         .info-box {
@@ -367,38 +353,31 @@
             letter-spacing: 0.03em;
         }
 
-        .string-table {
-            width: 100%;
-            border-collapse: collapse;
+        .syntax-box {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
             margin: 16px 0;
-        }
-
-        .string-table th {
             font-family: var(--font-mono);
-            text-align: left;
-            padding: 10px 12px;
-            background: var(--bg-panel-alt);
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--border);
+            font-size: 0.9rem;
+            overflow-x: auto;
         }
 
-        .string-table td {
-            padding: 10px 12px;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .string-table td:first-child {
-            font-family: var(--font-mono);
-            color: var(--accent-js);
-        }
-
-        .string-table tr:hover td {
-            background: var(--bg-panel-alt);
-        }
-
-        .string-table .method {
+        .syntax-box .keyword {
             color: var(--accent-css);
+        }
+
+        .syntax-box .value {
+            color: var(--accent-html);
+        }
+
+        .syntax-box .output {
+            color: var(--accent-sql);
+        }
+
+        .syntax-box .comment {
+            color: var(--text-muted);
         }
 
         .quiz-status {
@@ -488,7 +467,7 @@
             .panel {
                 padding: 20px;
             }
-            .string-grid {
+            .switch-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .nav-row {
@@ -497,17 +476,10 @@
             .nav-row .btn {
                 width: 100%;
             }
-            .string-table {
-                font-size: 0.85rem;
-            }
-            .string-table th,
-            .string-table td {
-                padding: 8px 10px;
-            }
         }
 
         @media (max-width: 480px) {
-            .string-grid {
+            .switch-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -520,139 +492,122 @@
                 <div class="terminal-dots">
                     <span></span><span></span><span></span>
                 </div>
-                <div class="terminal-tab">level35.js</div>
+                <div class="terminal-tab">level39.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 35: String Operations</p>
+                <p class="terminal-comment">// Level 39: Switch Statements</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">String Operations</span><span class="cursor">_</span>
+                    <span id="typedTitle">Switch Statements</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to manipulate strings using concatenation, length, and case conversion.
-                    Open your browser's developer tools to see the output!
+                    Learn how to use switch statements for cleaner conditional logic.
+                    Switch is an alternative to multiple if/else statements.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
-                    <span class="chip level">Level 35</span>
+                    <span class="chip level">Level 39</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
             </div>
         </div>
 
         <div class="panel">
-            <h1>String Operations</h1>
+            <h1>Switch Statements</h1>
             <p>
-                Strings are one of the most important data types in JavaScript. You'll frequently
-                need to combine strings, find their length, and change their case.
+                Switch statements are used to perform different actions based on different conditions.
+                They are a cleaner alternative to multiple if/else statements.
             </p>
 
-            <div class="string-grid">
-                <div class="string-card concatenation">
-                    <span class="icon"></span>
-                    <div class="operation">Concatenation</div>
-                    <div class="example">"Hello" + " World"</div>
-                    <div class="result">"Hello World"</div>
+            <div class="switch-grid">
+                <div class="switch-card switch">
+                    <div class="keyword">switch</div>
+                    <div class="description">Starts the switch block</div>
+                    <div class="example">switch(day) {</div>
                 </div>
                 
-                <div class="string-card length">
-                    <span class="icon"></span>
-                    <div class="operation">.length</div>
-                    <div class="example">"JavaScript".length</div>
-                    <div class="result">10</div>
+                <div class="switch-card case">
+                    <div class="keyword">case</div>
+                    <div class="description">Checks a specific value</div>
+                    <div class="example">case "Monday":</div>
                 </div>
                 
-                <div class="string-card uppercase">
-                    <span class="icon"></span>
-                    <div class="operation">.toUpperCase()</div>
-                    <div class="example">"hello".toUpperCase()</div>
-                    <div class="result">"HELLO"</div>
-                </div>
-                
-                <div class="string-card lowercase">
-                    <span class="icon"></span>
-                    <div class="operation">.toLowerCase()</div>
-                    <div class="example">"WORLD".toLowerCase()</div>
-                    <div class="result">"world"</div>
+                <div class="switch-card default">
+                    <div class="keyword">default</div>
+                    <div class="description">Runs if no case matches</div>
+                    <div class="example">default:</div>
                 </div>
             </div>
 
-            <h2>String Methods Reference</h2>
+            <h2>Syntax</h2>
 
-            <table class="string-table">
-                <thead>
-                    <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                        <th>Result</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="method">+</td>
-                        <td>Concatenation</td>
-                        <td><code>"Hello" + " World"</code></td>
-                        <td>"Hello World"</td>
-                    </tr>
-                    <tr>
-                        <td class="method">.length</td>
-                        <td>Returns character count</td>
-                        <td><code>"JavaScript".length</code></td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td class="method">.toUpperCase()</td>
-                        <td>Converts to uppercase</td>
-                        <td><code>"hello".toUpperCase()</code></td>
-                        <td>"HELLO"</td>
-                    </tr>
-                    <tr>
-                        <td class="method">.toLowerCase()</td>
-                        <td>Converts to lowercase</td>
-                        <td><code>"WORLD".toLowerCase()</code></td>
-                        <td>"world"</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="syntax-box">
+                <span class="keyword">switch</span>(expression) {<br>
+                &nbsp;&nbsp;<span class="keyword">case</span> <span class="value">value1</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// code to execute</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                &nbsp;&nbsp;<span class="keyword">case</span> <span class="value">value2</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// code to execute</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                &nbsp;&nbsp;<span class="keyword">default</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// code to execute if no case matches</span><br>
+                }
+            </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// String Operations Console Output</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "JavaScript".length = <span class="result">10</span></div>
-                <div><span class="arrow">&gt;</span> "hello".toUpperCase() = <span class="string">"HELLO"</span></div>
-                <div><span class="arrow">&gt;</span> "WORLD".toLowerCase() = <span class="string">"world"</span></div>
+                <div class="comment">// Switch Statement Console Output</div>
+                <div><span class="arrow">&gt;</span> let day = "Tuesday";</div>
                 <br>
-                <div class="comment">// More examples</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " " + "World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "Code".length = <span class="result">4</span></div>
-                <div><span class="arrow">&gt;</span> "javascript".toUpperCase() = <span class="string">"JAVASCRIPT"</span></div>
-                <div><span class="arrow">&gt;</span> "HELLO".toLowerCase() = <span class="string">"hello"</span></div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">switch</span>(day) {</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"Monday"</span>:</div>
+                <div><span class="arrow">&gt;</span>     console.log("Start of week");</div>
+                <div><span class="arrow">&gt;</span>     <span class="keyword">break</span>;</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"Tuesday"</span>:</div>
+                <div><span class="arrow">&gt;</span>     console.log("Second day");</div>
+                <div><span class="arrow">&gt;</span>     <span class="keyword">break</span>;</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">default</span>:</div>
+                <div><span class="arrow">&gt;</span>     console.log("Other day");</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div><span class="arrow">&gt;</span> Output: <span class="output">"Second day"</span></div>
+                <br>
+                <div class="comment">// Multiple cases (fall-through)</div>
+                <div><span class="arrow">&gt;</span> let fruit = "apple";</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">switch</span>(fruit) {</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"apple"</span>:</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"pear"</span>:</div>
+                <div><span class="arrow">&gt;</span>     console.log("Common fruit");</div>
+                <div><span class="arrow">&gt;</span>     <span class="keyword">break</span>;</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">default</span>:</div>
+                <div><span class="arrow">&gt;</span>     console.log("Other fruit");</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div><span class="arrow">&gt;</span> Output: <span class="output">"Common fruit"</span></div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>+</strong> - Concatenation: Joins strings together</li>
-                    <li><strong>.length</strong> - Returns the number of characters in a string</li>
-                    <li><strong>.toUpperCase()</strong> - Converts all characters to uppercase</li>
-                    <li><strong>.toLowerCase()</strong> - Converts all characters to lowercase</li>
-                    <li>Strings are <strong>immutable</strong> - methods return new strings</li>
-                    <li>You can concatenate strings with variables using <code>+</code></li>
-                    <li>Template literals (<code>`${}`</code>) are great for dynamic strings</li>
+                    <li><strong>switch</strong> - Starts the switch statement</li>
+                    <li><strong>case</strong> - Defines a value to match against</li>
+                    <li><strong>break</strong> - Exits the switch block (prevents fall-through)</li>
+                    <li><strong>default</strong> - Runs when no case matches (optional)</li>
+                    <li>Switch uses <strong>strict equality (===)</strong> for comparison</li>
+                    <li>Multiple cases can share the same code (fall-through)</li>
+                    <li>Use <strong>break</strong> to prevent executing next cases</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. string operations:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. switch statements:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Concatenate your first and last name</li>
-                    <li>Find the length of a full sentence</li>
-                    <li>Convert a string to uppercase and then to lowercase</li>
-                    <li>Create a dynamic greeting using template literals</li>
-                    <li>Try combining multiple string methods</li>
+                    <li>Create a switch for days of the week</li>
+                    <li>Use multiple cases for weekends vs weekdays</li>
+                    <li>Add a default case for invalid inputs</li>
+                    <li>Convert an if/else chain to a switch statement</li>
+                    <li>Test what happens without break statements</li>
                 </ul>
             </div>
 
@@ -661,11 +616,11 @@
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                Pass the 10-question quiz to unlock Level 36
+                Pass the 10-question quiz to unlock Level 40
             </div>
 
             <div class="nav-row">
-                <a href="level34.html" class="btn btn-ghost">
+                <a href="level38.html" class="btn btn-ghost">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="15 18 9 12 15 6"/>
                     </svg>
@@ -677,7 +632,7 @@
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level36.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level40.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="9 18 15 12 9 6"/>
@@ -687,6 +642,6 @@
         </div>
     </div>
 
-    <script src="./scripts/level35.js"></script>
+    <script src="./scripts/level39.js"></script>
 </body>
 </html>

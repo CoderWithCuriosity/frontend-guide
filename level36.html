@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 35: String Operations</title>
+    <title>Level 36: if/else Statements</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,14 +221,14 @@
             margin-bottom: 14px;
         }
 
-        .string-grid {
+        .if-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
             margin: 20px 0;
         }
 
-        .string-card {
+        .if-card {
             background: var(--bg-panel-alt);
             border: 2px solid var(--card-color);
             border-radius: var(--radius-md);
@@ -237,18 +237,18 @@
             transition: all 0.15s ease;
         }
 
-        .string-card:hover {
+        .if-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .string-card .icon {
+        .if-card .icon {
             font-size: 2em;
             display: block;
             margin-bottom: 8px;
         }
 
-        .string-card .operation {
+        .if-card .condition {
             font-family: var(--font-mono);
             font-weight: 600;
             color: var(--card-color);
@@ -256,14 +256,14 @@
             margin: 8px 0;
         }
 
-        .string-card .example {
+        .if-card .example {
             font-family: var(--font-mono);
             color: var(--text-primary);
             font-size: 0.95rem;
             margin: 5px 0;
         }
 
-        .string-card .result {
+        .if-card .result {
             color: var(--accent-sql);
             font-weight: 600;
             font-size: 1.1rem;
@@ -271,10 +271,10 @@
             font-family: var(--font-mono);
         }
 
-        .string-card.concatenation { --card-color: #e74c3c; }
-        .string-card.length { --card-color: #3498db; }
-        .string-card.uppercase { --card-color: #2ecc71; }
-        .string-card.lowercase { --card-color: #f39c12; }
+        .if-card.true { --card-color: var(--accent-sql); }
+        .if-card.false { --card-color: var(--accent-html); }
+        .if-card.else { --card-color: var(--accent-css); }
+        .if-card.nested { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -302,21 +302,16 @@
             margin-right: 8px;
         }
 
-        .console-output .string {
-            color: var(--accent-html);
-        }
-
         .console-output .result {
             color: var(--accent-html);
         }
 
-        .console-output .highlight {
-            color: var(--accent-css);
+        .console-output .true {
+            color: var(--accent-sql);
         }
 
-        .console-output .output-value {
+        .console-output .false {
             color: var(--accent-html);
-            padding-left: 20px;
         }
 
         .info-box {
@@ -367,13 +362,13 @@
             letter-spacing: 0.03em;
         }
 
-        .string-table {
+        .if-table {
             width: 100%;
             border-collapse: collapse;
             margin: 16px 0;
         }
 
-        .string-table th {
+        .if-table th {
             font-family: var(--font-mono);
             text-align: left;
             padding: 10px 12px;
@@ -382,22 +377,22 @@
             border-bottom: 2px solid var(--border);
         }
 
-        .string-table td {
+        .if-table td {
             padding: 10px 12px;
             color: var(--text-secondary);
             border-bottom: 1px solid var(--border-soft);
         }
 
-        .string-table td:first-child {
+        .if-table td:first-child {
             font-family: var(--font-mono);
             color: var(--accent-js);
         }
 
-        .string-table tr:hover td {
+        .if-table tr:hover td {
             background: var(--bg-panel-alt);
         }
 
-        .string-table .method {
+        .if-table .keyword {
             color: var(--accent-css);
         }
 
@@ -488,7 +483,7 @@
             .panel {
                 padding: 20px;
             }
-            .string-grid {
+            .if-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .nav-row {
@@ -497,17 +492,17 @@
             .nav-row .btn {
                 width: 100%;
             }
-            .string-table {
+            .if-table {
                 font-size: 0.85rem;
             }
-            .string-table th,
-            .string-table td {
+            .if-table th,
+            .if-table td {
                 padding: 8px 10px;
             }
         }
 
         @media (max-width: 480px) {
-            .string-grid {
+            .if-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -520,97 +515,92 @@
                 <div class="terminal-dots">
                     <span></span><span></span><span></span>
                 </div>
-                <div class="terminal-tab">level35.js</div>
+                <div class="terminal-tab">level36.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 35: String Operations</p>
+                <p class="terminal-comment">// Level 36: if/else Statements</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">String Operations</span><span class="cursor">_</span>
+                    <span id="typedTitle">if/else Statements</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to manipulate strings using concatenation, length, and case conversion.
-                    Open your browser's developer tools to see the output!
+                    Learn how to make decisions in JavaScript using if/else statements.
+                    Control the flow of your code based on conditions.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
-                    <span class="chip level">Level 35</span>
+                    <span class="chip level">Level 36</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
             </div>
         </div>
 
         <div class="panel">
-            <h1>String Operations</h1>
+            <h1>if/else Statements</h1>
             <p>
-                Strings are one of the most important data types in JavaScript. You'll frequently
-                need to combine strings, find their length, and change their case.
+                if/else statements allow your code to make decisions. Based on whether a condition
+                is <strong>true</strong> or <strong>false</strong>, different blocks of code will execute.
             </p>
 
-            <div class="string-grid">
-                <div class="string-card concatenation">
+            <div class="if-grid">
+                <div class="if-card true">
                     <span class="icon"></span>
-                    <div class="operation">Concatenation</div>
-                    <div class="example">"Hello" + " World"</div>
-                    <div class="result">"Hello World"</div>
+                    <div class="condition">if (true)</div>
+                    <div class="example">if (age >= 18)</div>
+                    <div class="result">"You are an adult"</div>
                 </div>
                 
-                <div class="string-card length">
+                <div class="if-card false">
                     <span class="icon"></span>
-                    <div class="operation">.length</div>
-                    <div class="example">"JavaScript".length</div>
-                    <div class="result">10</div>
+                    <div class="condition">if (false)</div>
+                    <div class="example">if (age &lt; 18)</div>
+                    <div class="result">"You are a minor"</div>
                 </div>
                 
-                <div class="string-card uppercase">
+                <div class="if-card else">
                     <span class="icon"></span>
-                    <div class="operation">.toUpperCase()</div>
-                    <div class="example">"hello".toUpperCase()</div>
-                    <div class="result">"HELLO"</div>
+                    <div class="condition">if...else</div>
+                    <div class="example">if (score &gt;= 60)</div>
+                    <div class="result">"Pass" else "Fail"</div>
                 </div>
                 
-                <div class="string-card lowercase">
+                <div class="if-card nested">
                     <span class="icon"></span>
-                    <div class="operation">.toLowerCase()</div>
-                    <div class="example">"WORLD".toLowerCase()</div>
-                    <div class="result">"world"</div>
+                    <div class="condition">Nested if</div>
+                    <div class="example">if (age &gt;= 18) {</div>
+                    <div class="result">if (hasLicense)</div>
                 </div>
             </div>
 
-            <h2>String Methods Reference</h2>
+            <h2>if/else Syntax Reference</h2>
 
-            <table class="string-table">
+            <table class="if-table">
                 <thead>
                     <tr>
-                        <th>Method</th>
+                        <th>Syntax</th>
                         <th>Description</th>
                         <th>Example</th>
-                        <th>Result</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="method">+</td>
-                        <td>Concatenation</td>
-                        <td><code>"Hello" + " World"</code></td>
-                        <td>"Hello World"</td>
+                        <td class="keyword">if (condition)</td>
+                        <td>Runs code if condition is true</td>
+                        <td><code>if (x > 5) { ... }</code></td>
                     </tr>
                     <tr>
-                        <td class="method">.length</td>
-                        <td>Returns character count</td>
-                        <td><code>"JavaScript".length</code></td>
-                        <td>10</td>
+                        <td class="keyword">else</td>
+                        <td>Runs code if condition is false</td>
+                        <td><code>else { ... }</code></td>
                     </tr>
                     <tr>
-                        <td class="method">.toUpperCase()</td>
-                        <td>Converts to uppercase</td>
-                        <td><code>"hello".toUpperCase()</code></td>
-                        <td>"HELLO"</td>
+                        <td class="keyword">else if</td>
+                        <td>Checks another condition</td>
+                        <td><code>else if (y &lt; 10) { ... }</code></td>
                     </tr>
                     <tr>
-                        <td class="method">.toLowerCase()</td>
-                        <td>Converts to lowercase</td>
-                        <td><code>"WORLD".toLowerCase()</code></td>
-                        <td>"world"</td>
+                        <td class="keyword">Nested if</td>
+                        <td>if inside another if</td>
+                        <td><code>if (x > 5) { if (y > 3) { ... } }</code></td>
                     </tr>
                 </tbody>
             </table>
@@ -618,41 +608,50 @@
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// String Operations Console Output</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "JavaScript".length = <span class="result">10</span></div>
-                <div><span class="arrow">&gt;</span> "hello".toUpperCase() = <span class="string">"HELLO"</span></div>
-                <div><span class="arrow">&gt;</span> "WORLD".toLowerCase() = <span class="string">"world"</span></div>
+                <div class="comment">// if/else Statements Console Output</div>
+                <div><span class="arrow">&gt;</span> let age = 18;</div>
+                <div><span class="arrow">&gt;</span> if (age >= 18) {</div>
+                <div class="output-value">  "You are an adult"</div>
+                <div><span class="arrow">&gt;</span> } else {</div>
+                <div class="output-value">  "You are a minor"</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div><span class="arrow">&gt;</span> Result: <span class="true">"You are an adult"</span></div>
                 <br>
                 <div class="comment">// More examples</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " " + "World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "Code".length = <span class="result">4</span></div>
-                <div><span class="arrow">&gt;</span> "javascript".toUpperCase() = <span class="string">"JAVASCRIPT"</span></div>
-                <div><span class="arrow">&gt;</span> "HELLO".toLowerCase() = <span class="string">"hello"</span></div>
+                <div><span class="arrow">&gt;</span> let score = 85;</div>
+                <div><span class="arrow">&gt;</span> if (score >= 90) {</div>
+                <div class="output-value">  "A"</div>
+                <div><span class="arrow">&gt;</span> } else if (score >= 80) {</div>
+                <div class="output-value">  "B"</div>
+                <div><span class="arrow">&gt;</span> } else {</div>
+                <div class="output-value">  "C"</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div><span class="arrow">&gt;</span> Result: <span class="true">"B"</span></div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>+</strong> - Concatenation: Joins strings together</li>
-                    <li><strong>.length</strong> - Returns the number of characters in a string</li>
-                    <li><strong>.toUpperCase()</strong> - Converts all characters to uppercase</li>
-                    <li><strong>.toLowerCase()</strong> - Converts all characters to lowercase</li>
-                    <li>Strings are <strong>immutable</strong> - methods return new strings</li>
-                    <li>You can concatenate strings with variables using <code>+</code></li>
-                    <li>Template literals (<code>`${}`</code>) are great for dynamic strings</li>
+                    <li><strong>if</strong> - Executes code when condition is <strong>true</strong></li>
+                    <li><strong>else</strong> - Executes code when condition is <strong>false</strong></li>
+                    <li><strong>else if</strong> - Checks additional conditions</li>
+                    <li><strong>Nested if</strong> - if statements inside other if statements</li>
+                    <li>Conditions use comparison operators: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>===</code>, <code>!==</code></li>
+                    <li>Use <code>{ }</code> to group multiple statements</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. string operations:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. if/else statements:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Concatenate your first and last name</li>
-                    <li>Find the length of a full sentence</li>
-                    <li>Convert a string to uppercase and then to lowercase</li>
-                    <li>Create a dynamic greeting using template literals</li>
-                    <li>Try combining multiple string methods</li>
+                    <li>Write an if statement that checks if a number is positive</li>
+                    <li>Use if/else to check if a number is even or odd</li>
+                    <li>Create an else if chain for grading (A, B, C, D, F)</li>
+                    <li>Nest an if statement inside another if statement</li>
+                    <li>Use logical operators (&amp;&amp;, ||) in conditions</li>
                 </ul>
             </div>
 
@@ -661,11 +660,11 @@
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                Pass the 10-question quiz to unlock Level 36
+                Pass the 10-question quiz to unlock Level 37
             </div>
 
             <div class="nav-row">
-                <a href="level34.html" class="btn btn-ghost">
+                <a href="level35.html" class="btn btn-ghost">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="15 18 9 12 15 6"/>
                     </svg>
@@ -677,7 +676,7 @@
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level36.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level37.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="9 18 15 12 9 6"/>
@@ -687,6 +686,6 @@
         </div>
     </div>
 
-    <script src="./scripts/level35.js"></script>
+    <script src="./scripts/level36.js"></script>
 </body>
 </html>

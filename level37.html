@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 35: String Operations</title>
+    <title>Level 37: Comparison Operators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,7 +57,6 @@
         }
 
         code {
-            font-family: var(--font-mono);
             background: rgba(255, 255, 255, 0.06);
             padding: 2px 7px;
             border-radius: 4px;
@@ -221,14 +220,14 @@
             margin-bottom: 14px;
         }
 
-        .string-grid {
+        .compare-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
             margin: 20px 0;
         }
 
-        .string-card {
+        .compare-card {
             background: var(--bg-panel-alt);
             border: 2px solid var(--card-color);
             border-radius: var(--radius-md);
@@ -237,33 +236,31 @@
             transition: all 0.15s ease;
         }
 
-        .string-card:hover {
+        .compare-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .string-card .icon {
-            font-size: 2em;
-            display: block;
-            margin-bottom: 8px;
+        .compare-card .operator {
+            font-weight: 700;
+            color: var(--card-color);
+            font-size: 1.8rem;
         }
 
-        .string-card .operation {
-            font-family: var(--font-mono);
-            font-weight: 600;
-            color: var(--card-color);
-            font-size: 1.05rem;
+        .compare-card .description {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             margin: 8px 0;
         }
 
-        .string-card .example {
-            font-family: var(--font-mono);
+        .compare-card .example {
             color: var(--text-primary);
             font-size: 0.95rem;
             margin: 5px 0;
         }
 
-        .string-card .result {
+        .compare-card .result {
             color: var(--accent-sql);
             font-weight: 600;
             font-size: 1.1rem;
@@ -271,17 +268,16 @@
             font-family: var(--font-mono);
         }
 
-        .string-card.concatenation { --card-color: #e74c3c; }
-        .string-card.length { --card-color: #3498db; }
-        .string-card.uppercase { --card-color: #2ecc71; }
-        .string-card.lowercase { --card-color: #f39c12; }
+        .compare-card.equal { --card-color: var(--accent-sql); }
+        .compare-card.not { --card-color: var(--accent-html); }
+        .compare-card.greater { --card-color: var(--accent-css); }
+        .compare-card.less { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
             padding: 20px 24px;
-            font-family: var(--font-mono);
             font-size: 0.9rem;
             margin: 16px 0;
             overflow-x: auto;
@@ -302,21 +298,16 @@
             margin-right: 8px;
         }
 
-        .console-output .string {
+        .console-output .true {
+            color: var(--accent-sql);
+        }
+
+        .console-output .false {
             color: var(--accent-html);
         }
 
-        .console-output .result {
-            color: var(--accent-html);
-        }
-
-        .console-output .highlight {
+        .console-output .operator-highlight {
             color: var(--accent-css);
-        }
-
-        .console-output .output-value {
-            color: var(--accent-html);
-            padding-left: 20px;
         }
 
         .info-box {
@@ -367,13 +358,13 @@
             letter-spacing: 0.03em;
         }
 
-        .string-table {
+        .compare-table {
             width: 100%;
             border-collapse: collapse;
             margin: 16px 0;
         }
 
-        .string-table th {
+        .compare-table th {
             font-family: var(--font-mono);
             text-align: left;
             padding: 10px 12px;
@@ -382,23 +373,23 @@
             border-bottom: 2px solid var(--border);
         }
 
-        .string-table td {
+        .compare-table td {
             padding: 10px 12px;
             color: var(--text-secondary);
             border-bottom: 1px solid var(--border-soft);
         }
 
-        .string-table td:first-child {
-            font-family: var(--font-mono);
+        .compare-table td:first-child {
             color: var(--accent-js);
         }
 
-        .string-table tr:hover td {
+        .compare-table tr:hover td {
             background: var(--bg-panel-alt);
         }
 
-        .string-table .method {
+        .compare-table .operator-cell {
             color: var(--accent-css);
+            font-weight: 600;
         }
 
         .quiz-status {
@@ -488,7 +479,7 @@
             .panel {
                 padding: 20px;
             }
-            .string-grid {
+            .compare-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .nav-row {
@@ -497,17 +488,17 @@
             .nav-row .btn {
                 width: 100%;
             }
-            .string-table {
+            .compare-table {
                 font-size: 0.85rem;
             }
-            .string-table th,
-            .string-table td {
+            .compare-table th,
+            .compare-table td {
                 padding: 8px 10px;
             }
         }
 
         @media (max-width: 480px) {
-            .string-grid {
+            .compare-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -520,97 +511,109 @@
                 <div class="terminal-dots">
                     <span></span><span></span><span></span>
                 </div>
-                <div class="terminal-tab">level35.js</div>
+                <div class="terminal-tab">level37.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 35: String Operations</p>
+                <p class="terminal-comment">// Level 37: Comparison Operators</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">String Operations</span><span class="cursor">_</span>
+                    <span id="typedTitle">Comparison Operators</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to manipulate strings using concatenation, length, and case conversion.
-                    Open your browser's developer tools to see the output!
+                    Learn how to compare values using comparison operators.
+                    These are essential for making decisions in your code.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
-                    <span class="chip level">Level 35</span>
+                    <span class="chip level">Level 37</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
             </div>
         </div>
 
         <div class="panel">
-            <h1>String Operations</h1>
+            <h1>Comparison Operators</h1>
             <p>
-                Strings are one of the most important data types in JavaScript. You'll frequently
-                need to combine strings, find their length, and change their case.
+                Comparison operators compare two values and return <strong>true</strong> or <strong>false</strong>.
+                They are commonly used in if statements, loops, and conditions.
             </p>
 
-            <div class="string-grid">
-                <div class="string-card concatenation">
-                    <span class="icon"></span>
-                    <div class="operation">Concatenation</div>
-                    <div class="example">"Hello" + " World"</div>
-                    <div class="result">"Hello World"</div>
+            <div class="compare-grid">
+                <div class="compare-card equal">
+                    <div class="operator">===</div>
+                    <div class="description">Equal (value & type)</div>
+                    <div class="example">5 === 5</div>
+                    <div class="result">true</div>
                 </div>
                 
-                <div class="string-card length">
-                    <span class="icon"></span>
-                    <div class="operation">.length</div>
-                    <div class="example">"JavaScript".length</div>
-                    <div class="result">10</div>
+                <div class="compare-card not">
+                    <div class="operator">!==</div>
+                    <div class="description">Not Equal (value & type)</div>
+                    <div class="example">5 !== 3</div>
+                    <div class="result">true</div>
                 </div>
                 
-                <div class="string-card uppercase">
-                    <span class="icon"></span>
-                    <div class="operation">.toUpperCase()</div>
-                    <div class="example">"hello".toUpperCase()</div>
-                    <div class="result">"HELLO"</div>
+                <div class="compare-card greater">
+                    <div class="operator">&gt;</div>
+                    <div class="description">Greater Than</div>
+                    <div class="example">5 &gt; 3</div>
+                    <div class="result">true</div>
                 </div>
                 
-                <div class="string-card lowercase">
-                    <span class="icon"></span>
-                    <div class="operation">.toLowerCase()</div>
-                    <div class="example">"WORLD".toLowerCase()</div>
-                    <div class="result">"world"</div>
+                <div class="compare-card less">
+                    <div class="operator">&lt;</div>
+                    <div class="description">Less Than</div>
+                    <div class="example">3 &lt; 5</div>
+                    <div class="result">true</div>
                 </div>
             </div>
 
-            <h2>String Methods Reference</h2>
+            <h2>Comparison Operators Reference</h2>
 
-            <table class="string-table">
+            <table class="compare-table">
                 <thead>
                     <tr>
-                        <th>Method</th>
+                        <th>Operator</th>
                         <th>Description</th>
-                        <th>Example</th>
+                        <th>Example (x=5, y=3)</th>
                         <th>Result</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="method">+</td>
-                        <td>Concatenation</td>
-                        <td><code>"Hello" + " World"</code></td>
-                        <td>"Hello World"</td>
+                        <td class="operator-cell">===</td>
+                        <td>Equal value and type</td>
+                        <td><code>5 === 5</code></td>
+                        <td class="true">true</td>
                     </tr>
                     <tr>
-                        <td class="method">.length</td>
-                        <td>Returns character count</td>
-                        <td><code>"JavaScript".length</code></td>
-                        <td>10</td>
+                        <td class="operator-cell">!==</td>
+                        <td>Not equal value or type</td>
+                        <td><code>5 !== 3</code></td>
+                        <td class="true">true</td>
                     </tr>
                     <tr>
-                        <td class="method">.toUpperCase()</td>
-                        <td>Converts to uppercase</td>
-                        <td><code>"hello".toUpperCase()</code></td>
-                        <td>"HELLO"</td>
+                        <td class="operator-cell">&gt;</td>
+                        <td>Greater than</td>
+                        <td><code>5 &gt; 3</code></td>
+                        <td class="true">true</td>
                     </tr>
                     <tr>
-                        <td class="method">.toLowerCase()</td>
-                        <td>Converts to lowercase</td>
-                        <td><code>"WORLD".toLowerCase()</code></td>
-                        <td>"world"</td>
+                        <td class="operator-cell">&lt;</td>
+                        <td>Less than</td>
+                        <td><code>3 &lt; 5</code></td>
+                        <td class="true">true</td>
+                    </tr>
+                    <tr>
+                        <td class="operator-cell">&gt;=</td>
+                        <td>Greater than or equal</td>
+                        <td><code>5 &gt;= 5</code></td>
+                        <td class="true">true</td>
+                    </tr>
+                    <tr>
+                        <td class="operator-cell">&lt;=</td>
+                        <td>Less than or equal</td>
+                        <td><code>3 &lt;= 5</code></td>
+                        <td class="true">true</td>
                     </tr>
                 </tbody>
             </table>
@@ -618,41 +621,53 @@
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// String Operations Console Output</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "JavaScript".length = <span class="result">10</span></div>
-                <div><span class="arrow">&gt;</span> "hello".toUpperCase() = <span class="string">"HELLO"</span></div>
-                <div><span class="arrow">&gt;</span> "WORLD".toLowerCase() = <span class="string">"world"</span></div>
+                <div class="comment">// Comparison Operators Console Output</div>
+                <div><span class="arrow">&gt;</span> let x = 5;</div>
+                <div><span class="arrow">&gt;</span> let y = 3;</div>
                 <br>
-                <div class="comment">// More examples</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " " + "World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "Code".length = <span class="result">4</span></div>
-                <div><span class="arrow">&gt;</span> "javascript".toUpperCase() = <span class="string">"JAVASCRIPT"</span></div>
-                <div><span class="arrow">&gt;</span> "HELLO".toLowerCase() = <span class="string">"hello"</span></div>
+                <div><span class="arrow">&gt;</span> x === y  <span class="operator-highlight">// Equal</span></div>
+                <div class="false">  false</div>
+                <div><span class="arrow">&gt;</span> x !== y <span class="operator-highlight">// Not equal</span></div>
+                <div class="true">  true</div>
+                <div><span class="arrow">&gt;</span> x &gt; y   <span class="operator-highlight">// Greater than</span></div>
+                <div class="true">  true</div>
+                <div><span class="arrow">&gt;</span> x &lt; y   <span class="operator-highlight">// Less than</span></div>
+                <div class="false">  false</div>
+                <div><span class="arrow">&gt;</span> x &gt;= y  <span class="operator-highlight">// Greater or equal</span></div>
+                <div class="true">  true</div>
+                <div><span class="arrow">&gt;</span> x &lt;= y  <span class="operator-highlight">// Less or equal</span></div>
+                <div class="false">  false</div>
+                <br>
+                <div class="comment">// String comparisons</div>
+                <div><span class="arrow">&gt;</span> "apple" === "apple"</div>
+                <div class="true">  true</div>
+                <div><span class="arrow">&gt;</span> "apple" === "Apple"</div>
+                <div class="false">  false</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>+</strong> - Concatenation: Joins strings together</li>
-                    <li><strong>.length</strong> - Returns the number of characters in a string</li>
-                    <li><strong>.toUpperCase()</strong> - Converts all characters to uppercase</li>
-                    <li><strong>.toLowerCase()</strong> - Converts all characters to lowercase</li>
-                    <li>Strings are <strong>immutable</strong> - methods return new strings</li>
-                    <li>You can concatenate strings with variables using <code>+</code></li>
-                    <li>Template literals (<code>`${}`</code>) are great for dynamic strings</li>
+                    <li><strong>===</strong> - Strict equality: checks both value and type</li>
+                    <li><strong>!==</strong> - Strict inequality: checks both value and type</li>
+                    <li><strong>&gt;</strong> - Greater than</li>
+                    <li><strong>&lt;</strong> - Less than</li>
+                    <li><strong>&gt;=</strong> - Greater than or equal to</li>
+                    <li><strong>&lt;=</strong> - Less than or equal to</li>
+                    <li>Always use <strong>===</strong> and <strong>!==</strong> instead of == and !=</li>
+                    <li>Comparisons always return a boolean (true or false)</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. string operations:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. comparison operators:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Concatenate your first and last name</li>
-                    <li>Find the length of a full sentence</li>
-                    <li>Convert a string to uppercase and then to lowercase</li>
-                    <li>Create a dynamic greeting using template literals</li>
-                    <li>Try combining multiple string methods</li>
+                    <li>Compare numbers using all six operators</li>
+                    <li>Compare strings with === and !==</li>
+                    <li>Check if a number is between 10 and 20</li>
+                    <li>Use comparisons in if statements</li>
+                    <li>Compare different data types (string vs number)</li>
                 </ul>
             </div>
 
@@ -661,11 +676,11 @@
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                Pass the 10-question quiz to unlock Level 36
+                Pass the 10-question quiz to unlock Level 38
             </div>
 
             <div class="nav-row">
-                <a href="level34.html" class="btn btn-ghost">
+                <a href="level36.html" class="btn btn-ghost">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="15 18 9 12 15 6"/>
                     </svg>
@@ -677,7 +692,7 @@
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level36.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level38.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="9 18 15 12 9 6"/>
@@ -687,6 +702,6 @@
         </div>
     </div>
 
-    <script src="./scripts/level35.js"></script>
+    <script src="./scripts/level37.js"></script>
 </body>
 </html>

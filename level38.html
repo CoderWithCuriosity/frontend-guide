@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 35: String Operations</title>
+    <title>Level 38: Logical Operators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,14 +221,14 @@
             margin-bottom: 14px;
         }
 
-        .string-grid {
+        .logic-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 16px;
             margin: 20px 0;
         }
 
-        .string-card {
+        .logic-card {
             background: var(--bg-panel-alt);
             border: 2px solid var(--card-color);
             border-radius: var(--radius-md);
@@ -237,33 +237,33 @@
             transition: all 0.15s ease;
         }
 
-        .string-card:hover {
+        .logic-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .string-card .icon {
-            font-size: 2em;
-            display: block;
-            margin-bottom: 8px;
+        .logic-card .operator {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--card-color);
+            font-size: 1.8rem;
         }
 
-        .string-card .operation {
-            font-family: var(--font-mono);
-            font-weight: 600;
-            color: var(--card-color);
-            font-size: 1.05rem;
+        .logic-card .description {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             margin: 8px 0;
         }
 
-        .string-card .example {
+        .logic-card .example {
             font-family: var(--font-mono);
             color: var(--text-primary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin: 5px 0;
         }
 
-        .string-card .result {
+        .logic-card .result {
             color: var(--accent-sql);
             font-weight: 600;
             font-size: 1.1rem;
@@ -271,10 +271,9 @@
             font-family: var(--font-mono);
         }
 
-        .string-card.concatenation { --card-color: #e74c3c; }
-        .string-card.length { --card-color: #3498db; }
-        .string-card.uppercase { --card-color: #2ecc71; }
-        .string-card.lowercase { --card-color: #f39c12; }
+        .logic-card.and { --card-color: var(--accent-sql); }
+        .logic-card.or { --card-color: var(--accent-css); }
+        .logic-card.not { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -302,21 +301,51 @@
             margin-right: 8px;
         }
 
-        .console-output .string {
+        .console-output .true {
+            color: var(--accent-sql);
+        }
+
+        .console-output .false {
             color: var(--accent-html);
         }
 
-        .console-output .result {
-            color: var(--accent-html);
-        }
-
-        .console-output .highlight {
+        .console-output .operator-highlight {
             color: var(--accent-css);
         }
 
-        .console-output .output-value {
+        .truth-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .truth-table th {
+            text-align: center;
+            padding: 10px 12px;
+            background: var(--bg-panel-alt);
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .truth-table td {
+            text-align: center;
+            padding: 10px 12px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .truth-table tr:hover td {
+            background: var(--bg-panel-alt);
+        }
+
+        .truth-table .true {
+            color: var(--accent-sql);
+        }
+
+        .truth-table .false {
             color: var(--accent-html);
-            padding-left: 20px;
         }
 
         .info-box {
@@ -365,40 +394,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-        }
-
-        .string-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-        }
-
-        .string-table th {
-            font-family: var(--font-mono);
-            text-align: left;
-            padding: 10px 12px;
-            background: var(--bg-panel-alt);
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--border);
-        }
-
-        .string-table td {
-            padding: 10px 12px;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .string-table td:first-child {
-            font-family: var(--font-mono);
-            color: var(--accent-js);
-        }
-
-        .string-table tr:hover td {
-            background: var(--bg-panel-alt);
-        }
-
-        .string-table .method {
-            color: var(--accent-css);
         }
 
         .quiz-status {
@@ -488,7 +483,7 @@
             .panel {
                 padding: 20px;
             }
-            .string-grid {
+            .logic-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .nav-row {
@@ -497,17 +492,17 @@
             .nav-row .btn {
                 width: 100%;
             }
-            .string-table {
-                font-size: 0.85rem;
+            .truth-table {
+                font-size: 0.8rem;
             }
-            .string-table th,
-            .string-table td {
+            .truth-table th,
+            .truth-table td {
                 padding: 8px 10px;
             }
         }
 
         @media (max-width: 480px) {
-            .string-grid {
+            .logic-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -520,97 +515,95 @@
                 <div class="terminal-dots">
                     <span></span><span></span><span></span>
                 </div>
-                <div class="terminal-tab">level35.js</div>
+                <div class="terminal-tab">level38.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 35: String Operations</p>
+                <p class="terminal-comment">// Level 38: Logical Operators</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">String Operations</span><span class="cursor">_</span>
+                    <span id="typedTitle">Logical Operators</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to manipulate strings using concatenation, length, and case conversion.
-                    Open your browser's developer tools to see the output!
+                    Learn how to combine conditions using logical operators.
+                    AND, OR, and NOT are essential for complex decision making.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
-                    <span class="chip level">Level 35</span>
+                    <span class="chip level">Level 38</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
             </div>
         </div>
 
         <div class="panel">
-            <h1>String Operations</h1>
+            <h1>Logical Operators</h1>
             <p>
-                Strings are one of the most important data types in JavaScript. You'll frequently
-                need to combine strings, find their length, and change their case.
+                Logical operators combine multiple conditions and return a boolean result.
+                They are used with comparison operators to create complex conditions.
             </p>
 
-            <div class="string-grid">
-                <div class="string-card concatenation">
-                    <span class="icon"></span>
-                    <div class="operation">Concatenation</div>
-                    <div class="example">"Hello" + " World"</div>
-                    <div class="result">"Hello World"</div>
+            <div class="logic-grid">
+                <div class="logic-card and">
+                    <div class="operator">&amp;&amp;</div>
+                    <div class="description">AND</div>
+                    <div class="example">true &amp;&amp; true</div>
+                    <div class="result">true</div>
                 </div>
                 
-                <div class="string-card length">
-                    <span class="icon"></span>
-                    <div class="operation">.length</div>
-                    <div class="example">"JavaScript".length</div>
-                    <div class="result">10</div>
+                <div class="logic-card or">
+                    <div class="operator">||</div>
+                    <div class="description">OR</div>
+                    <div class="example">true || false</div>
+                    <div class="result">true</div>
                 </div>
                 
-                <div class="string-card uppercase">
-                    <span class="icon"></span>
-                    <div class="operation">.toUpperCase()</div>
-                    <div class="example">"hello".toUpperCase()</div>
-                    <div class="result">"HELLO"</div>
-                </div>
-                
-                <div class="string-card lowercase">
-                    <span class="icon"></span>
-                    <div class="operation">.toLowerCase()</div>
-                    <div class="example">"WORLD".toLowerCase()</div>
-                    <div class="result">"world"</div>
+                <div class="logic-card not">
+                    <div class="operator">!</div>
+                    <div class="description">NOT</div>
+                    <div class="example">!true</div>
+                    <div class="result">false</div>
                 </div>
             </div>
 
-            <h2>String Methods Reference</h2>
+            <h2>Truth Table</h2>
 
-            <table class="string-table">
+            <table class="truth-table">
                 <thead>
                     <tr>
-                        <th>Method</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                        <th>Result</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>A &amp;&amp; B</th>
+                        <th>A || B</th>
+                        <th>!A</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="method">+</td>
-                        <td>Concatenation</td>
-                        <td><code>"Hello" + " World"</code></td>
-                        <td>"Hello World"</td>
+                        <td class="true">true</td>
+                        <td class="true">true</td>
+                        <td class="true">true</td>
+                        <td class="true">true</td>
+                        <td class="false">false</td>
                     </tr>
                     <tr>
-                        <td class="method">.length</td>
-                        <td>Returns character count</td>
-                        <td><code>"JavaScript".length</code></td>
-                        <td>10</td>
+                        <td class="true">true</td>
+                        <td class="false">false</td>
+                        <td class="false">false</td>
+                        <td class="true">true</td>
+                        <td class="false">false</td>
                     </tr>
                     <tr>
-                        <td class="method">.toUpperCase()</td>
-                        <td>Converts to uppercase</td>
-                        <td><code>"hello".toUpperCase()</code></td>
-                        <td>"HELLO"</td>
+                        <td class="false">false</td>
+                        <td class="true">true</td>
+                        <td class="false">false</td>
+                        <td class="true">true</td>
+                        <td class="true">true</td>
                     </tr>
                     <tr>
-                        <td class="method">.toLowerCase()</td>
-                        <td>Converts to lowercase</td>
-                        <td><code>"WORLD".toLowerCase()</code></td>
-                        <td>"world"</td>
+                        <td class="false">false</td>
+                        <td class="false">false</td>
+                        <td class="false">false</td>
+                        <td class="false">false</td>
+                        <td class="true">true</td>
                     </tr>
                 </tbody>
             </table>
@@ -618,41 +611,50 @@
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// String Operations Console Output</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "JavaScript".length = <span class="result">10</span></div>
-                <div><span class="arrow">&gt;</span> "hello".toUpperCase() = <span class="string">"HELLO"</span></div>
-                <div><span class="arrow">&gt;</span> "WORLD".toLowerCase() = <span class="string">"world"</span></div>
+                <div class="comment">// Logical Operators Console Output</div>
+                <div><span class="arrow">&gt;</span> let a = true;</div>
+                <div><span class="arrow">&gt;</span> let b = false;</div>
                 <br>
-                <div class="comment">// More examples</div>
-                <div><span class="arrow">&gt;</span> "Hello" + " " + "World" = <span class="string">"Hello World"</span></div>
-                <div><span class="arrow">&gt;</span> "Code".length = <span class="result">4</span></div>
-                <div><span class="arrow">&gt;</span> "javascript".toUpperCase() = <span class="string">"JAVASCRIPT"</span></div>
-                <div><span class="arrow">&gt;</span> "HELLO".toLowerCase() = <span class="string">"hello"</span></div>
+                <div><span class="arrow">&gt;</span> a &amp;&amp; b  <span class="operator-highlight">// AND</span></div>
+                <div class="false">  false</div>
+                <div><span class="arrow">&gt;</span> a || b  <span class="operator-highlight">// OR</span></div>
+                <div class="true">  true</div>
+                <div><span class="arrow">&gt;</span> !a      <span class="operator-highlight">// NOT</span></div>
+                <div class="false">  false</div>
+                <br>
+                <div class="comment">// With comparisons</div>
+                <div><span class="arrow">&gt;</span> let age = 25;</div>
+                <div><span class="arrow">&gt;</span> let hasLicense = true;</div>
+                <br>
+                <div><span class="arrow">&gt;</span> age >= 18 &amp;&amp; hasLicense</div>
+                <div class="true">  true</div>
+                <div><span class="arrow">&gt;</span> age < 18 || age > 65</div>
+                <div class="false">  false</div>
+                <div><span class="arrow">&gt;</span> !(age < 18)</div>
+                <div class="true">  true</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>+</strong> - Concatenation: Joins strings together</li>
-                    <li><strong>.length</strong> - Returns the number of characters in a string</li>
-                    <li><strong>.toUpperCase()</strong> - Converts all characters to uppercase</li>
-                    <li><strong>.toLowerCase()</strong> - Converts all characters to lowercase</li>
-                    <li>Strings are <strong>immutable</strong> - methods return new strings</li>
-                    <li>You can concatenate strings with variables using <code>+</code></li>
-                    <li>Template literals (<code>`${}`</code>) are great for dynamic strings</li>
+                    <li><strong>&amp;&amp; (AND)</strong> - Returns true only if <strong>both</strong> conditions are true</li>
+                    <li><strong>|| (OR)</strong> - Returns true if <strong>at least one</strong> condition is true</li>
+                    <li><strong>! (NOT)</strong> - Reverses the boolean value</li>
+                    <li>AND has higher precedence than OR</li>
+                    <li>Use parentheses to control evaluation order: <code>(a &amp;&amp; b) || c</code></li>
+                    <li>Logical operators are often used with comparison operators</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. string operations:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. logical operators:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Concatenate your first and last name</li>
-                    <li>Find the length of a full sentence</li>
-                    <li>Convert a string to uppercase and then to lowercase</li>
-                    <li>Create a dynamic greeting using template literals</li>
-                    <li>Try combining multiple string methods</li>
+                    <li>Use &amp;&amp; to check if a number is between 10 and 20</li>
+                    <li>Use || to check if a number is less than 10 or greater than 20</li>
+                    <li>Use ! to check if a value is not null</li>
+                    <li>Combine multiple logical operators</li>
+                    <li>Create complex if statements with logical operators</li>
                 </ul>
             </div>
 
@@ -661,11 +663,11 @@
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                Pass the 10-question quiz to unlock Level 36
+                Pass the 10-question quiz to unlock Level 39
             </div>
 
             <div class="nav-row">
-                <a href="level34.html" class="btn btn-ghost">
+                <a href="level37.html" class="btn btn-ghost">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="15 18 9 12 15 6"/>
                     </svg>
@@ -677,7 +679,7 @@
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level36.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level39.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <polyline points="9 18 15 12 9 6"/>
@@ -687,6 +689,6 @@
         </div>
     </div>
 
-    <script src="./scripts/level35.js"></script>
+    <script src="./scripts/level38.js"></script>
 </body>
 </html>
