@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 52: Form Validation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #15151f;
+            --bg-base-2: #1b1b29;
+            --bg-panel: #1e1e2e;
+            --bg-panel-alt: #23233a;
+            --bg-elevated: #272741;
+            --border: #34344f;
+            --border-soft: #2a2a40;
+            --text-primary: #e9e9f5;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6c6c8c;
+            --accent-html: #f3a072;
+            --accent-css: #7ec8e3;
+            --accent-js: #f0c674;
+            --accent-sql: #8ec07c;
+            --accent-react: #6fd3e0;
+            --accent-php: #b58aef;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                var(--bg-base);
+            min-height: 100vh;
+            padding: 32px 20px 60px;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent-js);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-css);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .terminal-window {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 18px;
+            background: var(--bg-base-2);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .terminal-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .terminal-dots span:nth-child(1) {
+            background: #ec6a5e;
+        }
+
+        .terminal-dots span:nth-child(2) {
+            background: #f4bf4f;
+        }
+
+        .terminal-dots span:nth-child(3) {
+            background: #61c454;
+        }
+
+        .terminal-tab {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            background: var(--bg-panel-alt);
+            border-radius: 5px;
+        }
+
+        .terminal-body {
+            padding: 40px 44px 36px;
+        }
+
+        .terminal-comment {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+        }
+
+        .cursor {
+            display: inline-block;
+            color: var(--accent-js);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 26px;
+        }
+
+        .chip-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--chip-c, var(--border));
+            color: var(--chip-c, var(--text-secondary));
+            background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
+        }
+
+        .chip.js {
+            --chip-c: var(--accent-js);
+        }
+
+        .chip.level {
+            --chip-c: var(--accent-sql);
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin: 24px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        h3 {
+            font-family: var(--font-mono);
+            font-size: 1.02rem;
+            color: var(--text-primary);
+            margin: 18px 0 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .demo-form {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: 16px 0;
+        }
+
+        .demo-form .form-group {
+            margin-bottom: 16px;
+        }
+
+        .demo-form label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .demo-form label .required {
+            color: var(--accent-html);
+            margin-left: 4px;
+        }
+
+        .demo-form input,
+        .demo-form select,
+        .demo-form textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .demo-form input:focus,
+        .demo-form select:focus,
+        .demo-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+
+        .demo-form input.valid {
+            border-color: var(--accent-sql);
+        }
+
+        .demo-form input.invalid {
+            border-color: var(--accent-html);
+        }
+
+        .demo-form .error-message {
+            color: var(--accent-html);
+            font-size: 0.82rem;
+            margin-top: 4px;
+            display: none;
+            font-family: var(--font-sans);
+        }
+
+        .demo-form .error-message.show {
+            display: block;
+        }
+
+        .demo-form .success-message {
+            display: none;
+            background: rgba(142, 192, 124, 0.15);
+            border: 1px solid var(--accent-sql);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            color: var(--accent-sql);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        .demo-form .success-message.show {
+            display: block;
+        }
+
+        .btn-demo {
+            background: var(--accent-sql);
+            color: #0e1410;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin: 4px 4px 4px 0;
+        }
+
+        .btn-demo:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo.danger {
+            background: var(--accent-html);
+        }
+
+        .btn-demo.reset {
+            background: var(--accent-js);
+            color: #1a1a1a;
+        }
+
+        .btn-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .console-output {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .console-output .log {
+            color: var(--accent-js);
+            margin-bottom: 4px;
+        }
+
+        .console-output .comment {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .console-output .arrow {
+            color: var(--accent-sql);
+            margin-right: 8px;
+        }
+
+        .console-output .keyword {
+            color: var(--accent-css);
+        }
+
+        .console-output .value {
+            color: var(--accent-html);
+        }
+
+        .console-output .output {
+            color: var(--accent-sql);
+        }
+
+        .console-output .error {
+            color: var(--accent-html);
+        }
+
+        .info-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-js);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .info-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-js);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .info-box li strong {
+            color: var(--text-primary);
+        }
+
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .syntax-box {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin: 16px 0;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .syntax-box .keyword {
+            color: var(--accent-css);
+        }
+
+        .syntax-box .value {
+            color: var(--accent-html);
+        }
+
+        .syntax-box .comment {
+            color: var(--text-muted);
+        }
+
+        .validation-rules {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .validation-rule {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+        }
+
+        .validation-rule .rule-name {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-css);
+        }
+
+        .validation-rule .rule-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .quiz-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(142, 192, 124, 0.15);
+            color: var(--accent-sql);
+        }
+
+        .nav-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            text-align: center;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-sql);
+            color: #0e1410;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+
+            .terminal-body {
+                padding: 24px 20px 28px;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .validation-rules {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-row {
+                flex-direction: column;
+            }
+
+            .nav-row .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-tab">level52.js</div>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-comment">// Level 52: Form Validation</p>
+                <h1 class="hero-title">
+                    <span id="typedTitle">Form Validation</span><span class="cursor">_</span>
+                </h1>
+                <p class="hero-sub">
+                    Learn how to validate form data before submission.
+                    Ensure users enter valid information with real-time feedback.
+                </p>
+                <div class="chip-row">
+                    <span class="chip js">JavaScript</span>
+                    <span class="chip level">Level 52</span>
+                    <span class="chip js">Quiz Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h1>Form Validation</h1>
+            <p>
+                Form validation ensures that users enter correct and complete information.
+                Validate fields in real-time or when the form is submitted.
+            </p>
+
+            <h2>Validation Rules</h2>
+
+            <div class="validation-rules">
+                <div class="validation-rule">
+                    <div class="rule-name">Required</div>
+                    <div class="rule-desc">Field cannot be empty</div>
+                </div>
+                <div class="validation-rule">
+                    <div class="rule-name">Min Length</div>
+                    <div class="rule-desc">Minimum number of characters</div>
+                </div>
+                <div class="validation-rule">
+                    <div class="rule-name">Email Format</div>
+                    <div class="rule-desc">Must contain @ and .</div>
+                </div>
+                <div class="validation-rule">
+                    <div class="rule-name">Password Match</div>
+                    <div class="rule-desc">Two passwords must match</div>
+                </div>
+            </div>
+
+            <h2>Try It Yourself</h2>
+
+            <div class="demo-form" id="demoForm">
+                <div class="form-group">
+                    <label for="username">Username <span class="required">*</span></label>
+                    <input type="text" id="username" placeholder="Enter username (min 3 chars)">
+                    <div class="error-message" id="usernameError">Username must be at least 3 characters</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password <span class="required">*</span></label>
+                    <input type="password" id="password" placeholder="Enter password (min 6 chars)">
+                    <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password">
+                    <div class="error-message" id="confirmError">Passwords do not match</div>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-demo" id="submitBtn" onclick="validateAndSubmit()">Submit</button>
+                    <button class="btn-demo reset" onclick="resetForm()">Reset Form</button>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    ✅ Form submitted successfully! All fields are valid.
+                </div>
+            </div>
+
+            <h2>Console Output</h2>
+
+            <div class="console-output">
+                <div class="comment">// Form Validation Examples</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span
+                        class="value">validateEmail</span>(email) {</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">return</span> email.includes(<span
+                        class="value">"@"</span>) && email.includes(<span class="value">"."</span>);</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> username = document.<span
+                        class="keyword">getElementById</span>(<span class="value">"username"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (username.<span
+                        class="keyword">value</span>.length < 3) {</div>
+                        <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
+                                class="value">"Username too short!"</span>);</div>
+                        <div><span class="error">&gt;</span> <span class="error">"Username too short!"</span></div>
+                        <div><span class="arrow">&gt;</span> }</div>
+                        <br>
+                        <div class="comment">// Real-time validation</div>
+                        <div><span class="arrow">&gt;</span> username.<span
+                                class="keyword">addEventListener</span>(<span class="value">"input"</span>, function() {
+                        </div>
+                        <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (this.<span
+                                class="keyword">value</span>.length >= 3) {</div>
+                        <div><span class="arrow">&gt;</span> this.<span class="keyword">classList</span>.<span
+                                class="keyword">add</span>(<span class="value">"valid"</span>);</div>
+                        <div><span class="arrow">&gt;</span> }</div>
+                        <div><span class="arrow">&gt;</span> });</div>
+                </div>
+
+                <div class="info-box">
+                    <h4>Key Takeaways</h4>
+                    <ul>
+                        <li><strong>Required fields</strong> - Check if input has value</li>
+                        <li><strong>Min length</strong> - Use <code>input.value.length</code></li>
+                        <li><strong>Email validation</strong> - Check for @ and .</li>
+                        <li><strong>Password match</strong> - Compare two password fields</li>
+                        <li><strong>Real-time validation</strong> - Use <code>input</code> event</li>
+                        <li><strong>Visual feedback</strong> - Use CSS classes for valid/invalid</li>
+                    </ul>
+                </div>
+
+                <div class="challenge-box">
+                    <h4>Your Challenge</h4>
+                    <p>Create a new file named <code>level[level].html</code>. Inside it, add a
+                        <code>&lt;script&gt;</code> tag and place your solution for this level within the script.</p>
+                    <p>Practice form validation by doing the following:</p>
+                    <ul style="margin-left: 20px; color: var(--text-secondary);">
+                        <style>
+                            code{
+                                font-family: monospace;
+                            }
+                        </style>
+                        <li><strong>Password Length:</strong> Create a password input like
+                            <code>&lt;input type="password" id="passwordInput"&gt;</code>. When a button is clicked,
+                            check if the password length is at least 8 characters using
+                            <code>passwordInput.value.length &gt;= 8</code>. If it is, log "Valid password!"; if not,
+                            log "Password must be at least 8 characters!"</li>
+                        <li><strong>Age Range:</strong> Create an age input like
+                            <code>&lt;input type="number" id="ageInput"&gt;</code>. Validate that the age is between 18
+                            and 100 using <code>age &gt;= 18 &amp;&amp; age &lt;= 100</code>. Log "Valid age!" or "Age
+                            must be between 18 and 100!"</li>
+                        <li><strong>Phone Number Format:</strong> Create a phone input like
+                            <code>&lt;input type="text" id="phoneInput" placeholder="XXX-XXX-XXXX"&gt;</code>. Create a
+                            validation rule that checks if the phone number follows a specific pattern (like 10 digits
+                            or format XXX-XXX-XXXX). Use <code>phoneInput.value.length === 10</code> or check for
+                            hyphens with <code>.includes("-")</code></li>
+                        <li><strong>Real-time Validation:</strong> Add an <code>input</code> event listener to your
+                            password field that validates it as the user types. Show feedback in a
+                            <code>&lt;p id="passwordFeedback"&gt;</code> element by updating its
+                            <code>textContent</code> with "✅ Good password!" or "❌ Too short!" in real-time</li>
+                        <li><strong>Success Message:</strong> Create a <code>&lt;div id="successMessage"&gt;</code> that
+                            is hidden by default (<code>style.display = "none"</code>). Create a validation function
+                            that checks ALL fields (password, age, phone). If ALL are valid, show the success message
+                            using <code>document.getElementById("successMessage").style.display = "block"</code> and
+                            change its text to "✅ All fields are valid! Form submitted successfully!"</li>
+                    </ul>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Use
+                        <code>.value</code> to get input values and <code>.value.length</code> to check string length.
+                        For real-time validation, use the <code>input</code> event. Use <code>textContent</code> to
+                        update feedback messages. To hide/show elements, use <code>style.display = "none"</code> and
+                        <code>style.display = "block"</code>. Test each validation rule separately before combining
+                        them!</p>
+                </div>
+
+                <div class="quiz-status">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    Pass the 10-question quiz to unlock Level 53
+                </div>
+
+                <div class="nav-row">
+                    <a href="level51.html" class="btn btn-ghost">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                        Previous Level
+                    </a>
+                    <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        Take Quiz
+                    </a>
+                    <a href="level53.html" class="btn btn-secondary" id="nextLevelBtn"
+                        style="opacity:0.5;pointer-events:none;">
+                        Next Level
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // ============================================
+            // DOM ELEMENTS
+            // ============================================
+
+            let username = document.getElementById("username");
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+            let confirmPassword = document.getElementById("confirmPassword");
+            let submitBtn = document.getElementById("submitBtn");
+
+            // ============================================
+            // VALIDATION FUNCTIONS
+            // ============================================
+
+            function validateUsername() {
+                let value = username.value.trim();
+                let error = document.getElementById("usernameError");
+
+                if (value.length === 0) {
+                    username.className = "invalid";
+                    error.textContent = "Username is required";
+                    error.classList.add("show");
+                    return false;
+                } else if (value.length < 3) {
+                    username.className = "invalid";
+                    error.textContent = "Username must be at least 3 characters";
+                    error.classList.add("show");
+                    return false;
+                } else {
+                    username.className = "valid";
+                    error.classList.remove("show");
+                    return true;
+                }
+            }
+
+            function validateEmail() {
+                let value = email.value.trim();
+                let error = document.getElementById("emailError");
+
+                if (value.length === 0) {
+                    email.className = "invalid";
+                    error.textContent = "Email is required";
+                    error.classList.add("show");
+                    return false;
+                } else if (!value.includes("@") || !value.includes(".")) {
+                    email.className = "invalid";
+                    error.textContent = "Please enter a valid email address";
+                    error.classList.add("show");
+                    return false;
+                } else {
+                    email.className = "valid";
+                    error.classList.remove("show");
+                    return true;
+                }
+            }
+
+            function validatePassword() {
+                let value = password.value;
+                let error = document.getElementById("passwordError");
+
+                if (value.length === 0) {
+                    password.className = "invalid";
+                    error.textContent = "Password is required";
+                    error.classList.add("show");
+                    return false;
+                } else if (value.length < 6) {
+                    password.className = "invalid";
+                    error.textContent = "Password must be at least 6 characters";
+                    error.classList.add("show");
+                    return false;
+                } else {
+                    password.className = "valid";
+                    error.classList.remove("show");
+                    return true;
+                }
+            }
+
+            function validateConfirmPassword() {
+                let error = document.getElementById("confirmError");
+
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.className = "invalid";
+                    error.classList.add("show");
+                    return false;
+                } else if (confirmPassword.value.length === 0) {
+                    confirmPassword.className = "invalid";
+                    error.textContent = "Please confirm your password";
+                    error.classList.add("show");
+                    return false;
+                } else {
+                    confirmPassword.className = "valid";
+                    error.classList.remove("show");
+                    return true;
+                }
+            }
+
+            function validateAll() {
+                let isUsernameValid = validateUsername();
+                let isEmailValid = validateEmail();
+                let isPasswordValid = validatePassword();
+                let isConfirmValid = validateConfirmPassword();
+
+                return isUsernameValid && isEmailValid && isPasswordValid && isConfirmValid;
+            }
+
+            // ============================================
+            // REAL-TIME VALIDATION
+            // ============================================
+
+            username.addEventListener("input", validateUsername);
+            email.addEventListener("input", validateEmail);
+            password.addEventListener("input", function () {
+                validatePassword();
+                if (confirmPassword.value.length > 0) {
+                    validateConfirmPassword();
+                }
+            });
+            confirmPassword.addEventListener("input", validateConfirmPassword);
+
+            // ============================================
+            // FORM SUBMISSION
+            // ============================================
+
+            function validateAndSubmit() {
+                if (validateAll()) {
+                    console.log("Form submitted successfully!");
+                    console.log("Username:", username.value);
+                    console.log("Email:", email.value);
+                    console.log("Password:", password.value);
+
+                    document.getElementById("successMessage").classList.add("show");
+                    submitBtn.disabled = true;
+
+                    // Reset after 3 seconds
+                    setTimeout(() => {
+                        resetForm();
+                    }, 3000);
+                } else {
+                    console.log("Form validation failed!");
+                    document.getElementById("successMessage").classList.remove("show");
+                    submitBtn.disabled = false;
+                }
+            }
+
+            function resetForm() {
+                username.value = "";
+                email.value = "";
+                password.value = "";
+                confirmPassword.value = "";
+
+                username.className = "";
+                email.className = "";
+                password.className = "";
+                confirmPassword.className = "";
+
+                document.getElementById("usernameError").classList.remove("show");
+                document.getElementById("emailError").classList.remove("show");
+                document.getElementById("passwordError").classList.remove("show");
+                document.getElementById("confirmError").classList.remove("show");
+                document.getElementById("successMessage").classList.remove("show");
+
+                submitBtn.disabled = false;
+                console.log("Form reset");
+            }
+        </script>
+
+        <script src="./scripts/level52.js"></script>
+</body>
+
+</html>

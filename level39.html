@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 39: Switch Statements</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -43,9 +46,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -99,18 +102,22 @@
             display: flex;
             gap: 7px;
         }
+
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
+
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
+
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
+
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -149,6 +156,7 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
+
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -178,9 +186,11 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
+
         .chip.js {
             --chip-c: var(--accent-js);
         }
+
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -263,9 +273,17 @@
             margin: 5px 0;
         }
 
-        .switch-card.switch { --card-color: var(--accent-sql); }
-        .switch-card.case { --card-color: var(--accent-css); }
-        .switch-card.default { --card-color: var(--accent-js); }
+        .switch-card.switch {
+            --card-color: var(--accent-sql);
+        }
+
+        .switch-card.case {
+            --card-color: var(--accent-css);
+        }
+
+        .switch-card.default {
+            --card-color: var(--accent-js);
+        }
 
         .console-output {
             background: var(--bg-base-2);
@@ -327,10 +345,12 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
+
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
+
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -423,6 +443,7 @@
             color: #0e1410;
             font-weight: 600;
         }
+
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -433,6 +454,7 @@
             color: #1a1a1a;
             font-weight: 600;
         }
+
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -443,6 +465,7 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
+
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -461,18 +484,23 @@
             body {
                 padding: 16px 12px 40px;
             }
+
             .terminal-body {
                 padding: 24px 20px 28px;
             }
+
             .panel {
                 padding: 20px;
             }
+
             .switch-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .nav-row {
                 flex-direction: column;
             }
+
             .nav-row .btn {
                 width: 100%;
             }
@@ -485,6 +513,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -524,13 +553,13 @@
                     <div class="description">Starts the switch block</div>
                     <div class="example">switch(day) {</div>
                 </div>
-                
+
                 <div class="switch-card case">
                     <div class="keyword">case</div>
                     <div class="description">Checks a specific value</div>
                     <div class="example">case "Monday":</div>
                 </div>
-                
+
                 <div class="switch-card default">
                     <div class="keyword">default</div>
                     <div class="description">Runs if no case matches</div>
@@ -560,14 +589,16 @@
                 <div><span class="arrow">&gt;</span> let day = "Tuesday";</div>
                 <br>
                 <div><span class="arrow">&gt;</span> <span class="keyword">switch</span>(day) {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"Monday"</span>:</div>
-                <div><span class="arrow">&gt;</span>     console.log("Start of week");</div>
-                <div><span class="arrow">&gt;</span>     <span class="keyword">break</span>;</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"Tuesday"</span>:</div>
-                <div><span class="arrow">&gt;</span>     console.log("Second day");</div>
-                <div><span class="arrow">&gt;</span>     <span class="keyword">break</span>;</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">default</span>:</div>
-                <div><span class="arrow">&gt;</span>     console.log("Other day");</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">case</span> <span
+                        class="value">"Monday"</span>:</div>
+                <div><span class="arrow">&gt;</span> console.log("Start of week");</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">break</span>;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">case</span> <span
+                        class="value">"Tuesday"</span>:</div>
+                <div><span class="arrow">&gt;</span> console.log("Second day");</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">break</span>;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">default</span>:</div>
+                <div><span class="arrow">&gt;</span> console.log("Other day");</div>
                 <div><span class="arrow">&gt;</span> }</div>
                 <br>
                 <div><span class="arrow">&gt;</span> Output: <span class="output">"Second day"</span></div>
@@ -575,12 +606,14 @@
                 <div class="comment">// Multiple cases (fall-through)</div>
                 <div><span class="arrow">&gt;</span> let fruit = "apple";</div>
                 <div><span class="arrow">&gt;</span> <span class="keyword">switch</span>(fruit) {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"apple"</span>:</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">case</span> <span class="value">"pear"</span>:</div>
-                <div><span class="arrow">&gt;</span>     console.log("Common fruit");</div>
-                <div><span class="arrow">&gt;</span>     <span class="keyword">break</span>;</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">default</span>:</div>
-                <div><span class="arrow">&gt;</span>     console.log("Other fruit");</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">case</span> <span
+                        class="value">"apple"</span>:</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">case</span> <span
+                        class="value">"pear"</span>:</div>
+                <div><span class="arrow">&gt;</span> console.log("Common fruit");</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">break</span>;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">default</span>:</div>
+                <div><span class="arrow">&gt;</span> console.log("Other fruit");</div>
                 <div><span class="arrow">&gt;</span> }</div>
                 <br>
                 <div><span class="arrow">&gt;</span> Output: <span class="output">"Common fruit"</span></div>
@@ -601,41 +634,57 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. switch statements:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Practice switch statements by doing the following:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Create a switch for days of the week</li>
-                    <li>Use multiple cases for weekends vs weekdays</li>
-                    <li>Add a default case for invalid inputs</li>
-                    <li>Convert an if/else chain to a switch statement</li>
-                    <li>Test what happens without break statements</li>
+                    <li><strong>Days of the Week:</strong> Create a variable <code>day</code> (like
+                        <code>"Monday"</code>) and use a switch statement to log a message for each day (like "It's
+                        Monday!" or "Happy Wednesday!")</li>
+                    <li><strong>Group Cases:</strong> Use multiple cases together to check if it's a weekend or weekday.
+                        For example, for <code>"Saturday"</code> and <code>"Sunday"</code> both log "It's the weekend!"
+                    </li>
+                    <li><strong>Default Case:</strong> Add a <code>default</code> case that handles invalid inputs (like
+                        if someone types <code>"Funday"</code> instead of a real day)</li>
+                    <li><strong>Convert If/Else:</strong> Take an existing <code>if/else if</code> chain (like a grading
+                        system or menu options) and rewrite it as a <code>switch</code> statement</li>
+                    <li><strong>Missing Break:</strong> Try removing the <code>break</code> statements from your switch
+                        and see what happens (it will "fall through" to the next case)</li>
                 </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Each case should
+                    end with <code>break;</code> to stop execution. Use <code>console.log()</code> to see your results!
+                </p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                 </svg>
                 Pass the 10-question quiz to unlock Level 40
             </div>
 
             <div class="nav-row">
                 <a href="level38.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level40.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level40.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
                     </svg>
                 </a>
             </div>
@@ -644,4 +693,5 @@
 
     <script src="./scripts/level39.js"></script>
 </body>
+
 </html>

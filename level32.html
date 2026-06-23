@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 32: Variables (let, const)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -43,9 +46,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -99,18 +102,22 @@
             display: flex;
             gap: 7px;
         }
+
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
+
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
+
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
+
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -149,6 +156,7 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
+
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -178,9 +186,11 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
+
         .chip.js {
             --chip-c: var(--accent-js);
         }
+
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -313,10 +323,12 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
+
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
+
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -370,6 +382,7 @@
         .comparison-card ul {
             margin-left: 20px;
         }
+
         .comparison-card li {
             color: var(--text-secondary);
             font-size: 0.92rem;
@@ -419,6 +432,7 @@
             color: #0e1410;
             font-weight: 600;
         }
+
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -429,6 +443,7 @@
             color: #1a1a1a;
             font-weight: 600;
         }
+
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -439,6 +454,7 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
+
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -457,24 +473,30 @@
             body {
                 padding: 16px 12px 40px;
             }
+
             .terminal-body {
                 padding: 24px 20px 28px;
             }
+
             .panel {
                 padding: 20px;
             }
+
             .comparison-grid {
                 grid-template-columns: 1fr;
             }
+
             .nav-row {
                 flex-direction: column;
             }
+
             .nav-row .btn {
                 width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -558,13 +580,13 @@
             <div class="console-output">
                 <div class="comment">// Console Output</div>
                 <div class="log"><span class="arrow">&gt;</span> console.log(name);</div>
-                <div class="output-value">  John</div>
+                <div class="output-value"> John</div>
                 <div class="log"><span class="arrow">&gt;</span> console.log(age);</div>
-                <div class="output-value">  25</div>
+                <div class="output-value"> 25</div>
                 <div class="log"><span class="arrow">&gt;</span> console.log(PI);</div>
-                <div class="output-value">  3.14159</div>
+                <div class="output-value"> 3.14159</div>
                 <div class="log"><span class="arrow">&gt;</span> console.log(BIRTH_YEAR);</div>
-                <div class="output-value">  1998</div>
+                <div class="output-value"> 1998</div>
             </div>
 
             <div class="info-box">
@@ -578,41 +600,49 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script.</p>
-                <p>Create your own variables and view in console:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Create your own variables and view them in the console:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>A <code>let</code> variable for your favorite color</li>
-                    <li>A <code>const</code> variable for your birth year</li>
-                    <li>A <code>let</code> variable for your current mood</li>
-                    <li>Try changing each variable and observe the results</li>
+                    <li>Make a <code>let</code> variable called <code>favoriteColor</code> and set it to your favorite
+                        color (like <code>"blue"</code>)</li>
+                    <li>Make a <code>const</code> variable called <code>birthYear</code> and set it to your birth year
+                        (like <code>2005</code>)</li>
+                    <li>Make a <code>let</code> variable called <code>currentMood</code> and set it to how you're
+                        feeling (like <code>"happy"</code>)</li>
+                    <li>Now try to change each variable to something else and see what happens in the console</li>
                 </ul>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                 </svg>
                 Pass the 10-question quiz to unlock Level 33
             </div>
 
             <div class="nav-row">
                 <a href="level31.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level33.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level33.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
                     </svg>
                 </a>
             </div>
@@ -621,4 +651,5 @@
 
     <script src="./scripts/level32.js"></script>
 </body>
+
 </html>

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 37: Comparison Operators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -43,9 +46,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -98,18 +101,22 @@
             display: flex;
             gap: 7px;
         }
+
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
+
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
+
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
+
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -148,6 +155,7 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
+
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -177,9 +185,11 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
+
         .chip.js {
             --chip-c: var(--accent-js);
         }
+
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -268,10 +278,21 @@
             font-family: var(--font-mono);
         }
 
-        .compare-card.equal { --card-color: var(--accent-sql); }
-        .compare-card.not { --card-color: var(--accent-html); }
-        .compare-card.greater { --card-color: var(--accent-css); }
-        .compare-card.less { --card-color: var(--accent-js); }
+        .compare-card.equal {
+            --card-color: var(--accent-sql);
+        }
+
+        .compare-card.not {
+            --card-color: var(--accent-html);
+        }
+
+        .compare-card.greater {
+            --card-color: var(--accent-css);
+        }
+
+        .compare-card.less {
+            --card-color: var(--accent-js);
+        }
 
         .console-output {
             background: var(--bg-base-2);
@@ -332,10 +353,12 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
+
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
+
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -435,6 +458,7 @@
             color: #0e1410;
             font-weight: 600;
         }
+
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -445,6 +469,7 @@
             color: #1a1a1a;
             font-weight: 600;
         }
+
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -455,6 +480,7 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
+
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -473,24 +499,31 @@
             body {
                 padding: 16px 12px 40px;
             }
+
             .terminal-body {
                 padding: 24px 20px 28px;
             }
+
             .panel {
                 padding: 20px;
             }
+
             .compare-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .nav-row {
                 flex-direction: column;
             }
+
             .nav-row .btn {
                 width: 100%;
             }
+
             .compare-table {
                 font-size: 0.85rem;
             }
+
             .compare-table th,
             .compare-table td {
                 padding: 8px 10px;
@@ -504,6 +537,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -544,21 +578,21 @@
                     <div class="example">5 === 5</div>
                     <div class="result">true</div>
                 </div>
-                
+
                 <div class="compare-card not">
                     <div class="operator">!==</div>
                     <div class="description">Not Equal (value & type)</div>
                     <div class="example">5 !== 3</div>
                     <div class="result">true</div>
                 </div>
-                
+
                 <div class="compare-card greater">
                     <div class="operator">&gt;</div>
                     <div class="description">Greater Than</div>
                     <div class="example">5 &gt; 3</div>
                     <div class="result">true</div>
                 </div>
-                
+
                 <div class="compare-card less">
                     <div class="operator">&lt;</div>
                     <div class="description">Less Than</div>
@@ -625,24 +659,27 @@
                 <div><span class="arrow">&gt;</span> let x = 5;</div>
                 <div><span class="arrow">&gt;</span> let y = 3;</div>
                 <br>
-                <div><span class="arrow">&gt;</span> x === y  <span class="operator-highlight">// Equal</span></div>
-                <div class="false">  false</div>
+                <div><span class="arrow">&gt;</span> x === y <span class="operator-highlight">// Equal</span></div>
+                <div class="false"> false</div>
                 <div><span class="arrow">&gt;</span> x !== y <span class="operator-highlight">// Not equal</span></div>
-                <div class="true">  true</div>
-                <div><span class="arrow">&gt;</span> x &gt; y   <span class="operator-highlight">// Greater than</span></div>
-                <div class="true">  true</div>
-                <div><span class="arrow">&gt;</span> x &lt; y   <span class="operator-highlight">// Less than</span></div>
-                <div class="false">  false</div>
-                <div><span class="arrow">&gt;</span> x &gt;= y  <span class="operator-highlight">// Greater or equal</span></div>
-                <div class="true">  true</div>
-                <div><span class="arrow">&gt;</span> x &lt;= y  <span class="operator-highlight">// Less or equal</span></div>
-                <div class="false">  false</div>
+                <div class="true"> true</div>
+                <div><span class="arrow">&gt;</span> x &gt; y <span class="operator-highlight">// Greater than</span>
+                </div>
+                <div class="true"> true</div>
+                <div><span class="arrow">&gt;</span> x &lt; y <span class="operator-highlight">// Less than</span></div>
+                <div class="false"> false</div>
+                <div><span class="arrow">&gt;</span> x &gt;= y <span class="operator-highlight">// Greater or
+                        equal</span></div>
+                <div class="true"> true</div>
+                <div><span class="arrow">&gt;</span> x &lt;= y <span class="operator-highlight">// Less or equal</span>
+                </div>
+                <div class="false"> false</div>
                 <br>
                 <div class="comment">// String comparisons</div>
                 <div><span class="arrow">&gt;</span> "apple" === "apple"</div>
-                <div class="true">  true</div>
+                <div class="true"> true</div>
                 <div><span class="arrow">&gt;</span> "apple" === "Apple"</div>
-                <div class="false">  false</div>
+                <div class="false"> false</div>
             </div>
 
             <div class="info-box">
@@ -661,41 +698,57 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. comparison operators:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Practice comparison operators by doing the following:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Compare numbers using all six operators</li>
-                    <li>Compare strings with === and !==</li>
-                    <li>Check if a number is between 10 and 20</li>
-                    <li>Use comparisons in if statements</li>
-                    <li>Compare different data types (string vs number)</li>
+                    <li><strong>All Six Operators:</strong> Create two number variables like <code>x = 10</code> and
+                        <code>y = 5</code>, then compare them using: <code>&gt;</code>, <code>&lt;</code>,
+                        <code>&gt;=</code>, <code>&lt;=</code>, <code>===</code>, and <code>!==</code></li>
+                    <li><strong>String Comparison:</strong> Create two string variables (like <code>"hello"</code> and
+                        <code>"world"</code>) and compare them using <code>===</code> (equal) and <code>!==</code> (not
+                        equal)</li>
+                    <li><strong>Between Range:</strong> Create a variable <code>num</code> and check if it's between 10
+                        and 20 using <code>num &gt;= 10 &amp;&amp; num &lt;= 20</code></li>
+                    <li><strong>If Statements with Comparisons:</strong> Use comparisons inside <code>if</code>
+                        statements (like checking if a user's age is 18 or older to vote)</li>
+                    <li><strong>Different Data Types:</strong> Compare a number and a string that look the same (like
+                        <code>5 === "5"</code>) and see what happens. Then try <code>5 == "5"</code> to see the
+                        difference</li>
                 </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Use
+                    <code>console.log()</code> to see the results (true or false) in the console!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                 </svg>
                 Pass the 10-question quiz to unlock Level 38
             </div>
 
             <div class="nav-row">
                 <a href="level36.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level38.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level38.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
                     </svg>
                 </a>
             </div>
@@ -704,4 +757,5 @@
 
     <script src="./scripts/level37.js"></script>
 </body>
+
 </html>

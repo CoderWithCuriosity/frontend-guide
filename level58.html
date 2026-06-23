@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 58: Async/Await</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #15151f;
+            --bg-base-2: #1b1b29;
+            --bg-panel: #1e1e2e;
+            --bg-panel-alt: #23233a;
+            --bg-elevated: #272741;
+            --border: #34344f;
+            --border-soft: #2a2a40;
+            --text-primary: #e9e9f5;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6c6c8c;
+            --accent-html: #f3a072;
+            --accent-css: #7ec8e3;
+            --accent-js: #f0c674;
+            --accent-sql: #8ec07c;
+            --accent-react: #6fd3e0;
+            --accent-php: #b58aef;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                var(--bg-base);
+            min-height: 100vh;
+            padding: 32px 20px 60px;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent-js);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-css);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .terminal-window {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 18px;
+            background: var(--bg-base-2);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .terminal-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .terminal-dots span:nth-child(1) {
+            background: #ec6a5e;
+        }
+
+        .terminal-dots span:nth-child(2) {
+            background: #f4bf4f;
+        }
+
+        .terminal-dots span:nth-child(3) {
+            background: #61c454;
+        }
+
+        .terminal-tab {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            background: var(--bg-panel-alt);
+            border-radius: 5px;
+        }
+
+        .terminal-body {
+            padding: 40px 44px 36px;
+        }
+
+        .terminal-comment {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+        }
+
+        .cursor {
+            display: inline-block;
+            color: var(--accent-js);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 26px;
+        }
+
+        .chip-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--chip-c, var(--border));
+            color: var(--chip-c, var(--text-secondary));
+            background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
+        }
+
+        .chip.js {
+            --chip-c: var(--accent-js);
+        }
+
+        .chip.level {
+            --chip-c: var(--accent-sql);
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin: 24px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        h3 {
+            font-family: var(--font-mono);
+            font-size: 1.02rem;
+            color: var(--text-primary);
+            margin: 18px 0 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .demo-area {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: 16px 0;
+        }
+
+        .demo-area .result-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            min-height: 120px;
+            max-height: 250px;
+            overflow-y: auto;
+            margin-top: 12px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .demo-area .result-area .loading {
+            color: var(--accent-js);
+        }
+
+        .demo-area .result-area .success {
+            color: var(--accent-sql);
+        }
+
+        .demo-area .result-area .error {
+            color: var(--accent-html);
+        }
+
+        .demo-area .result-area .step {
+            color: var(--accent-css);
+        }
+
+        .btn-demo {
+            background: var(--accent-sql);
+            color: #0e1410;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin: 4px 4px 4px 0;
+        }
+
+        .btn-demo:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo.danger {
+            background: var(--accent-html);
+        }
+
+        .btn-demo.reset {
+            background: var(--accent-js);
+            color: #1a1a1a;
+        }
+
+        .btn-demo.info {
+            background: var(--accent-css);
+            color: #1a1a1a;
+        }
+
+        .btn-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .console-output {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .console-output .log {
+            color: var(--accent-js);
+            margin-bottom: 4px;
+        }
+
+        .console-output .comment {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .console-output .arrow {
+            color: var(--accent-sql);
+            margin-right: 8px;
+        }
+
+        .console-output .keyword {
+            color: var(--accent-css);
+        }
+
+        .console-output .value {
+            color: var(--accent-html);
+        }
+
+        .console-output .output {
+            color: var(--accent-sql);
+        }
+
+        .console-output .error {
+            color: var(--accent-html);
+        }
+
+        .info-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-js);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .info-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-js);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .info-box li strong {
+            color: var(--text-primary);
+        }
+
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .syntax-box {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin: 16px 0;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .syntax-box .keyword {
+            color: var(--accent-css);
+        }
+
+        .syntax-box .value {
+            color: var(--accent-html);
+        }
+
+        .syntax-box .comment {
+            color: var(--text-muted);
+        }
+
+        .quiz-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(142, 192, 124, 0.15);
+            color: var(--accent-sql);
+        }
+
+        .nav-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            text-align: center;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-sql);
+            color: #0e1410;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+
+            .terminal-body {
+                padding: 24px 20px 28px;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .nav-row {
+                flex-direction: column;
+            }
+
+            .nav-row .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-tab">level58.js</div>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-comment">// Level 58: Async/Await</p>
+                <h1 class="hero-title">
+                    <span id="typedTitle">Async/Await</span><span class="cursor">_</span>
+                </h1>
+                <p class="hero-sub">
+                    Learn how to write asynchronous code that looks synchronous.
+                    Async/await makes working with promises easier and more readable.
+                </p>
+                <div class="chip-row">
+                    <span class="chip js">JavaScript</span>
+                    <span class="chip level">Level 58</span>
+                    <span class="chip js">Quiz Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h1>Async/Await</h1>
+            <p>
+                Async/await is a modern way to handle asynchronous operations.
+                It makes your code look synchronous and easier to understand.
+            </p>
+
+            <h2>Try It Yourself</h2>
+
+            <div class="demo-area">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-demo" onclick="runAsyncDemo()">🚀 Run Async Demo</button>
+                    <button class="btn-demo info" onclick="runParallelDemo()">⚡ Parallel Requests</button>
+                    <button class="btn-demo reset" onclick="clearResult()">🧹 Clear</button>
+                </div>
+
+                <div class="result-area" id="resultArea">
+                    <div class="comment">// Click a button to see async/await in action</div>
+                    <div class="comment">// Results will appear here...</div>
+                </div>
+            </div>
+
+            <h2>Syntax</h2>
+
+            <div class="syntax-box">
+                <span class="comment">// Async function declaration</span><br>
+                <span class="keyword">async</span> <span class="keyword">function</span> fetchData() {<br>
+                &nbsp;&nbsp;<span class="keyword">try</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> response = <span class="keyword">await</span>
+                <span class="keyword">fetch</span>(<span class="value">"url"</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> data = <span class="keyword">await</span>
+                response.<span class="keyword">json</span>();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> data;<br>
+                &nbsp;&nbsp;} <span class="keyword">catch</span> (error) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="keyword">log</span>(error);<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+
+            <h2>Console Output</h2>
+
+            <div class="console-output">
+                <div class="comment">// Async/Await Examples</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">async function</span> getPost() {</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> response = <span
+                        class="keyword">await</span> <span class="keyword">fetch</span>(<span
+                        class="value">"https://jsonplaceholder.typicode.com/posts/1"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> data = <span
+                        class="keyword">await</span> response.<span class="keyword">json</span>();</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(data);</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div class="comment">// Output:</div>
+                <div class="output"> {</div>
+                <div class="output"> "userId": 1,</div>
+                <div class="output"> "id": 1,</div>
+                <div class="output"> "title": "sunt aut facere...",</div>
+                <div class="output"> "body": "quia et suscipit..."</div>
+                <div class="output"> }</div>
+                <br>
+                <div class="comment">// Error handling with try/catch</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">async function</span> fetchWithError() {
+                </div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> data = <span
+                        class="keyword">await</span> <span class="keyword">fetch</span>(<span
+                        class="value">"invalid.url"</span>);</div>
+                <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
+                        class="value">"Error:"</span>, error);</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <div class="error"> Error: Failed to fetch</div>
+            </div>
+
+            <div class="info-box">
+                <h4>Key Takeaways</h4>
+                <ul>
+                    <li><strong>async</strong> - Declares an asynchronous function</li>
+                    <li><strong>await</strong> - Waits for a Promise to resolve</li>
+                    <li><strong>try/catch</strong> - Handles errors in async functions</li>
+                    <li><strong>Readability</strong> - Async/await looks like synchronous code</li>
+                    <li><strong>Parallel</strong> - Use <code>Promise.all()</code> for parallel requests</li>
+                    <li><strong>Returns Promise</strong> - Async functions always return a Promise</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Practice async/await by doing the following:</p>
+                <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <li><strong>Async Function to Fetch Post:</strong> Create an async function called
+                        <code>getPost()</code> that fetches a single post from
+                        <code>https://jsonplaceholder.typicode.com/posts/1</code>. Use <code>await fetch()</code> and
+                        <code>await response.json()</code> inside the function. Call the function and log the result to
+                        see the post data</li>
+                    <li><strong>Error Handling with try/catch:</strong> Inside your <code>getPost()</code> function,
+                        wrap all the fetch code in a <code>try/catch</code> block. In the <code>try</code> block, fetch
+                        the data and log it. In the <code>catch</code> block, log an error message like
+                        <code>console.error("Something went wrong:", error)</code>. Test it by using an invalid URL to
+                        see the error handling work</li>
+                    <li><strong>Fetch Multiple Posts with await:</strong> Create an async function called
+                        <code>getMultiplePosts()</code> that fetches three different posts (like posts 1, 2, and 3) one
+                        after another using <code>await</code> for each. Example:
+                        <code>let post1 = await fetch(".../posts/1"); let post2 = await fetch(".../posts/2"); let post3 = await fetch(".../posts/3")</code>.
+                        Log all three posts when done</li>
+                    <li><strong>Promise.all() for Parallel Requests:</strong> Create an async function that uses
+                        <code>Promise.all()</code> to fetch multiple posts at the same time (in parallel). Example:
+                        <code>let urls = [".../posts/1", ".../posts/2", ".../posts/3"]; let requests = urls.map(url => fetch(url)); let responses = await Promise.all(requests); let data = await Promise.all(responses.map(r => r.json()))</code>.
+                        Log the data and notice how much faster this is than fetching one by one</li>
+                    <li><strong>Wait for 2 Seconds:</strong> Create a function called <code>waitTwoSeconds()</code> that
+                        uses <code>setTimeout()</code> wrapped in a <code>Promise</code> to wait for 2 seconds. Example:
+                        <code>function waitTwoSeconds() { return new Promise(resolve => setTimeout(resolve, 2000)); }</code>.
+                        Then create an async function that calls <code>await waitTwoSeconds()</code> and logs "Waited 2
+                        seconds!" to the console. This shows how to create your own async delay</li>
+                </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: <code>async</code>
+                    functions always return a Promise. Use <code>await</code> to pause execution until a Promise
+                    resolves. <code>try/catch</code> is the best way to handle errors with async/await.
+                    <code>Promise.all()</code> runs multiple promises in parallel (much faster!). You can create custom
+                    delays by wrapping <code>setTimeout</code> in a Promise. Use <code>console.log()</code> to verify
+                    your data and timing!</p>
+            </div>
+
+            <div class="quiz-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Pass the 10-question quiz to unlock Level 59
+            </div>
+
+            <div class="nav-row">
+                <a href="level57.html" class="btn btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    Previous Level
+                </a>
+                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    Take Quiz
+                </a>
+                <a href="level59.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
+                    Next Level
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // ASYNC/AWAIT DEMO FUNCTIONS
+        // ============================================
+
+        function logToResult(message, type) {
+            let area = document.getElementById("resultArea");
+            let className = type || "";
+            area.innerHTML += `<div class="${className}">${message}</div>`;
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function clearResult() {
+            let area = document.getElementById("resultArea");
+            area.innerHTML = `
+                <div class="comment">// Click a button to see async/await in action</div>
+                <div class="comment">// Results will appear here...</div>
+            `;
+        }
+
+        async function runAsyncDemo() {
+            let area = document.getElementById("resultArea");
+            area.innerHTML = '<div class="loading">⏳ Starting async demo...</div>';
+
+            try {
+                // Step 1: Fetch a post
+                logToResult('📡 Step 1: Fetching post data...', 'step');
+                let response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+                let post = await response.json();
+                logToResult(`✅ Post #${post.id}: ${post.title}`, 'success');
+
+                // Step 2: Wait 1 second
+                logToResult('⏳ Step 2: Waiting 1 second...', 'step');
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Step 3: Fetch user data
+                logToResult('📡 Step 3: Fetching user data...', 'step');
+                let userResponse = await fetch("https://jsonplaceholder.typicode.com/users/1");
+                let user = await userResponse.json();
+                logToResult(`✅ User: ${user.name} (${user.email})`, 'success');
+
+                // Step 4: Wait another second
+                logToResult('⏳ Step 4: Waiting 1 second...', 'step');
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Step 5: Combine data
+                logToResult('📝 Step 5: Combining data...', 'step');
+                logToResult(`📋 ${user.name} wrote: "${post.title}"`, 'success');
+                logToResult('🎉 Async demo complete!', 'success');
+
+            } catch (error) {
+                logToResult(`❌ Error: ${error.message}`, 'error');
+                console.error("Error:", error);
+            }
+        }
+
+        async function runParallelDemo() {
+            let area = document.getElementById("resultArea");
+            area.innerHTML = '<div class="loading">⏳ Starting parallel requests...</div>';
+
+            try {
+                // Start all requests at the same time
+                logToResult('📡 Fetching 3 posts simultaneously...', 'step');
+                let startTime = Date.now();
+
+                let [post1, post2, post3] = await Promise.all([
+                    fetch("https://jsonplaceholder.typicode.com/posts/1").then(r => r.json()),
+                    fetch("https://jsonplaceholder.typicode.com/posts/2").then(r => r.json()),
+                    fetch("https://jsonplaceholder.typicode.com/posts/3").then(r => r.json())
+                ]);
+
+                let endTime = Date.now();
+                let duration = (endTime - startTime) / 1000;
+
+                logToResult(`✅ All 3 posts fetched in ${duration} seconds!`, 'success');
+                logToResult(`📋 Post 1: ${post1.title}`, 'success');
+                logToResult(`📋 Post 2: ${post2.title}`, 'success');
+                logToResult(`📋 Post 3: ${post3.title}`, 'success');
+
+                if (duration < 1.5) {
+                    logToResult('⚡ Fast! Parallel requests are efficient.', 'success');
+                }
+
+                logToResult('🎉 Parallel demo complete!', 'success');
+
+            } catch (error) {
+                logToResult(`❌ Error: ${error.message}`, 'error');
+                console.error("Error:", error);
+            }
+        }
+
+        // Auto-run demo on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                runAsyncDemo();
+            }, 500);
+        });
+    </script>
+
+    <script src="./scripts/level58.js"></script>
+</body>
+
+</html>

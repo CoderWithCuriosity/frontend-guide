@@ -175,6 +175,113 @@ const QUIZ_QUESTIONS = [
     correct: 0,
     explanation:
       "b stores the value of a at the time of assignment (1). Changing a later doesn't affect b because primitive values are copied by value."
+  },
+  {
+    id: 11,
+    question: "Which of the following is a valid JavaScript variable name?",
+    options: ["A) 1name", "B) first-name", "C) firstName", "D) first name"],
+    correct: 2,
+    explanation:
+      "Variable names cannot start with a number, contain spaces, or use hyphens. 'firstName' is valid."
+  },
+  {
+    id: 12,
+    question: "What character can a JavaScript variable name start with?",
+    options: [
+      "A) A number",
+      "B) A hyphen (-)",
+      "C) A letter, underscore (_), or dollar sign ($)",
+      "D) A space"
+    ],
+    correct: 2,
+    explanation:
+      "JavaScript variable names must start with a letter, underscore (_), or dollar sign ($)."
+  },
+  {
+    id: 13,
+    question: "Which variable declaration is INVALID?",
+    options: [
+      "A) let userName;",
+      "B) let _count;",
+      "C) let $price;",
+      "D) let 2users;"
+    ],
+    correct: 3,
+    explanation:
+      "Variable names cannot begin with a number. '2users' is invalid."
+  },
+  {
+    id: 14,
+    question: "Are JavaScript variable names case-sensitive?",
+    options: ["A) Yes", "B) No", "C) Only with const", "D) Only with let"],
+    correct: 0,
+    explanation:
+      "JavaScript variable names are case-sensitive. 'userName' and 'username' are different variables."
+  },
+  {
+    id: 15,
+    question:
+      "Which of the following variable names follows common JavaScript naming conventions?",
+    options: ["A) user_name", "B) UserName", "C) userName", "D) USERNAME"],
+    correct: 2,
+    explanation:
+      "JavaScript commonly uses camelCase for variable names, such as 'userName'."
+  },
+  {
+    id: 16,
+    question:
+      "What happens if you use a JavaScript reserved keyword as a variable name?",
+    options: [
+      "A) It works normally",
+      "B) It becomes undefined",
+      "C) It causes a SyntaxError",
+      "D) JavaScript automatically renames it"
+    ],
+    correct: 2,
+    explanation:
+      "Reserved keywords such as 'let', 'const', 'if', and 'for' cannot be used as variable names."
+  },
+  {
+    id: 17,
+    question: "Which of the following is NOT a valid variable name?",
+    options: ["A) user123", "B) _user", "C) $user", "D) user-name"],
+    correct: 3,
+    explanation:
+      "Hyphens are not allowed in variable names because JavaScript treats '-' as the subtraction operator."
+  },
+  {
+    id: 18,
+    question: "Which declaration will cause an error?",
+    options: [
+      "A) let userName = 'John';",
+      "B) let user_name = 'John';",
+      "C) let first name = 'John';",
+      "D) let $name = 'John';"
+    ],
+    correct: 2,
+    explanation:
+      "Variable names cannot contain spaces. 'first name' is invalid."
+  },
+  {
+    id: 19,
+    question: "Which variable name starts with an allowed special character?",
+    options: ["A) @price", "B) #price", "C) $price", "D) &price"],
+    correct: 2,
+    explanation:
+      "The dollar sign ($) is allowed at the beginning of JavaScript variable names."
+  },
+  {
+    id: 20,
+    question: "Which statement about JavaScript variable names is TRUE?",
+    options: [
+      "A) They can start with numbers",
+      "B) They can contain spaces",
+      "C) They can use reserved keywords",
+      "D) They are case-sensitive"
+    ],
+    correct: 3,
+    explanation:
+      "JavaScript variable names are case-sensitive. Numbers cannot be the first character, spaces are not allowed, and reserved keywords cannot be used."
   }
 ];
 

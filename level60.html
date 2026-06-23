@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 60: setTimeout and setInterval</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #15151f;
+            --bg-base-2: #1b1b29;
+            --bg-panel: #1e1e2e;
+            --bg-panel-alt: #23233a;
+            --bg-elevated: #272741;
+            --border: #34344f;
+            --border-soft: #2a2a40;
+            --text-primary: #e9e9f5;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6c6c8c;
+            --accent-html: #f3a072;
+            --accent-css: #7ec8e3;
+            --accent-js: #f0c674;
+            --accent-sql: #8ec07c;
+            --accent-react: #6fd3e0;
+            --accent-php: #b58aef;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                var(--bg-base);
+            min-height: 100vh;
+            padding: 32px 20px 60px;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent-js);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-css);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .terminal-window {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 18px;
+            background: var(--bg-base-2);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .terminal-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .terminal-dots span:nth-child(1) {
+            background: #ec6a5e;
+        }
+
+        .terminal-dots span:nth-child(2) {
+            background: #f4bf4f;
+        }
+
+        .terminal-dots span:nth-child(3) {
+            background: #61c454;
+        }
+
+        .terminal-tab {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            background: var(--bg-panel-alt);
+            border-radius: 5px;
+        }
+
+        .terminal-body {
+            padding: 40px 44px 36px;
+        }
+
+        .terminal-comment {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+        }
+
+        .cursor {
+            display: inline-block;
+            color: var(--accent-js);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 26px;
+        }
+
+        .chip-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--chip-c, var(--border));
+            color: var(--chip-c, var(--text-secondary));
+            background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
+        }
+
+        .chip.js {
+            --chip-c: var(--accent-js);
+        }
+
+        .chip.level {
+            --chip-c: var(--accent-sql);
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin: 24px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        h3 {
+            font-family: var(--font-mono);
+            font-size: 1.02rem;
+            color: var(--text-primary);
+            margin: 18px 0 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .demo-area {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: 16px 0;
+        }
+
+        .demo-area .form-group {
+            margin-bottom: 12px;
+        }
+
+        .demo-area label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .demo-area input {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .demo-area input:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+
+        .demo-area .timer-display {
+            font-family: var(--font-mono);
+            font-size: 3rem;
+            color: var(--accent-js);
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-base-2);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-soft);
+            margin: 12px 0;
+        }
+
+        .demo-area .timer-display .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .demo-area .status-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            min-height: 40px;
+            margin-top: 12px;
+        }
+
+        .demo-area .status-area .success {
+            color: var(--accent-sql);
+        }
+
+        .demo-area .status-area .error {
+            color: var(--accent-html);
+        }
+
+        .demo-area .status-area .info {
+            color: var(--accent-css);
+        }
+
+        .btn-demo {
+            background: var(--accent-sql);
+            color: #0e1410;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin: 4px 4px 4px 0;
+        }
+
+        .btn-demo:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo.danger {
+            background: var(--accent-html);
+        }
+
+        .btn-demo.reset {
+            background: var(--accent-js);
+            color: #1a1a1a;
+        }
+
+        .btn-demo.info {
+            background: var(--accent-css);
+            color: #1a1a1a;
+        }
+
+        .btn-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .console-output {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .console-output .log {
+            color: var(--accent-js);
+            margin-bottom: 4px;
+        }
+
+        .console-output .comment {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .console-output .arrow {
+            color: var(--accent-sql);
+            margin-right: 8px;
+        }
+
+        .console-output .keyword {
+            color: var(--accent-css);
+        }
+
+        .console-output .value {
+            color: var(--accent-html);
+        }
+
+        .console-output .output {
+            color: var(--accent-sql);
+        }
+
+        .info-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-js);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .info-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-js);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .info-box li strong {
+            color: var(--text-primary);
+        }
+
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .syntax-box {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin: 16px 0;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .syntax-box .keyword {
+            color: var(--accent-css);
+        }
+
+        .syntax-box .value {
+            color: var(--accent-html);
+        }
+
+        .syntax-box .comment {
+            color: var(--text-muted);
+        }
+
+        .quiz-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(142, 192, 124, 0.15);
+            color: var(--accent-sql);
+        }
+
+        .nav-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            text-align: center;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-sql);
+            color: #0e1410;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+
+            .terminal-body {
+                padding: 24px 20px 28px;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .nav-row {
+                flex-direction: column;
+            }
+
+            .nav-row .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-tab">level60.js</div>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-comment">// Level 60: setTimeout and setInterval</p>
+                <h1 class="hero-title">
+                    <span id="typedTitle">setTimeout &amp; setInterval</span><span class="cursor">_</span>
+                </h1>
+                <p class="hero-sub">
+                    Learn how to schedule code execution with setTimeout and setInterval.
+                    Run code after a delay or repeatedly at intervals.
+                </p>
+                <div class="chip-row">
+                    <span class="chip js">JavaScript</span>
+                    <span class="chip level">Level 60</span>
+                    <span class="chip js">Quiz Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h1>setTimeout and setInterval</h1>
+            <p>
+                setTimeout and setInterval are used to schedule code execution.
+                setTimeout runs once after a delay, setInterval runs repeatedly.
+            </p>
+
+            <h2>Try It Yourself</h2>
+
+            <div class="demo-area">
+                <div class="form-group">
+                    <label for="delayInput">Delay (milliseconds)</label>
+                    <input type="number" id="delayInput" placeholder="Enter delay in ms" value="1000">
+                </div>
+
+                <div class="timer-display" id="timerDisplay">
+                    <span class="label">Timer</span>
+                    <span id="timerValue">0</span>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-demo" onclick="startTimeout()">⏰ setTimeout</button>
+                    <button class="btn-demo info" onclick="startInterval()">🔄 setInterval</button>
+                    <button class="btn-demo danger" onclick="stopInterval()">⏹️ Stop Interval</button>
+                    <button class="btn-demo reset" onclick="resetTimer()">🧹 Reset</button>
+                </div>
+
+                <div class="status-area" id="statusArea">
+                    <div class="info">// Click a button to start</div>
+                </div>
+            </div>
+
+            <h2>Syntax</h2>
+
+            <div class="syntax-box">
+                <span class="comment">// setTimeout - runs once after delay</span><br>
+                <span class="keyword">setTimeout</span>(() => {<br>
+                &nbsp;&nbsp;console.<span class="keyword">log</span>(<span class="value">"Runs after 1
+                    second"</span>);<br>
+                }, <span class="value">1000</span>);<br>
+                <br>
+                <span class="comment">// setInterval - runs repeatedly</span><br>
+                <span class="keyword">setInterval</span>(() => {<br>
+                &nbsp;&nbsp;console.<span class="keyword">log</span>(<span class="value">"Runs every
+                    second"</span>);<br>
+                }, <span class="value">1000</span>);<br>
+                <br>
+                <span class="comment">// Clear interval</span><br>
+                <span class="keyword">clearInterval</span>(intervalId);<br>
+                <span class="keyword">clearTimeout</span>(timeoutId);
+            </div>
+
+            <h2>Console Output</h2>
+
+            <div class="console-output">
+                <div class="comment">// setTimeout Example</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">setTimeout</span>(() => {</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
+                        class="value">"Delayed message"</span>);</div>
+                <div><span class="arrow">&gt;</span> }, <span class="value">2000</span>);</div>
+                <div class="output"> (after 2 seconds) "Delayed message"</div>
+                <br>
+                <div class="comment">// setInterval Example</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> count = 0;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> interval = <span
+                        class="keyword">setInterval</span>(() => {</div>
+                <div><span class="arrow">&gt;</span> count++;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
+                        class="value">"Count:"</span>, count);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (count === 5) {</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">clearInterval</span>(interval);</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <div><span class="arrow">&gt;</span> }, <span class="value">1000</span>);</div>
+                <br>
+                <div class="output"> Count: 1</div>
+                <div class="output"> Count: 2</div>
+                <div class="output"> Count: 3</div>
+                <div class="output"> Count: 4</div>
+                <div class="output"> Count: 5</div>
+            </div>
+
+            <div class="info-box">
+                <h4>Key Takeaways</h4>
+                <ul>
+                    <li><strong>setTimeout()</strong> - Runs code once after a delay (in milliseconds)</li>
+                    <li><strong>setInterval()</strong> - Runs code repeatedly at intervals</li>
+                    <li><strong>clearTimeout()</strong> - Cancels a scheduled timeout</li>
+                    <li><strong>clearInterval()</strong> - Stops an interval</li>
+                    <li><strong>Return value</strong> - Both return an ID that can be used to cancel</li>
+                    <li><strong>Milliseconds</strong> - 1000ms = 1 second</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Practice setTimeout and setInterval by doing the following:</p>
+                <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <li><strong>setTimeout Delay:</strong> Use <code>setTimeout()</code> to log "Hello after 3 seconds!"
+                        to the console after a 3-second delay. Syntax:
+                        <code>setTimeout(function() { console.log("Hello after 3 seconds!"); }, 3000)</code>. The time
+                        is in milliseconds (3000ms = 3 seconds)</li>
+                    <li><strong>setInterval Counter:</strong> Use <code>setInterval()</code> to create a counter that
+                        starts at 1 and counts up to 10. Create a variable <code>count = 1</code> and use
+                        <code>setInterval</code> to log the current count and increment it each time. Stop the interval
+                        when count reaches 10 using <code>clearInterval()</code></li>
+                    <li><strong>Stop Interval After 5 Seconds:</strong> Start a <code>setInterval</code> that logs
+                        "Tick!" every second. Use <code>setTimeout</code> to stop the interval after exactly 5 seconds
+                        using <code>clearInterval()</code>. This shows how to stop an interval from outside</li>
+                    <li><strong>Countdown Timer:</strong> Create a countdown timer that starts from 10 and counts down
+                        to 0. Use <code>setInterval</code> to decrement the counter each second. When it reaches 0, log
+                        "Blast off!" and clear the interval. Display each number in the console as it counts down</li>
+                    <li><strong>Combine setTimeout and setInterval:</strong> Start a <code>setInterval</code> that logs
+                        "Still running..." every 2 seconds. But also use <code>setTimeout</code> to wait 6 seconds, then
+                        log "6 seconds passed! Now stopping..." and <code>clearInterval</code> to stop the interval.
+                        This combines both timing methods</li>
+                </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint:
+                    <code>setTimeout(callback, milliseconds)</code> runs once after the delay.
+                    <code>setInterval(callback, milliseconds)</code> runs repeatedly every interval. Both return an ID
+                    that you can use with <code>clearTimeout()</code> or <code>clearInterval()</code> to stop them.
+                    Remember: 1000ms = 1 second. Use <code>clearInterval()</code> inside your interval when you want it
+                    to stop automatically!</p>
+            </div>
+
+            <div class="quiz-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Pass the 10-question quiz to unlock Level 61
+            </div>
+
+            <div class="nav-row">
+                <a href="level59.html" class="btn btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    Previous Level
+                </a>
+                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    Take Quiz
+                </a>
+                <a href="level61.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
+                    Next Level
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // TIMER DEMO FUNCTIONS
+        // ============================================
+
+        let timerValue = 0;
+        let intervalId = null;
+        let timeoutId = null;
+        let isRunning = false;
+
+        function updateTimerDisplay(value) {
+            document.getElementById("timerValue").textContent = value;
+        }
+
+        function setStatus(message, type) {
+            let area = document.getElementById("statusArea");
+            let className = type || "info";
+            area.innerHTML = `<div class="${className}">${message}</div>`;
+        }
+
+        function resetTimer() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
+            }
+            timerValue = 0;
+            isRunning = false;
+            updateTimerDisplay(0);
+            setStatus("🧹 Timer reset", "info");
+            document.getElementById("timerValue").style.color = "#f0c674";
+        }
+
+        function startTimeout() {
+            resetTimer();
+
+            let delay = parseInt(document.getElementById("delayInput").value) || 1000;
+
+            if (delay < 100) {
+                setStatus("⚠️ Delay must be at least 100ms", "error");
+                return;
+            }
+
+            setStatus(`⏳ Starting timeout for ${delay}ms...`, "info");
+            document.getElementById("timerValue").style.color = "#7ec8e3";
+
+            // Animate the timer
+            let startTime = Date.now();
+            let interval = setInterval(() => {
+                let elapsed = Date.now() - startTime;
+                let remaining = Math.max(0, delay - elapsed);
+                updateTimerDisplay(Math.ceil(remaining / 100) / 10);
+
+                if (remaining <= 0) {
+                    clearInterval(interval);
+                }
+            }, 50);
+
+            timeoutId = setTimeout(() => {
+                clearInterval(interval);
+                timerValue = 0;
+                updateTimerDisplay("Done!");
+                document.getElementById("timerValue").style.color = "#8ec07c";
+                setStatus("✅ Timeout completed! Code executed after " + delay + "ms", "success");
+                console.log("Timeout executed after", delay, "ms");
+                timeoutId = null;
+            }, delay);
+        }
+
+        function startInterval() {
+            resetTimer();
+
+            let delay = parseInt(document.getElementById("delayInput").value) || 1000;
+
+            if (delay < 100) {
+                setStatus("⚠️ Delay must be at least 100ms", "error");
+                return;
+            }
+
+            timerValue = 0;
+            isRunning = true;
+            document.getElementById("timerValue").style.color = "#f0c674";
+            setStatus(`🔄 Starting interval every ${delay}ms... (Click "Stop Interval" to stop)`, "info");
+
+            intervalId = setInterval(() => {
+                timerValue++;
+                updateTimerDisplay(timerValue);
+                console.log("Interval count:", timerValue);
+
+                if (timerValue % 5 === 0) {
+                    setStatus(`📊 Count: ${timerValue} (every 5th tick)`, "info");
+                }
+            }, delay);
+        }
+
+        function stopInterval() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+                isRunning = false;
+                setStatus(`⏹️ Interval stopped at count: ${timerValue}`, "success");
+                document.getElementById("timerValue").style.color = "#f3a072";
+                console.log("Interval stopped at count:", timerValue);
+            } else {
+                setStatus("⚠️ No interval is currently running", "error");
+            }
+        }
+
+        // Auto-start demo
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                setStatus("💡 Click 'setTimeout' or 'setInterval' to start", "info");
+            }, 500);
+        });
+    </script>
+
+    <script src="./scripts/level60.js"></script>
+</body>
+
+</html>

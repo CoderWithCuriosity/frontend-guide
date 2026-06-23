@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 34: Basic Math Operations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -43,9 +46,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -99,18 +102,22 @@
             display: flex;
             gap: 7px;
         }
+
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
+
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
+
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
+
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -149,6 +156,7 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
+
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -178,9 +186,11 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
+
         .chip.js {
             --chip-c: var(--accent-js);
         }
+
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -269,11 +279,25 @@
             margin-top: 5px;
         }
 
-        .math-card.addition { --card-color: #e74c3c; }
-        .math-card.subtraction { --card-color: #3498db; }
-        .math-card.multiplication { --card-color: #2ecc71; }
-        .math-card.division { --card-color: #f39c12; }
-        .math-card.modulus { --card-color: #9b59b6; }
+        .math-card.addition {
+            --card-color: #e74c3c;
+        }
+
+        .math-card.subtraction {
+            --card-color: #3498db;
+        }
+
+        .math-card.multiplication {
+            --card-color: #2ecc71;
+        }
+
+        .math-card.division {
+            --card-color: #f39c12;
+        }
+
+        .math-card.modulus {
+            --card-color: #9b59b6;
+        }
 
         .console-output {
             background: var(--bg-base-2);
@@ -336,10 +360,12 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
+
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
+
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -436,6 +462,7 @@
             color: #0e1410;
             font-weight: 600;
         }
+
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -446,6 +473,7 @@
             color: #1a1a1a;
             font-weight: 600;
         }
+
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -456,6 +484,7 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
+
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -474,27 +503,35 @@
             body {
                 padding: 16px 12px 40px;
             }
+
             .terminal-body {
                 padding: 24px 20px 28px;
             }
+
             .panel {
                 padding: 20px;
             }
+
             .math-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .math-card.modulus {
                 width: 100%;
             }
+
             .nav-row {
                 flex-direction: column;
             }
+
             .nav-row .btn {
                 width: 100%;
             }
+
             .operator-table {
                 font-size: 0.85rem;
             }
+
             .operator-table th,
             .operator-table td {
                 padding: 8px 10px;
@@ -508,6 +545,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -548,28 +586,28 @@
                     <div class="result">= 8</div>
                     <div class="description">Addition</div>
                 </div>
-                
+
                 <div class="math-card subtraction">
                     <div class="operator">-</div>
                     <div class="operation">10 - 4</div>
                     <div class="result">= 6</div>
                     <div class="description">Subtraction</div>
                 </div>
-                
+
                 <div class="math-card multiplication">
                     <div class="operator">*</div>
                     <div class="operation">6 × 7</div>
                     <div class="result">= 42</div>
                     <div class="description">Multiplication</div>
                 </div>
-                
+
                 <div class="math-card division">
                     <div class="operator">/</div>
                     <div class="operation">15 ÷ 3</div>
                     <div class="result">= 5</div>
                     <div class="description">Division</div>
                 </div>
-                
+
                 <div class="math-card modulus">
                     <div class="operator">%</div>
                     <div class="operation">10 % 3</div>
@@ -655,41 +693,54 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. math operations:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Practice math operations by doing the following:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Calculate the area of a rectangle: <code>length * width</code></li>
-                    <li>Calculate the average of three numbers</li>
-                    <li>Use modulus to check if a number is even: <code>num % 2 === 0</code></li>
-                    <li>Combine multiple operations: <code>(a + b) * c</code></li>
-                    <li>Try incrementing and decrementing variables</li>
+                    <li><strong>Rectangle Area:</strong> Create two variables <code>length</code> and
+                        <code>width</code>, then multiply them to find the area</li>
+                    <li><strong>Average:</strong> Create three number variables and add them together, then divide by 3
+                        to find the average</li>
+                    <li><strong>Even or Odd:</strong> Create a variable <code>num</code> and use
+                        <code style="font-family: monospace;">num % 2 === 0</code> to check if it's even</li>
+                    <li><strong>Combined Operations:</strong> Create variables <code>a</code>, <code>b</code>, and
+                        <code>c</code>, then calculate <code>(a + b) * c</code></li>
+                    <li><strong>Increment/Decrement:</strong> Create a variable and use <code>++</code> to increase it
+                        by 1 and <code>--</code> to decrease it by 1</li>
                 </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Use
+                    <code>console.log()</code> to see your results in the console!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                 </svg>
                 Pass the 10-question quiz to unlock Level 35
             </div>
 
             <div class="nav-row">
                 <a href="level33.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level35.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                <a href="level35.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
                     </svg>
                 </a>
             </div>
@@ -698,4 +749,5 @@
 
     <script src="./scripts/level34.js"></script>
 </body>
+
 </html>

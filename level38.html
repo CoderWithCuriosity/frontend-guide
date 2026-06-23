@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 38: Logical Operators</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -43,9 +46,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -99,18 +102,22 @@
             display: flex;
             gap: 7px;
         }
+
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
+
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
+
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
+
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -149,6 +156,7 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
+
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -178,9 +186,11 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
+
         .chip.js {
             --chip-c: var(--accent-js);
         }
+
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -271,9 +281,17 @@
             font-family: var(--font-mono);
         }
 
-        .logic-card.and { --card-color: var(--accent-sql); }
-        .logic-card.or { --card-color: var(--accent-css); }
-        .logic-card.not { --card-color: var(--accent-js); }
+        .logic-card.and {
+            --card-color: var(--accent-sql);
+        }
+
+        .logic-card.or {
+            --card-color: var(--accent-css);
+        }
+
+        .logic-card.not {
+            --card-color: var(--accent-js);
+        }
 
         .console-output {
             background: var(--bg-base-2);
@@ -370,10 +388,12 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
+
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
+
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -439,6 +459,7 @@
             color: #0e1410;
             font-weight: 600;
         }
+
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -449,6 +470,7 @@
             color: #1a1a1a;
             font-weight: 600;
         }
+
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -459,6 +481,7 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
+
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -477,24 +500,31 @@
             body {
                 padding: 16px 12px 40px;
             }
+
             .terminal-body {
                 padding: 24px 20px 28px;
             }
+
             .panel {
                 padding: 20px;
             }
+
             .logic-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .nav-row {
                 flex-direction: column;
             }
+
             .nav-row .btn {
                 width: 100%;
             }
+
             .truth-table {
                 font-size: 0.8rem;
             }
+
             .truth-table th,
             .truth-table td {
                 padding: 8px 10px;
@@ -508,6 +538,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -548,14 +579,14 @@
                     <div class="example">true &amp;&amp; true</div>
                     <div class="result">true</div>
                 </div>
-                
+
                 <div class="logic-card or">
                     <div class="operator">||</div>
                     <div class="description">OR</div>
                     <div class="example">true || false</div>
                     <div class="result">true</div>
                 </div>
-                
+
                 <div class="logic-card not">
                     <div class="operator">!</div>
                     <div class="description">NOT</div>
@@ -615,80 +646,110 @@
                 <div><span class="arrow">&gt;</span> let a = true;</div>
                 <div><span class="arrow">&gt;</span> let b = false;</div>
                 <br>
-                <div><span class="arrow">&gt;</span> a &amp;&amp; b  <span class="operator-highlight">// AND</span></div>
-                <div class="false">  false</div>
-                <div><span class="arrow">&gt;</span> a || b  <span class="operator-highlight">// OR</span></div>
-                <div class="true">  true</div>
-                <div><span class="arrow">&gt;</span> !a      <span class="operator-highlight">// NOT</span></div>
-                <div class="false">  false</div>
+                <div><span class="arrow">&gt;</span> a &amp;&amp; b <span class="operator-highlight">// AND</span></div>
+                <div class="false"> false</div>
+                <div><span class="arrow">&gt;</span> a || b <span class="operator-highlight">// OR</span></div>
+                <div class="true"> true</div>
+                <div><span class="arrow">&gt;</span> !a <span class="operator-highlight">// NOT</span></div>
+                <div class="false"> false</div>
                 <br>
                 <div class="comment">// With comparisons</div>
                 <div><span class="arrow">&gt;</span> let age = 25;</div>
                 <div><span class="arrow">&gt;</span> let hasLicense = true;</div>
                 <br>
                 <div><span class="arrow">&gt;</span> age >= 18 &amp;&amp; hasLicense</div>
-                <div class="true">  true</div>
-                <div><span class="arrow">&gt;</span> age < 18 || age > 65</div>
-                <div class="false">  false</div>
+                <div class="true"> true</div>
+                <div><span class="arrow">&gt;</span> age < 18 || age> 65</div>
+                <div class="false"> false</div>
                 <div><span class="arrow">&gt;</span> !(age < 18)</div>
-                <div class="true">  true</div>
-            </div>
+                        <div class="true"> true</div>
+                </div>
 
-            <div class="info-box">
-                <h4>Key Takeaways</h4>
-                <ul>
-                    <li><strong>&amp;&amp; (AND)</strong> - Returns true only if <strong>both</strong> conditions are true</li>
-                    <li><strong>|| (OR)</strong> - Returns true if <strong>at least one</strong> condition is true</li>
-                    <li><strong>! (NOT)</strong> - Reverses the boolean value</li>
-                    <li>AND has higher precedence than OR</li>
-                    <li>Use parentheses to control evaluation order: <code>(a &amp;&amp; b) || c</code></li>
-                    <li>Logical operators are often used with comparison operators</li>
-                </ul>
-            </div>
+                <div class="info-box">
+                    <h4>Key Takeaways</h4>
+                    <ul>
+                        <li><strong>&amp;&amp; (AND)</strong> - Returns true only if <strong>both</strong> conditions
+                            are true</li>
+                        <li><strong>|| (OR)</strong> - Returns true if <strong>at least one</strong> condition is true
+                        </li>
+                        <li><strong>! (NOT)</strong> - Reverses the boolean value</li>
+                        <li>AND has higher precedence than OR</li>
+                        <li>Use parentheses to control evaluation order: <code>(a &amp;&amp; b) || c</code></li>
+                        <li>Logical operators are often used with comparison operators</li>
+                    </ul>
+                </div>
 
-            <div class="challenge-box">
-                <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. logical operators:</p>
-                <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Use &amp;&amp; to check if a number is between 10 and 20</li>
-                    <li>Use || to check if a number is less than 10 or greater than 20</li>
-                    <li>Use ! to check if a value is not null</li>
-                    <li>Combine multiple logical operators</li>
-                    <li>Create complex if statements with logical operators</li>
-                </ul>
-            </div>
+                <div class="challenge-box">
+                    <h4>Your Challenge</h4>
+                    <p>Create a new file named <code>level[level].html</code>. Inside it, add a
+                        <code>&lt;script&gt;</code> tag and place your solution for this level within the script.
+                    </p>
+                    <p>Practice logical operators by doing the following:</p>
+                    <ul style="margin-left: 20px; color: var(--text-secondary);">
+                        <style>
+                            code {
+                                font-family: monospace;
+                            }
+                        </style>
+                        <li><strong>AND Operator (&amp;&amp;):</strong> Create a variable <code>num</code> and check if
+                            it's between 10 and 20 using <code>num &gt;= 10 &amp;&amp; num &lt;= 20</code></li>
+                        <li><strong>OR Operator (||):</strong> With the same <code>num</code>, check if it's less than
+                            10 OR greater than 20 using <code>num &lt; 10 || num &gt; 20</code></li>
+                        <li><strong>NOT Operator (!):</strong> Create a variable <code>value</code> and use
+                            <code>!</code> to check if it's NOT null (like <code>value !== null</code> or just
+                            <code>!value</code>)
+                        </li>
+                        <li><strong>Combine Multiple:</strong> Create variables like <code>age</code>,
+                            <code>hasLicense</code>, and <code>isStudent</code>, then combine operators:
+                            <code>(age &gt;= 18 &amp;&amp; hasLicense) || isStudent</code>
+                        </li>
+                        <li><strong>Complex If Statements:</strong> Write an <code>if</code> statement with multiple
+                            conditions like checking if someone can get a discount:
+                            <code>if (age &lt; 12 || age &gt;= 65 || isStudent)</code>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Use
+                        <code>console.log()</code> to see if your conditions return true or false!
+                    </p>
+                </div>
 
-            <div class="quiz-status">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                Pass the 10-question quiz to unlock Level 39
-            </div>
-
-            <div class="nav-row">
-                <a href="level37.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6"/>
+                <div class="quiz-status">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
                     </svg>
-                    Previous Level
-                </a>
-                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                    Take Quiz
-                </a>
-                <a href="level39.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
-                    Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"/>
-                    </svg>
-                </a>
+                    Pass the 10-question quiz to unlock Level 39
+                </div>
+
+                <div class="nav-row">
+                    <a href="level37.html" class="btn btn-ghost">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                        Previous Level
+                    </a>
+                    <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        Take Quiz
+                    </a>
+                    <a href="level39.html" class="btn btn-secondary" id="nextLevelBtn"
+                        style="opacity:0.5;pointer-events:none;">
+                        Next Level
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="./scripts/level38.js"></script>
+        <script src="./scripts/level38.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 49: DOM Manipulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #15151f;
+            --bg-base-2: #1b1b29;
+            --bg-panel: #1e1e2e;
+            --bg-panel-alt: #23233a;
+            --bg-elevated: #272741;
+            --border: #34344f;
+            --border-soft: #2a2a40;
+            --text-primary: #e9e9f5;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6c6c8c;
+            --accent-html: #f3a072;
+            --accent-css: #7ec8e3;
+            --accent-js: #f0c674;
+            --accent-sql: #8ec07c;
+            --accent-react: #6fd3e0;
+            --accent-php: #b58aef;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                var(--bg-base);
+            min-height: 100vh;
+            padding: 32px 20px 60px;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent-js);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-css);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .terminal-window {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 18px;
+            background: var(--bg-base-2);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .terminal-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .terminal-dots span:nth-child(1) {
+            background: #ec6a5e;
+        }
+
+        .terminal-dots span:nth-child(2) {
+            background: #f4bf4f;
+        }
+
+        .terminal-dots span:nth-child(3) {
+            background: #61c454;
+        }
+
+        .terminal-tab {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            background: var(--bg-panel-alt);
+            border-radius: 5px;
+        }
+
+        .terminal-body {
+            padding: 40px 44px 36px;
+        }
+
+        .terminal-comment {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+        }
+
+        .cursor {
+            display: inline-block;
+            color: var(--accent-js);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 26px;
+        }
+
+        .chip-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--chip-c, var(--border));
+            color: var(--chip-c, var(--text-secondary));
+            background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
+        }
+
+        .chip.js {
+            --chip-c: var(--accent-js);
+        }
+
+        .chip.level {
+            --chip-c: var(--accent-sql);
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin: 24px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        h3 {
+            font-family: var(--font-mono);
+            font-size: 1.02rem;
+            color: var(--text-primary);
+            margin: 18px 0 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .method-card {
+            background: var(--bg-panel-alt);
+            border: 2px solid var(--card-color);
+            border-radius: var(--radius-md);
+            padding: 20px 16px;
+            text-align: center;
+            transition: all 0.15s ease;
+        }
+
+        .method-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .method-card .title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--card-color);
+            font-size: 1rem;
+        }
+
+        .method-card .description {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin: 8px 0;
+        }
+
+        .method-card .example {
+            font-family: var(--font-mono);
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            margin: 5px 0;
+        }
+
+        .method-card.text {
+            --card-color: var(--accent-sql);
+        }
+
+        .method-card.style {
+            --card-color: var(--accent-css);
+        }
+
+        .method-card.attribute {
+            --card-color: var(--accent-js);
+        }
+
+        .demo-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .demo-box #demoText {
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .demo-box .demo-item {
+            padding: 6px 12px;
+            margin: 4px 0;
+            border-radius: 4px;
+            background: var(--bg-base-2);
+        }
+
+        .console-output {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .console-output .log {
+            color: var(--accent-js);
+            margin-bottom: 4px;
+        }
+
+        .console-output .comment {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .console-output .arrow {
+            color: var(--accent-sql);
+            margin-right: 8px;
+        }
+
+        .console-output .property {
+            color: var(--accent-css);
+        }
+
+        .console-output .value {
+            color: var(--accent-html);
+        }
+
+        .console-output .output {
+            color: var(--accent-sql);
+        }
+
+        .info-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-js);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .info-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-js);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .info-box li strong {
+            color: var(--text-primary);
+        }
+
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .syntax-box {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin: 16px 0;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .syntax-box .keyword {
+            color: var(--accent-css);
+        }
+
+        .syntax-box .property {
+            color: var(--accent-html);
+        }
+
+        .syntax-box .comment {
+            color: var(--text-muted);
+        }
+
+        .btn-demo {
+            background: var(--accent-sql);
+            color: #0e1410;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin: 4px;
+        }
+
+        .btn-demo:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo.danger {
+            background: var(--accent-html);
+        }
+
+        .btn-demo.reset {
+            background: var(--accent-js);
+            color: #1a1a1a;
+        }
+
+        .quiz-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(142, 192, 124, 0.15);
+            color: var(--accent-sql);
+        }
+
+        .nav-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            text-align: center;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-sql);
+            color: #0e1410;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+
+            .terminal-body {
+                padding: 24px 20px 28px;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-row {
+                flex-direction: column;
+            }
+
+            .nav-row .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-tab">level49.js</div>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-comment">// Level 49: DOM Manipulation</p>
+                <h1 class="hero-title">
+                    <span id="typedTitle">DOM Manipulation</span><span class="cursor">_</span>
+                </h1>
+                <p class="hero-sub">
+                    Learn how to change HTML elements using JavaScript.
+                    DOM manipulation lets you update content, styles, and attributes.
+                </p>
+                <div class="chip-row">
+                    <span class="chip js">JavaScript</span>
+                    <span class="chip level">Level 49</span>
+                    <span class="chip js">Quiz Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h1>DOM Manipulation</h1>
+            <p>
+                DOM manipulation allows you to change HTML elements dynamically.
+                You can change text content, styles, attributes, and more.
+            </p>
+
+            <div class="method-grid">
+                <div class="method-card text">
+                    <div class="title">textContent</div>
+                    <div class="description">Change text content</div>
+                    <div class="example">element.textContent = "New text"</div>
+                </div>
+
+                <div class="method-card style">
+                    <div class="title">style</div>
+                    <div class="description">Change CSS styles</div>
+                    <div class="example">element.style.color = "red"</div>
+                </div>
+
+                <div class="method-card attribute">
+                    <div class="title">setAttribute</div>
+                    <div class="description">Change attributes</div>
+                    <div class="example">element.setAttribute("id", "newId")</div>
+                </div>
+            </div>
+
+            <h2>Demo: Try It Yourself</h2>
+
+            <div class="demo-box">
+                <h3 id="demoText">This text will change</h3>
+                <p class="demo-item" id="item1">Item 1</p>
+                <p class="demo-item" id="item2">Item 2</p>
+                <p class="demo-item" id="item3">Item 3</p>
+
+                <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-demo" onclick="changeText()">Change Text</button>
+                    <button class="btn-demo" onclick="changeStyle()">Change Style</button>
+                    <button class="btn-demo" onclick="changeAttribute()">Change Attribute</button>
+                    <button class="btn-demo reset" onclick="resetAll()">Reset All</button>
+                </div>
+            </div>
+
+            <h2>Console Output</h2>
+
+            <div class="console-output">
+                <div class="comment">// DOM Manipulation Examples</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> element = document.<span
+                        class="property">getElementById</span>(<span class="value">"demoText"</span>);</div>
+                <br>
+                <div class="comment">// Change text content</div>
+                <div><span class="arrow">&gt;</span> element.<span class="property">textContent</span> = <span
+                        class="value">"New text content!"</span>;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="property">log</span>(element.<span
+                        class="property">textContent</span>);</div>
+                <div class="output"> "New text content!"</div>
+                <br>
+                <div class="comment">// Change style</div>
+                <div><span class="arrow">&gt;</span> element.<span class="property">style</span>.<span
+                        class="property">color</span> = <span class="value">"#f0c674"</span>;</div>
+                <div><span class="arrow">&gt;</span> element.<span class="property">style</span>.<span
+                        class="property">fontSize</span> = <span class="value">"1.5rem"</span>;</div>
+                <br>
+                <div class="comment">// Change attribute</div>
+                <div><span class="arrow">&gt;</span> element.<span class="property">setAttribute</span>(<span
+                        class="value">"data-type"</span>, <span class="value">"modified"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="property">log</span>(element.<span
+                        class="property">getAttribute</span>(<span class="value">"data-type"</span>));</div>
+                <div class="output"> "modified"</div>
+            </div>
+
+            <div class="info-box">
+                <h4>Key Takeaways</h4>
+                <ul>
+                    <li><strong>textContent</strong> - Gets or sets the text content of an element</li>
+                    <li><strong>style</strong> - Accesses inline styles of an element</li>
+                    <li><strong>setAttribute()</strong> - Sets an attribute on an element</li>
+                    <li><strong>getAttribute()</strong> - Gets the value of an attribute</li>
+                    <li><strong>classList</strong> - Adds, removes, or toggles CSS classes</li>
+                    <li><strong>innerHTML</strong> - Gets or sets HTML content (use with caution)</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Practice DOM manipulation by doing the following:</p>
+                <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <li><strong>Change Content:</strong> Select an element (like a <code>&lt;p id="demoText"&gt;</code>)
+                        and change its text using <code>element.textContent = "This is new text!"</code> or
+                        <code>element.innerHTML = "&lt;strong&gt;Bold text!&lt;/strong&gt;"</code></li>
+                    <li><strong>Change Background Color:</strong> Select an element (like a
+                        <code>&lt;div id="demoBox"&gt;</code>) and change its background color using
+                        <code>element.style.backgroundColor = "lightblue"</code> or any other color you like</li>
+                    <li><strong>Add Attribute:</strong> Select an element (like an
+                        <code>&lt;img id="demoImage"&gt;</code>) and add a new attribute using
+                        <code>element.setAttribute("alt", "A description of the image")</code> or
+                        <code>element.setAttribute("title", "Hover text here")</code></li>
+                    <li><strong>Change Class:</strong> Select an element (like a
+                        <code>&lt;div class="oldClass"&gt;</code>) and change its class using
+                        <code>element.className = "newClass"</code> or add/remove classes using
+                        <code>element.classList.add("newClass")</code> and
+                        <code>element.classList.remove("oldClass")</code></li>
+                    <li><strong>Add New Elements:</strong> Create new HTML elements using
+                        <code>document.createElement("p")</code>, set their content with
+                        <code>newElement.textContent = "I'm new!"</code>, and add them to the page using
+                        <code>document.body.appendChild(newElement)</code> or
+                        <code>parentElement.appendChild(newElement)</code></li>
+                </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Make sure your HTML
+                    has elements with the right IDs or classes before trying to select them. Use
+                    <code>document.querySelector()</code> or <code>document.getElementById()</code> to select elements.
+                    Use <code>console.log()</code> to verify your changes. When adding new elements, remember to create
+                    them first with <code>document.createElement()</code> before appending them!</p>
+            </div>
+
+            <div class="quiz-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Pass the 10-question quiz to unlock Level 50
+            </div>
+
+            <div class="nav-row">
+                <a href="level48.html" class="btn btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    Previous Level
+                </a>
+                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    Take Quiz
+                </a>
+                <a href="level50.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
+                    Next Level
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Demo functions for the interactive demo
+        function changeText() {
+            let element = document.getElementById("demoText");
+            let messages = [
+                "Text changed by JavaScript!",
+                "DOM manipulation is powerful!",
+                "You can change anything on the page!",
+                "JavaScript makes websites interactive!"
+            ];
+            let randomIndex = Math.floor(Math.random() * messages.length);
+            element.textContent = messages[randomIndex];
+            element.style.color = "#8ec07c";
+        }
+
+        function changeStyle() {
+            let element = document.getElementById("demoText");
+            let colors = ["#f0c674", "#7ec8e3", "#f3a072", "#b58aef"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            element.style.color = randomColor;
+            element.style.fontSize = "1.8rem";
+            element.style.fontWeight = "700";
+            element.style.borderLeft = "4px solid " + randomColor;
+            element.style.paddingLeft = "12px";
+        }
+
+        function changeAttribute() {
+            let element = document.getElementById("demoText");
+            let types = ["updated", "modified", "changed", "new"];
+            let randomType = types[Math.floor(Math.random() * types.length)];
+            element.setAttribute("data-status", randomType);
+            element.setAttribute("title", "This element was modified by JavaScript");
+            alert("Attribute 'data-status' set to: " + randomType);
+        }
+
+        function resetAll() {
+            let element = document.getElementById("demoText");
+            element.textContent = "This text will change";
+            element.style.color = "#e9e9f5";
+            element.style.fontSize = "1.6rem";
+            element.style.fontWeight = "400";
+            element.style.borderLeft = "none";
+            element.style.paddingLeft = "0";
+            element.removeAttribute("data-status");
+            element.removeAttribute("title");
+
+            // Reset items
+            let items = document.querySelectorAll(".demo-item");
+            items.forEach((item, index) => {
+                item.textContent = "Item " + (index + 1);
+                item.style.backgroundColor = "var(--bg-base-2)";
+                item.style.color = "#a3a3c2";
+            });
+        }
+    </script>
+
+    <script src="./scripts/level49.js"></script>
+</body>
+
+</html>
