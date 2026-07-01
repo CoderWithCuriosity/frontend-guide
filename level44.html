@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 44: Return Values</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,17 +263,9 @@
             margin: 5px 0;
         }
 
-        .return-card.number {
-            --card-color: var(--accent-sql);
-        }
-
-        .return-card.string {
-            --card-color: var(--accent-css);
-        }
-
-        .return-card.boolean {
-            --card-color: var(--accent-js);
-        }
+        .return-card.number { --card-color: var(--accent-sql); }
+        .return-card.string { --card-color: var(--accent-css); }
+        .return-card.boolean { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -345,12 +327,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -443,7 +423,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -454,7 +433,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -465,7 +443,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -484,23 +461,18 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .return-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
@@ -513,7 +485,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -553,13 +524,13 @@
                     <div class="description">Return a numeric value</div>
                     <div class="example">return 5 + 3</div>
                 </div>
-
+                
                 <div class="return-card string">
                     <div class="title">Return String</div>
                     <div class="description">Return text data</div>
                     <div class="example">return "Hello"</div>
                 </div>
-
+                
                 <div class="return-card boolean">
                     <div class="title">Return Boolean</div>
                     <div class="description">Return true/false</div>
@@ -571,15 +542,12 @@
 
             <div class="syntax-box">
                 <span class="comment">// Function that returns a value</span><br>
-                <span class="keyword">function</span> <span class="function-name">add</span>(<span
-                    class="return-value">a</span>, <span class="return-value">b</span>) {<br>
-                &nbsp;&nbsp;<span class="keyword">return</span> <span class="return-value">a</span> + <span
-                    class="return-value">b</span>;<br>
+                <span class="keyword">function</span> <span class="function-name">add</span>(<span class="return-value">a</span>, <span class="return-value">b</span>) {<br>
+                &nbsp;&nbsp;<span class="keyword">return</span> <span class="return-value">a</span> + <span class="return-value">b</span>;<br>
                 }<br>
                 <br>
                 <span class="comment">// Store the returned value</span><br>
-                <span class="keyword">let</span> result = <span class="function-name">add</span>(<span
-                    class="return-value">5</span>, <span class="return-value">3</span>);<br>
+                <span class="keyword">let</span> result = <span class="function-name">add</span>(<span class="return-value">5</span>, <span class="return-value">3</span>);<br>
                 console.<span class="function-name">log</span>(result); <span class="comment">// 8</span>
             </div>
 
@@ -587,40 +555,29 @@
 
             <div class="console-output">
                 <div class="comment">// Function that returns a value</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span
-                        class="function-name">add</span>(<span class="return-value">a</span>, <span
-                        class="return-value">b</span>) {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">return</span> <span
-                        class="return-value">a</span> + <span class="return-value">b</span>;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span class="function-name">add</span>(<span class="return-value">a</span>, <span class="return-value">b</span>) {</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">return</span> <span class="return-value">a</span> + <span class="return-value">b</span>;</div>
                 <div><span class="arrow">&gt;</span> }</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> result = <span
-                        class="function-name">add</span>(<span class="return-value">5</span>, <span
-                        class="return-value">3</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> result = <span class="function-name">add</span>(<span class="return-value">5</span>, <span class="return-value">3</span>);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="function-name">log</span>(result);</div>
-                <div class="output"> 8</div>
+                <div class="output">  8</div>
                 <br>
                 <div class="comment">// Using return value directly</div>
-                <div><span class="arrow">&gt;</span> console.<span class="function-name">log</span>(<span
-                        class="function-name">add</span>(<span class="return-value">10</span>, <span
-                        class="return-value">20</span>));</div>
-                <div class="output"> 30</div>
+                <div><span class="arrow">&gt;</span> console.<span class="function-name">log</span>(<span class="function-name">add</span>(<span class="return-value">10</span>, <span class="return-value">20</span>));</div>
+                <div class="output">  30</div>
                 <br>
                 <div class="comment">// Multiple return statements</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span
-                        class="function-name">checkNumber</span>(<span class="return-value">num</span>) {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (num > 0) {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">return</span> <span
-                        class="return-value">"Positive"</span>;</div>
-                <div><span class="arrow">&gt;</span> } <span class="keyword">else</span> {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">return</span> <span class="return-value">"Not
-                        positive"</span>;</div>
-                <div><span class="arrow">&gt;</span> }</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span class="function-name">checkNumber</span>(<span class="return-value">num</span>) {</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">if</span> (num > 0) {</div>
+                <div><span class="arrow">&gt;</span>     <span class="keyword">return</span> <span class="return-value">"Positive"</span>;</div>
+                <div><span class="arrow">&gt;</span>   } <span class="keyword">else</span> {</div>
+                <div><span class="arrow">&gt;</span>     <span class="keyword">return</span> <span class="return-value">"Not positive"</span>;</div>
+                <div><span class="arrow">&gt;</span>   }</div>
                 <div><span class="arrow">&gt;</span> }</div>
                 <br>
-                <div><span class="arrow">&gt;</span> console.<span class="function-name">log</span>(<span
-                        class="function-name">checkNumber</span>(<span class="return-value">5</span>));</div>
-                <div class="output"> "Positive"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="function-name">log</span>(<span class="function-name">checkNumber</span>(<span class="return-value">5</span>));</div>
+                <div class="output">  "Positive"</div>
             </div>
 
             <div class="info-box">
@@ -637,62 +594,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice return values by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. return values:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Return Sum:</strong> Create a function called <code>add()</code> that takes two
-                        parameters <code>a</code> and <code>b</code> and <strong>returns</strong> their sum (using
-                        <code>return a + b</code>). Don't use <code>console.log()</code> inside this function!</li>
-                    <li><strong>Return Greeting:</strong> Create a function called <code>greet()</code> that takes one
-                        parameter <code>name</code> and <strong>returns</strong> a greeting like
-                        <code>"Hello " + name</code>. Again, no <code>console.log()</code> inside!</li>
-                    <li><strong>Return True/False:</strong> Create a function called <code>isEven()</code> that takes
-                        one parameter <code>num</code> and <strong>returns</strong> <code>true</code> if the number is
-                        even (<code>num % 2 === 0</code>) and <code>false</code> if it's odd</li>
-                    <li><strong>Store and Use:</strong> Call your <code>add()</code> function with two numbers and store
-                        the result in a variable like <code>let result = add(5, 3)</code>. Then log that variable to the
-                        console using <code>console.log(result)</code>. Do the same with <code>greet()</code> and
-                        <code>isEven()</code></li>
-                    <li><strong>Chain Functions:</strong> Use the result of one function as the input to another. For
-                        example: <code>let doubled = add(5, 3) * 2</code> or
-                        <code>let message = greet("John") + "! Welcome!"</code>. Try combining your functions together!
-                    </li>
+                    <li>Create a function that returns the sum of two numbers</li>
+                    <li>Create a function that returns a greeting message</li>
+                    <li>Create a function that returns true if a number is even</li>
+                    <li>Store the return value in a variable and use it</li>
+                    <li>Chain functions together with return values</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: <code>return</code>
-                    sends a value back from the function. The function stops immediately after <code>return</code>. The
-                    returned value can be stored in a variable or used directly in other operations!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 45
             </div>
 
             <div class="nav-row">
                 <a href="level43.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level45.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level45.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -701,5 +637,4 @@
 
     <script src="./scripts/level44.js"></script>
 </body>
-
 </html>

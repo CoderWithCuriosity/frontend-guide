@@ -227,7 +227,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let i=0; while(i<3) { console.log(i); i++; }',
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;while (i &lt; 3) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
         options: [
             "0 1 2",
             "1 2 3",
@@ -239,7 +239,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let i=0; do { console.log(i); i++; } while(i<3)',
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;do {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;} while (i &lt; 3)',
         options: [
             "0 1 2",
             "1 2 3",
@@ -259,11 +259,11 @@ const QUIZ_QUESTIONS = [
             "The loop never runs"
         ],
         correct: 1,
-        explanation:`'If you don't update the condition variable, the loop will run forever (infinite loop).`
+        explanation: 'If you don\'t update the condition variable, the loop will run forever (infinite loop).'
     },
     {
         id: 8,
-        question: 'What is the output: let i=5; while(i<3) { console.log(i); i++; }',
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 5;<br/>&nbsp;&nbsp;while (i &lt; 3) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
         options: [
             "5 6 7",
             "Nothing",
@@ -275,7 +275,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let i=5; do { console.log(i); i++; } while(i<3)',
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 5;<br/>&nbsp;&nbsp;do {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;} while (i &lt; 3)',
         options: [
             "5",
             "Nothing",
@@ -323,7 +323,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let i=0; while(i<5) { if(i===2) { i++; continue; } console.log(i); i++; }',
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;while (i &lt; 5) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (i === 2) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
         options: [
             "0 1 2 3 4",
             "0 1 3 4",
@@ -335,7 +335,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let i=0; while(i<5) { if(i===3) { break; } console.log(i); i++; }',
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;while (i &lt; 5) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (i === 3) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
         options: [
             "0 1 2 3",
             "0 1 2",
@@ -420,7 +420,7 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        <span style="font-size: 1.2rem;">📝</span>
+                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
@@ -453,7 +453,7 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span>⏱️</span>
+                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -461,7 +461,7 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span>📊</span>
+                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -583,7 +583,7 @@ function createQuizModal() {
                             font-size: 0.85rem;
                             cursor: pointer;
                             transition: all 0.15s ease;
-                        ">🔄 Retry</button>
+                        ">Retry</button>
                         <button id="closeResultsBtn" style="
                             background: var(--accent-sql, #8ec07c);
                             color: #0e1410;
@@ -694,7 +694,7 @@ function renderQuestion() {
     document.getElementById('progressDisplay').textContent = `${quizState.currentQuestion + 1} / ${total}`;
     document.getElementById('progressBar').style.width = `${((quizState.currentQuestion + 1) / total) * 100}%`;
     document.getElementById('questionNumber').textContent = quizState.currentQuestion + 1;
-    document.getElementById('questionText').textContent = q.question;
+    document.getElementById('questionText').innerHTML = q.question;
 
     const optionsContainer = document.getElementById('optionsContainer');
     optionsContainer.innerHTML = '';

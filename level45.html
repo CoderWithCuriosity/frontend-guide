@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 45: Arrays Basics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,17 +263,9 @@
             margin: 5px 0;
         }
 
-        .array-card.strings {
-            --card-color: var(--accent-sql);
-        }
-
-        .array-card.numbers {
-            --card-color: var(--accent-css);
-        }
-
-        .array-card.mixed {
-            --card-color: var(--accent-js);
-        }
+        .array-card.strings { --card-color: var(--accent-sql); }
+        .array-card.numbers { --card-color: var(--accent-css); }
+        .array-card.mixed { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -345,12 +327,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -439,7 +419,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -450,7 +429,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -461,7 +439,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -480,23 +457,18 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .array-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
@@ -509,7 +481,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -549,13 +520,13 @@
                     <div class="description">List of text values</div>
                     <div class="example">["apple", "banana", "orange"]</div>
                 </div>
-
+                
                 <div class="array-card numbers">
                     <div class="title">Number Array</div>
                     <div class="description">List of numeric values</div>
                     <div class="example">[1, 2, 3, 4, 5]</div>
                 </div>
-
+                
                 <div class="array-card mixed">
                     <div class="title">Mixed Array</div>
                     <div class="description">Different data types</div>
@@ -567,8 +538,7 @@
 
             <div class="syntax-box">
                 <span class="comment">// Creating an array</span><br>
-                <span class="keyword">let</span> fruits = [<span class="array">"apple"</span>, <span
-                    class="array">"banana"</span>, <span class="array">"orange"</span>];<br>
+                <span class="keyword">let</span> fruits = [<span class="array">"apple"</span>, <span class="array">"banana"</span>, <span class="array">"orange"</span>];<br>
                 <br>
                 <span class="comment">// Accessing array elements (index starts at 0)</span><br>
                 fruits[<span class="array">0</span>] <span class="comment">// "apple"</span><br>
@@ -583,33 +553,25 @@
 
             <div class="console-output">
                 <div class="comment">// Creating and accessing arrays</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> fruits = [<span
-                        class="array">"apple"</span>, <span class="array">"banana"</span>, <span
-                        class="array">"orange"</span>];</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> fruits = [<span class="array">"apple"</span>, <span class="array">"banana"</span>, <span class="array">"orange"</span>];</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits);</div>
-                <div class="output"> ["apple", "banana", "orange"]</div>
+                <div class="output">  ["apple", "banana", "orange"]</div>
                 <br>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span
-                        class="array">0</span>]);</div>
-                <div class="output"> "apple"</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span
-                        class="array">1</span>]);</div>
-                <div class="output"> "banana"</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span
-                        class="array">2</span>]);</div>
-                <div class="output"> "orange"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span class="array">0</span>]);</div>
+                <div class="output">  "apple"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span class="array">1</span>]);</div>
+                <div class="output">  "banana"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span class="array">2</span>]);</div>
+                <div class="output">  "orange"</div>
                 <br>
                 <div class="comment">// Array length</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits.<span
-                        class="keyword">length</span>);</div>
-                <div class="output"> 3</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits.<span class="keyword">length</span>);</div>
+                <div class="output">  3</div>
                 <br>
                 <div class="comment">// Different data types</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> mixed = [<span
-                        class="array">"John"</span>, <span class="array">25</span>, <span class="array">true</span>];
-                </div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> mixed = [<span class="array">"John"</span>, <span class="array">25</span>, <span class="array">true</span>];</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(mixed);</div>
-                <div class="output"> ["John", 25, true]</div>
+                <div class="output">  ["John", 25, true]</div>
             </div>
 
             <div class="info-box">
@@ -623,60 +585,44 @@
                     <li><strong>Order</strong> - Elements are stored in a specific order</li>
                 </ul>
             </div>
+
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice arrays by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. arrays:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Create Array:</strong> Create an array called <code>colors</code> with at least 5 of
-                        your favorite colors (like <code>["red", "blue", "green", "yellow", "purple"]</code>)</li>
-                    <li><strong>Access Elements:</strong> Log the first element using <code>colors[0]</code> and the
-                        last element using <code>colors[colors.length - 1]</code> to the console</li>
-                    <li><strong>Check Length:</strong> Log the length of your colors array to the console using
-                        <code>colors.length</code></li>
-                    <li><strong>Mixed Data Types:</strong> Create an array called <code>mixed</code> that contains
-                        different data types like a string, a number, a boolean, and even another array (example:
-                        <code>["hello", 42, true, [1, 2, 3]]</code>)</li>
-                    <li><strong>Modify Element:</strong> Change the second element of your <code>colors</code> array to
-                        a new color (like <code>colors[1] = "orange"</code>) and log the entire array to see the change
-                    </li>
+                    <li>Create an array of your favorite colors</li>
+                    <li>Access the first and last element</li>
+                    <li>Check the length of the array</li>
+                    <li>Create an array with mixed data types</li>
+                    <li>Modify an array element by assigning a new value</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Arrays use
-                    zero-based indexing (first element is at position 0). Use <code>console.log()</code> to see your
-                    arrays and their values. You can access the last element with <code>array[array.length - 1]</code>!
-                </p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 46
             </div>
 
             <div class="nav-row">
                 <a href="level44.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level46.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level46.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -685,5 +631,4 @@
 
     <script src="./scripts/level45.js"></script>
 </body>
-
 </html>

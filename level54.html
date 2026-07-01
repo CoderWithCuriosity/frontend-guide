@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 54: Session Storage</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,13 +263,8 @@
             margin: 5px 0;
         }
 
-        .compare-card.local {
-            --card-color: var(--accent-sql);
-        }
-
-        .compare-card.session {
-            --card-color: var(--accent-js);
-        }
+        .compare-card.local { --card-color: var(--accent-sql); }
+        .compare-card.session { --card-color: var(--accent-js); }
 
         .demo-area {
             background: var(--bg-panel-alt);
@@ -433,12 +418,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -527,7 +510,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -538,7 +520,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -549,7 +530,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -568,30 +548,24 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .compare-grid {
                 grid-template-columns: 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -631,7 +605,7 @@
                     <div class="description">Persists until manually cleared</div>
                     <div class="example">localStorage.setItem("key", "value")</div>
                 </div>
-
+                
                 <div class="compare-card session">
                     <div class="title">sessionStorage</div>
                     <div class="description">Cleared when tab/window closes</div>
@@ -650,14 +624,14 @@
                     <label for="sessionValue">Value</label>
                     <input type="text" id="sessionValue" placeholder="Enter a value" value="Hello Session!">
                 </div>
-
+                
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                     <button class="btn-demo session-btn" onclick="saveToSession()">💾 Save to Session</button>
                     <button class="btn-demo info" onclick="loadFromSession()">📂 Load from Session</button>
                     <button class="btn-demo danger" onclick="removeFromSession()">🗑️ Remove</button>
                     <button class="btn-demo reset" onclick="clearSession()">🧹 Clear Session</button>
                 </div>
-
+                
                 <div class="storage-display" id="sessionDisplay">
                     Session data will appear here...
                 </div>
@@ -670,37 +644,22 @@
 
             <div class="console-output">
                 <div class="comment">// Session Storage Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span
-                        class="keyword">setItem</span>(<span class="value">"temp"</span>, <span
-                        class="value">"123"</span>);</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> temp = <span
-                        class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span
-                        class="value">"temp"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span class="keyword">setItem</span>(<span class="value">"temp"</span>, <span class="value">"123"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> temp = <span class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span class="value">"temp"</span>);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(temp);</div>
-                <div class="output"> "123"</div>
+                <div class="output">  "123"</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span
-                        class="keyword">removeItem</span>(<span class="value">"temp"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                        class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span
-                        class="value">"temp"</span>));</div>
-                <div class="output"> null</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span class="keyword">removeItem</span>(<span class="value">"temp"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span class="value">"temp"</span>));</div>
+                <div class="output">  null</div>
                 <br>
                 <div class="comment">// Comparing localStorage and sessionStorage</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">localStorage</span>.<span
-                        class="keyword">setItem</span>(<span class="value">"persist"</span>, <span class="value">"I
-                        persist"</span>);</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span
-                        class="keyword">setItem</span>(<span class="value">"temp"</span>, <span class="value">"I'm
-                        temporary"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                        class="keyword">localStorage</span>.<span class="keyword">getItem</span>(<span
-                        class="value">"persist"</span>));</div>
-                <div class="output"> "I persist"</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                        class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span
-                        class="value">"temp"</span>));</div>
-                <div class="output"> "I'm temporary"</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">localStorage</span>.<span class="keyword">setItem</span>(<span class="value">"persist"</span>, <span class="value">"I persist"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span class="keyword">setItem</span>(<span class="value">"temp"</span>, <span class="value">"I'm temporary"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">localStorage</span>.<span class="keyword">getItem</span>(<span class="value">"persist"</span>));</div>
+                <div class="output">  "I persist"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span class="value">"temp"</span>));</div>
+                <div class="output">  "I'm temporary"</div>
             </div>
 
             <div class="info-box">
@@ -717,72 +676,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice sessionStorage by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>sessionStorage:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Save Scroll Position:</strong> Add a scroll event listener to the window using
-                        <code>window.addEventListener("scroll", function() { })</code>. Inside the function, save the
-                        current scroll position using
-                        <code>sessionStorage.setItem("scrollPosition", window.scrollY)</code>. Then on page load,
-                        retrieve it with <code>sessionStorage.getItem("scrollPosition")</code> and scroll to that
-                        position using <code>window.scrollTo(0, savedPosition)</code></li>
-                    <li><strong>Save User Preference:</strong> Create a button or checkbox that changes a setting (like
-                        dark mode). When the user clicks it, save the preference to sessionStorage using
-                        <code>sessionStorage.setItem("darkMode", "enabled")</code> or <code>"disabled"</code>. When the
-                        page loads, check for this preference and apply the setting</li>
-                    <li><strong>Store Object with JSON:</strong> Create an object like
-                        <code>let preferences = { theme: "dark", fontSize: "large", notifications: true }</code>.
-                        Convert it to JSON using <code>JSON.stringify(preferences)</code> and save it to sessionStorage
-                        with a key like <code>"userPrefs"</code>. Then retrieve and parse it back to an object using
-                        <code>JSON.parse(sessionStorage.getItem("userPrefs"))</code></li>
-                    <li><strong>Compare localStorage vs sessionStorage:</strong> Save the same data (like a name or
-                        color) to BOTH localStorage and sessionStorage using
-                        <code>localStorage.setItem("test", "value")</code> and
-                        <code>sessionStorage.setItem("test", "value")</code>. Refresh the page and check if both still
-                        exist. Then close the tab and reopen the page to see which one is still there</li>
-                    <li><strong>Open New Tab Test:</strong> Save something to sessionStorage (like
-                        <code>sessionStorage.setItem("tabTest", "This is session data")</code>). Then open a new tab and
-                        go to the same page. Try retrieving the data with <code>sessionStorage.getItem("tabTest")</code>
-                        and observe that it's <code>null</code> (sessionStorage is tab-specific!). Compare with
-                        localStorage which would still have the data</li>
+                    <li>Save your current page scroll position to sessionStorage</li>
+                    <li>Save a temporary user preference</li>
+                    <li>Store a simple object using JSON</li>
+                    <li>Compare localStorage vs sessionStorage behavior</li>
+                    <li>Check what happens when you open a new tab</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: sessionStorage
-                    works just like localStorage but data is cleared when the tab is closed. It's perfect for temporary
-                    data that should only last during a browsing session. Use <code>window.scrollY</code> to get scroll
-                    position and <code>window.scrollTo()</code> to scroll. Check the Application tab in DevTools to see
-                    sessionStorage data. Remember: sessionStorage is per-tab, not shared across tabs!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 55
             </div>
 
             <div class="nav-row">
                 <a href="level53.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level55.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level55.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -797,19 +725,19 @@
         function saveToSession() {
             let key = document.getElementById("sessionKey").value.trim();
             let value = document.getElementById("sessionValue").value.trim();
-
+            
             if (!key) {
                 document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a key!";
                 document.getElementById("sessionDisplay").style.color = "#f3a072";
                 return;
             }
-
+            
             if (!value) {
                 document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a value!";
                 document.getElementById("sessionDisplay").style.color = "#f3a072";
                 return;
             }
-
+            
             sessionStorage.setItem(key, value);
             document.getElementById("sessionDisplay").innerHTML = "✅ Saved to session: " + key + " = " + value;
             document.getElementById("sessionDisplay").style.color = "#8ec07c";
@@ -819,15 +747,15 @@
 
         function loadFromSession() {
             let key = document.getElementById("sessionKey").value.trim();
-
+            
             if (!key) {
                 document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a key!";
                 document.getElementById("sessionDisplay").style.color = "#f3a072";
                 return;
             }
-
+            
             let value = sessionStorage.getItem(key);
-
+            
             if (value === null) {
                 document.getElementById("sessionDisplay").innerHTML = "❌ Key '" + key + "' not found in session!";
                 document.getElementById("sessionDisplay").style.color = "#f3a072";
@@ -841,16 +769,16 @@
 
         function removeFromSession() {
             let key = document.getElementById("sessionKey").value.trim();
-
+            
             if (!key) {
                 document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a key!";
                 document.getElementById("sessionDisplay").style.color = "#f3a072";
                 return;
             }
-
+            
             let existed = sessionStorage.getItem(key) !== null;
             sessionStorage.removeItem(key);
-
+            
             if (existed) {
                 document.getElementById("sessionDisplay").innerHTML = "🗑️ Removed from session: " + key;
                 document.getElementById("sessionDisplay").style.color = "#f3a072";
@@ -886,7 +814,7 @@
         }
 
         // Show current session data on load
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             let display = document.getElementById("sessionDisplay");
             let count = sessionStorage.length;
             if (count === 0) {
@@ -906,5 +834,4 @@
 
     <script src="./scripts/level54.js"></script>
 </body>
-
 </html>

@@ -617,27 +617,40 @@
                                         the script.</p>
                                     <p>Practice while loops by doing the following:</p>
                                     <ul style="margin-left: 20px; color: var(--text-secondary);">
-                                        <li><strong>Count Up:</strong> Create a variable <code>i = 0</code> and use a
-                                            while loop to log numbers from 0 to 10 (increment <code>i</code> inside the
-                                            loop)</li>
-                                        <li><strong>Count Down:</strong> Create a variable <code>i = 10</code> and use a
-                                            while loop to log numbers from 10 down to 0 (decrement <code>i</code> inside
-                                            the loop)</li>
-                                        <li><strong>Random Number Game:</strong> Use <code>Math.random()</code> to
-                                            generate random numbers between 1-10. Keep looping until the number is
-                                            exactly 5, logging each random number</li>
-                                        <li><strong>Sum Calculator:</strong> Create variables <code>sum = 0</code> and
-                                            <code>i = 1</code>, then use a while loop to add numbers from 1 to 100 to
-                                            <code>sum</code>, then log the total</li>
-                                        <li><strong>While vs Do...While:</strong> Create a variable
-                                            <code>num = 15</code>. First use a while loop to check if
-                                            <code>num &lt; 10</code> and log "Inside while". Then use a do...while loop
-                                            with the same condition and compare what happens (the do...while runs at
-                                            least once!)</li>
+                                        <li><strong>Count Up with while:</strong> Create a variable
+                                            <code>count = 0</code>. Use a <code>while</code> loop that continues as long
+                                            as <code>count &lt;= 10</code>. Inside the loop, log the current value of
+                                            <code>count</code> to the console, then increment it by 1 using
+                                            <code>count++</code></li>
+                                        <li><strong>Count Down with while:</strong> Create a variable
+                                            <code>count = 10</code>. Use a <code>while</code> loop that continues as
+                                            long as <code>count &gt;= 0</code>. Inside the loop, log the current value
+                                            of <code>count</code>, then decrement it by 1 using <code>count--</code>
+                                        </li>
+                                        <li><strong>Loop Until Random Number is 5:</strong> Use
+                                            <code>Math.random()</code> to generate random numbers between 1 and 10 with
+                                            <code>Math.floor(Math.random() * 10) + 1</code>. Create a <code>while</code>
+                                            loop that keeps generating random numbers and logging them until the number
+                                            5 appears. When it hits 5, log "Found 5!" and stop the loop</li>
+                                        <li><strong>Sum 1 to 100 with while:</strong> Create variables
+                                            <code>sum = 0</code> and <code>i = 1</code>. Use a <code>while</code> loop
+                                            that continues while <code>i &lt;= 100</code>. Inside the loop, add
+                                            <code>i</code> to <code>sum</code>, then increment <code>i</code> by 1.
+                                            After the loop ends, log the total sum to the console</li>
+                                        <li><strong>Compare while vs do...while:</strong> Create a variable
+                                            <code>num = 15</code>. First use a <code>while</code> loop with condition
+                                            <code>num &lt; 10</code> and log "Inside while" if it runs. Then use a
+                                            <code>do...while</code> loop with the same condition
+                                            <code>num &lt; 10</code> and log "Inside do...while" if it runs. Notice that
+                                            while runs 0 times (condition false), but do...while runs at least once even
+                                            though the condition is false!</li>
                                     </ul>
                                     <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint:
-                                        Use <code>console.log()</code> to see your results. Remember: while checks the
-                                        condition FIRST, do...while checks it AFTER running once!</p>
+                                        A <code>while</code> loop checks the condition first - if false, it never runs.
+                                        A <code>do...while</code> loop runs once first, then checks the condition. Use
+                                        <code>console.log()</code> to see each step. For random numbers, use
+                                        <code>Math.floor(Math.random() * 10) + 1</code> to get numbers 1-10. Remember to
+                                        update your loop variable inside the loop to avoid infinite loops!</p>
                                 </div>
 
                                 <div class="quiz-status">

@@ -1,1 +1,914 @@
-const _0x30bdda=_0x5cbb;(function(_0x3e4c13,_0x11f935){const _0x513b40=_0x5cbb,_0x5ed882=_0x3e4c13();while(!![]){try{const _0x195450=parseInt(_0x513b40(0x235))/0x1*(parseInt(_0x513b40(0xf1))/0x2)+parseInt(_0x513b40(0x1eb))/0x3+parseInt(_0x513b40(0x22b))/0x4+parseInt(_0x513b40(0x1b4))/0x5+-parseInt(_0x513b40(0x1e9))/0x6*(parseInt(_0x513b40(0x172))/0x7)+parseInt(_0x513b40(0x1e8))/0x8*(-parseInt(_0x513b40(0x1ad))/0x9)+-parseInt(_0x513b40(0x212))/0xa;if(_0x195450===_0x11f935)break;else _0x5ed882['push'](_0x5ed882['shift']());}catch(_0x110ebe){_0x5ed882['push'](_0x5ed882['shift']());}}}(_0x34bc,0x2b364));const _0x6fe761=(function(){const _0xd79fc4=_0x5cbb,_0x2334cc={'yxddw':function(_0x5945b5,_0x48057d){return _0x5945b5!==_0x48057d;},'jbupU':_0xd79fc4(0x14e),'zYnkg':_0xd79fc4(0x126),'ATkPS':_0xd79fc4(0x18d),'kTtAl':_0xd79fc4(0x20e),'WvsJK':_0xd79fc4(0x208),'VlgwX':'error','VfHLv':function(_0x25dfd4,_0x619b53){return _0x25dfd4===_0x619b53;},'jRqOM':'hUDZO'};let _0x57eca9=!![];return function(_0x2830a8,_0x1e842b){const _0x5a243e=_0xd79fc4,_0x5e1290={'EuYdB':function(_0x398c2b,_0x29ce2d){return _0x398c2b+_0x29ce2d;},'GuVwU':function(_0x58d1cd,_0x2de53e){return _0x58d1cd+_0x2de53e;},'whrSZ':_0x2334cc[_0x5a243e(0x1db)],'JLrLe':_0x2334cc[_0x5a243e(0x1ef)],'ZQbea':function(_0x53b1b4){return _0x53b1b4();},'xEIIA':_0x2334cc['WvsJK'],'kVazC':_0x2334cc['VlgwX'],'oAneO':_0x5a243e(0x1c4),'oHEhK':_0x5a243e(0x1c9),'yVOmp':'trace'};if(_0x2334cc['VfHLv'](_0x5a243e(0x10a),_0x2334cc['jRqOM'])){const _0x1646a=_0x57eca9?function(){const _0x532fb3=_0x5a243e;if(_0x2334cc['yxddw'](_0x2334cc[_0x532fb3(0x191)],'UgAFO')){if(_0x1e842b){const _0x20fbd4=_0x1e842b['apply'](_0x2830a8,arguments);return _0x1e842b=null,_0x20fbd4;}}else{let _0x4d1891;try{const _0x34a13c=_0x3d06d9(_0x5e1290[_0x532fb3(0x1e0)](_0x5e1290[_0x532fb3(0x175)](_0x5e1290['whrSZ'],_0x5e1290['JLrLe']),');'));_0x4d1891=_0x5e1290[_0x532fb3(0x10c)](_0x34a13c);}catch(_0x331713){_0x4d1891=_0x3e9ebf;}const _0x2ce775=_0x4d1891['console']=_0x4d1891[_0x532fb3(0x145)]||{},_0x3335fe=[_0x5e1290['xEIIA'],'warn',_0x532fb3(0x10b),_0x5e1290['kVazC'],_0x5e1290[_0x532fb3(0x20a)],_0x5e1290[_0x532fb3(0x118)],_0x5e1290[_0x532fb3(0x139)]];for(let _0x182281=0x0;_0x182281<_0x3335fe[_0x532fb3(0x131)];_0x182281++){const _0x19ff1a=_0x2faa3e[_0x532fb3(0x133)]['prototype'][_0x532fb3(0x21a)](_0x1cdf9d),_0x2400c1=_0x3335fe[_0x182281],_0x5af72b=_0x2ce775[_0x2400c1]||_0x19ff1a;_0x19ff1a[_0x532fb3(0x109)]=_0x5d58c1['bind'](_0x447698),_0x19ff1a['toString']=_0x5af72b[_0x532fb3(0x1b2)][_0x532fb3(0x21a)](_0x5af72b),_0x2ce775[_0x2400c1]=_0x19ff1a;}}}:function(){};return _0x57eca9=![],_0x1646a;}else _0x1069e6[_0x5a243e(0x20c)][_0x5a243e(0x110)]=_0x2334cc[_0x5a243e(0x1d6)],_0x5f3a72['style']['animation']='none';};}()),_0x3c0cec=_0x6fe761(this,function(){const _0x350df0=_0x5cbb,_0x5d51cc={'mJMaN':_0x350df0(0x23d),'BRXaF':'level47.html','rdAsx':function(_0x28ce29,_0x1d0960){return _0x28ce29(_0x1d0960);},'VygeB':function(_0x54e115,_0x163a1d){return _0x54e115+_0x163a1d;},'dvEAL':'{}.constructor(\x22return\x20this\x22)(\x20)','AGnQk':function(_0x49e739){return _0x49e739();},'QfHUj':_0x350df0(0x208),'zzVRQ':_0x350df0(0x207),'eCWXv':'error','qzoQo':_0x350df0(0x1c4),'Pdpts':'table','iIEaJ':_0x350df0(0x1c3),'fDAbn':function(_0x40a24c,_0x36c69d){return _0x40a24c===_0x36c69d;},'grDQF':'PadGx','TtBrC':'jAhRy'};let _0x5aaa8d;try{const _0x3d3b96=_0x5d51cc[_0x350df0(0x1df)](Function,_0x5d51cc[_0x350df0(0x1dc)]('return\x20(function()\x20',_0x5d51cc[_0x350df0(0x11b)])+');');_0x5aaa8d=_0x5d51cc[_0x350df0(0x197)](_0x3d3b96);}catch(_0x2a4b4c){_0x5aaa8d=window;}const _0x1276a9=_0x5aaa8d['console']=_0x5aaa8d[_0x350df0(0x145)]||{},_0x4e9a69=[_0x5d51cc[_0x350df0(0x211)],_0x5d51cc['zzVRQ'],'info',_0x5d51cc[_0x350df0(0xe6)],_0x5d51cc['qzoQo'],_0x5d51cc[_0x350df0(0x215)],_0x5d51cc['iIEaJ']];for(let _0x3d3580=0x0;_0x3d3580<_0x4e9a69['length'];_0x3d3580++){if(_0x5d51cc['fDAbn'](_0x5d51cc[_0x350df0(0x1bc)],_0x5d51cc[_0x350df0(0x19d)]))_0x205afc[_0x350df0(0x20c)]['opacity']='1',_0xcf0184['style']['pointerEvents']=_0x5d51cc[_0x350df0(0x18e)],_0x9ee938[_0x350df0(0x13c)]=_0x5d51cc[_0x350df0(0xfb)];else{const _0xc604b5=_0x6fe761['constructor']['prototype'][_0x350df0(0x21a)](_0x6fe761),_0x512d99=_0x4e9a69[_0x3d3580],_0x322870=_0x1276a9[_0x512d99]||_0xc604b5;_0xc604b5[_0x350df0(0x109)]=_0x6fe761[_0x350df0(0x21a)](_0x6fe761),_0xc604b5[_0x350df0(0x1b2)]=_0x322870[_0x350df0(0x1b2)][_0x350df0(0x21a)](_0x322870),_0x1276a9[_0x512d99]=_0xc604b5;}}});_0x3c0cec(),console[_0x30bdda(0x208)](_0x30bdda(0x113));let fruits=[_0x30bdda(0xe8),_0x30bdda(0x1da)];console['log'](_0x30bdda(0x1d9),fruits);let newLength=fruits['push'](_0x30bdda(0xe2));console[_0x30bdda(0x208)](_0x30bdda(0x1f9),newLength),console[_0x30bdda(0x208)](_0x30bdda(0x105),fruits),console[_0x30bdda(0x208)](_0x30bdda(0x1ff));let last=fruits[_0x30bdda(0x19c)]();console['log'](_0x30bdda(0x1f3),last),console[_0x30bdda(0x208)](_0x30bdda(0x15f),fruits),console[_0x30bdda(0x208)]('\x0a---\x20push()\x20Multiple\x20Elements\x20---');let numbers=[0x1,0x2,0x3];function _0x5cbb(_0x16636b,_0x1880bd){_0x16636b=_0x16636b-0xdf;const _0x22e4f7=_0x34bc();let _0x3c0cec=_0x22e4f7[_0x16636b];if(_0x5cbb['xJUIdH']===undefined){var _0x6fe761=function(_0x490c38){const _0x3fb525='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x2833af='',_0x5793de='';for(let _0x3cf679=0x0,_0x482dc3,_0x23fd19,_0x3b73e2=0x0;_0x23fd19=_0x490c38['charAt'](_0x3b73e2++);~_0x23fd19&&(_0x482dc3=_0x3cf679%0x4?_0x482dc3*0x40+_0x23fd19:_0x23fd19,_0x3cf679++%0x4)?_0x2833af+=String['fromCharCode'](0xff&_0x482dc3>>(-0x2*_0x3cf679&0x6)):0x0){_0x23fd19=_0x3fb525['indexOf'](_0x23fd19);}for(let _0x4f9bb2=0x0,_0x3ecbd0=_0x2833af['length'];_0x4f9bb2<_0x3ecbd0;_0x4f9bb2++){_0x5793de+='%'+('00'+_0x2833af['charCodeAt'](_0x4f9bb2)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5793de);};_0x5cbb['HtrlcJ']=_0x6fe761,_0x5cbb['EufyKY']={},_0x5cbb['xJUIdH']=!![];}const _0x28f310=_0x22e4f7[0x0],_0x34bc76=_0x16636b+_0x28f310,_0x5cbbb4=_0x5cbb['EufyKY'][_0x34bc76];return!_0x5cbbb4?(_0x3c0cec=_0x5cbb['HtrlcJ'](_0x3c0cec),_0x5cbb['EufyKY'][_0x34bc76]=_0x3c0cec):_0x3c0cec=_0x5cbbb4,_0x3c0cec;}console[_0x30bdda(0x208)](_0x30bdda(0x1ce),numbers),numbers[_0x30bdda(0x1c0)](0x4,0x5,0x6),console['log'](_0x30bdda(0x1bf),numbers),console[_0x30bdda(0x208)]('\x0a---\x20pop()\x20Until\x20Empty\x20---');let items=['a','b','c','d'];console[_0x30bdda(0x208)](_0x30bdda(0x12c),items);function _0x34bc(){const _0xdd96e8=['wfDRq2G','vw52ELi','sgvSBg8','DMfYkc0TywnJzw50lwPZlcaJzJbJnJC0kq','txLdsxy','EvzWDNq','zK9wzMm','yM9YzgvYq29SB3i','D2vevLa','u3rHCNrPBMCGyxjYyxK6','zxHWBgfUyxrPB24','C2v0sxrLBq','Cg9WkcKGCMvTB3zLCYb0AguGBgfZDcbLBgvTzw50igzYB20Gyw4GyxjYyxKGyw5KihjLDhvYBNmGAxqU','Bgv2zwW0nG','BgvUz3rO','ic8G','y29UC3rYDwn0B3i','wZfD','r3L2rMG','ChjLDMvUDerLzMf1Bhq','q1zVA3G','AgvHza','EvzpBxa','zxHWB3j0CW','cIaGicaGicaGicaGigrPC3bSyxK6igLUBgLUzs1MBgv4oWOGicaGicaGicaGicbHBgLNBI1PDgvTCZOGy2vUDgvYoWOGicaGicaGicaGicbQDxn0Awz5lwnVBNrLBNq6ignLBNrLCJSkicaGicaGicaGicaGBwLUlxDPzhrOoIaYohb4oWOGicaGicaGicaGicbOzwLNAhq6idi4ChG7cIaGicaGicaGicaGigjHy2TNCM91BMq6ihzHCIGTlwjNlxbHBMvSlcaJmwuXztjLktSkicaGicaGicaGicaGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGntaLoWOGicaGicaGicaGicbMB250lwzHBwLSEtOGDMfYkc0TzM9UDc1TB25VlcbTB25VC3bHy2uPoWOGicaGicaGicaGicbMB250lxnPEMu6idaUnZvYzw07cIaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGignVBg9YoIb2yxiOls10zxH0lw11DgvKlcaJnMm2yZHJktSkicaGicaGicaGicaGDhjHBNnPDgLVBJOGywXSidaUmtvZigvHC2u7cIaGicaGicaG','AhjLzG','uxrusey','BLHNtfK','rw1WDhK6','EwP4D3y','y2Hby0q','teTjDum','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGyxjYid0GwYjHiIWGiMiIxtSGy29UC29Szs5SB2COyxjYlNb1C2GOiMmIlcaIzciPktS','uNf2sNq','y29UC29Szq','z1zsvum','BM9Uzq','C2nVCMu','zNjVBunOyxjdB2rL','uezcz1G','uMvTB3zLzdO','vgHLihjLBw92zwqGzwXLBwvUDa','wKHytNu','uerWyNq','y3jLyxrLrwXLBwvUDa','sw1VEhi','Bgv2zwXqCM9NCMvZCW','suTvr2S','BMv4DeXLDMvSqNrU','zhn3BfG','rgLvrMC','ChvZAcGPihjLDhvYBNmGDgHLig5LDYbSzw5NDgGGB2yGDgHLigfYCMf5igfMDgvYigfKzgLUzYb0AguGzwXLBwvUDcHZks4','wYjHiL0','u2rgDgO','BhvOsum','t3H2qK8','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGyxjYid0GwYjHiIWGiMiIlcaIyYjDoYbHCNiUCg9WkcK7igfYCI5WB3aOktSGy29UC29Szs5SB2COyxjYktS','wZeSidiSidrD','B3bHy2L0Eq','sgP2DNq','qwz0zxiGCg9WoG','shbAtgK','D3DZu0C','zxHWBgfUyxrPB25dB250ywLUzxi','v2HHDcbKB2vZihb1C2GOksbKBYb0BYbHBIbHCNjHEt8','AfDoCw8','shnrCgS','y2XPy2S','DgfYz2v0','zfzuAuu','D3revgC','y2XVC2vszxn1BhrZqNrU','y0LAAxq','s2vLCcbqCMfJDgLJAw5Niq','ueTjsfa','DhLWzwruAxrSzq','yMXVy2S','DgHPCMq','C2vJB25K','mZeXnvzzEvjHAW','vxDOz3a','CMvZDwX0vgL0Bgu','r3vwD1u','Aw5KzxG','EvzHrLy','yMTmru0','B3zLCMzSB3C','CMDIysGYndmSide2mcWGmte0lcaWlJeYkq','B3b0Aw9UCW','y3vYCMvUDff1zxn0Aw9U','EunuEuW','Bw91C2vSzwf2zq','u3PsALu','rNbhshy','sKvos2K','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGyxjYid0GwYjHiIWGiMiIlcaIyYjDoYbHCNiUChvZAcGIzciPoYbSzxqGCMvTB3zLzca9igfYCI5WB3aOktSGy29UC29Szs5SB2COCMvTB3zLzcK7','rxP2weC','vu5juhq','DhbTCKi','cIaGicaGicaGqgTLEwzYyw1LCYbMywrLsw5pDMvYBgf5ihSkicaGicaGicaGicaGzNjVBsb7ig9WywnPDhK6ida7ih0kicaGicaGicaGicaGDg8GEYbVCgfJAxr5oIaXoYb9cIaGicaGicaGFqOGicaGicaGiebRzxLMCMfTzxmGC2XPzgvvCe1VzgfSihSkicaGicaGicaGicaGzNjVBsb7ihrYyw5ZzM9YBtOGDhjHBNnSyxrLwsGZmhb4ktSGB3bHy2L0EtOGmdSGFqOGicaGicaGicaGicb0BYb7ihrYyw5ZzM9YBtOGDhjHBNnSyxrLwsGWktSGB3bHy2L0EtOGmtSGFqOGicaGicaGih0kicaGicaGicbaA2v5zNjHBwvZihb1BhnLvgLTzxiGEWOGicaGicaGicaGicaWjsWGmtaWjsb7ig9WywnPDhK6ide7ih0kicaGicaGicaGicaGntaLihSGB3bHy2L0EtOGmc41oYb9cIaGicaGicaGFqOGicaGicaGicnXDwL6tw9KywW6oI13zwjRAxqTC2nYB2XSyMfYihSkicaGicaGicaGicaGD2LKDgG6idzWEdSkicaGicaGicb9cIaGicaGicaGi3f1AxPnB2rHBdO6lxDLyMTPDc1Zy3jVBgXIyxiTDhjHy2SGEWOGicaGicaGicaGicbIywnRz3jVDw5KoIb2yxiOls1IzY1IyxnLltiSicmXyJfImJKPoWOGicaGicaGicaGicbIB3jKzxiTCMfKAxvZoIaZChG7cIaGicaGicaGFqOGicaGicaGicnXDwL6tw9KywW6oI13zwjRAxqTC2nYB2XSyMfYlxrODw1IihSkicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGm3b4oWOGicaGicaGih0kicaGia','u3rez0O','v3P4CxG','s0vNs2i','re9nq29UDgvUDeXVywrLza','wZeSidiSidmSidrD','rMnZvwO','CMv0DxjUicHMDw5JDgLVBIGPia','BuPnyu4','BeD5q00','tMLfwLi','AMj1Cfu','zgLZCgXHEq','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGyxjYid0GwZeWlcaYmf07igXLDcbSzw4GpsbHCNiUChvZAcGZmcK7ignVBNnVBguUBg9NkgXLBIK7','v2HHDcbOyxbWzw5ZihDOzw4GEw91ignHBgWGCg9WkcKGB24Gyw4Gzw1WDhKGyxjYyxK/','wZeSidiSidmSihvUzgvMAw5Lzf0','wxvlBKm','quDUuwS','CxvLCNLtzwXLy3rVCKfSBa','cI0TlsbWDxnOkcKGD2L0AcbeAwzMzxjLBNqGvhLWzxmGls0T','CMvkrfC','quXuyvi','Cg9W','vhrcCKm','ChjVz3jLC3neAxnWBgf5','yxjYlNb1C2GOndaPid0','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGyxjYid0GwZeSidiSidnDoYbSzxqGCMvTB3zLzca9igfYCI5WB3aOktSGy29UC29Szs5SB2COCMvTB3zLzcK7','ChjVz3jLC3ncyxi','DMfYkc0TyMCTCgfUzwWTywX0lcaJmJmYmZnHkq','cI0TlsbWDxnOkcKGD2L0AcbwyxjPywjSzxmGls0T','CMvZDwX0twvZC2fNzq','AwzWvgi','zw1WDhKGywz0zxiGCg9Wid0','vgHYB3DZigfUigvYCM9Y','Dw5KzwzPBMvK','Du5lBxm','yNbttuO','CMvZDwX0rw1VAMK','sNLzvvi','mtK4BuTcvuHV','thvdq3K','DffNsxG','ChvZAcGIzciPigfKzhmGiMqIlcb0AgvUihbVCcGPihjLBw92zxmGyw5KihjLDhvYBNmGiMqIlG','DK9zu2S','Dg9tDhjPBMC','zgL2','otqXmZCWrfnZswf5','yw5PBwf0Aw9U','yMfJA2DYB3vUza','wZeSidiSidnD','zeLzD0G','zxHWBgfUyxrPB25uzxH0','zefKq24','DgLTzuXLzNq','z3jeuuy','C09fDMi','B3b0Aw9UC0nVBNrHAw5LCG','qwz0zxiGChvZAcG0lca1lca2ktO','ChvZAa','qwz0zxi6','ze5gCuu','DhjHy2u','zxHJzxb0Aw9U','vhDVihbVCcGPignHBgXZihjLBw92zsaIyYiGDgHLBIaIyIiSigXLyxzPBMCGwYjHiL0U','qwz0zxiGChvZAgvZoG','Cg9WkcKGpq','s2vesuK','DgfIBgu','qvb3vw4','s0r6A0S','v3vYCw8','zM9YrwfJAa','qMvMB3jLoG','Bgv2zwW0nY5ODg1S','vgHLig9SzcbSzw5NDgGGB2yGDgHLigfYCMf5','v2nrrKi','v2HHDcbKB2vZihb1C2GOksbYzxr1CM4/','DunJvLa','y0D3EMy','s2DOAuK','ELLUA2C','v2HHDcbKB2vZihbVCcGPigrVihrVigfUigfYCMf5pW','Avn6ruy','qMvMB3jLihb1C2G6','yMfUyw5H','qvrRufm','vNLNzui','ALnRCxy','wZeSidjD','CMrbC3G','rxvzzei','qu1ZrhG','DMfYkc0TyMCTyMfZzs0YlcaJmwiXyJi5kq','EevtBgy','BMv4Dff1zxn0Aw9UqNrU','C3bHBJPMAxjZDc1JAgLSza','wLfwDe8','C2HVyNe','mte5nJu2vLvXtwfh','mZu4mK1ItLnwEG','Cg9WkcKGCMvTB3zLCYbHBMqGCMv0DxjUCYb0AguGBgfZDcbLBgvTzw50lcb3AgLJAcbPCYaZlG','odC2ntq5wMHwswv2','zMXVB3i','Cg9PBNrLCKv2zw50CW','mc41','A1r0qwW','FcbtDgfJAZO','svjwB1O','uwDpswm','Cg9WkcKGCMv0DxjUzwq6','uLrgy1G','z1joqNy','vgHLig5LDYbSzw5NDgGGB2yGDgHLigfYCMf5','qwz0zxiGChvZAgLUzYbTDwX0AxbSztO','CxvPELjLC3vSDhm','ChvZAcGNB3jHBMDLjYKGCMv0DxjUzwq6','uMv0DxjUCYb1BMrLzMLUzwq','CxvPEKnVBNrLBNq','vLrOzxm','qvDXEM8','ANrQAum','cI0TlsbWB3aOksbnzxrOB2qGls0T','DKHUDwW','AKveuMC','zgvMyxvSDa','Cg9WkcKGCMv0DxjUCYaZlcb0AgvUihb1C2GOmYSXksbHzgrZidqSig1HA2LUzYbBmsWGmIWGnf0U','CxvLC3rPB24','u05Pv3K','ChvZAcGZksbHzgrZidmGDg8GDgHLigvUzcWGC28GDgHLigfYCMf5igjLy29TzxmGwZeSidiSidnDlG','D2fYBG','Bg9N','C2nozwm','B0fUzu8','z2v0rwXLBwvUDej5swq','C3r5Bgu','EKD6rfq','E30Uy29UC3rYDwn0B3iOiNjLDhvYBIb0AgLZiIKOicK','zgf0yxnLDa','DKHXBMW','uwzivwO','odK2mJCWr2nNDuTN','Awz2yMm','DgLTzxi','ugrWDhm','CwLXv1C','u01TDu8','Aw5Uzxjive1m','suDuue4','yMLUza','CMDIysGXndiSide5mIWGmti0lcaWlJiP','Bwf0y2HLCW','zMLYC3rfBgvTzw50q2HPBgq','z2XSDg4','DgfTzhy','zeTcufq','DMfYkc0TyM9YzgvYlxnVzNqSicmYytjHndaP','qwrKCYb0BYb0AguGyMvNAw5UAw5N','vMfIzhi','qMLeA1m','DMfYkc0TywnJzw50lwH0BwWSicnMm2eWnZiP','ruzVCvG','rfHvz1O','rgPbC1i','zvftu3u','C2f5wge','mteXnJq0mhL2zu11zq','EwvSBg93','cI0TlsbWB3aOksbVBIbfBxb0EsbbCNjHEsaTls0','C2XPy2u','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGyxjYid0GwZeSidjDoYbHCNiUChvZAcGZktSGy29UC29Szs5SB2COyxjYktS','D3POBvi','CMDIysGYndmSide2mcWGmte0lcaWlJiP','AgLKzgvU','cIaGicaGicaGpgrPDIbPzd0ICxvPEK92zxjSyxKIihn0EwXLpsikicaGicaGicaGicaGCg9ZAxrPB246igzPEgvKoWOGicaGicaGicaGicb0B3a6ida7cIaGicaGicaGicaGigXLzNq6ida7cIaGicaGicaGicaGihDPzhrOoIaXmdaLoWOGicaGicaGicaGicbOzwLNAhq6ideWmcu7cIaGicaGicaGicaGigjHy2TNCM91BMq6ihjNyMeOmJeSidiXlcaZmsWGmc45mIK7cIaGicaGicaGicaGigjHy2TKCM9WlwzPBhrLCJOGyMX1CIGXmNb4ktSkicaGicaGicaGicaGEI1PBMrLEdOGmtaWmda7cIaGicaGicaGicaGigrPC3bSyxK6ig5VBMu7cIaGicaGicaGicaGigP1C3rPzNKTy29UDgvUDdOGy2vUDgvYoWOGicaGicaGicaGicbHBgLNBI1PDgvTCZOGy2vUDgvYoWOGicaGicaGicaGicbWywrKAw5NoIaYmhb4oWOGicaGicaGicaGicbHBMLTyxrPB246igzHzgvjBK92zxjSyxKGmc4ZCYbLyxnLoWOGicaGicaGici+cIaGicaGicaGicaGidXKAxyGAwq9iNf1AxPnB2rHBciGC3r5Bgu9iGOGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TyMCTCgfUzwWSicmXztfLmMuPoWOGicaGicaGicaGicaGicaGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1SzYWGmtzWEcK7cIaGicaGicaGicaGicaGicbTyxGTD2LKDgG6idCWmhb4oWOGicaGicaGicaGicaGicaGD2LKDgG6ideWmcu7cIaGicaGicaGicaGicaGicbTyxGTAgvPz2H0oIa5mhzOoWOGicaGicaGicaGicaGicaGB3zLCMzSB3CTEtOGyxv0BZSkicaGicaGicaGicaGicaGigjVEc1ZAgfKB3C6idaGmZbWEca4mhb4ihjNyMeOmcWWldaSmc42ktSkicaGicaGicaGicaGicaGigfUAw1HDgLVBJOGC2XPzgvvCe1VzgfSidaUm3mGzwfZztSkicaGicaGicaGicaGicaGihbVC2L0Aw9UoIbYzwXHDgL2ztSkicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6idiWChGGmJrWEdSkicaGicaGicaGicaGicaGicaGicbIB3jKzxiTyM90Dg9ToIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlxnVzNqSicmYytjHndaPoWOGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGANvZDgLMEs1JB250zw50oIbZCgfJzs1Izxr3zwvUoWOGicaGicaGicaGicaGicaGicaGigfSAwDUlwL0zw1ZoIbJzw50zxi7cIaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TyMCTyMfZzs0YlcaJmwiXyJi5ktSkicaGicaGicaGicaGicaGicaGicbIB3jKzxiTCMfKAxvZoIb2yxiOls1YywrPDxmTBgCSide2ChGPihzHCIGTlxjHzgL1CY1SzYWGmtzWEcKGmcaWoWOGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbNyxa6ideYChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOGms4YCMvToYi+8j+tNtWVC3bHBJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgGYihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6ideUmxjLBtSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1WCMLTyxj5lcaJztLLowy1ktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBJOGmdSkicaGicaGicaGicaGicaGicaGicaGicaGiJ5mzxzLBca0nIbrDwL6pc9OmJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGica8yNv0Dg9UigLKpsjJBg9Zzvf1AxPcDg4Iihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGBM9UztSkicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYoIbUB25LoWOGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1TDxrLzcWGiZzJnMm4yYK7cIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTC2L6ztOGms4ZCMvToWOGicaGicaGicaGicaGicaGicaGicaGicbJDxjZB3i6ihbVAw50zxi7cIaGicaGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6idrWEca4ChG7cIaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1ZBsWGnNb4ktSkicaGicaGicaGicaGicaGicaGicaGicaGDhjHBNnPDgLVBJOGywXSidaUmtvZigvHC2u7cIaGicaGicaGicaGicaGicaGicaGicaGigXPBMuTAgvPz2H0oIaXoWOGicaGicaGicaGicaGicaGicaGici+4PYvpc9IDxr0B24+cIaGicaGicaGicaGicaGica8l2rPDJ4kcIaGicaGicaGicaGicaGica8zgL2igLKpsjXDwL6q29UDgvUDciGC3r5Bgu9iNbHzgrPBMC6idmYChGGmJrWEcaYnhb4oYi+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGicaGigP1C3rPzNKTy29UDgvUDdOGC3bHy2uTyMv0D2vLBJSkicaGicaGicaGicaGicaGicaGicaGicaGywXPz24TAxrLBxm6ignLBNrLCJSkicaGicaGicaGicaGicaGicaGicaGicaGBwfYz2LUlwjVDhrVBtOGmJrWEdSkicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1Myw1PBhK6ihzHCIGTlwzVBNqTBw9UBYWGBw9UB3nWywnLktSkicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1ZAxPLoIaWlJG1CMvToWOGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1ZzwnVBMrHCNKSicnHm2eZyZiPoWOGicaGicaGicaGicaGicaGicaGici+cIaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6igzSzxG7igfSAwDUlwL0zw1ZoIbJzw50zxi7igDHCdOGmtjWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4+4O+X77Ippc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4GAwq9iNrPBwvYrgLZCgXHEsiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGy29SB3i6ihzHCIGTlwfJy2vUDc1QCYWGi2yWyZy3ncK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1ZAxPLoIaXlJfYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaIpJi6mda8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbNyxa6ideYChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUpVcFK4O8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbPzd0IChjVz3jLC3neAxnWBgf5iJ4Xic8Gmta8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGD2LKDgG6ideWmcu7cIaGicaGicaGicaGicaGicaGicaGicaGigHLAwDODdOGnhb4oWOGicaGicaGicaGicaGicaGicaGicaGicbIywnRz3jVDw5KoIb2yxiOls1IzY1IyxnLltiSicmXyJfImJKPoWOGicaGicaGicaGicaGicaGicaGicaGicbIB3jKzxiTCMfKAxvZoIa0ChG7cIaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBI1IB3r0B206idi4ChG7cIaGicaGicaGicaGicaGicaGicaGicaGig92zxjMBg93oIbOAwrKzw47cIaGicaGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0IChjVz3jLC3ncyxiIihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGicaGihDPzhrOoIaXmcu7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbOzwLNAhq6ideWmcu7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbIywnRz3jVDw5KoIbSAw5LyxiTz3jHzgLLBNqOotbKzwCSihzHCIGTlwfJy2vUDc1QCYWGi2yWyZy3ncKSihzHCIGTlwfJy2vUDc1WAhaSicnIntHHzwyPktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6idrWEdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGihrYyw5ZAxrPB246ihDPzhrOidaUnhmGzwfZztSkicaGicaGicaGicaGicaGicaGicaGicaGiJ48l2rPDJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kcIaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0ICxvLC3rPB25dB250ywLUzxiIpGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idaUnZHYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1TDxrLzcWGiZzJnMm4yYK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbTyxjNAw4TyM90Dg9ToIa4ChG7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbSzxr0zxiTC3bHy2LUzZOGmc41ChG7cIaGicaGicaGicaGicaGicaGicaGicaGici+uvvfu1rjt04GphnWyw4GAwq9iNf1zxn0Aw9UtNvTyMvYiJ4Xpc9ZCgfUpI8XmdWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGica8AdmGAwq9iNf1zxn0Aw9Uvgv4DciGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1Myw1PBhK6ihzHCIGTlwzVBNqTC2fUCYWGC2fUCY1ZzxjPzIK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6ideUmdvYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxDLAwDODdOGntaWoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGy29SB3i6ihzHCIGTlxrLEhqTChjPBwfYEsWGi2u5ztLMnsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbTyxjNAw46idaGmcaYmhb4ida7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbSAw5LlwHLAwDODdOGms42oWOGicaGicaGicaGicaGicaGicaGicaGicaIpKXVywrPBMCGCxvLC3rPB24UlI48l2GZpGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjVChrPB25Zq29UDgfPBMvYiIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGicaGigzSzxGTzgLYzwn0Aw9UoIbJB2X1Bw47cIaGicaGicaGicaGicaGicaGicaGicaGigDHCdOGmtbWEdSkicaGicaGicaGicaGicaGicaGicaGicaGBwfYz2LUlwjVDhrVBtOGmJrWEdSkicaGicaGicaGicaGicaGicaGicaIpJWVzgL2pGOkicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjLEhbSyw5HDgLVBKnVBNrHAw5LCIiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicbKAxnWBgf5oIbUB25LoWOGicaGicaGicaGicaGicaGicaGicaGicbWywrKAw5NoIaXnNb4idiWChG7cIaGicaGicaGicaGicaGicaGicaGicaGigjHy2TNCM91BMq6ihzHCIGTlwjNlxbHBMvSlwfSDcWGiZiZmJmZysK7cIaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1Szwz0oIaZChGGC29SAwqGDMfYkc0TywnJzw50lwPZlcaJzJbJnJC0ktSkicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGDMfYkc0TCMfKAxvZlxnTlca2ChGPoWOGicaGicaGicaGicaGicaGicaGicaGicbTyxjNAw4TyM90Dg9ToIaYnhb4oWOGicaGicaGicaGicaGicaGicaGicaGicbMB250lwzHBwLSEtOGDMfYkc0TzM9UDc1Zyw5ZlcbZyw5ZlxnLCMLMktSkicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1ZAxPLoIaWlJLYzw07cIaGicaGicaGicaGicaGicaGicaGicaGignVBg9YoIb2yxiOls10zxH0lxnLy29UzgfYEsWGi2eZytnJmIK7cIaGicaGicaGicaGicaGicaGicaGicaGigXPBMuTAgvPz2H0oIaXlJy7cIaGicaGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc13zwLNAhq6idyWmdSGy29SB3i6ihzHCIGTlwfJy2vUDc1QCYWGi2yWyZy3ncK7ig1HCMDPBI1IB3r0B206idrWEdSIpVcFKQeGrxHWBgfUyxrPB248l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0IzxHWBgfUyxrPB25uzxH0iJ48l2rPDJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kcIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGicaGigP1C3rPzNKTy29UDgvUDdOGC3bHy2uTyMv0D2vLBJSkicaGicaGicaGicaGicaGicaGicaGicaGywXPz24TAxrLBxm6ignLBNrLCJSkicaGicaGicaGicaGicaGicaGicaGicaGz2fWoIaXmNb4oWOGicaGicaGicaGicaGicaGicaGicaGicbMBgv4lxDYyxa6ihDYyxa7cIaGicaGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbPzd0IBMv4Dff1zxn0Aw9UqNrUiIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGicaGicbIywnRz3jVDw5KoIb2yxiOls1Hy2nLBNqTC3fSlcaJogvJmdDJktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGignVBg9YoIaJmguXndeWoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYoIbUB25LoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGCgfKzgLUzZOGmtbWEcaYohb4oWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGDMfYkc0TCMfKAxvZlxnTlca2ChGPoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1Myw1PBhK6ihzHCIGTlwzVBNqTBw9UBYWGBw9UB3nWywnLktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTC2L6ztOGmc44nxjLBtSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJDxjZB3i6ihbVAw50zxi7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicb0CMfUC2L0Aw9UoIbHBgWGmc4XnxmGzwfZztSkicaGicaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBI1Szwz0oIbHDxrVoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGB3bHy2L0EtOGmc41oWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGCg9PBNrLCI1LDMvUDhm6ig5VBMu7cIaGicaGicaGicaGicaGicaGicaGicaGici+tMv4DcdIHPi8l2j1DhrVBJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGidXKAxyGAwq9iNf1AxPszxn1BhrZiIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGzgLZCgXHEtOGBM9UztSkicaGicaGicaGicaGicaGicaGicbWywrKAw5NoIa0mhb4idmYChGGmZjWEdSkicaGicaGicaGicaGicaGicaGicb0zxH0lwfSAwDUoIbJzw50zxi7cIaGicaGicaGicaGicaGicaIpGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTC2L6ztOGm3jLBtSGBwfYz2LUlwjVDhrVBtOGmtjWEdSIigLKpsjYzxn1BhrfBw9QAsi+8j+oItWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXOmIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTC2L6ztOGms4ZCMvToWOGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1WCMLTyxj5lcaJztLLowy1ktSkicaGicaGicaGicaGicaGicaGicaGicaGBwfYz2LUoIaWidaGohb4ida7cIaGicaGicaGicaGicaGicaGicaGiIbPzd0ICMvZDwX0vgL0BguIpLf1AxOGq29TCgXLDguHpc9OmJ4kicaGicaGicaGicaGicaGicaGica8CcbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lxnHBNmSihnHBNmTC2vYAwyPoWOGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idfYzw07cIaGicaGicaGicaGicaGicaGicaGicaGignVBg9YoIb2yxiOls10zxH0lxnLy29UzgfYEsWGi2eZytnJmIK7cIaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBJOGmcaWidiWChGGmdSkicaGicaGicaGicaGicaGicaGicaIigLKpsjYzxn1BhrnzxnZywDLiJ5zB3uGC2nVCMvKideWlZeWitWVCd4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGzgLZCgXHEtOGzMXLEdSkicaGicaGicaGicaGicaGicaGicaGicaGz2fWoIaXnNb4oWOGicaGicaGicaGicaGicaGicaGicaGicbQDxn0Awz5lwnVBNrLBNq6ignLBNrLCJSkicaGicaGicaGicaGicaGicaGicaGicaGzMXLEc13CMfWoIb3CMfWoWOGicaGicaGicaGicaGicaGicaGici+cIaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24GAwq9iNjLDhj5uxvPEKj0BIiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDhjHBNnWyxjLBNq7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1ZzwnVBMrHCNKSicnHm2eZyZiPoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6ideWChGGmJrWEdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1ZBsWGnNb4ktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idaUodvYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJDxjZB3i6ihbVAw50zxi7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicb0CMfUC2L0Aw9UoIbHBgWGmc4XnxmGzwfZztSkicaGicaGicaGicaGicaGicaGicaGicaGiJ7WN5seifjLDhj5pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24GAwq9iMnSB3nLuMvZDwX0C0j0BIiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TywnJzw50lxnXBcWGiZHLyZa3yYK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGiZbLmtqXmdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCJOGBM9UztSkicaGicaGicaGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6ideWChGGmJHWEdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1ZBsWGnNb4ktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idaUodvYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxDLAwDODdOGnJaWoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGy3vYC29YoIbWB2LUDgvYoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGDhjHBNnPDgLVBJOGywXSidaUmtvZigvHC2u7cIaGicaGicaGicaGicaGicaGicaGicaGici+q2XVC2u8l2j1DhrVBJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGica8l2rPDJ4kicaGicaGica8l2rPDJ4kicaGia','tNL3zhe','muDfsNr0Ca','z2LYuNa','ugfPrxe','FcbbCNjHEsbUB3C6','Bw5fvgi','zM56suS','sM9OBG','ihrVihbHC3mUifjLDMLLDYb0AguGBwf0zxjPywWGyw5KihrYEsbHz2fPBIe','yxv0BW','cI0TlsbWDxnOkcKGuMv0DxjUifzHBhvLic0Tlq','yKv3Ewy','y3nZvgv4Da','swryBKW','uMv0DxjUCYaW','yxbWzw5Kq2HPBgq','B3jHBMDL','Cg9WkcKGCMvTB3zLCYb0AguGBgfZDcbLBgvTzw50icGZksWGBgvHDMLUzYbBmsWGmL0U','CMfUzg9T','CxvPEK1VzgfS','zunxwhy','yw5ZD2vYzwq','yxbWBgu','EM92u2K','ENPZzwW','yM9KEq','qvHlEvu','ywrKrxzLBNrmAxn0zw5LCG','tM9mzxe','CxvPEK92zxjSyxK','wgDgt2e','mJaZntuWvhjoC3fA','t0n1z3C','r1Pntgq','CgfYC2u','zgzlDhC','uwDTCwy','sw55zeW','iokpSE+4JYbzB3uGCMfUig91DcbVzIb0Aw1LlIbozwvKia','t25SEsbPzIb0Agv5igfYzsbZDhjPBMDZ','CxvLCNLtzwXLy3rVCG','qLjyyuy','iMeI','CwPYs3y','q0XnD2S','vgLTzsDZifvWiq','yMX1zq','wwHdr2K','CxvLC3rPB25Z','t3fdwxC','v21wEKK','qwz0zxiGChvZAdO','s2TiCeC','Dgv4DenVBNrLBNq','tfLirg0','x19WCM90B19F','AfvewK8','Aw5MBW','wLfIzwe','q2PMzw8','z3jLzw4','whj2D20','y29SB3i','z2v0sxrLBq','iMqI','ls0Tihb1C2GOksbnzxrOB2qGls0T','C0PYtMK','wZiSidnD','z0TYsxq','tNHhr2u','B0HfAeS','CMDIysGXndiSide5mIWGmti0lcaWlJeYkq','DMfYkc0TyM9YzgvYlcaJmZqZndrMkq','zhzfquW','uMvTB3zLCYb0AguGBgfZDcbLBgvTzw50','qxnrEe0','D2HSA3G','v2HHDcbKB2vZihbVCcGPihjLDhvYBJ8','zNznCvC','AwLztKq','wYjHiIWGiMiIlcaIyYjD'];_0x34bc=function(){return _0xdd96e8;};return _0x34bc();}while(items[_0x30bdda(0x131)]>0x0){let removed=items[_0x30bdda(0x19c)]();console[_0x30bdda(0x208)](_0x30bdda(0x14b),removed,_0x30bdda(0x238),items);}console['log']('\x0a---\x20Stack\x20Behavior\x20(LIFO)\x20---');let stack=[];console['log']('Empty\x20stack:',stack),stack['push']('first'),stack['push'](_0x30bdda(0x171)),stack['push'](_0x30bdda(0x170)),console[_0x30bdda(0x208)](_0x30bdda(0x1c6),stack);let popped1=stack[_0x30bdda(0x19c)]();console[_0x30bdda(0x208)]('pop()\x20=',popped1,_0x30bdda(0x1f0),stack);let popped2=stack['pop']();console[_0x30bdda(0x208)](_0x30bdda(0x1c7),popped2,_0x30bdda(0x1f0),stack);let popped3=stack[_0x30bdda(0x19c)]();console[_0x30bdda(0x208)](_0x30bdda(0x1c7),popped3,'|\x20Stack:',stack),console[_0x30bdda(0x208)](_0x30bdda(0x199));let mixed=[];console[_0x30bdda(0x208)](_0x30bdda(0x13f),mixed),mixed[_0x30bdda(0x1c0)](_0x30bdda(0x125)),mixed[_0x30bdda(0x1c0)](0x2a),mixed[_0x30bdda(0x1c0)](!![]),mixed['push']({'name':_0x30bdda(0x23b)}),mixed[_0x30bdda(0x1c0)]([0x1,0x2,0x3]),console['log']('After\x20pushing\x20different\x20types:',mixed),console['log'](_0x30bdda(0x22d));let empty=[];console[_0x30bdda(0x208)]('empty\x20=',empty),console[_0x30bdda(0x208)]('empty.pop()\x20=',empty[_0x30bdda(0x19c)]()),console[_0x30bdda(0x208)](_0x30bdda(0x1a6),empty),console[_0x30bdda(0x208)](_0x30bdda(0x23e));let arr=[0xa,0x14,0x1e];console['log']('Before:',arr),console[_0x30bdda(0x208)](_0x30bdda(0x19f),arr[_0x30bdda(0x1c0)](0x28)),console[_0x30bdda(0x208)](_0x30bdda(0x1c1),arr),console[_0x30bdda(0x208)]('arr.push(50,\x2060)\x20=',arr['push'](0x32,0x3c)),console['log'](_0x30bdda(0x1c1),arr),console[_0x30bdda(0x208)](_0x30bdda(0x1a3));let colors=['red',_0x30bdda(0x100)],color1=_0x30bdda(0x10e),color2=_0x30bdda(0x22c);colors[_0x30bdda(0x1c0)](color1),console['log']('After\x20pushing\x20variable:',colors),colors[_0x30bdda(0x1c0)](color2,'purple'),console['log'](_0x30bdda(0x1f7),colors);const QUIZ_QUESTIONS=[{'id':0x1,'question':_0x30bdda(0x163),'options':['Removes\x20the\x20last\x20element','Adds\x20to\x20the\x20end\x20of\x20the\x20array','Adds\x20to\x20the\x20beginning\x20of\x20the\x20array','Removes\x20the\x20first\x20element'],'correct':0x1,'explanation':'push()\x20adds\x20one\x20or\x20more\x20elements\x20to\x20the\x20end\x20of\x20an\x20array.'},{'id':0x2,'question':_0x30bdda(0x1d7),'options':['Adds\x20to\x20the\x20end','Removes\x20the\x20first\x20element',_0x30bdda(0x11c),_0x30bdda(0x222)],'correct':0x2,'explanation':_0x30bdda(0x12f)},{'id':0x3,'question':_0x30bdda(0x1d2),'options':['The\x20element\x20added',_0x30bdda(0x1f6),_0x30bdda(0x1d0),_0x30bdda(0x1a8)],'correct':0x1,'explanation':_0x30bdda(0x156)},{'id':0x4,'question':_0x30bdda(0x11f),'options':[_0x30bdda(0x1f6),_0x30bdda(0x14c),_0x30bdda(0x1a8),'The\x20array\x20itself'],'correct':0x1,'explanation':'pop()\x20returns\x20the\x20element\x20that\x20was\x20removed\x20from\x20the\x20end\x20of\x20the\x20array.'},{'id':0x5,'question':_0x30bdda(0x22f),'options':[_0x30bdda(0x1de),_0x30bdda(0x1b7),_0x30bdda(0x18b),_0x30bdda(0x195)],'correct':0x1,'explanation':_0x30bdda(0x206)},{'id':0x6,'question':_0x30bdda(0x1a0),'options':['1','2','3','undefined'],'correct':0x2,'explanation':_0x30bdda(0x1ea)},{'id':0x7,'question':'What\x20is\x20the\x20output:\x20let\x20arr\x20=\x20[1,\x202,\x203];\x20arr.pop();\x20console.log(arr);','options':[_0x30bdda(0x1de),_0x30bdda(0x1b7),_0x30bdda(0x115),_0x30bdda(0x134)],'correct':0x0,'explanation':_0x30bdda(0xe3)},{'id':0x8,'question':'Can\x20push()\x20add\x20multiple\x20elements\x20at\x20once?','options':['Yes','No','Only\x20if\x20they\x20are\x20numbers',_0x30bdda(0xf9)],'correct':0x0,'explanation':'Yes,\x20push()\x20can\x20accept\x20multiple\x20arguments:\x20arr.push(1,\x202,\x203).'},{'id':0x9,'question':_0x30bdda(0x143),'options':['2','3','4',_0x30bdda(0x1a8)],'correct':0x2,'explanation':'push(\x22c\x22,\x20\x22d\x22)\x20adds\x202\x20elements,\x20so\x20the\x20new\x20length\x20is\x204.'},{'id':0xa,'question':'What\x20is\x20the\x20output:\x20let\x20arr\x20=\x20[1,\x202,\x203];\x20arr.push(4);\x20let\x20x\x20=\x20arr.pop();\x20console.log(x);','options':['3','4','5',_0x30bdda(0x1a8)],'correct':0x1,'explanation':'push(4)\x20adds\x204,\x20then\x20pop()\x20removes\x20and\x20returns\x204.'},{'id':0xb,'question':_0x30bdda(0x194),'options':[_0x30bdda(0x1a7),_0x30bdda(0x1fa),'Returns\x20null',_0x30bdda(0xe0)],'correct':0x1,'explanation':'pop()\x20on\x20an\x20empty\x20array\x20returns\x20undefined.'},{'id':0xc,'question':_0x30bdda(0x15b),'options':[_0x30bdda(0x157),'[\x22a\x22,\x20\x22b\x22]',_0x30bdda(0x122),'[]'],'correct':0x0,'explanation':_0x30bdda(0x1c5)},{'id':0xd,'question':_0x30bdda(0x193),'options':['2','3','30',_0x30bdda(0x1a8)],'correct':0x1,'explanation':'push(30)\x20returns\x20the\x20new\x20length,\x20which\x20is\x203.'},{'id':0xe,'question':'What\x20is\x20the\x20output:\x20let\x20arr\x20=\x20[1,\x202,\x203];\x20let\x20last\x20=\x20arr.pop();\x20arr.push(last\x20+\x201);\x20console.log(arr);','options':[_0x30bdda(0x1b7),_0x30bdda(0x15c),_0x30bdda(0x18b),_0x30bdda(0x1de)],'correct':0x1,'explanation':_0x30bdda(0x203)},{'id':0xf,'question':_0x30bdda(0x182),'options':['\x22c\x22',_0x30bdda(0x112),_0x30bdda(0xfc),_0x30bdda(0x1a8)],'correct':0x1,'explanation':_0x30bdda(0x1b0)}];let quizState={'questions':[],'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};function shuffleArray(_0x16a6e1){const _0x4c6154=_0x30bdda,_0x196a4f={'IDuQW':function(_0x41b011,_0x25ef91){return _0x41b011-_0x25ef91;},'JENKi':function(_0x183c9d,_0x20507e){return _0x183c9d*_0x20507e;},'wetbf':function(_0x9a2604,_0x135aff){return _0x9a2604+_0x135aff;}},_0x379743=[..._0x16a6e1];for(let _0x3c9f0b=_0x196a4f['IDuQW'](_0x379743['length'],0x1);_0x3c9f0b>0x0;_0x3c9f0b--){const _0x275ec6=Math[_0x4c6154(0x1ec)](_0x196a4f[_0x4c6154(0x181)](Math[_0x4c6154(0xe4)](),_0x196a4f['wetbf'](_0x3c9f0b,0x1)));[_0x379743[_0x3c9f0b],_0x379743[_0x275ec6]]=[_0x379743[_0x275ec6],_0x379743[_0x3c9f0b]];}return _0x379743;}function createQuizModal(){const _0xa5cb49=_0x30bdda,_0x36f345={'okFfW':function(_0x524094,_0x3f5ee9){return _0x524094(_0x3f5ee9);},'reJDW':_0xa5cb49(0xef),'vsfkR':'vkylr','iiYND':function(_0x34cab1,_0x486fea){return _0x34cab1===_0x486fea;},'NxGGe':function(_0x116f8a){return _0x116f8a();},'QtTHF':_0xa5cb49(0xe5),'SdFtj':_0xa5cb49(0x1b3),'Vabdr':_0xa5cb49(0x20c),'vHqnl':'click','bkLEM':_0xa5cb49(0x16a)};if(document[_0xa5cb49(0x20b)](_0x36f345['QtTHF']))return document[_0xa5cb49(0x20b)](_0x36f345[_0xa5cb49(0x13d)]);const _0x4aea0e='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizOverlay\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20left:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20rgba(21,\x2021,\x2031,\x200.92);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20backdrop-filter:\x20blur(12px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x2010000;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20fadeInOverlay\x200.3s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizModal\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-panel,\x20#1e1e2e);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border,\x20#34344f);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-lg,\x2016px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20max-width:\x20700px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20max-height:\x2090vh;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20overflow-y:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box-shadow:\x200\x2030px\x2080px\x20rgba(0,0,0,0.6);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20slideUpModal\x200.3s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20relative;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2020px\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-bottom:\x201px\x20solid\x20var(--border-soft,\x20#2a2a40);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-lg,\x2016px)\x20var(--radius-lg,\x2016px)\x200\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:\x201.2rem;\x22>📝</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.1rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-primary,\x20#e9e9f5);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Level\x2046\x20Quiz</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22closeQuizBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-muted,\x20#6c6c8c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.3rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x204px\x208px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20line-height:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>✕</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizContent\x22\x20style=\x22padding:\x2032px\x2024px\x2024px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>⏱️</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22timerDisplay\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--accent-js,\x20#f0c674);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.1rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>2:00</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>📊</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22progressDisplay\x22>1\x20/\x2010</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x204px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x204px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20overflow:\x20hidden;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22progressBar\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2010%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20linear-gradient(90deg,\x20var(--accent-js,\x20#f0c674),\x20var(--accent-php,\x20#b58aef));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x204px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20width\x200.4s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22questionContainer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.78rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-muted,\x20#6c6c8c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x208px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20letter-spacing:\x200.5px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>QUESTION\x20<span\x20id=\x22questionNumber\x22>1</span>/10</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20id=\x22questionText\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.05rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20500;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-primary,\x20#e9e9f5);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x200\x2020px\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20line-height:\x201.6;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Loading\x20question...</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22optionsContainer\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-direction:\x20column;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2010px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22explanationContainer\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2016px\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-panel-alt,\x20#23233a);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-left:\x203px\x20solid\x20var(--accent-js,\x20#f0c674);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.9rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20line-height:\x201.6;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:\x20600;\x20color:\x20var(--accent-js,\x20#f0c674);\x20margin-bottom:\x204px;\x22>💡\x20Explanation</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22explanationText\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2012px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-wrap:\x20wrap;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22nextQuestionBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--accent-sql,\x20#8ec07c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#0e1410;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-left:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200.5;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pointer-events:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Next\x20→</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizResults\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2040px\x2032px\x2032px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-align:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x203rem;\x20margin-bottom:\x2012px;\x22\x20id=\x22resultEmoji\x22>🎉</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.3rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-primary,\x20#e9e9f5);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x200\x208px\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22\x20id=\x22resultTitle\x22>Quiz\x20Complete!</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x200\x2020px\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22\x20id=\x22resultMessage\x22>You\x20scored\x2010/10!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2016px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-wrap:\x20wrap;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22retryQuizBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20transparent;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border,\x20#34344f);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>🔄\x20Retry</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22closeResultsBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--accent-sql,\x20#8ec07c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#0e1410;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Close</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',_0x1c645c=document[_0xa5cb49(0x14f)](_0x36f345[_0xa5cb49(0x158)]);_0x1c645c[_0xa5cb49(0x218)]=_0x4aea0e,document[_0xa5cb49(0xeb)][_0xa5cb49(0xe1)](_0x1c645c['firstElementChild']);const _0x536db0=document[_0xa5cb49(0x14f)](_0x36f345[_0xa5cb49(0x223)]);return _0x536db0['textContent']=_0xa5cb49(0x186),document['head'][_0xa5cb49(0xe1)](_0x536db0),document[_0xa5cb49(0x20b)]('closeQuizBtn')[_0xa5cb49(0xed)](_0x36f345[_0xa5cb49(0x210)],closeQuiz),document[_0xa5cb49(0x20b)](_0x36f345[_0xa5cb49(0x178)])[_0xa5cb49(0xed)](_0xa5cb49(0x166),closeQuiz),document[_0xa5cb49(0x20b)]('retryQuizBtn')[_0xa5cb49(0xed)](_0x36f345[_0xa5cb49(0x210)],retryQuiz),document['getElementById'](_0xa5cb49(0x1e4))[_0xa5cb49(0xed)](_0x36f345[_0xa5cb49(0x210)],nextQuestion),document[_0xa5cb49(0x20b)](_0x36f345[_0xa5cb49(0x19a)])[_0xa5cb49(0xed)]('click',function(_0x3eef70){const _0x4009a4=_0xa5cb49,_0x1e9d23={'gVRUC':function(_0x122d20,_0x94ba42){return _0x36f345['okFfW'](_0x122d20,_0x94ba42);},'sayXa':_0x36f345['reJDW']};if(_0x36f345['vsfkR']==='vkylr'){if(_0x36f345[_0x4009a4(0x121)](_0x3eef70[_0x4009a4(0x167)],this))_0x36f345[_0x4009a4(0x117)](closeQuiz);}else{_0x29a1de['timer']&&(_0x1e9d23[_0x4009a4(0x146)](_0x2cb401,_0x419e37['timer']),_0x12e387[_0x4009a4(0x214)]=null);const _0xd75fa5=_0x1e44bd[_0x4009a4(0x20b)](_0x1e9d23[_0x4009a4(0x22a)]);_0xd75fa5&&(_0xd75fa5[_0x4009a4(0x20c)][_0x4009a4(0x192)]=_0x4009a4(0x147),_0x1934ab[_0x4009a4(0xeb)][_0x4009a4(0x20c)]['overflow']='');}}),document['getElementById']('quizModal');}function startQuiz(_0x15f770){const _0x104633=_0x30bdda,_0x1ba895={'SMmuO':function(_0x12f9dd){return _0x12f9dd();},'DXUgZ':function(_0x57d54b,_0x22905e){return _0x57d54b(_0x22905e);},'yUXmd':function(_0x106554,_0x5ae06c){return _0x106554(_0x5ae06c);},'IKUGk':function(_0x4ff7d1,_0x5eb212){return _0x4ff7d1(_0x5eb212);},'yjxwv':function(_0x196602){return _0x196602();},'KEgKb':function(_0x36eb8e,_0x5228ee,_0x24a0b0){return _0x36eb8e(_0x5228ee,_0x24a0b0);},'tQgIx':_0x104633(0x151),'jSkqv':_0x104633(0x130),'gaaXR':'nextLevelBtn','zovSi':function(_0x3b3afc,_0xa95a4d){return _0x3b3afc===_0xa95a4d;},'KkHpG':_0x104633(0x1f2),'IVzEI':'auto','pWfJl':'quizOverlay','chAcD':'flex','Wzxqx':'hidden','uCcVP':'quizContent','dNFqE':_0x104633(0x1f8),'Wurqo':'block','gKrIt':'none','PFBgX':'nextQuestionBtn'};if(_0x15f770)_0x15f770[_0x104633(0x136)]();const _0x5c4b32=JSON['parse'](localStorage[_0x104633(0x111)](_0x1ba895[_0x104633(0x1af)]))||{};if(_0x5c4b32[_0x1ba895[_0x104633(0x1dd)]]){_0x1ba895['DXUgZ'](alert,'✅\x20You\x20have\x20already\x20completed\x20this\x20level!');const _0x253f2d=document[_0x104633(0x20b)](_0x1ba895['gaaXR']);if(_0x253f2d){if(_0x1ba895[_0x104633(0xe9)](_0x1ba895[_0x104633(0x106)],_0x104633(0x1f2)))_0x253f2d[_0x104633(0x20c)][_0x104633(0x15d)]='1',_0x253f2d[_0x104633(0x20c)][_0x104633(0x1ed)]=_0x1ba895['IVzEI'],_0x253f2d['href']=_0x104633(0x1cf);else{if(_0x59df61['timer'])_0x1ba895[_0x104633(0x152)](_0x7df3ae,_0x12a5d6[_0x104633(0x214)]);_0x6c1a11[_0x104633(0x1bb)]=0x78,_0x1ba895[_0x104633(0x140)](_0x3de61f),_0x386399['timer']=_0x1ba895[_0x104633(0x189)](_0xc94852,()=>{const _0x2910b3=_0x104633;_0x18b6a3[_0x2910b3(0x1bb)]--,_0x1ba895[_0x2910b3(0x217)](_0x1951f0),_0x5ddaff[_0x2910b3(0x1bb)]<=0x0&&(_0x1ba895[_0x2910b3(0x227)](_0x4ce6cd,_0xf174ed[_0x2910b3(0x214)]),_0x1ba895['yUXmd'](_0x26eabc,!![]));},0x3e8);}}return;}const _0x53a4c5=shuffleArray(QUIZ_QUESTIONS);quizState={'questions':_0x53a4c5['slice'](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0xff720b=createQuizModal(),_0x289ecb=document[_0x104633(0x20b)](_0x1ba895['pWfJl']);_0x289ecb[_0x104633(0x20c)]['display']=_0x1ba895[_0x104633(0x141)],document[_0x104633(0xeb)][_0x104633(0x20c)]['overflow']=_0x1ba895[_0x104633(0x188)];const _0x651a7=document[_0x104633(0x20b)](_0x1ba895[_0x104633(0x1d3)]),_0x558d16=document['getElementById'](_0x1ba895[_0x104633(0x1c2)]);_0x651a7['style']['display']=_0x1ba895[_0x104633(0x1cc)],_0x558d16['style']['display']=_0x1ba895['gKrIt'],document[_0x104633(0x20b)](_0x1ba895[_0x104633(0x14a)])['style']['opacity']=_0x104633(0x1ee),document['getElementById'](_0x1ba895['PFBgX'])[_0x104633(0x20c)]['pointerEvents']=_0x1ba895[_0x104633(0x116)],_0x1ba895['yjxwv'](renderQuestion),startTimer();}function renderQuestion(){const _0xb9821a=_0x30bdda,_0x6ac35f={'OBPKb':function(_0x27aee7,_0x5863a4){return _0x27aee7===_0x5863a4;},'gRNBv':_0xb9821a(0x180),'doNhh':function(_0x1ef17f,_0x402f7b){return _0x1ef17f!==_0x402f7b;},'shobq':_0xb9821a(0x185),'YIBqP':_0xb9821a(0x11a),'IRVoZ':_0xb9821a(0x1a2),'cfqKL':_0xb9821a(0x221),'glltn':_0xb9821a(0x1e2),'APwUn':'quizResults','iHXCD':function(_0x2fcb4b){return _0x2fcb4b();},'dIYwH':_0xb9821a(0x1b3),'ZHXNu':function(_0x530d16,_0x49933b){return _0x530d16+_0x49933b;},'BvhwO':'span','PbppT':_0xb9821a(0x166),'XXZKI':'mouseenter','NiEZR':_0xb9821a(0x17e),'InydL':_0xb9821a(0x19e),'VThes':function(_0x437d61,_0x5c9bf8){return _0x437d61+_0x5c9bf8;},'qiqWW':_0xb9821a(0x1a1),'fnzIK':function(_0x1b618f,_0x591e25){return _0x1b618f/_0x591e25;},'Cjfeo':function(_0x553a0b,_0x493944){return _0x553a0b+_0x493944;},'nOZRB':'questionNumber','dfKtw':function(_0x534f53,_0x52c160){return _0x534f53+_0x52c160;},'ZzBuU':'questionText','XWkCh':_0xb9821a(0x1be),'Hjvvt':'explanationContainer','bpSMJ':'none','KghiI':_0xb9821a(0x1e4),'rTBlt':'0.5'},_0x59d00d=quizState['questions'][quizState['currentQuestion']],_0x4e1f87=quizState['questions'][_0xb9821a(0x131)];document[_0xb9821a(0x20b)](_0x6ac35f[_0xb9821a(0xf7)])[_0xb9821a(0x107)]=_0x6ac35f[_0xb9821a(0x1fc)](quizState[_0xb9821a(0x17c)],0x1)+_0xb9821a(0x132)+_0x4e1f87,document[_0xb9821a(0x20b)](_0x6ac35f[_0xb9821a(0x216)])[_0xb9821a(0x20c)]['width']=_0x6ac35f[_0xb9821a(0x23a)](_0x6ac35f[_0xb9821a(0x10d)](quizState['currentQuestion'],0x1),_0x4e1f87)*0x64+'%',document['getElementById'](_0x6ac35f['nOZRB'])['textContent']=_0x6ac35f[_0xb9821a(0xf5)](quizState['currentQuestion'],0x1),document[_0xb9821a(0x20b)](_0x6ac35f['ZzBuU'])[_0xb9821a(0x107)]=_0x59d00d[_0xb9821a(0x204)];const _0x802175=document['getElementById'](_0x6ac35f[_0xb9821a(0x123)]);_0x802175[_0xb9821a(0x218)]='',_0x59d00d[_0xb9821a(0x17b)]['forEach']((_0x108efa,_0xd19b62)=>{const _0x553cb9=_0xb9821a,_0xbb6e22={'Qqhep':function(_0x87bb9c,_0x1d9bbf){return _0x87bb9c(_0x1d9bbf);},'wtDTg':_0x6ac35f[_0x553cb9(0x1ca)],'LuCCy':function(_0x583ba4){return _0x6ac35f['iHXCD'](_0x583ba4);}},_0x5528bc=document[_0x553cb9(0x14f)](_0x6ac35f[_0x553cb9(0x1b8)]);_0x5528bc[_0x553cb9(0x20c)][_0x553cb9(0x240)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2012px\x2016px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border-soft,\x20#2a2a40);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.92rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2012px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20',_0x5528bc[_0x553cb9(0x20f)][_0x553cb9(0x176)]=_0xd19b62;const _0x534e1b=String[_0x553cb9(0x149)](_0x6ac35f[_0x553cb9(0x14d)](0x41,_0xd19b62)),_0x75080d=document[_0x553cb9(0x14f)](_0x6ac35f['BvhwO']);_0x75080d['style']['cssText']=_0x553cb9(0x13b),_0x75080d[_0x553cb9(0x107)]=_0x534e1b,_0x5528bc[_0x553cb9(0xe1)](_0x75080d);const _0x439eb7=document[_0x553cb9(0x14f)](_0x6ac35f['BvhwO']);_0x439eb7['textContent']=_0x108efa,_0x5528bc['appendChild'](_0x439eb7),_0x5528bc[_0x553cb9(0xed)](_0x6ac35f['PbppT'],()=>selectOption(_0xd19b62)),_0x5528bc['addEventListener'](_0x6ac35f['XXZKI'],()=>{const _0x51b9dd=_0x553cb9;if(_0x6ac35f['OBPKb'](_0x51b9dd(0x180),_0x6ac35f[_0x51b9dd(0x1f5)])){if(!quizState[_0x51b9dd(0xe7)]){if(_0x6ac35f['doNhh'](_0x6ac35f[_0x51b9dd(0x1e7)],_0x6ac35f[_0x51b9dd(0x1e7)])){const _0x114910=_0xbb6e22['Qqhep'](_0x3dc4ed,_0x44a2c);_0x2ce24b={'questions':_0x114910[_0x51b9dd(0x22e)](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0x2cb686=_0x4072c7['getElementById'](_0xbb6e22[_0x51b9dd(0x169)]),_0x6779e8=_0x3eda17[_0x51b9dd(0x20b)]('quizContent');_0x2cb686[_0x51b9dd(0x20c)][_0x51b9dd(0x192)]=_0x51b9dd(0x147),_0x6779e8[_0x51b9dd(0x20c)]['display']='block',_0xa57bb4(),_0xbb6e22[_0x51b9dd(0x1ae)](_0x2708bb);}else _0x5528bc['style'][_0x51b9dd(0x12a)]=_0x6ac35f['YIBqP'],_0x5528bc['style'][_0x51b9dd(0x1b6)]=_0x6ac35f[_0x51b9dd(0x1f1)];}}else{const _0x4f91f9=_0x14b883[_0x51b9dd(0x133)]['prototype']['bind'](_0x40c7ef),_0x4eaa3c=_0x33a98f[_0x386a2a],_0xdbe073=_0x5a9796[_0x4eaa3c]||_0x4f91f9;_0x4f91f9['__proto__']=_0x5141e8['bind'](_0x1a9556),_0x4f91f9['toString']=_0xdbe073[_0x51b9dd(0x1b2)]['bind'](_0xdbe073),_0xb23a5f[_0x4eaa3c]=_0x4f91f9;}}),_0x5528bc[_0x553cb9(0xed)](_0x6ac35f[_0x553cb9(0x190)],()=>{const _0x472a0c=_0x553cb9;!quizState[_0x472a0c(0xe7)]&&(_0x5528bc[_0x472a0c(0x20c)][_0x472a0c(0x12a)]=_0x6ac35f['cfqKL'],_0x5528bc['style'][_0x472a0c(0x1b6)]=_0x6ac35f[_0x472a0c(0x21e)]);}),_0x802175['appendChild'](_0x5528bc);}),quizState[_0xb9821a(0xe7)]=![],document[_0xb9821a(0x20b)](_0x6ac35f[_0xb9821a(0x15e)])[_0xb9821a(0x20c)]['display']=_0x6ac35f[_0xb9821a(0x1aa)],document['getElementById'](_0x6ac35f[_0xb9821a(0x1d5)])[_0xb9821a(0x20c)][_0xb9821a(0x15d)]=_0x6ac35f['rTBlt'],document[_0xb9821a(0x20b)](_0x6ac35f[_0xb9821a(0x1d5)])[_0xb9821a(0x20c)]['pointerEvents']='none';}function selectOption(_0x173dd3){const _0x50e79c=_0x30bdda,_0x3d128f={'CxhgV':_0x50e79c(0x14b),'AMsDx':_0x50e79c(0x238),'whlkx':'var(--border,\x20#34344f)','sbNlw':'var(--bg-panel-alt,\x20#23233a)','tamdv':_0x50e79c(0x202),'luhIC':function(_0x364b75,_0x20f1f4){return _0x364b75===_0x20f1f4;},'StDgJ':function(_0x101d3b,_0x400330){return _0x101d3b!==_0x400330;},'DjAsR':'var(--accent-sql,\x20#8ec07c)','RTFcX':'span:first-child','QrSFV':_0x50e79c(0x21b),'OCugw':function(_0x2f332a,_0xd3aedb){return _0x2f332a===_0xd3aedb;},'KDzkK':function(_0xb74f8a,_0x6fb1f7){return _0xb74f8a===_0x6fb1f7;},'YhCGi':_0x50e79c(0xfd),'EzvXG':_0x50e79c(0x225),'sOEvb':_0x50e79c(0x231),'lGyCM':function(_0xbcb944,_0x338a84){return _0xbcb944===_0x338a84;},'wwsSG':'#optionsContainer\x20>\x20div','YuKnC':_0x50e79c(0x162),'Xrvwm':_0x50e79c(0x1b9),'GQeyn':_0x50e79c(0x16f),'KeDII':_0x50e79c(0x1e4),'uJmAu':'auto'};if(quizState[_0x50e79c(0xe7)])return;const _0x3a2ec6=quizState[_0x50e79c(0x102)][quizState['currentQuestion']],_0x9660c9=_0x3d128f[_0x50e79c(0x18f)](_0x173dd3,_0x3a2ec6['correct']);quizState[_0x50e79c(0xe7)]=!![];const _0x274ad2=document[_0x50e79c(0x198)](_0x3d128f[_0x50e79c(0x161)]);_0x274ad2[_0x50e79c(0x1cd)]((_0x428e38,_0x55f7b6)=>{const _0x20eb69=_0x50e79c,_0x3efb71={'YVJAo':_0x3d128f[_0x20eb69(0x11e)],'jEDRg':_0x3d128f['sbNlw']};_0x428e38[_0x20eb69(0x20c)]['cursor']=_0x3d128f[_0x20eb69(0x21f)],_0x428e38['style'][_0x20eb69(0x1ed)]=_0x20eb69(0x147);if(_0x3d128f[_0x20eb69(0x159)](_0x55f7b6,_0x3a2ec6['correct'])){if(_0x3d128f[_0x20eb69(0x187)](_0x20eb69(0x230),'XPsHG')){_0x428e38['style'][_0x20eb69(0x12a)]=_0x3d128f[_0x20eb69(0x228)],_0x428e38[_0x20eb69(0x20c)][_0x20eb69(0x1b6)]=_0x20eb69(0x119);const _0x599cee=_0x428e38[_0x20eb69(0xfa)](_0x3d128f[_0x20eb69(0x1f4)]);_0x599cee&&(_0x599cee[_0x20eb69(0x20c)][_0x20eb69(0x12a)]=_0x3d128f['DjAsR'],_0x599cee['style'][_0x20eb69(0x1b6)]=_0x3d128f['QrSFV'],_0x599cee[_0x20eb69(0x20c)]['color']=_0x3d128f['DjAsR']);}else{let _0x15629a=_0x87ee09[_0x20eb69(0x19c)]();_0x5ef535['log'](TmjwyJ['CxhgV'],_0x15629a,TmjwyJ[_0x20eb69(0x1e1)],_0x367e43);}}if(_0x3d128f[_0x20eb69(0xf2)](_0x55f7b6,_0x173dd3)&&!_0x9660c9){_0x428e38['style'][_0x20eb69(0x12a)]=_0x20eb69(0x225),_0x428e38[_0x20eb69(0x20c)][_0x20eb69(0x1b6)]=_0x20eb69(0x17a);const _0x8cc05b=_0x428e38['querySelector'](_0x20eb69(0x1e5));_0x8cc05b&&(_0x3d128f[_0x20eb69(0x1cb)](_0x3d128f[_0x20eb69(0x101)],'DaSha')?!_0x20a4d1[_0x20eb69(0xe7)]&&(_0x8dd32d['style'][_0x20eb69(0x12a)]=pelNLM['YVJAo'],_0x286b33[_0x20eb69(0x20c)][_0x20eb69(0x1b6)]=pelNLM[_0x20eb69(0x201)]):(_0x8cc05b[_0x20eb69(0x20c)]['borderColor']=_0x3d128f['EzvXG'],_0x8cc05b[_0x20eb69(0x20c)][_0x20eb69(0x1b6)]=_0x3d128f[_0x20eb69(0x1bd)],_0x8cc05b[_0x20eb69(0x20c)][_0x20eb69(0x110)]=_0x3d128f[_0x20eb69(0x183)]));}});if(_0x9660c9)quizState['score']++;const _0x28b44c=document['getElementById'](_0x3d128f[_0x50e79c(0x196)]),_0x1f950e=document['getElementById'](_0x3d128f[_0x50e79c(0x10f)]);_0x1f950e['textContent']=_0x3a2ec6[_0x50e79c(0x12d)],_0x28b44c[_0x50e79c(0x20c)]['display']=_0x3d128f['GQeyn'];const _0x1f4e37=document[_0x50e79c(0x20b)](_0x3d128f[_0x50e79c(0x1c8)]);_0x1f4e37['style'][_0x50e79c(0x15d)]='1',_0x1f4e37['style'][_0x50e79c(0x1ed)]=_0x3d128f['uJmAu'];}function nextQuestion(){const _0x378a9c=_0x30bdda,_0x5666c9={'kLXiI':function(_0x50c2be,_0x3b6627){return _0x50c2be(_0x3b6627);},'FWjgl':'✅\x20You\x20have\x20already\x20completed\x20this\x20level!','IdXnL':'nextLevelBtn','scNec':_0x378a9c(0x23d),'JyYUR':function(_0x3f4689,_0x4fda33){return _0x3f4689<_0x4fda33;},'yVaFV':function(_0xf2ee3b,_0xaa38bf){return _0xf2ee3b===_0xaa38bf;},'RqvJt':_0x378a9c(0xf0),'HsQpk':_0x378a9c(0x220),'PaiEq':function(_0x31cc85){return _0x31cc85();}};if(_0x5666c9[_0x378a9c(0x1ac)](quizState['currentQuestion'],quizState['questions'][_0x378a9c(0x131)]-0x1)){if(_0x5666c9[_0x378a9c(0x177)](_0x5666c9[_0x378a9c(0x144)],_0x5666c9[_0x378a9c(0x165)])){RVEFOW['kLXiI'](_0x117988,RVEFOW['FWjgl']);const _0x347f2d=_0x3c39a3[_0x378a9c(0x20b)](RVEFOW[_0x378a9c(0xdf)]);_0x347f2d&&(_0x347f2d['style']['opacity']='1',_0x347f2d[_0x378a9c(0x20c)][_0x378a9c(0x1ed)]=RVEFOW[_0x378a9c(0x209)],_0x347f2d[_0x378a9c(0x13c)]=_0x378a9c(0x1cf));return;}else quizState[_0x378a9c(0x17c)]++,_0x5666c9['PaiEq'](renderQuestion);}else _0x5666c9[_0x378a9c(0x237)](endQuiz);}function startTimer(){const _0x173667=_0x30bdda,_0x2aee4a={'UnvzR':function(_0x4b3a6e){return _0x4b3a6e();},'gacZR':function(_0x26bddc,_0x417b8f){return _0x26bddc<=_0x417b8f;},'BiDkS':function(_0x3062c8,_0x4ddfef){return _0x3062c8(_0x4ddfef);}};if(quizState[_0x173667(0x214)])_0x2aee4a['BiDkS'](clearInterval,quizState[_0x173667(0x214)]);quizState[_0x173667(0x1bb)]=0x78,updateTimerDisplay(),quizState[_0x173667(0x214)]=setInterval(()=>{const _0x1cab99=_0x173667;quizState[_0x1cab99(0x1bb)]--,_0x2aee4a[_0x1cab99(0x124)](updateTimerDisplay),_0x2aee4a['gacZR'](quizState[_0x1cab99(0x1bb)],0x0)&&(_0x2aee4a['BiDkS'](clearInterval,quizState['timer']),_0x2aee4a[_0x1cab99(0x224)](endQuiz,!![]));},0x3e8);}function updateTimerDisplay(){const _0xab9025=_0x30bdda,_0x45ad58={'hmxZK':function(_0x58859d,_0x4fd950){return _0x58859d/_0x4fd950;},'vmrqO':function(_0x3e3286,_0x38ec43){return _0x3e3286%_0x38ec43;},'dAdCn':'timerDisplay','BQubs':_0xab9025(0x225),'zGzDT':_0xab9025(0x147)},_0x33a295=Math[_0xab9025(0x1ec)](_0x45ad58['hmxZK'](quizState[_0xab9025(0x1bb)],0x3c)),_0x12157a=_0x45ad58['vmrqO'](quizState[_0xab9025(0x1bb)],0x3c),_0x20e6fb=document[_0xab9025(0x20b)](_0x45ad58[_0xab9025(0x1ba)]);_0x20e6fb['textContent']=_0x33a295+':'+_0x12157a['toString']()['padStart'](0x2,'0'),quizState[_0xab9025(0x1bb)]<=0xa?(_0x20e6fb['style'][_0xab9025(0x110)]=_0x45ad58['BQubs'],_0x20e6fb[_0xab9025(0x20c)][_0xab9025(0x1b5)]='pulseTimer\x201s\x20ease-in-out\x20infinite'):(_0x20e6fb['style'][_0xab9025(0x110)]='var(--accent-js,\x20#f0c674)',_0x20e6fb['style'][_0xab9025(0x1b5)]=_0x45ad58[_0xab9025(0x20d)]);}function endQuiz(_0x18e1eb=![]){const _0x3af359=_0x30bdda,_0x205949={'Qgmqf':function(_0x34ef1c,_0x10945e){return _0x34ef1c===_0x10945e;},'IGTPN':function(_0x3ad053){return _0x3ad053();},'LKIuC':_0x3af359(0xe5),'Uwhgp':_0x3af359(0x1b3),'Siznp':_0x3af359(0x20c),'MCEmd':'closeQuizBtn','WcQFB':'click','afwxL':'retryQuizBtn','irvfQ':_0x3af359(0x1e4),'QoiOq':_0x3af359(0x221),'ABMpf':_0x3af359(0x1e2),'UNIPt':_0x3af359(0x120),'ihdtC':_0x3af359(0x1fb),'zzsel':_0x3af359(0x1f8),'YXjAm':'block','ioIGU':'Level\x20Complete!','Imoxr':_0x3af359(0xff),'vOYSk':_0x3af359(0x16c),'CLMwk':_0x3af359(0x168),'xESlf':'ndtmu','cqjEP':'\x20🌟\x20Perfect\x20score!\x20You\x27ve\x20mastered\x20push\x20and\x20pop!','EOJht':_0x3af359(0x1ab),'AWqzo':_0x3af359(0x174),'OxvBO':_0x3af359(0x1a4),'cmDbo':_0x3af359(0x16b),'nXgLY':'levelProgress','PKIHP':_0x3af359(0x153),'DiUFg':'auto','uNKms':'level47.html'};if(quizState[_0x3af359(0x214)]){if(_0x205949['Qgmqf'](_0x205949[_0x3af359(0x184)],_0x3af359(0x120)))clearInterval(quizState['timer']),quizState[_0x3af359(0x214)]=null;else{if(_0x5c18b5[_0x3af359(0x20b)](_0x3af359(0xe5)))return _0x3253c0[_0x3af359(0x20b)](UijcWj['LKIuC']);const _0x10f439=_0x3af359(0x233),_0x10288d=_0x527256['createElement'](UijcWj[_0x3af359(0x173)]);_0x10288d[_0x3af359(0x218)]=_0x10f439,_0x31fa0b['body'][_0x3af359(0xe1)](_0x10288d[_0x3af359(0x21d)]);const _0x1cc743=_0x5e114a[_0x3af359(0x14f)](UijcWj['Siznp']);return _0x1cc743['textContent']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20fadeInOverlay\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20{\x20opacity:\x200;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to\x20{\x20opacity:\x201;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20slideUpModal\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20{\x20transform:\x20translateY(30px);\x20opacity:\x200;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to\x20{\x20transform:\x20translateY(0);\x20opacity:\x201;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20pulseTimer\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x200%,\x20100%\x20{\x20opacity:\x201;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2050%\x20{\x20opacity:\x200.5;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#quizModal::-webkit-scrollbar\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x206px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#quizModal::-webkit-scrollbar-track\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x203px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#quizModal::-webkit-scrollbar-thumb\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--border,\x20#34344f);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x203px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20',_0xd0c5fd[_0x3af359(0x138)][_0x3af359(0xe1)](_0x1cc743),_0x34ed17[_0x3af359(0x20b)](UijcWj['MCEmd'])['addEventListener'](UijcWj[_0x3af359(0x1d1)],_0x532693),_0x15d326['getElementById'](_0x3af359(0x16a))[_0x3af359(0xed)](UijcWj[_0x3af359(0x1d1)],_0x4abe2b),_0x13b6e4['getElementById'](UijcWj['afwxL'])[_0x3af359(0xed)](UijcWj['WcQFB'],_0x558d92),_0x2dc828[_0x3af359(0x20b)](UijcWj['irvfQ'])[_0x3af359(0xed)](_0x3af359(0x166),_0xd00940),_0x395112['getElementById'](_0x3af359(0xef))[_0x3af359(0xed)](_0x3af359(0x166),function(_0x6b0523){const _0x141648=_0x3af359;if(UijcWj[_0x141648(0xf6)](_0x6b0523['target'],this))UijcWj[_0x141648(0x219)](_0x34b530);}),_0x366dc5[_0x3af359(0x20b)](UijcWj[_0x3af359(0x142)]);}}const _0x4aa7c6=quizState[_0x3af359(0x102)]['length'],_0x3a39b2=quizState[_0x3af359(0x148)],_0x1376b0=_0x205949['Qgmqf'](_0x3a39b2,_0x4aa7c6),_0x5353bf=document['getElementById'](_0x205949['ihdtC']),_0xdfb40f=document[_0x3af359(0x20b)](_0x205949[_0x3af359(0xea)]);_0x5353bf['style'][_0x3af359(0x192)]='none',_0xdfb40f[_0x3af359(0x20c)]['display']=_0x205949['YXjAm'];const _0x26a5cc=_0x1376b0?'🎉':_0x18e1eb?'⏰':'😅',_0x5e6f66=_0x1376b0?_0x205949['ioIGU']:_0x18e1eb?_0x205949[_0x3af359(0x150)]:_0x205949[_0x3af359(0x1b1)];let _0x5be0f7='You\x20scored\x20'+_0x3a39b2+'/'+_0x4aa7c6+'!';if(_0x1376b0)_0x205949[_0x3af359(0xfe)]!==_0x205949[_0x3af359(0x1e3)]?_0x5be0f7+=_0x205949['cqjEP']:(_0x4c414f[_0x3af359(0x20c)]['borderColor']=UijcWj['QoiOq'],_0xe28795['style'][_0x3af359(0x1b6)]=UijcWj['ABMpf']);else _0x18e1eb?_0x5be0f7+=_0x3af359(0xf8)+_0x4aa7c6+'/'+_0x4aa7c6+'\x20to\x20pass.':_0x5be0f7+='\x20Need\x20'+_0x4aa7c6+'/'+_0x4aa7c6+_0x3af359(0x23c);document[_0x3af359(0x20b)](_0x205949['EOJht'])[_0x3af359(0x107)]=_0x26a5cc,document['getElementById'](_0x205949[_0x3af359(0x1fd)])[_0x3af359(0x107)]=_0x5e6f66,document['getElementById'](_0x205949[_0x3af359(0x15a)])[_0x3af359(0x107)]=_0x5be0f7;if(_0x1376b0){if('EVLaz'===_0x205949['cmDbo'])_0x183d41=_0x496bf1;else{const _0x5a50a7=JSON[_0x3af359(0xf4)](localStorage['getItem'](_0x205949['nXgLY']))||{};_0x5a50a7[_0x3af359(0x130)]=!![],localStorage[_0x3af359(0x12e)](_0x205949[_0x3af359(0x13e)],JSON['stringify'](_0x5a50a7));const _0x212acf=document['getElementById'](_0x205949[_0x3af359(0x16d)]);_0x212acf&&(_0x212acf[_0x3af359(0x20c)][_0x3af359(0x15d)]='1',_0x212acf[_0x3af359(0x20c)]['pointerEvents']=_0x205949[_0x3af359(0x155)],_0x212acf[_0x3af359(0x13c)]=_0x205949[_0x3af359(0x1a9)]);}}}function closeQuiz(){const _0x4ebce8=_0x30bdda,_0x276d71={'LAUMc':function(_0x141f9a,_0x441c15){return _0x141f9a===_0x441c15;},'yVpvt':function(_0x80091f){return _0x80091f();},'DkPFh':function(_0x12c0da,_0x2f276c){return _0x12c0da(_0x2f276c);},'cTDkb':'quizOverlay','mnETb':'BKvqc'};quizState[_0x4ebce8(0x214)]&&(_0x276d71['DkPFh'](clearInterval,quizState['timer']),quizState['timer']=null);const _0x365eb4=document[_0x4ebce8(0x20b)](_0x276d71['cTDkb']);if(_0x365eb4){if(_0x276d71['LAUMc'](_0x4ebce8(0x160),_0x276d71[_0x4ebce8(0x239)])){if(FWdVwE['LAUMc'](_0x71a786[_0x4ebce8(0x167)],this))FWdVwE[_0x4ebce8(0x128)](_0x59b5dd);}else _0x365eb4[_0x4ebce8(0x20c)][_0x4ebce8(0x192)]=_0x4ebce8(0x147),document[_0x4ebce8(0xeb)]['style'][_0x4ebce8(0x179)]='';}}function retryQuiz(){const _0x211d6=_0x30bdda,_0x55ca7d={'IiFMX':function(_0x3213a5,_0x1dc8d5){return _0x3213a5(_0x1dc8d5);},'MyCIv':_0x211d6(0x1f8),'QfjNx':_0x211d6(0x1fb),'FcsUj':'none','saWzA':_0x211d6(0x16f),'OqCYw':function(_0x5aa4e2){return _0x5aa4e2();},'weDVP':function(_0xe2dd70){return _0xe2dd70();}},_0x16c743=_0x55ca7d['IiFMX'](shuffleArray,QUIZ_QUESTIONS);quizState={'questions':_0x16c743[_0x211d6(0x22e)](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0x2b10e8=document['getElementById'](_0x55ca7d[_0x211d6(0x127)]),_0x8d5a10=document[_0x211d6(0x20b)](_0x55ca7d['QfjNx']);_0x2b10e8[_0x211d6(0x20c)]['display']=_0x55ca7d[_0x211d6(0x18c)],_0x8d5a10[_0x211d6(0x20c)][_0x211d6(0x192)]=_0x55ca7d['saWzA'],_0x55ca7d[_0x211d6(0x103)](renderQuestion),_0x55ca7d[_0x211d6(0x12b)](startTimer);}document[_0x30bdda(0xed)](_0x30bdda(0x18a),function(){const _0x18c12c=_0x30bdda,_0x47dc79={'GZMLd':_0x18c12c(0x151),'Nywdq':'✅\x20You\x20have\x20already\x20completed\x20this\x20level!','SzRjU':_0x18c12c(0x153),'NoLeq':'auto','cGwzf':function(_0x349c2d){return _0x349c2d();},'vHnul':'quizOverlay','AXKyU':'flex','EFoqX':_0x18c12c(0x232),'sJrNi':_0x18c12c(0x1fb),'ifvbc':_0x18c12c(0x16f),'AsQxM':_0x18c12c(0x147),'jtjiC':function(_0x2d69d1){return _0x2d69d1();},'SNiWy':function(_0x47dd90,_0x3f9298){return _0x47dd90===_0x3f9298;},'lcNjA':_0x18c12c(0x154),'hWNqo':function(_0xb08c21,_0x17e6b2){return _0xb08c21<=_0x17e6b2;},'iSzEF':function(_0x48e091,_0x2f995a,_0xdbdf99){return _0x48e091(_0x2f995a,_0xdbdf99);},'girRp':_0x18c12c(0x16e),'jFdES':'Array\x20Methods\x20(push,\x20pop)','ifpTb':'(prefers-reduced-motion:\x20reduce)','fOVfc':function(_0x2abc47){return _0x2abc47();}},_0x2dbd5f=document[_0x18c12c(0x20b)](_0x47dc79[_0x18c12c(0x236)]),_0x1855fe=_0x47dc79['jFdES'],_0x19da44=window['matchMedia'](_0x47dc79[_0x18c12c(0x1a5)])[_0x18c12c(0x21c)];if(_0x19da44){_0x2dbd5f[_0x18c12c(0x107)]=_0x1855fe;return;}let _0x519911=0x0;function _0x4d22c3(){const _0x8ac849=_0x18c12c,_0x1d6957={'GyvFh':_0x47dc79[_0x8ac849(0xf3)],'CVokx':_0x8ac849(0x130),'yCTyL':_0x47dc79[_0x8ac849(0x234)],'tmcyu':_0x47dc79[_0x8ac849(0x17f)],'WmVzI':_0x47dc79[_0x8ac849(0xee)],'ZQVtO':function(_0x4e39e5){const _0x2233c3=_0x8ac849;return _0x47dc79[_0x2233c3(0x1d4)](_0x4e39e5);},'GnGeL':_0x47dc79[_0x8ac849(0x200)],'YOcwp':_0x47dc79[_0x8ac849(0xec)],'ALTaR':_0x47dc79[_0x8ac849(0x226)],'bEwyf':_0x47dc79[_0x8ac849(0x114)],'Ihmyh':_0x47dc79[_0x8ac849(0x213)],'eQSSu':_0x47dc79[_0x8ac849(0x11d)],'LYHDm':_0x8ac849(0x1e4),'EZfBs':function(_0x537c0a){const _0x139970=_0x8ac849;return _0x47dc79[_0x139970(0x1fe)](_0x537c0a);}};if(_0x47dc79[_0x8ac849(0x205)]('ZaZnt',_0x47dc79['lcNjA'])){if(_0x2f8b05)_0x20e91e[_0x8ac849(0x136)]();const _0x5e139b=_0xd7346a[_0x8ac849(0xf4)](_0x1464a2[_0x8ac849(0x111)](dUsrLW[_0x8ac849(0x135)]))||{};if(_0x5e139b[dUsrLW[_0x8ac849(0x137)]]){_0x10ef94(dUsrLW[_0x8ac849(0x17d)]);const _0x50a7f7=_0x1c9a88['getElementById'](dUsrLW['tmcyu']);_0x50a7f7&&(_0x50a7f7['style'][_0x8ac849(0x15d)]='1',_0x50a7f7[_0x8ac849(0x20c)]['pointerEvents']=dUsrLW[_0x8ac849(0x104)],_0x50a7f7[_0x8ac849(0x13c)]='level47.html');return;}const _0x3b6deb=_0x20734a(_0xf5bf00);_0x444c6c={'questions':_0x3b6deb['slice'](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0x1e93ea=dUsrLW[_0x8ac849(0x1e6)](_0x4654ef),_0x5837f9=_0x1e0c1d[_0x8ac849(0x20b)](dUsrLW['GnGeL']);_0x5837f9[_0x8ac849(0x20c)][_0x8ac849(0x192)]=dUsrLW['YOcwp'],_0x969d33[_0x8ac849(0xeb)][_0x8ac849(0x20c)][_0x8ac849(0x179)]=dUsrLW[_0x8ac849(0x19b)];const _0x294050=_0x31ee76[_0x8ac849(0x20b)](dUsrLW[_0x8ac849(0x23f)]),_0x5f2ee2=_0x58e02a['getElementById'](_0x8ac849(0x1f8));_0x294050[_0x8ac849(0x20c)][_0x8ac849(0x192)]=dUsrLW['Ihmyh'],_0x5f2ee2['style'][_0x8ac849(0x192)]=dUsrLW[_0x8ac849(0x229)],_0x439905['getElementById'](dUsrLW[_0x8ac849(0x108)])[_0x8ac849(0x20c)]['opacity']=_0x8ac849(0x1ee),_0x382c03['getElementById'](dUsrLW[_0x8ac849(0x108)])[_0x8ac849(0x20c)]['pointerEvents']=dUsrLW['eQSSu'],dUsrLW['EZfBs'](_0x273819),dUsrLW['ZQVtO'](_0x3669a1);}else{_0x2dbd5f[_0x8ac849(0x107)]=_0x1855fe[_0x8ac849(0x22e)](0x0,_0x519911),_0x519911++;if(_0x47dc79[_0x8ac849(0x164)](_0x519911,_0x1855fe[_0x8ac849(0x131)]))_0x47dc79[_0x8ac849(0x1d8)](setTimeout,_0x4d22c3,0x23);}}_0x47dc79[_0x18c12c(0x129)](_0x4d22c3);});typeof module!==_0x30bdda(0x1a8)&&module[_0x30bdda(0x13a)]&&(module[_0x30bdda(0x13a)]={'startQuiz':startQuiz,'QUIZ_QUESTIONS':QUIZ_QUESTIONS});
+/**
+ * Level 46: Array Methods (push, pop)
+ * 
+ * This file demonstrates push() and pop() array methods in JavaScript.
+ * All code here will run when the page loads.
+ */
+
+// ============================================
+// PUSH() - ADD TO END
+// ============================================
+
+console.log("--- push() Method ---");
+
+let fruits = ["apple", "banana"];
+console.log("Before push:", fruits);
+
+let newLength = fruits.push("orange");
+console.log("push('orange') returned:", newLength);
+console.log("After push:", fruits);
+
+// ============================================
+// POP() - REMOVE FROM END
+// ============================================
+
+console.log("\n--- pop() Method ---");
+
+let last = fruits.pop();
+console.log("pop() returned:", last);
+console.log("After pop:", fruits);
+
+// ============================================
+// PUSH MULTIPLE ELEMENTS
+// ============================================
+
+console.log("\n--- push() Multiple Elements ---");
+
+let numbers = [1, 2, 3];
+console.log("Before:", numbers);
+
+numbers.push(4, 5, 6);
+console.log("After push(4, 5, 6):", numbers);
+
+// ============================================
+// POP UNTIL EMPTY
+// ============================================
+
+console.log("\n--- pop() Until Empty ---");
+
+let items = ["a", "b", "c", "d"];
+console.log("Starting array:", items);
+
+while (items.length > 0) {
+    let removed = items.pop();
+    console.log("Removed:", removed, "| Array now:", items);
+}
+
+// ============================================
+// USING PUSH AND POP TOGETHER (STACK)
+// ============================================
+
+console.log("\n--- Stack Behavior (LIFO) ---");
+
+let stack = [];
+console.log("Empty stack:", stack);
+
+stack.push("first");
+stack.push("second");
+stack.push("third");
+console.log("After pushes:", stack);
+
+let popped1 = stack.pop();
+console.log("pop() =", popped1, "| Stack:", stack);
+
+let popped2 = stack.pop();
+console.log("pop() =", popped2, "| Stack:", stack);
+
+let popped3 = stack.pop();
+console.log("pop() =", popped3, "| Stack:", stack);
+
+// ============================================
+// PUSH WITH DIFFERENT TYPES
+// ============================================
+
+console.log("\n--- push() with Different Types ---");
+
+let mixed = [];
+console.log("Empty:", mixed);
+
+mixed.push("Hello");
+mixed.push(42);
+mixed.push(true);
+mixed.push({ name: "John" });
+mixed.push([1, 2, 3]);
+
+console.log("After pushing different types:", mixed);
+
+// ============================================
+// POP ON EMPTY ARRAY
+// ============================================
+
+console.log("\n--- pop() on Empty Array ---");
+
+let empty = [];
+console.log("empty =", empty);
+console.log("empty.pop() =", empty.pop());
+console.log("empty after pop =", empty);
+
+// ============================================
+// PUSH RETURN VALUE
+// ============================================
+
+console.log("\n--- push() Return Value ---");
+
+let arr = [10, 20, 30];
+console.log("Before:", arr);
+console.log("arr.push(40) =", arr.push(40));
+console.log("After:", arr);
+console.log("arr.push(50, 60) =", arr.push(50, 60));
+console.log("After:", arr);
+
+// ============================================
+// USING PUSH WITH VARIABLES
+// ============================================
+
+console.log("\n--- push() with Variables ---");
+
+let colors = ["red", "blue"];
+let color1 = "green";
+let color2 = "yellow";
+
+colors.push(color1);
+console.log("After pushing variable:", colors);
+
+colors.push(color2, "purple");
+console.log("After pushing multiple:", colors);
+
+// ============================================
+// QUIZ SYSTEM
+// ============================================
+
+const QUIZ_QUESTIONS = [
+    {
+        id: 1,
+        question: 'What does push() do to an array?',
+        options: [
+            "Removes the last element",
+            "Adds to the end of the array",
+            "Adds to the beginning of the array",
+            "Removes the first element"
+        ],
+        correct: 1,
+        explanation: 'push() adds one or more elements to the end of an array.'
+    },
+    {
+        id: 2,
+        question: 'What does pop() do to an array?',
+        options: [
+            "Adds to the end",
+            "Removes the first element",
+            "Removes the last element",
+            "Adds to the beginning"
+        ],
+        correct: 2,
+        explanation: 'pop() removes the last element from an array and returns it.'
+    },
+    {
+        id: 3,
+        question: 'What does push() return?',
+        options: [
+            "The element added",
+            "The new length of the array",
+            "The old length of the array",
+            "undefined"
+        ],
+        correct: 1,
+        explanation: 'push() returns the new length of the array after adding the element(s).'
+    },
+    {
+        id: 4,
+        question: 'What does pop() return?',
+        options: [
+            "The new length of the array",
+            "The removed element",
+            "undefined",
+            "The array itself"
+        ],
+        correct: 1,
+        explanation: 'pop() returns the element that was removed from the end of the array.'
+    },
+    {
+        id: 5,
+        question: 'What is the output: let arr = [1, 2]; arr.push(3); console.log(arr);',
+        options: [
+            "[1, 2]",
+            "[1, 2, 3]",
+            "[1, 2, 3, 4]",
+            "[1, 2, 3, undefined]"
+        ],
+        correct: 1,
+        explanation: 'push(3) adds 3 to the end, so the array becomes [1, 2, 3].'
+    },
+    {
+        id: 6,
+        question: 'What is the output: let arr = [1, 2, 3]; let removed = arr.pop(); console.log(removed);',
+        options: [
+            "1",
+            "2",
+            "3",
+            "undefined"
+        ],
+        correct: 2,
+        explanation: 'pop() removes and returns the last element, which is 3.'
+    },
+    {
+        id: 7,
+        question: 'What is the output: let arr = [1, 2, 3]; arr.pop(); console.log(arr);',
+        options: [
+            "[1, 2]",
+            "[1, 2, 3]",
+            "[2, 3]",
+            "[1]"
+        ],
+        correct: 0,
+        explanation: 'pop() removes the last element (3), leaving [1, 2].'
+    },
+    {
+        id: 8,
+        question: 'Can push() add multiple elements at once?',
+        options: [
+            "Yes",
+            "No",
+            "Only if they are numbers",
+            "Only if they are strings"
+        ],
+        correct: 0,
+        explanation: 'Yes, push() can accept multiple arguments: arr.push(1, 2, 3).'
+    },
+    {
+        id: 9,
+        question: 'What is the output: let arr = ["a", "b"]; console.log(arr.push("c", "d"));',
+        options: [
+            "2",
+            "3",
+            "4",
+            "undefined"
+        ],
+        correct: 2,
+        explanation: 'push("c", "d") adds 2 elements, so the new length is 4.'
+    },
+    {
+        id: 10,
+        question: 'What is the output: let arr = [1, 2, 3]; arr.push(4); let x = arr.pop(); console.log(x);',
+        options: [
+            "3",
+            "4",
+            "5",
+            "undefined"
+        ],
+        correct: 1,
+        explanation: 'push(4) adds 4, then pop() removes and returns 4.'
+    },
+    {
+        id: 11,
+        question: 'What happens when you call pop() on an empty array?',
+        options: [
+            "Throws an error",
+            "Returns undefined",
+            "Returns null",
+            "Returns 0"
+        ],
+        correct: 1,
+        explanation: 'pop() on an empty array returns undefined.'
+    },
+    {
+        id: 12,
+        question: 'What is the output: let arr = ["a", "b", "c"]; arr.pop(); arr.pop(); console.log(arr);',
+        options: [
+            '["a"]',
+            '["a", "b"]',
+            '["a", "b", "c"]',
+            '[]'
+        ],
+        correct: 0,
+        explanation: 'Two pop() calls remove "c" then "b", leaving ["a"].'
+    },
+    {
+        id: 13,
+        question: 'What is the output: let arr = [10, 20]; let len = arr.push(30); console.log(len);',
+        options: [
+            "2",
+            "3",
+            "30",
+            "undefined"
+        ],
+        correct: 1,
+        explanation: 'push(30) returns the new length, which is 3.'
+    },
+    {
+        id: 14,
+        question: 'What is the output: let arr = [1, 2, 3]; let last = arr.pop(); arr.push(last + 1); console.log(arr);',
+        options: [
+            "[1, 2, 3]",
+            "[1, 2, 4]",
+            "[1, 2, 3, 4]",
+            "[1, 2]"
+        ],
+        correct: 1,
+        explanation: 'pop() returns 3, then push(3+1) adds 4, making [1, 2, 4].'
+    },
+    {
+        id: 15,
+        question: 'What is the output: let arr = ["a", "b", "c"]; arr.push("d"); let removed = arr.pop(); console.log(removed);',
+        options: [
+            '"c"',
+            '"d"',
+            '"a"',
+            'undefined'
+        ],
+        correct: 1,
+        explanation: 'push("d") adds "d", then pop() removes and returns "d".'
+    }
+];
+
+let quizState = {
+    questions: [],
+    currentQuestion: 0,
+    score: 0,
+    answered: false,
+    timeLeft: 120,
+    timer: null
+};
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+function createQuizModal() {
+    if (document.getElementById('quizModal')) {
+        return document.getElementById('quizModal');
+    }
+
+    const modalHTML = `
+        <div id="quizOverlay" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(21, 21, 31, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeInOverlay 0.3s ease;
+        ">
+            <div id="quizModal" style="
+                background: var(--bg-panel, #1e1e2e);
+                border: 1px solid var(--border, #34344f);
+                border-radius: var(--radius-lg, 16px);
+                max-width: 700px;
+                width: 100%;
+                max-height: 90vh;
+                overflow-y: auto;
+                box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+                animation: slideUpModal 0.3s ease;
+                position: relative;
+            ">
+                <div style="
+                    padding: 20px 24px;
+                    border-bottom: 1px solid var(--border-soft, #2a2a40);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: var(--bg-base-2, #1b1b29);
+                    border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
+                ">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        
+                        <h2 style="
+                            font-family: var(--font-mono, monospace);
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            color: var(--text-primary, #e9e9f5);
+                            margin: 0;
+                        ">Level 46 Quiz</h2>
+                    </div>
+                    <button id="closeQuizBtn" style="
+                        background: none;
+                        border: none;
+                        color: var(--text-muted, #6c6c8c);
+                        font-size: 1.3rem;
+                        cursor: pointer;
+                        padding: 4px 8px;
+                        border-radius: var(--radius-sm, 6px);
+                        transition: all 0.15s ease;
+                        line-height: 1;
+                    ">✕</button>
+                </div>
+
+                <div id="quizContent" style="padding: 32px 24px 24px;">
+                    <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 24px;
+                        font-family: var(--font-mono, monospace);
+                        font-size: 0.85rem;
+                        color: var(--text-secondary, #a3a3c2);
+                    ">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            
+                            <span id="timerDisplay" style="
+                                font-weight: 600;
+                                color: var(--accent-js, #f0c674);
+                                font-size: 1.1rem;
+                            ">2:00</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            
+                            <span id="progressDisplay">1 / 10</span>
+                        </div>
+                    </div>
+
+                    <div style="
+                        width: 100%;
+                        height: 4px;
+                        background: var(--bg-base-2, #1b1b29);
+                        border-radius: 4px;
+                        margin-bottom: 28px;
+                        overflow: hidden;
+                    ">
+                        <div id="progressBar" style="
+                            width: 10%;
+                            height: 100%;
+                            background: linear-gradient(90deg, var(--accent-js, #f0c674), var(--accent-php, #b58aef));
+                            border-radius: 4px;
+                            transition: width 0.4s ease;
+                        "></div>
+                    </div>
+
+                    <div id="questionContainer">
+                        <div style="
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.78rem;
+                            color: var(--text-muted, #6c6c8c);
+                            margin-bottom: 8px;
+                            letter-spacing: 0.5px;
+                        ">QUESTION <span id="questionNumber">1</span>/10</div>
+                        <h3 id="questionText" style="
+                            font-family: var(--font-sans, sans-serif);
+                            font-size: 1.05rem;
+                            font-weight: 500;
+                            color: var(--text-primary, #e9e9f5);
+                            margin: 0 0 20px 0;
+                            line-height: 1.6;
+                        ">Loading question...</h3>
+                    </div>
+
+                    <div id="optionsContainer" style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        margin-bottom: 24px;
+                    "></div>
+
+                    <div id="explanationContainer" style="
+                        display: none;
+                        padding: 16px 20px;
+                        background: var(--bg-panel-alt, #23233a);
+                        border-left: 3px solid var(--accent-js, #f0c674);
+                        border-radius: var(--radius-sm, 6px);
+                        margin-bottom: 24px;
+                        font-family: var(--font-sans, sans-serif);
+                        font-size: 0.9rem;
+                        color: var(--text-secondary, #a3a3c2);
+                        line-height: 1.6;
+                    ">
+                        <div style="font-weight: 600; color: var(--accent-js, #f0c674); margin-bottom: 4px;">💡 Explanation</div>
+                        <div id="explanationText"></div>
+                    </div>
+
+                    <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 12px;
+                        flex-wrap: wrap;
+                    ">
+                        <button id="nextQuestionBtn" style="
+                            background: var(--accent-sql, #8ec07c);
+                            color: #0e1410;
+                            border: none;
+                            padding: 10px 28px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                            margin-left: auto;
+                            opacity: 0.5;
+                            pointer-events: none;
+                        ">Next →</button>
+                    </div>
+                </div>
+
+                <div id="quizResults" style="
+                    display: none;
+                    padding: 40px 32px 32px;
+                    text-align: center;
+                ">
+                    <div style="font-size: 3rem; margin-bottom: 12px;" id="resultEmoji">🎉</div>
+                    <h2 style="
+                        font-family: var(--font-mono, monospace);
+                        font-size: 1.3rem;
+                        color: var(--text-primary, #e9e9f5);
+                        margin: 0 0 8px 0;
+                    " id="resultTitle">Quiz Complete!</h2>
+                    <p style="
+                        font-family: var(--font-sans, sans-serif);
+                        font-size: 1rem;
+                        color: var(--text-secondary, #a3a3c2);
+                        margin: 0 0 20px 0;
+                    " id="resultMessage">You scored 10/10!</p>
+                    <div style="
+                        display: flex;
+                        gap: 16px;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    ">
+                        <button id="retryQuizBtn" style="
+                            background: transparent;
+                            color: var(--text-secondary, #a3a3c2);
+                            border: 1px solid var(--border, #34344f);
+                            padding: 10px 24px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                        ">Retry</button>
+                        <button id="closeResultsBtn" style="
+                            background: var(--accent-sql, #8ec07c);
+                            color: #0e1410;
+                            border: none;
+                            padding: 10px 28px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                        ">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHTML;
+    document.body.appendChild(modalContainer.firstElementChild);
+
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUpModal {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulseTimer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        #quizModal::-webkit-scrollbar {
+            width: 6px;
+        }
+        #quizModal::-webkit-scrollbar-track {
+            background: var(--bg-base-2, #1b1b29);
+            border-radius: 3px;
+        }
+        #quizModal::-webkit-scrollbar-thumb {
+            background: var(--border, #34344f);
+            border-radius: 3px;
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.getElementById('closeQuizBtn').addEventListener('click', closeQuiz);
+    document.getElementById('closeResultsBtn').addEventListener('click', closeQuiz);
+    document.getElementById('retryQuizBtn').addEventListener('click', retryQuiz);
+    document.getElementById('nextQuestionBtn').addEventListener('click', nextQuestion);
+
+    document.getElementById('quizOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeQuiz();
+    });
+
+    return document.getElementById('quizModal');
+}
+
+function startQuiz(event) {
+    if (event) event.preventDefault();
+
+    const progress = JSON.parse(localStorage.getItem('levelProgress')) || {};
+    if (progress['level46']) {
+        alert('✅ You have already completed this level!');
+        const nextBtn = document.getElementById('nextLevelBtn');
+        if (nextBtn) {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+            nextBtn.href = 'level47.html';
+        }
+        return;
+    }
+
+    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
+    quizState = {
+        questions: shuffledQuestions.slice(0, 10),
+        currentQuestion: 0,
+        score: 0,
+        answered: false,
+        timeLeft: 120,
+        timer: null
+    };
+
+    const modal = createQuizModal();
+    const overlay = document.getElementById('quizOverlay');
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    const quizContent = document.getElementById('quizContent');
+    const quizResults = document.getElementById('quizResults');
+    quizContent.style.display = 'block';
+    quizResults.style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.opacity = '0.5';
+    document.getElementById('nextQuestionBtn').style.pointerEvents = 'none';
+
+    renderQuestion();
+    startTimer();
+}
+
+function renderQuestion() {
+    const q = quizState.questions[quizState.currentQuestion];
+    const total = quizState.questions.length;
+
+    document.getElementById('progressDisplay').textContent = `${quizState.currentQuestion + 1} / ${total}`;
+    document.getElementById('progressBar').style.width = `${((quizState.currentQuestion + 1) / total) * 100}%`;
+    document.getElementById('questionNumber').textContent = quizState.currentQuestion + 1;
+    document.getElementById('questionText').innerHTML = q.question;
+
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = '';
+
+    q.options.forEach((option, index) => {
+        const optionDiv = document.createElement('div');
+        optionDiv.style.cssText = `
+            padding: 12px 16px;
+            background: var(--bg-base-2, #1b1b29);
+            border: 1px solid var(--border-soft, #2a2a40);
+            border-radius: var(--radius-sm, 6px);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.92rem;
+            color: var(--text-secondary, #a3a3c2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        `;
+        optionDiv.dataset.index = index;
+
+        const letter = String.fromCharCode(65 + index);
+        const letterSpan = document.createElement('span');
+        letterSpan.style.cssText = `
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            background: var(--bg-panel, #1e1e2e);
+            border: 1px solid var(--border, #34344f);
+            border-radius: 50%;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted, #6c6c8c);
+            transition: all 0.15s ease;
+        `;
+        letterSpan.textContent = letter;
+        optionDiv.appendChild(letterSpan);
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = option;
+        optionDiv.appendChild(textSpan);
+
+        optionDiv.addEventListener('click', () => selectOption(index));
+        optionDiv.addEventListener('mouseenter', () => {
+            if (!quizState.answered) {
+                optionDiv.style.borderColor = 'var(--border, #34344f)';
+                optionDiv.style.background = 'var(--bg-panel-alt, #23233a)';
+            }
+        });
+        optionDiv.addEventListener('mouseleave', () => {
+            if (!quizState.answered) {
+                optionDiv.style.borderColor = 'var(--border-soft, #2a2a40)';
+                optionDiv.style.background = 'var(--bg-base-2, #1b1b29)';
+            }
+        });
+
+        optionsContainer.appendChild(optionDiv);
+    });
+
+    quizState.answered = false;
+    document.getElementById('explanationContainer').style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.opacity = '0.5';
+    document.getElementById('nextQuestionBtn').style.pointerEvents = 'none';
+}
+
+function selectOption(index) {
+    if (quizState.answered) return;
+
+    const q = quizState.questions[quizState.currentQuestion];
+    const isCorrect = index === q.correct;
+    quizState.answered = true;
+
+    const options = document.querySelectorAll('#optionsContainer > div');
+    options.forEach((opt, i) => {
+        opt.style.cursor = 'default';
+        opt.style.pointerEvents = 'none';
+        
+        if (i === q.correct) {
+            opt.style.borderColor = 'var(--accent-sql, #8ec07c)';
+            opt.style.background = 'rgba(142, 192, 124, 0.12)';
+            const letterSpan = opt.querySelector('span:first-child');
+            if (letterSpan) {
+                letterSpan.style.borderColor = 'var(--accent-sql, #8ec07c)';
+                letterSpan.style.background = 'rgba(142, 192, 124, 0.2)';
+                letterSpan.style.color = 'var(--accent-sql, #8ec07c)';
+            }
+        }
+        
+        if (i === index && !isCorrect) {
+            opt.style.borderColor = 'var(--accent-html, #f3a072)';
+            opt.style.background = 'rgba(243, 160, 114, 0.12)';
+            const letterSpan = opt.querySelector('span:first-child');
+            if (letterSpan) {
+                letterSpan.style.borderColor = 'var(--accent-html, #f3a072)';
+                letterSpan.style.background = 'rgba(243, 160, 114, 0.2)';
+                letterSpan.style.color = 'var(--accent-html, #f3a072)';
+            }
+        }
+    });
+
+    if (isCorrect) quizState.score++;
+
+    const explanationContainer = document.getElementById('explanationContainer');
+    const explanationText = document.getElementById('explanationText');
+    explanationText.textContent = q.explanation;
+    explanationContainer.style.display = 'block';
+
+    const nextBtn = document.getElementById('nextQuestionBtn');
+    nextBtn.style.opacity = '1';
+    nextBtn.style.pointerEvents = 'auto';
+}
+
+function nextQuestion() {
+    if (quizState.currentQuestion < quizState.questions.length - 1) {
+        quizState.currentQuestion++;
+        renderQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function startTimer() {
+    if (quizState.timer) clearInterval(quizState.timer);
+    
+    quizState.timeLeft = 120;
+    updateTimerDisplay();
+
+    quizState.timer = setInterval(() => {
+        quizState.timeLeft--;
+        updateTimerDisplay();
+
+        if (quizState.timeLeft <= 0) {
+            clearInterval(quizState.timer);
+            endQuiz(true);
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(quizState.timeLeft / 60);
+    const seconds = quizState.timeLeft % 60;
+    const display = document.getElementById('timerDisplay');
+    display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    if (quizState.timeLeft <= 10) {
+        display.style.color = 'var(--accent-html, #f3a072)';
+        display.style.animation = 'pulseTimer 1s ease-in-out infinite';
+    } else {
+        display.style.color = 'var(--accent-js, #f0c674)';
+        display.style.animation = 'none';
+    }
+}
+
+function endQuiz(timeUp = false) {
+    if (quizState.timer) {
+        clearInterval(quizState.timer);
+        quizState.timer = null;
+    }
+
+    const total = quizState.questions.length;
+    const score = quizState.score;
+    const passed = score === total;
+
+    const quizContent = document.getElementById('quizContent');
+    const quizResults = document.getElementById('quizResults');
+    quizContent.style.display = 'none';
+    quizResults.style.display = 'block';
+
+    const emoji = passed ? '🎉' : (timeUp ? '⏰' : '😅');
+    const title = passed ? 'Level Complete!' : (timeUp ? "Time's Up!" : 'Keep Practicing!');
+    let message = `You scored ${score}/${total}!`;
+    
+    if (passed) {
+        message += ' 🌟 Perfect score! You\'ve mastered push and pop!';
+    } else if (timeUp) {
+        message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
+    } else {
+        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+    }
+
+    document.getElementById('resultEmoji').textContent = emoji;
+    document.getElementById('resultTitle').textContent = title;
+    document.getElementById('resultMessage').textContent = message;
+
+    if (passed) {
+        const progress = JSON.parse(localStorage.getItem('levelProgress')) || {};
+        progress['level46'] = true;
+        localStorage.setItem('levelProgress', JSON.stringify(progress));
+
+        const nextBtn = document.getElementById('nextLevelBtn');
+        if (nextBtn) {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+            nextBtn.href = 'level47.html';
+        }
+    }
+}
+
+function closeQuiz() {
+    if (quizState.timer) {
+        clearInterval(quizState.timer);
+        quizState.timer = null;
+    }
+    const overlay = document.getElementById('quizOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function retryQuiz() {
+    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
+    quizState = {
+        questions: shuffledQuestions.slice(0, 10),
+        currentQuestion: 0,
+        score: 0,
+        answered: false,
+        timeLeft: 120,
+        timer: null
+    };
+
+    const quizResults = document.getElementById('quizResults');
+    const quizContent = document.getElementById('quizContent');
+    quizResults.style.display = 'none';
+    quizContent.style.display = 'block';
+    renderQuestion();
+    startTimer();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Array Methods (push, pop)';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+        el.textContent = text;
+        return;
+    }
+
+    let i = 0;
+    function step() {
+        el.textContent = text.slice(0, i);
+        i++;
+        if (i <= text.length) setTimeout(step, 35);
+    }
+    step();
+});
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { startQuiz, QUIZ_QUESTIONS };
+}

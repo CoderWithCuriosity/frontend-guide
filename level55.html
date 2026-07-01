@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 55: JSON Basics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,13 +263,8 @@
             margin: 5px 0;
         }
 
-        .json-card.stringify {
-            --card-color: var(--accent-sql);
-        }
-
-        .json-card.parse {
-            --card-color: var(--accent-css);
-        }
+        .json-card.stringify { --card-color: var(--accent-sql); }
+        .json-card.parse { --card-color: var(--accent-css); }
 
         .demo-area {
             background: var(--bg-panel-alt);
@@ -433,12 +418,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -527,7 +510,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -538,7 +520,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -549,7 +530,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -568,30 +548,24 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .json-grid {
                 grid-template-columns: 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -631,7 +605,7 @@
                     <div class="description">Convert object to JSON string</div>
                     <div class="example">JSON.stringify({ name: "John" })</div>
                 </div>
-
+                
                 <div class="json-card parse">
                     <div class="title">JSON.parse()</div>
                     <div class="description">Convert JSON string to object</div>
@@ -646,14 +620,14 @@
                     <label for="jsonInput">JSON String (or Object)</label>
                     <textarea id="jsonInput" placeholder='{"name": "John", "age": 25, "city": "New York"}'></textarea>
                 </div>
-
+                
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                     <button class="btn-demo" onclick="jsonStringify()">🔀 Stringify</button>
                     <button class="btn-demo info" onclick="jsonParse()">📂 Parse</button>
                     <button class="btn-demo reset" onclick="jsonClear()">🧹 Clear</button>
                     <button class="btn-demo" onclick="loadExample()">📋 Load Example</button>
                 </div>
-
+                
                 <div class="json-output" id="jsonOutput">
                     Results will appear here...
                 </div>
@@ -663,27 +637,20 @@
 
             <div class="console-output">
                 <div class="comment">// JSON Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> obj = { name: <span
-                        class="value">"John"</span>, age: <span class="value">25</span>, city: <span class="value">"New
-                        York"</span> };</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> jsonString = <span
-                        class="keyword">JSON</span>.<span class="keyword">stringify</span>(obj);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> obj = { name: <span class="value">"John"</span>, age: <span class="value">25</span>, city: <span class="value">"New York"</span> };</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> jsonString = <span class="keyword">JSON</span>.<span class="keyword">stringify</span>(obj);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(jsonString);</div>
-                <div class="output"> {"name":"John","age":25,"city":"New York"}</div>
+                <div class="output">  {"name":"John","age":25,"city":"New York"}</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> parsed = <span
-                        class="keyword">JSON</span>.<span class="keyword">parse</span>(jsonString);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> parsed = <span class="keyword">JSON</span>.<span class="keyword">parse</span>(jsonString);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(parsed.name);</div>
-                <div class="output"> "John"</div>
+                <div class="output">  "John"</div>
                 <br>
                 <div class="comment">// Arrays in JSON</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> arr = [<span
-                        class="value">"apple"</span>, <span class="value">"banana"</span>, <span
-                        class="value">"orange"</span>];</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> arrJson = <span
-                        class="keyword">JSON</span>.<span class="keyword">stringify</span>(arr);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> arr = [<span class="value">"apple"</span>, <span class="value">"banana"</span>, <span class="value">"orange"</span>];</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> arrJson = <span class="keyword">JSON</span>.<span class="keyword">stringify</span>(arr);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(arrJson);</div>
-                <div class="output"> ["apple","banana","orange"]</div>
+                <div class="output">  ["apple","banana","orange"]</div>
             </div>
 
             <div class="info-box">
@@ -700,66 +667,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice JSON by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>JSON:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Stringify Nested Object:</strong> Create a nested object like
-                        <code>let person = { name: "John", age: 30, address: { street: "123 Main St", city: "Boston", zip: "02101" }, hobbies: ["reading", "gaming"] }</code>.
-                        Convert it to a JSON string using <code>JSON.stringify(person)</code> and log the result to see
-                        how it looks as a string</li>
-                    <li><strong>Parse and Access:</strong> Take a JSON string like
-                        <code>'{"name":"Alice","age":25,"address":{"city":"New York","country":"USA"}}'</code> and parse
-                        it back to an object using <code>JSON.parse()</code>. Store it in a variable and then access
-                        nested properties like <code>parsedData.address.city</code> and log them to the console</li>
-                    <li><strong>Array of Objects to JSON:</strong> Create an array of objects like
-                        <code>let users = [{ name: "Emma", age: 28 }, { name: "Liam", age: 32 }, { name: "Olivia", age: 24 }]</code>.
-                        Convert the entire array to JSON using <code>JSON.stringify(users)</code> and log it. Then parse
-                        it back and access the second user's name using <code>parsedUsers[1].name</code></li>
-                    <li><strong>Store JSON in localStorage:</strong> Create an object (like a user profile or settings
-                        object), convert it to JSON with <code>JSON.stringify()</code>, and save it to localStorage
-                        using <code>localStorage.setItem("userData", JSON.stringify(userObject))</code></li>
-                    <li><strong>Retrieve and Parse from localStorage:</strong> Retrieve the JSON string from
-                        localStorage using <code>localStorage.getItem("userData")</code>, parse it back to an object
-                        using <code>JSON.parse()</code>, and then access and log specific properties from the retrieved
-                        object (like <code>retrievedUser.name</code>)</li>
+                    <li>Create a nested object and stringify it</li>
+                    <li>Parse a JSON string and access nested properties</li>
+                    <li>Convert an array of objects to JSON</li>
+                    <li>Store JSON data in localStorage</li>
+                    <li>Retrieve and parse JSON data from localStorage</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: JSON (JavaScript
-                    Object Notation) is a text format for storing data. Use <code>JSON.stringify()</code> to convert
-                    objects/arrays to strings and <code>JSON.parse()</code> to convert strings back to objects/arrays.
-                    JSON is perfect for saving complex data to localStorage or sending data to servers. Remember: JSON
-                    requires double quotes around property names and strings!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 56
             </div>
 
             <div class="nav-row">
                 <a href="level54.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level56.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level56.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -770,13 +712,13 @@
         function jsonStringify() {
             let input = document.getElementById("jsonInput").value.trim();
             let output = document.getElementById("jsonOutput");
-
+            
             if (!input) {
                 output.innerHTML = "⚠️ Please enter some data!";
                 output.style.color = "#f3a072";
                 return;
             }
-
+            
             try {
                 let parsed = JSON.parse(input);
                 let result = JSON.stringify(parsed, null, 2);
@@ -801,13 +743,13 @@
         function jsonParse() {
             let input = document.getElementById("jsonInput").value.trim();
             let output = document.getElementById("jsonOutput");
-
+            
             if (!input) {
                 output.innerHTML = "⚠️ Please enter a JSON string!";
                 output.style.color = "#f3a072";
                 return;
             }
-
+            
             try {
                 let parsed = JSON.parse(input);
                 output.innerHTML = "✅ Parsed object:\n" + JSON.stringify(parsed, null, 2);
@@ -842,5 +784,4 @@
 
     <script src="./scripts/level55.js"></script>
 </body>
-
 </html>

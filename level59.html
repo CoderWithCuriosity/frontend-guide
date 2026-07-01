@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 59: Error Handling (try/catch)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -400,12 +390,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -494,7 +482,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -505,7 +492,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -516,7 +502,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -535,26 +520,21 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -595,14 +575,14 @@
                     <label for="testInput">Test Value</label>
                     <input type="text" id="testInput" placeholder="Enter a number or 'error'" value="42">
                 </div>
-
+                
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                     <button class="btn-demo" onclick="testTryCatch()">🧪 Test try/catch</button>
                     <button class="btn-demo info" onclick="testFetchError()">🌐 Test Fetch Error</button>
                     <button class="btn-demo danger" onclick="testThrowError()">💥 Throw Error</button>
                     <button class="btn-demo reset" onclick="clearResult()">🧹 Clear</button>
                 </div>
-
+                
                 <div class="result-area" id="resultArea">
                     <div class="info">// Click a button to test error handling</div>
                 </div>
@@ -628,273 +608,227 @@
             <div class="console-output">
                 <div class="comment">// try/catch Examples</div>
                 <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> x = JSON.<span
-                        class="keyword">parse</span>(<span class="value">"invalid json"</span>);</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">let</span> x = JSON.<span class="keyword">parse</span>(<span class="value">"invalid json"</span>);</div>
                 <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(error.<span
-                        class="keyword">message</span>);</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(error.<span class="keyword">message</span>);</div>
                 <div><span class="arrow">&gt;</span> }</div>
-                <div class="error"> Unexpected token i in JSON at position 0</div>
+                <div class="error">  Unexpected token i in JSON at position 0</div>
                 <br>
                 <div class="comment">// Custom error with throw</div>
                 <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (age < 18) {</div>
-                        <div><span class="arrow">&gt;</span> <span class="keyword">throw</span> <span
-                                class="keyword">new</span> <span class="keyword">Error</span>(<span class="value">"Must
-                                be 18 or older"</span>);</div>
-                        <div><span class="arrow">&gt;</span> }</div>
-                        <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
-                        <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(error.<span
-                                class="keyword">message</span>);</div>
-                        <div><span class="arrow">&gt;</span> }</div>
-                        <div class="error"> Must be 18 or older</div>
-                        <br>
-                        <div class="comment">// finally block</div>
-                        <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
-                        <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                                class="value">"Try block"</span>);</div>
-                        <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
-                        <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(error);</div>
-                        <div><span class="arrow">&gt;</span> } <span class="keyword">finally</span> {</div>
-                        <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                                class="value">"Always runs"</span>);</div>
-                        <div><span class="arrow">&gt;</span> }</div>
-                        <div class="output"> Try block</div>
-                        <div class="output"> Always runs</div>
-                </div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">if</span> (age < 18) {</div>
+                <div><span class="arrow">&gt;</span>     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Error</span>(<span class="value">"Must be 18 or older"</span>);</div>
+                <div><span class="arrow">&gt;</span>   }</div>
+                <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(error.<span class="keyword">message</span>);</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <div class="error">  Must be 18 or older</div>
+                <br>
+                <div class="comment">// finally block</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Try block"</span>);</div>
+                <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(error);</div>
+                <div><span class="arrow">&gt;</span> } <span class="keyword">finally</span> {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Always runs"</span>);</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <div class="output">  Try block</div>
+                <div class="output">  Always runs</div>
+            </div>
 
-                <div class="info-box">
-                    <h4>Key Takeaways</h4>
-                    <ul>
-                        <li><strong>try</strong> - Wraps code that might throw an error</li>
-                        <li><strong>catch</strong> - Catches and handles errors</li>
-                        <li><strong>finally</strong> - Code that always runs (optional)</li>
-                        <li><strong>throw</strong> - Creates a custom error</li>
-                        <li><strong>Error object</strong> - Contains error details (.message, .name, .stack)</li>
-                        <li><strong>Graceful handling</strong> - Prevents program crashes</li>
-                    </ul>
-                </div>
+            <div class="info-box">
+                <h4>Key Takeaways</h4>
+                <ul>
+                    <li><strong>try</strong> - Wraps code that might throw an error</li>
+                    <li><strong>catch</strong> - Catches and handles errors</li>
+                    <li><strong>finally</strong> - Code that always runs (optional)</li>
+                    <li><strong>throw</strong> - Creates a custom error</li>
+                    <li><strong>Error object</strong> - Contains error details (.message, .name, .stack)</li>
+                    <li><strong>Graceful handling</strong> - Prevents program crashes</li>
+                </ul>
+            </div>
 
-                <div class="challenge-box">
-                    <h4>Your Challenge</h4>
-                    <p>Create a new file named <code>level[level].html</code>. Inside it, add a
-                        <code>&lt;script&gt;</code> tag and place your solution for this level within the script.</p>
-                    <p>Practice error handling by doing the following:</p>
-                    <ul style="margin-left: 20px; color: var(--text-secondary);">
-                        <li><strong>Handle Invalid JSON:</strong> Create a variable with invalid JSON like
-                            <code>let invalidJSON = "{name: 'John', age: }"</code> (missing quotes and incomplete). Use
-                            a <code>try/catch</code> block to try parsing it with <code>JSON.parse(invalidJSON)</code>.
-                            In the <code>catch</code> block, log a friendly message like
-                            <code>console.error("Invalid JSON format:", error.message)</code> to handle the error
-                            gracefully</li>
-                        <li><strong>Throw Custom Error:</strong> Create a function called <code>validateAge(age)</code>
-                            that checks if age is a number. If age is less than 0, use
-                            <code>throw new Error("Age cannot be negative!")</code>. If age is greater than 120, throw
-                            <code>new Error("Age cannot be more than 120!")</code>. Call the function with invalid
-                            values inside a <code>try/catch</code> to catch your custom errors</li>
-                        <li><strong>Use finally to Clean Up:</strong> Create a function that opens a "connection" (just
-                            pretend with a variable like <code>let connectionOpen = true</code>). Inside a
-                            <code>try</code> block, do some work (like
-                            <code>console.log("Working with connection...")</code>). In the <code>catch</code> block,
-                            handle any errors. In the <code>finally</code> block, set
-                            <code>connectionOpen = false</code> and log "Connection closed" to show that finally runs
-                            regardless of whether there was an error or not</li>
-                        <li><strong>Catch Different Types of Errors:</strong> Create a <code>try/catch</code> block that
-                            tries different operations that could throw different errors. Try parsing invalid JSON,
-                            accessing a non-existent variable, and calling a non-existent function. Use
-                            <code>instanceof</code> to check the error type:
-                            <code>if (error instanceof TypeError) { console.log("Type error caught!") } else if (error instanceof SyntaxError) { console.log("Syntax error caught!") } else { console.log("Other error:", error.message) }</code>
-                        </li>
-                        <li><strong>Log Full Stack Trace:</strong> In your <code>catch</code> block, log the full error
-                            stack trace using <code>console.error(error.stack)</code>. The stack trace shows you exactly
-                            where the error happened, including the function names and line numbers. This is super
-                            helpful for debugging. Also try logging just the error name with <code>error.name</code> and
-                            message with <code>error.message</code></li>
-                    </ul>
-                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint:
-                        <code>try</code> contains code that might throw an error. <code>catch</code> runs if an error
-                        occurs and receives the error object. <code>finally</code> always runs, whether there was an
-                        error or not. Use <code>throw new Error("message")</code> to create custom errors. Check error
-                        types with <code>instanceof</code>. The stack trace (<code>error.stack</code>) shows exactly
-                        where the error occurred. Always handle errors gracefully to prevent your application from
-                        crashing!</p>
-                </div>
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>error handling:</p>
+                <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <li>Create a try/catch that handles invalid JSON</li>
+                    <li>Throw a custom error with a message</li>
+                    <li>Use finally to clean up resources</li>
+                    <li>Catch different types of errors</li>
+                    <li>Log the full error stack trace</li>
+                </ul>
+            </div>
 
-                <div class="quiz-status">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
+            <div class="quiz-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Pass the 10-question quiz to unlock Level 60
+            </div>
+
+            <div class="nav-row">
+                <a href="level58.html" class="btn btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
-                    Pass the 10-question quiz to unlock Level 60
-                </div>
-
-                <div class="nav-row">
-                    <a href="level58.html" class="btn btn-ghost">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <polyline points="15 18 9 12 15 6" />
-                        </svg>
-                        Previous Level
-                    </a>
-                    <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <polygon points="5 3 19 12 5 21 5 3" />
-                        </svg>
-                        Take Quiz
-                    </a>
-                    <a href="level60.html" class="btn btn-secondary" id="nextLevelBtn"
-                        style="opacity:0.5;pointer-events:none;">
-                        Next Level
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5">
-                            <polyline points="9 18 15 12 9 6" />
-                        </svg>
-                    </a>
-                </div>
+                    Previous Level
+                </a>
+                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Take Quiz
+                </a>
+                <a href="level60.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                    Next Level
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
             </div>
         </div>
+    </div>
 
-        <script>
-            // ============================================
-            // ERROR HANDLING DEMO FUNCTIONS
-            // ============================================
+    <script>
+        // ============================================
+        // ERROR HANDLING DEMO FUNCTIONS
+        // ============================================
 
-            function logToResult(message, type) {
-                let area = document.getElementById("resultArea");
-                let className = type || "";
-                area.innerHTML += `<div class="${className}">${message}</div>`;
-                area.scrollTop = area.scrollHeight;
-            }
+        function logToResult(message, type) {
+            let area = document.getElementById("resultArea");
+            let className = type || "";
+            area.innerHTML += `<div class="${className}">${message}</div>`;
+            area.scrollTop = area.scrollHeight;
+        }
 
-            function clearResult() {
-                let area = document.getElementById("resultArea");
-                area.innerHTML = `<div class="info">// Click a button to test error handling</div>`;
-            }
+        function clearResult() {
+            let area = document.getElementById("resultArea");
+            area.innerHTML = `<div class="info">// Click a button to test error handling</div>`;
+        }
 
-            function testTryCatch() {
-                let input = document.getElementById("testInput").value;
-                let area = document.getElementById("resultArea");
-                area.innerHTML = '';
+        function testTryCatch() {
+            let input = document.getElementById("testInput").value;
+            let area = document.getElementById("resultArea");
+            area.innerHTML = '';
 
-                logToResult("📝 Testing try/catch with input: " + input, "info");
+            logToResult("📝 Testing try/catch with input: " + input, "info");
 
-                try {
-                    logToResult("🔵 Entering try block...", "info");
-
-                    // Try to parse as JSON
-                    let parsed = JSON.parse(input);
-                    logToResult("✅ Successfully parsed JSON: " + JSON.stringify(parsed), "success");
-
-                    // Try to do math
-                    if (typeof parsed === "number") {
-                        let result = parsed * 2;
-                        logToResult("🧮 Math result: " + parsed + " * 2 = " + result, "success");
-                    }
-
-                } catch (error) {
-                    logToResult("❌ Caught error: " + error.message, "error");
-                    logToResult("📋 Error type: " + error.name, "info");
-
-                    // Try alternative handling
-                    try {
-                        logToResult("🔄 Trying alternative handling...", "info");
-                        let num = Number(input);
-                        if (!isNaN(num)) {
-                            logToResult("✅ Converted to number: " + num, "success");
-                        } else {
-                            logToResult("📝 It's a string: " + input, "info");
-                        }
-                    } catch (altError) {
-                        logToResult("❌ Alternative also failed: " + altError.message, "error");
-                    }
-                } finally {
-                    logToResult("🏁 Finally block always runs", "info");
+            try {
+                logToResult("🔵 Entering try block...", "info");
+                
+                // Try to parse as JSON
+                let parsed = JSON.parse(input);
+                logToResult("✅ Successfully parsed JSON: " + JSON.stringify(parsed), "success");
+                
+                // Try to do math
+                if (typeof parsed === "number") {
+                    let result = parsed * 2;
+                    logToResult("🧮 Math result: " + parsed + " * 2 = " + result, "success");
                 }
-            }
-
-            function testFetchError() {
-                let area = document.getElementById("resultArea");
-                area.innerHTML = '';
-
-                logToResult("🌐 Testing fetch with error handling...", "info");
-
+                
+            } catch (error) {
+                logToResult("❌ Caught error: " + error.message, "error");
+                logToResult("📋 Error type: " + error.name, "info");
+                
+                // Try alternative handling
                 try {
-                    logToResult("📡 Attempting to fetch invalid URL...", "info");
-
-                    fetch("https://this-url-does-not-exist-12345.com")
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error("HTTP error! status: " + response.status);
-                            }
-                            return response.json();
-                        })
-                        .catch(error => {
-                            logToResult("❌ Fetch caught error: " + error.message, "error");
-                            logToResult("💡 This error was handled in the .catch()", "info");
-                        });
-
-                    logToResult("⏳ Request sent, waiting for response...", "info");
-
-                } catch (error) {
-                    logToResult("❌ Error in try block: " + error.message, "error");
-                }
-            }
-
-            function testThrowError() {
-                let input = document.getElementById("testInput").value;
-                let area = document.getElementById("resultArea");
-                area.innerHTML = '';
-
-                logToResult("💥 Testing custom error throwing...", "info");
-
-                try {
-                    logToResult("🔵 Entering try block...", "info");
-
-                    // Check if input is a number
+                    logToResult("🔄 Trying alternative handling...", "info");
                     let num = Number(input);
-
-                    if (isNaN(num)) {
-                        throw new Error("Input is not a valid number!");
-                    }
-
-                    if (num < 0) {
-                        throw new RangeError("Number must be positive!");
-                    }
-
-                    if (num > 100) {
-                        throw new RangeError("Number must be 100 or less!");
-                    }
-
-                    logToResult("✅ Input is valid: " + num, "success");
-                    logToResult("📊 Double is: " + num * 2, "success");
-
-                } catch (error) {
-                    logToResult("❌ Caught error: " + error.message, "error");
-                    logToResult("📋 Error type: " + error.name, "info");
-
-                    if (error instanceof RangeError) {
-                        logToResult("⚠️ This is a RangeError - value is out of range", "info");
-                    } else if (error instanceof TypeError) {
-                        logToResult("⚠️ This is a TypeError - wrong data type", "info");
+                    if (!isNaN(num)) {
+                        logToResult("✅ Converted to number: " + num, "success");
                     } else {
-                        logToResult("⚠️ This is a generic Error", "info");
+                        logToResult("📝 It's a string: " + input, "info");
                     }
-                } finally {
-                    logToResult("🏁 Finally block completed", "info");
+                } catch (altError) {
+                    logToResult("❌ Alternative also failed: " + altError.message, "error");
                 }
+            } finally {
+                logToResult("🏁 Finally block always runs", "info");
             }
+        }
 
-            // Auto-run demo on page load
-            document.addEventListener("DOMContentLoaded", function () {
-                setTimeout(() => {
-                    testTryCatch();
-                }, 500);
-            });
-        </script>
+        function testFetchError() {
+            let area = document.getElementById("resultArea");
+            area.innerHTML = '';
 
-        <script src="./scripts/level59.js"></script>
+            logToResult("🌐 Testing fetch with error handling...", "info");
+
+            try {
+                logToResult("📡 Attempting to fetch invalid URL...", "info");
+                
+                fetch("https://this-url-does-not-exist-12345.com")
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("HTTP error! status: " + response.status);
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        logToResult("❌ Fetch caught error: " + error.message, "error");
+                        logToResult("💡 This error was handled in the .catch()", "info");
+                    });
+                    
+                logToResult("⏳ Request sent, waiting for response...", "info");
+                
+            } catch (error) {
+                logToResult("❌ Error in try block: " + error.message, "error");
+            }
+        }
+
+        function testThrowError() {
+            let input = document.getElementById("testInput").value;
+            let area = document.getElementById("resultArea");
+            area.innerHTML = '';
+
+            logToResult("💥 Testing custom error throwing...", "info");
+
+            try {
+                logToResult("🔵 Entering try block...", "info");
+                
+                // Check if input is a number
+                let num = Number(input);
+                
+                if (isNaN(num)) {
+                    throw new Error("Input is not a valid number!");
+                }
+                
+                if (num < 0) {
+                    throw new RangeError("Number must be positive!");
+                }
+                
+                if (num > 100) {
+                    throw new RangeError("Number must be 100 or less!");
+                }
+                
+                logToResult("✅ Input is valid: " + num, "success");
+                logToResult("📊 Double is: " + num * 2, "success");
+                
+            } catch (error) {
+                logToResult("❌ Caught error: " + error.message, "error");
+                logToResult("📋 Error type: " + error.name, "info");
+                
+                if (error instanceof RangeError) {
+                    logToResult("⚠️ This is a RangeError - value is out of range", "info");
+                } else if (error instanceof TypeError) {
+                    logToResult("⚠️ This is a TypeError - wrong data type", "info");
+                } else {
+                    logToResult("⚠️ This is a generic Error", "info");
+                }
+            } finally {
+                logToResult("🏁 Finally block completed", "info");
+            }
+        }
+
+        // Auto-run demo on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                testTryCatch();
+            }, 500);
+        });
+    </script>
+
+    <script src="./scripts/level59.js"></script>
 </body>
-
 </html>

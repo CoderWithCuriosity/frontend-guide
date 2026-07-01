@@ -381,7 +381,7 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        <span style="font-size: 1.2rem;">📝</span>
+                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
@@ -414,7 +414,7 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span>⏱️</span>
+                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -422,7 +422,7 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span>📊</span>
+                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -544,7 +544,7 @@ function createQuizModal() {
                             font-size: 0.85rem;
                             cursor: pointer;
                             transition: all 0.15s ease;
-                        ">🔄 Retry</button>
+                        ">Retry</button>
                         <button id="closeResultsBtn" style="
                             background: var(--accent-sql, #8ec07c);
                             color: #0e1410;
@@ -655,7 +655,7 @@ function renderQuestion() {
     document.getElementById('progressDisplay').textContent = `${quizState.currentQuestion + 1} / ${total}`;
     document.getElementById('progressBar').style.width = `${((quizState.currentQuestion + 1) / total) * 100}%`;
     document.getElementById('questionNumber').textContent = quizState.currentQuestion + 1;
-    document.getElementById('questionText').textContent = q.question;
+    document.getElementById('questionText').innerHTML = q.question;
 
     const optionsContainer = document.getElementById('optionsContainer');
     optionsContainer.innerHTML = '';

@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 46: Array Methods (push, pop)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -280,13 +270,8 @@
             margin-top: 5px;
         }
 
-        .method-card.push {
-            --card-color: var(--accent-sql);
-        }
-
-        .method-card.pop {
-            --card-color: var(--accent-html);
-        }
+        .method-card.push { --card-color: var(--accent-sql); }
+        .method-card.pop { --card-color: var(--accent-html); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -348,12 +333,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -446,7 +429,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -457,7 +439,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -468,7 +449,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -487,23 +467,18 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .method-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
@@ -516,7 +491,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -558,7 +532,7 @@
                     <div class="example">arr.push("grape")</div>
                     <div class="result">Returns new length</div>
                 </div>
-
+                
                 <div class="method-card pop">
                     <div class="title">pop()</div>
                     <div class="description">Removes from the end</div>
@@ -571,15 +545,12 @@
 
             <div class="syntax-box">
                 <span class="comment">// push() - adds one or more elements to the end</span><br>
-                <span class="keyword">let</span> <span class="array">fruits</span> = [<span
-                    class="array">"apple"</span>, <span class="array">"banana"</span>];<br>
-                <span class="array">fruits</span>.<span class="method">push</span>(<span
-                    class="array">"orange"</span>);<br>
+                <span class="keyword">let</span> <span class="array">fruits</span> = [<span class="array">"apple"</span>, <span class="array">"banana"</span>];<br>
+                <span class="array">fruits</span>.<span class="method">push</span>(<span class="array">"orange"</span>);<br>
                 <span class="comment">// fruits is now ["apple", "banana", "orange"]</span><br>
                 <br>
                 <span class="comment">// pop() - removes the last element</span><br>
-                <span class="keyword">let</span> last = <span class="array">fruits</span>.<span
-                    class="method">pop</span>();<br>
+                <span class="keyword">let</span> last = <span class="array">fruits</span>.<span class="method">pop</span>();<br>
                 <span class="comment">// last = "orange", fruits is ["apple", "banana"]</span>
             </div>
 
@@ -587,37 +558,28 @@
 
             <div class="console-output">
                 <div class="comment">// push() examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> <span class="array">fruits</span>
-                    = [<span class="array">"apple"</span>, <span class="array">"banana"</span>];</div>
-                <div><span class="arrow">&gt;</span> <span class="array">fruits</span>.<span
-                        class="method">push</span>(<span class="array">"orange"</span>);</div>
-                <div class="output"> 3</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                        class="array">fruits</span>);</div>
-                <div class="output"> ["apple", "banana", "orange"]</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> <span class="array">fruits</span> = [<span class="array">"apple"</span>, <span class="array">"banana"</span>];</div>
+                <div><span class="arrow">&gt;</span> <span class="array">fruits</span>.<span class="method">push</span>(<span class="array">"orange"</span>);</div>
+                <div class="output">  3</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="array">fruits</span>);</div>
+                <div class="output">  ["apple", "banana", "orange"]</div>
                 <br>
                 <div class="comment">// pop() examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> last = <span
-                        class="array">fruits</span>.<span class="method">pop</span>();</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> last = <span class="array">fruits</span>.<span class="method">pop</span>();</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(last);</div>
-                <div class="output"> "orange"</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                        class="array">fruits</span>);</div>
-                <div class="output"> ["apple", "banana"]</div>
+                <div class="output">  "orange"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="array">fruits</span>);</div>
+                <div class="output">  ["apple", "banana"]</div>
                 <br>
                 <div class="comment">// push multiple elements</div>
-                <div><span class="arrow">&gt;</span> <span class="array">fruits</span>.<span
-                        class="method">push</span>(<span class="array">"grape"</span>, <span
-                        class="array">"melon"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                        class="array">fruits</span>);</div>
-                <div class="output"> ["apple", "banana", "grape", "melon"]</div>
+                <div><span class="arrow">&gt;</span> <span class="array">fruits</span>.<span class="method">push</span>(<span class="array">"grape"</span>, <span class="array">"melon"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="array">fruits</span>);</div>
+                <div class="output">  ["apple", "banana", "grape", "melon"]</div>
                 <br>
                 <div class="comment">// pop removes and returns the last element</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> removed = <span
-                        class="array">fruits</span>.<span class="method">pop</span>();</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> removed = <span class="array">fruits</span>.<span class="method">pop</span>();</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(removed);</div>
-                <div class="output"> "melon"</div>
+                <div class="output">  "melon"</div>
             </div>
 
             <div class="info-box">
@@ -625,8 +587,7 @@
                 <ul>
                     <li><strong>push()</strong> - Adds element(s) to the end of an array</li>
                     <li><strong>pop()</strong> - Removes the last element from an array</li>
-                    <li><strong>Return value</strong> - push returns the new length, pop returns the removed element
-                    </li>
+                    <li><strong>Return value</strong> - push returns the new length, pop returns the removed element</li>
                     <li><strong>Stack behavior</strong> - Last In, First Out (LIFO)</li>
                     <li><strong>Multiple elements</strong> - push can add multiple elements at once</li>
                     <li><strong>Empty array</strong> - pop on empty array returns undefined</li>
@@ -635,62 +596,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice push and pop methods by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>push and pop:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Push Numbers:</strong> Create an array called <code>numbers</code> with some starting
-                        numbers (like <code>[10, 20, 30]</code>). Use <code>push()</code> to add new numbers to the end
-                        (like <code>numbers.push(40)</code>) and log the array to see the changes</li>
-                    <li><strong>Pop and See Return:</strong> Use <code>pop()</code> to remove the last number from your
-                        array and store it in a variable like <code>let removed = numbers.pop()</code>. Log both the
-                        removed value and the updated array to see what was returned</li>
-                    <li><strong>Push Multiple:</strong> Push multiple values at once using
-                        <code>numbers.push(50, 60, 70)</code> and log the array to see all the new elements added at
-                        once</li>
-                    <li><strong>Pop in a Loop:</strong> Create a new array
-                        <code>items = ["a", "b", "c", "d", "e"]</code> and use a while loop with <code>pop()</code> to
-                        remove elements one by one until the array is empty. Log the array each time to see it shrink
-                    </li>
-                    <li><strong>Different Data Types:</strong> Create an array with mixed types like
-                        <code>["hello", 42, true]</code> and try pushing and popping strings, numbers, booleans, and
-                        even other arrays to see that push/pop work with any data type</li>
+                    <li>Create an array of numbers and push new numbers</li>
+                    <li>Use pop to remove numbers and see what's returned</li>
+                    <li>Push multiple elements at once</li>
+                    <li>Use pop in a loop to empty an array</li>
+                    <li>Try push and pop with different data types</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: <code>push()</code>
-                    adds to the end and returns the new length. <code>pop()</code> removes from the end and returns the
-                    removed element. Use <code>console.log()</code> to see both the returned values and the changed
-                    array!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 47
             </div>
 
             <div class="nav-row">
                 <a href="level45.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level47.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level47.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -699,5 +639,4 @@
 
     <script src="./scripts/level46.js"></script>
 </body>
-
 </html>

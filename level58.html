@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 58: Async/Await</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -374,12 +364,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -468,7 +456,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -479,7 +466,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -490,7 +476,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -509,26 +494,21 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -570,7 +550,7 @@
                     <button class="btn-demo info" onclick="runParallelDemo()">⚡ Parallel Requests</button>
                     <button class="btn-demo reset" onclick="clearResult()">🧹 Clear</button>
                 </div>
-
+                
                 <div class="result-area" id="resultArea">
                     <div class="comment">// Click a button to see async/await in action</div>
                     <div class="comment">// Results will appear here...</div>
@@ -583,10 +563,8 @@
                 <span class="comment">// Async function declaration</span><br>
                 <span class="keyword">async</span> <span class="keyword">function</span> fetchData() {<br>
                 &nbsp;&nbsp;<span class="keyword">try</span> {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> response = <span class="keyword">await</span>
-                <span class="keyword">fetch</span>(<span class="value">"url"</span>);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> data = <span class="keyword">await</span>
-                response.<span class="keyword">json</span>();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> response = <span class="keyword">await</span> <span class="keyword">fetch</span>(<span class="value">"url"</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> data = <span class="keyword">await</span> response.<span class="keyword">json</span>();<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> data;<br>
                 &nbsp;&nbsp;} <span class="keyword">catch</span> (error) {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="keyword">log</span>(error);<br>
@@ -599,35 +577,28 @@
             <div class="console-output">
                 <div class="comment">// Async/Await Examples</div>
                 <div><span class="arrow">&gt;</span> <span class="keyword">async function</span> getPost() {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> response = <span
-                        class="keyword">await</span> <span class="keyword">fetch</span>(<span
-                        class="value">"https://jsonplaceholder.typicode.com/posts/1"</span>);</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> data = <span
-                        class="keyword">await</span> response.<span class="keyword">json</span>();</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(data);</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">let</span> response = <span class="keyword">await</span> <span class="keyword">fetch</span>(<span class="value">"https://jsonplaceholder.typicode.com/posts/1"</span>);</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">let</span> data = <span class="keyword">await</span> response.<span class="keyword">json</span>();</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(data);</div>
                 <div><span class="arrow">&gt;</span> }</div>
                 <br>
                 <div class="comment">// Output:</div>
-                <div class="output"> {</div>
-                <div class="output"> "userId": 1,</div>
-                <div class="output"> "id": 1,</div>
-                <div class="output"> "title": "sunt aut facere...",</div>
-                <div class="output"> "body": "quia et suscipit..."</div>
-                <div class="output"> }</div>
+                <div class="output">  {</div>
+                <div class="output">    "userId": 1,</div>
+                <div class="output">    "id": 1,</div>
+                <div class="output">    "title": "sunt aut facere...",</div>
+                <div class="output">    "body": "quia et suscipit..."</div>
+                <div class="output">  }</div>
                 <br>
                 <div class="comment">// Error handling with try/catch</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">async function</span> fetchWithError() {
-                </div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> data = <span
-                        class="keyword">await</span> <span class="keyword">fetch</span>(<span
-                        class="value">"invalid.url"</span>);</div>
-                <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span
-                        class="value">"Error:"</span>, error);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">async function</span> fetchWithError() {</div>
+                <div><span class="arrow">&gt;</span>   <span class="keyword">try</span> {</div>
+                <div><span class="arrow">&gt;</span>     <span class="keyword">let</span> data = <span class="keyword">await</span> <span class="keyword">fetch</span>(<span class="value">"invalid.url"</span>);</div>
+                <div><span class="arrow">&gt;</span>   } <span class="keyword">catch</span> (error) {</div>
+                <div><span class="arrow">&gt;</span>     console.<span class="keyword">log</span>(<span class="value">"Error:"</span>, error);</div>
+                <div><span class="arrow">&gt;</span>   }</div>
                 <div><span class="arrow">&gt;</span> }</div>
-                <div><span class="arrow">&gt;</span> }</div>
-                <div class="error"> Error: Failed to fetch</div>
+                <div class="error">  Error: Failed to fetch</div>
             </div>
 
             <div class="info-box">
@@ -644,72 +615,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice async/await by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>async/await:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Async Function to Fetch Post:</strong> Create an async function called
-                        <code>getPost()</code> that fetches a single post from
-                        <code>https://jsonplaceholder.typicode.com/posts/1</code>. Use <code>await fetch()</code> and
-                        <code>await response.json()</code> inside the function. Call the function and log the result to
-                        see the post data</li>
-                    <li><strong>Error Handling with try/catch:</strong> Inside your <code>getPost()</code> function,
-                        wrap all the fetch code in a <code>try/catch</code> block. In the <code>try</code> block, fetch
-                        the data and log it. In the <code>catch</code> block, log an error message like
-                        <code>console.error("Something went wrong:", error)</code>. Test it by using an invalid URL to
-                        see the error handling work</li>
-                    <li><strong>Fetch Multiple Posts with await:</strong> Create an async function called
-                        <code>getMultiplePosts()</code> that fetches three different posts (like posts 1, 2, and 3) one
-                        after another using <code>await</code> for each. Example:
-                        <code>let post1 = await fetch(".../posts/1"); let post2 = await fetch(".../posts/2"); let post3 = await fetch(".../posts/3")</code>.
-                        Log all three posts when done</li>
-                    <li><strong>Promise.all() for Parallel Requests:</strong> Create an async function that uses
-                        <code>Promise.all()</code> to fetch multiple posts at the same time (in parallel). Example:
-                        <code>let urls = [".../posts/1", ".../posts/2", ".../posts/3"]; let requests = urls.map(url => fetch(url)); let responses = await Promise.all(requests); let data = await Promise.all(responses.map(r => r.json()))</code>.
-                        Log the data and notice how much faster this is than fetching one by one</li>
-                    <li><strong>Wait for 2 Seconds:</strong> Create a function called <code>waitTwoSeconds()</code> that
-                        uses <code>setTimeout()</code> wrapped in a <code>Promise</code> to wait for 2 seconds. Example:
-                        <code>function waitTwoSeconds() { return new Promise(resolve => setTimeout(resolve, 2000)); }</code>.
-                        Then create an async function that calls <code>await waitTwoSeconds()</code> and logs "Waited 2
-                        seconds!" to the console. This shows how to create your own async delay</li>
+                    <li>Create an async function that fetches a post</li>
+                    <li>Use try/catch for error handling</li>
+                    <li>Fetch multiple posts with await</li>
+                    <li>Use Promise.all() for parallel requests</li>
+                    <li>Create a function that waits for 2 seconds</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: <code>async</code>
-                    functions always return a Promise. Use <code>await</code> to pause execution until a Promise
-                    resolves. <code>try/catch</code> is the best way to handle errors with async/await.
-                    <code>Promise.all()</code> runs multiple promises in parallel (much faster!). You can create custom
-                    delays by wrapping <code>setTimeout</code> in a Promise. Use <code>console.log()</code> to verify
-                    your data and timing!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 59
             </div>
 
             <div class="nav-row">
                 <a href="level57.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level59.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level59.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -808,7 +748,7 @@
         }
 
         // Auto-run demo on page load
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 runAsyncDemo();
             }, 500);
@@ -817,5 +757,4 @@
 
     <script src="./scripts/level58.js"></script>
 </body>
-
 </html>

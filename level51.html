@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 51: Forms and Input</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,21 +263,10 @@
             margin: 5px 0;
         }
 
-        .input-card.text {
-            --card-color: var(--accent-sql);
-        }
-
-        .input-card.number {
-            --card-color: var(--accent-css);
-        }
-
-        .input-card.email {
-            --card-color: var(--accent-js);
-        }
-
-        .input-card.password {
-            --card-color: var(--accent-html);
-        }
+        .input-card.text { --card-color: var(--accent-sql); }
+        .input-card.number { --card-color: var(--accent-css); }
+        .input-card.email { --card-color: var(--accent-js); }
+        .input-card.password { --card-color: var(--accent-html); }
 
         .demo-form {
             background: var(--bg-panel-alt);
@@ -449,12 +428,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -543,7 +520,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -554,7 +530,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -565,7 +540,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -584,27 +558,21 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .input-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .demo-form .form-row {
                 flex-direction: column;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
@@ -617,7 +585,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -657,19 +624,19 @@
                     <div class="description">Single line text input</div>
                     <div class="example">&lt;input type="text"&gt;</div>
                 </div>
-
+                
                 <div class="input-card number">
                     <div class="title">number</div>
                     <div class="description">Numeric input</div>
                     <div class="example">&lt;input type="number"&gt;</div>
                 </div>
-
+                
                 <div class="input-card email">
                     <div class="title">email</div>
                     <div class="description">Email address input</div>
                     <div class="example">&lt;input type="email"&gt;</div>
                 </div>
-
+                
                 <div class="input-card password">
                     <div class="title">password</div>
                     <div class="description">Hidden text input</div>
@@ -684,7 +651,7 @@
                     <label for="nameInput">Name</label>
                     <input type="text" id="nameInput" placeholder="Enter your name">
                 </div>
-
+                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="emailInput">Email</label>
@@ -695,18 +662,18 @@
                         <input type="number" id="ageInput" placeholder="Enter your age">
                     </div>
                 </div>
-
+                
                 <div class="form-group">
                     <label for="messageInput">Message</label>
                     <textarea id="messageInput" placeholder="Enter your message"></textarea>
                 </div>
-
+                
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                     <button class="btn-demo" onclick="submitForm()">Submit Form</button>
                     <button class="btn-demo reset" onclick="clearForm()">Clear Form</button>
                     <button class="btn-demo" onclick="showValues()">Show Values</button>
                 </div>
-
+                
                 <div class="form-output" id="formOutput">
                     Form output will appear here...
                 </div>
@@ -716,27 +683,20 @@
 
             <div class="console-output">
                 <div class="comment">// Form Input Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> nameInput = document.<span
-                        class="keyword">getElementById</span>(<span class="value">"nameInput"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(nameInput.<span
-                        class="keyword">value</span>);</div>
-                <div class="output"> "John"</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> nameInput = document.<span class="keyword">getElementById</span>(<span class="value">"nameInput"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(nameInput.<span class="keyword">value</span>);</div>
+                <div class="output">  "John"</div>
                 <br>
-                <div><span class="arrow">&gt;</span> nameInput.<span class="keyword">addEventListener</span>(<span
-                        class="value">"input"</span>, function() {</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="value">"Input
-                        changed:"</span>, this.<span class="keyword">value</span>);</div>
+                <div><span class="arrow">&gt;</span> nameInput.<span class="keyword">addEventListener</span>(<span class="value">"input"</span>, function() {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Input changed:"</span>, this.<span class="keyword">value</span>);</div>
                 <div><span class="arrow">&gt;</span> });</div>
-                <div class="output"> "Input changed: John"</div>
+                <div class="output">  "Input changed: John"</div>
                 <br>
                 <div class="comment">// Form submission</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> form = document.<span
-                        class="keyword">getElementById</span>(<span class="value">"demoForm"</span>);</div>
-                <div><span class="arrow">&gt;</span> form.<span class="keyword">addEventListener</span>(<span
-                        class="value">"submit"</span>, function(e) {</div>
-                <div><span class="arrow">&gt;</span> e.<span class="keyword">preventDefault</span>();</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="value">"Form
-                        submitted!"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> form = document.<span class="keyword">getElementById</span>(<span class="value">"demoForm"</span>);</div>
+                <div><span class="arrow">&gt;</span> form.<span class="keyword">addEventListener</span>(<span class="value">"submit"</span>, function(e) {</div>
+                <div><span class="arrow">&gt;</span>   e.<span class="keyword">preventDefault</span>();</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Form submitted!"</span>);</div>
                 <div><span class="arrow">&gt;</span> });</div>
             </div>
 
@@ -754,64 +714,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice working with forms by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>forms:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Get Input Value:</strong> Create an input field like
-                        <code>&lt;input type="text" id="nameInput" placeholder="Enter your name"&gt;</code>. Use
-                        <code>document.getElementById("nameInput").value</code> to get its value and log it to the
-                        console when a button is clicked</li>
-                    <li><strong>Input Event Listener:</strong> Create an email input like
-                        <code>&lt;input type="email" id="emailInput"&gt;</code> and add an <code>input</code> event
-                        listener using <code>element.addEventListener("input", function() { })</code>. Inside the
-                        function, log the current email value each time the user types</li>
-                    <li><strong>Validate Empty Field:</strong> Create a function called <code>validateName()</code> that
-                        checks if the name input is empty. If it's empty, log "Name is required!" to the console. If it
-                        has text, log "Name is valid!". Call this function when a button is clicked</li>
-                    <li><strong>Change Placeholder:</strong> Select an input field and change its placeholder text using
-                        <code>element.placeholder = "New placeholder text here"</code>. For example, change "Enter your
-                        name" to "Please type your full name"</li>
-                    <li><strong>Disable/Enable Input:</strong> Create a button that disables an input field using
-                        <code>element.disabled = true</code> and another button that enables it using
-                        <code>element.disabled = false</code>. Or use a checkbox to toggle the disabled state</li>
+                    <li>Get the value from the name input and log it</li>
+                    <li>Add an input event listener to the email field</li>
+                    <li>Create a function that validates if the name is empty</li>
+                    <li>Change the placeholder text of an input</li>
+                    <li>Disable and enable an input field</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Use
-                    <code>document.getElementById()</code> to select form elements. Input values are accessed with
-                    <code>.value</code>. The <code>input</code> event fires every time the user types or changes the
-                    input. Use <code>console.log()</code> to see values and validation results. When disabling an input,
-                    the user can't type in it or click on it!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 52
             </div>
 
             <div class="nav-row">
                 <a href="level50.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level52.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level52.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -825,29 +762,29 @@
             let email = document.getElementById("emailInput").value;
             let age = document.getElementById("ageInput").value;
             let message = document.getElementById("messageInput").value;
-
+            
             let output = document.getElementById("formOutput");
-
+            
             if (!name && !email && !age && !message) {
                 output.innerHTML = "⚠️ Please fill in at least one field!";
                 output.style.color = "#f3a072";
                 return;
             }
-
+            
             let html = "<strong>📋 Form Data:</strong><br>";
             if (name) html += "👤 Name: " + name + "<br>";
             if (email) html += "📧 Email: " + email + "<br>";
             if (age) html += "🎂 Age: " + age + "<br>";
             if (message) html += "💬 Message: " + message + "<br>";
             html += "✅ Form submitted successfully!";
-
+            
             output.innerHTML = html;
             output.style.color = "#8ec07c";
-
+            
             // Log to console
             console.log("Form submitted:", { name, email, age, message });
         }
-
+        
         function clearForm() {
             document.getElementById("nameInput").value = "";
             document.getElementById("emailInput").value = "";
@@ -857,13 +794,13 @@
             document.getElementById("formOutput").style.color = "#a3a3c2";
             console.log("Form cleared");
         }
-
+        
         function showValues() {
             let name = document.getElementById("nameInput").value;
             let email = document.getElementById("emailInput").value;
             let age = document.getElementById("ageInput").value;
             let message = document.getElementById("messageInput").value;
-
+            
             let output = document.getElementById("formOutput");
             output.innerHTML = `
                 <strong>📊 Current Values:</strong><br>
@@ -873,15 +810,15 @@
                 Message: ${message || "(empty)"}
             `;
             output.style.color = "#7ec8e3";
-
+            
             console.log("Current form values:", { name, email, age, message });
         }
-
+        
         // Real-time input logging
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             let inputs = document.querySelectorAll("#demoForm input, #demoForm textarea");
             inputs.forEach(input => {
-                input.addEventListener("input", function () {
+                input.addEventListener("input", function() {
                     console.log(this.id + " changed to:", this.value);
                 });
             });
@@ -890,5 +827,4 @@
 
     <script src="./scripts/level51.js"></script>
 </body>
-
 </html>

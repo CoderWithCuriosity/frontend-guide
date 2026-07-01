@@ -1,1 +1,952 @@
-const _0x41c653=_0xd780;(function(_0x425bc3,_0x100d66){const _0x8a7607=_0xd780,_0x49043b=_0x425bc3();while(!![]){try{const _0x3de606=parseInt(_0x8a7607(0x2c2))/0x1*(parseInt(_0x8a7607(0x2a3))/0x2)+parseInt(_0x8a7607(0x231))/0x3*(parseInt(_0x8a7607(0x2bc))/0x4)+parseInt(_0x8a7607(0x2c7))/0x5+-parseInt(_0x8a7607(0x228))/0x6+parseInt(_0x8a7607(0x27a))/0x7*(parseInt(_0x8a7607(0x285))/0x8)+parseInt(_0x8a7607(0x2b3))/0x9+-parseInt(_0x8a7607(0x2e7))/0xa*(parseInt(_0x8a7607(0x2e9))/0xb);if(_0x3de606===_0x100d66)break;else _0x49043b['push'](_0x49043b['shift']());}catch(_0x1cef94){_0x49043b['push'](_0x49043b['shift']());}}}(_0x2e4f,0xe99c6));const _0x3fbfbf=(function(){let _0x507569=!![];return function(_0x2d3ef8,_0x5df16c){const _0xa19ba6=_0x507569?function(){const _0x5918a7=_0xd780;if(_0x5df16c){const _0x23653c=_0x5df16c[_0x5918a7(0x217)](_0x2d3ef8,arguments);return _0x5df16c=null,_0x23653c;}}:function(){};return _0x507569=![],_0xa19ba6;};}()),_0x2a9df9=_0x3fbfbf(this,function(){const _0x301078=_0xd780,_0x2d31cc={'lFdTz':_0x301078(0x270),'YWurI':function(_0x3a0c3d,_0x24cff2){return _0x3a0c3d!==_0x24cff2;},'TElnz':'Not\x20the\x20target,\x20trying\x20again...','eHagR':function(_0x4a1e5a,_0x19b4ec){return _0x4a1e5a(_0x19b4ec);},'iMYzv':_0x301078(0x288),'MssDY':function(_0x165981,_0x2e7c16){return _0x165981(_0x2e7c16);},'wdojQ':function(_0x2eb181,_0x4cd0cb){return _0x2eb181+_0x4cd0cb;},'qkSDa':function(_0x25c75e,_0x52279b){return _0x25c75e+_0x52279b;},'iUKox':_0x301078(0x28c),'uwVxJ':'{}.constructor(\x22return\x20this\x22)(\x20)','Zodhs':function(_0x43d402){return _0x43d402();},'ItbSr':function(_0x4d6c2b,_0x4a682a){return _0x4d6c2b!==_0x4a682a;},'vDgev':_0x301078(0x2f4),'vTxjj':'RLRUl','TTKJc':'warn','uyoFl':_0x301078(0x2c1),'BaQsC':'exception','lhrjU':_0x301078(0x2ba),'thAOW':'trace','dBrFG':function(_0x2d6980,_0x2c5877){return _0x2d6980<_0x2c5877;}};let _0x1e1fca;try{if(_0x2d31cc[_0x301078(0x294)](_0x301078(0x297),_0x301078(0x2db))){const _0x2bbebb=_0x2d31cc['MssDY'](Function,_0x2d31cc[_0x301078(0x29b)](_0x2d31cc[_0x301078(0x2b7)](_0x2d31cc[_0x301078(0x211)],_0x2d31cc[_0x301078(0x202)]),');'));_0x1e1fca=_0x2d31cc['Zodhs'](_0x2bbebb);}else _0x2af4d9[_0x301078(0x293)]['display']=_0x2d31cc[_0x301078(0x24d)],_0x24b05b[_0x301078(0x22a)][_0x301078(0x293)][_0x301078(0x28a)]='';}catch(_0x5edc9b){_0x2d31cc['ItbSr'](_0x2d31cc[_0x301078(0x22b)],_0x2d31cc[_0x301078(0x220)])?_0x1e1fca=window:(_0x16b5b8++,_0x36d65e=_0x5a6d7d['floor'](_0x41d1a5[_0x301078(0x287)]()*0xa),_0x376a28['log'](_0x301078(0x2d9),_0x1b71b5,':',_0x184d54),_0x2d31cc[_0x301078(0x294)](_0x1d6ef3,_0x70619f)&&_0x461e94['log'](_0x2d31cc[_0x301078(0x271)]));}const _0x331c3a=_0x1e1fca[_0x301078(0x1f6)]=_0x1e1fca[_0x301078(0x1f6)]||{},_0x5992d0=[_0x301078(0x273),_0x2d31cc['TTKJc'],_0x2d31cc[_0x301078(0x2d7)],'error',_0x2d31cc[_0x301078(0x1e9)],_0x2d31cc[_0x301078(0x222)],_0x2d31cc[_0x301078(0x292)]];for(let _0x5a0d46=0x0;_0x2d31cc[_0x301078(0x1ec)](_0x5a0d46,_0x5992d0['length']);_0x5a0d46++){if(_0x301078(0x29e)===_0x301078(0x29e)){const _0x238c7a=_0x3fbfbf['constructor']['prototype'][_0x301078(0x26c)](_0x3fbfbf),_0x1d0f83=_0x5992d0[_0x5a0d46],_0x55cc5c=_0x331c3a[_0x1d0f83]||_0x238c7a;_0x238c7a[_0x301078(0x1fd)]=_0x3fbfbf['bind'](_0x3fbfbf),_0x238c7a[_0x301078(0x2d0)]=_0x55cc5c[_0x301078(0x2d0)]['bind'](_0x55cc5c),_0x331c3a[_0x1d0f83]=_0x238c7a;}else{_0x53fb42[_0x301078(0x2f2)]&&(_0x2d31cc[_0x301078(0x2ce)](_0x210378,_0x5ae945['timer']),_0x45f149[_0x301078(0x2f2)]=null);const _0x29f9f2=_0x1b2f9d['getElementById'](_0x2d31cc[_0x301078(0x1ff)]);_0x29f9f2&&(_0x29f9f2[_0x301078(0x293)][_0x301078(0x304)]=_0x2d31cc['lFdTz'],_0x2bc025['body'][_0x301078(0x293)][_0x301078(0x28a)]='');}}});_0x2a9df9(),console[_0x41c653(0x273)]('---\x20Basic\x20while\x20Loop\x20---');let i=0x0;while(i<0x5){console['log']('i\x20=',i),i++;}console['log']('\x0a---\x20Counting\x20from\x201\x20to\x205\x20---');let count=0x1;while(count<=0x5){console[_0x41c653(0x273)](count),count++;}console[_0x41c653(0x273)]('\x0a---\x20Counting\x20Down\x20---');let num=0x5;while(num>=0x0){console[_0x41c653(0x273)](num),num--;}console[_0x41c653(0x273)]('\x0a---\x20Sum\x20of\x20Numbers\x20---');function _0x2e4f(){const _0x1c3e06=['cI0TlsbjBMzPBML0zsbmB29WihDPDgGGqNjLywSGls0T','qxnlA3e','vM9Jr3e','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGAt01oYb3AgLSzsHPpdmPihSGy29UC29Szs5SB2COAsK7igKRkZSGFq','CgfKu3rHCNq','tM90ihrOzsb0yxjNzxqSihrYEwLUzYbHz2fPBI4UlG','sw5MAw5PDguGBg9VCa','whrSquS','DgLTzxi','DgLTzuXLzNq','qwDKBNq','yMfJA2DYB3vUza','zKXZveq','DvnbDhq','CxvPEKnVBNrLBNq','DhLWzwruAxrSzq','DgLTzxjeAxnWBgf5','j0LMihLVDsbKB24NDcb1CgrHDguGDgHLignVBMrPDgLVBIb2yxjPywjSzsWGDgHLigXVB3aGD2LSBcbYDw4GzM9YzxzLCIaOAw5MAw5PDguGBg9VCcKU','CMvZDwX0rw1VAMK','yxr0zw1WDhmH','Dgv4DenVBNrLBNq','uMvYAee','z2v0rwXLBwvUDej5swq','vgHLigXVB3aGBMv2zxiGCNvUCW','z0jXCum','zxHWBgfUyxrPB24','zgLZCgXHEq','qMfrC0m','Cg9PBNrLCKv2zw50CW','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGAt0WoYbKBYb7ignVBNnVBguUBg9NkgKPoYbPkYS7ih0GD2HPBguOAtWZkq','zejYrKC','zgf0yxnLDa','u2TPChmGDgHLihjLC3qGB2yGDgHLign1CNjLBNqGAxrLCMf0Aw9U','msaY','rvvZC2W','CxvLC3rPB25Z','v2HHDcbKB2vZigeGD2HPBguGBg9VCcbKBZ8','y3vYC29Y','swzJCxi','D2HPBgu','y29UC29Szq','yw5ZD2vYzwq','vgHLigXVB3aGCNvUCYbUB3jTywXSEq','yxv0BW','y1bZs24','cIaGicaGicaGpgrPDIbPzd0ICxvPEK92zxjSyxKIihn0EwXLpsikicaGicaGicaGicaGCg9ZAxrPB246igzPEgvKoWOGicaGicaGicaGicb0B3a6ida7cIaGicaGicaGicaGigXLzNq6ida7cIaGicaGicaGicaGihDPzhrOoIaXmdaLoWOGicaGicaGicaGicbOzwLNAhq6ideWmcu7cIaGicaGicaGicaGigjHy2TNCM91BMq6ihjNyMeOmJeSidiXlcaZmsWGmc45mIK7cIaGicaGicaGicaGigjHy2TKCM9WlwzPBhrLCJOGyMX1CIGXmNb4ktSkicaGicaGicaGicaGEI1PBMrLEdOGmtaWmda7cIaGicaGicaGicaGigrPC3bSyxK6ig5VBMu7cIaGicaGicaGicaGigP1C3rPzNKTy29UDgvUDdOGy2vUDgvYoWOGicaGicaGicaGicbHBgLNBI1PDgvTCZOGy2vUDgvYoWOGicaGicaGicaGicbWywrKAw5NoIaYmhb4oWOGicaGicaGicaGicbHBMLTyxrPB246igzHzgvjBK92zxjSyxKGmc4ZCYbLyxnLoWOGicaGicaGici+cIaGicaGicaGicaGidXKAxyGAwq9iNf1AxPnB2rHBciGC3r5Bgu9iGOGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TyMCTCgfUzwWSicmXztfLmMuPoWOGicaGicaGicaGicaGicaGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1SzYWGmtzWEcK7cIaGicaGicaGicaGicaGicbTyxGTD2LKDgG6idCWmhb4oWOGicaGicaGicaGicaGicaGD2LKDgG6ideWmcu7cIaGicaGicaGicaGicaGicbTyxGTAgvPz2H0oIa5mhzOoWOGicaGicaGicaGicaGicaGB3zLCMzSB3CTEtOGyxv0BZSkicaGicaGicaGicaGicaGigjVEc1ZAgfKB3C6idaGmZbWEca4mhb4ihjNyMeOmcWWldaSmc42ktSkicaGicaGicaGicaGicaGigfUAw1HDgLVBJOGC2XPzgvvCe1VzgfSidaUm3mGzwfZztSkicaGicaGicaGicaGicaGihbVC2L0Aw9UoIbYzwXHDgL2ztSkicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6idiWChGGmJrWEdSkicaGicaGicaGicaGicaGicaGicbIB3jKzxiTyM90Dg9ToIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlxnVzNqSicmYytjHndaPoWOGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGANvZDgLMEs1JB250zw50oIbZCgfJzs1Izxr3zwvUoWOGicaGicaGicaGicaGicaGicaGigfSAwDUlwL0zw1ZoIbJzw50zxi7cIaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TyMCTyMfZzs0YlcaJmwiXyJi5ktSkicaGicaGicaGicaGicaGicaGicbIB3jKzxiTCMfKAxvZoIb2yxiOls1YywrPDxmTBgCSide2ChGPihzHCIGTlxjHzgL1CY1SzYWGmtzWEcKGmcaWoWOGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbNyxa6ideYChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOGms4YCMvToYi+8j+tNtWVC3bHBJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgGYihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6ideUmxjLBtSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1WCMLTyxj5lcaJztLLowy1ktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBJOGmdSkicaGicaGicaGicaGicaGicaGicaGicaGiJ5mzxzLBca0msbrDwL6pc9OmJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGica8yNv0Dg9UigLKpsjJBg9Zzvf1AxPcDg4Iihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGBM9UztSkicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYoIbUB25LoWOGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1TDxrLzcWGiZzJnMm4yYK7cIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTC2L6ztOGms4ZCMvToWOGicaGicaGicaGicaGicaGicaGicaGicbJDxjZB3i6ihbVAw50zxi7cIaGicaGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6idrWEca4ChG7cIaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1ZBsWGnNb4ktSkicaGicaGicaGicaGicaGicaGicaGicaGDhjHBNnPDgLVBJOGywXSidaUmtvZigvHC2u7cIaGicaGicaGicaGicaGicaGicaGicaGigXPBMuTAgvPz2H0oIaXoWOGicaGicaGicaGicaGicaGicaGici+4PYvpc9IDxr0B24+cIaGicaGicaGicaGicaGica8l2rPDJ4kcIaGicaGicaGicaGicaGica8zgL2igLKpsjXDwL6q29UDgvUDciGC3r5Bgu9iNbHzgrPBMC6idmYChGGmJrWEcaYnhb4oYi+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGicaGigP1C3rPzNKTy29UDgvUDdOGC3bHy2uTyMv0D2vLBJSkicaGicaGicaGicaGicaGicaGicaGicaGywXPz24TAxrLBxm6ignLBNrLCJSkicaGicaGicaGicaGicaGicaGicaGicaGBwfYz2LUlwjVDhrVBtOGmJrWEdSkicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1Myw1PBhK6ihzHCIGTlwzVBNqTBw9UBYWGBw9UB3nWywnLktSkicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1ZAxPLoIaWlJG1CMvToWOGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1ZzwnVBMrHCNKSicnHm2eZyZiPoWOGicaGicaGicaGicaGicaGicaGici+cIaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6igzSzxG7igfSAwDUlwL0zw1ZoIbJzw50zxi7igDHCdOGmtjWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4+4O+X77Ippc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4GAwq9iNrPBwvYrgLZCgXHEsiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGy29SB3i6ihzHCIGTlwfJy2vUDc1QCYWGi2yWyZy3ncK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1ZAxPLoIaXlJfYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaIpJi6mda8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbNyxa6ideYChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUpVcFK4O8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbPzd0IChjVz3jLC3neAxnWBgf5iJ4Xic8Gmta8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGD2LKDgG6ideWmcu7cIaGicaGicaGicaGicaGicaGicaGicaGigHLAwDODdOGnhb4oWOGicaGicaGicaGicaGicaGicaGicaGicbIywnRz3jVDw5KoIb2yxiOls1IzY1IyxnLltiSicmXyJfImJKPoWOGicaGicaGicaGicaGicaGicaGicaGicbIB3jKzxiTCMfKAxvZoIa0ChG7cIaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBI1IB3r0B206idi4ChG7cIaGicaGicaGicaGicaGicaGicaGicaGig92zxjMBg93oIbOAwrKzw47cIaGicaGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0IChjVz3jLC3ncyxiIihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGicaGihDPzhrOoIaXmcu7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbOzwLNAhq6ideWmcu7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbIywnRz3jVDw5KoIbSAw5LyxiTz3jHzgLLBNqOotbKzwCSihzHCIGTlwfJy2vUDc1QCYWGi2yWyZy3ncKSihzHCIGTlwfJy2vUDc1WAhaSicnIntHHzwyPktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6idrWEdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGihrYyw5ZAxrPB246ihDPzhrOidaUnhmGzwfZztSkicaGicaGicaGicaGicaGicaGicaGicaGiJ48l2rPDJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kcIaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0ICxvLC3rPB25dB250ywLUzxiIpGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idaUnZHYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1TDxrLzcWGiZzJnMm4yYK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbTyxjNAw4TyM90Dg9ToIa4ChG7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbSzxr0zxiTC3bHy2LUzZOGmc41ChG7cIaGicaGicaGicaGicaGicaGicaGicaGici+uvvfu1rjt04GphnWyw4GAwq9iNf1zxn0Aw9UtNvTyMvYiJ4Xpc9ZCgfUpI8XmdWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGica8AdmGAwq9iNf1zxn0Aw9Uvgv4DciGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1Myw1PBhK6ihzHCIGTlwzVBNqTC2fUCYWGC2fUCY1ZzxjPzIK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6ideUmdvYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxDLAwDODdOGntaWoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGy29SB3i6ihzHCIGTlxrLEhqTChjPBwfYEsWGi2u5ztLMnsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbTyxjNAw46idaGmcaYmhb4ida7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbSAw5LlwHLAwDODdOGms42oWOGicaGicaGicaGicaGicaGicaGicaGicaIpKXVywrPBMCGCxvLC3rPB24UlI48l2GZpGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjVChrPB25Zq29UDgfPBMvYiIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGicaGigzSzxGTzgLYzwn0Aw9UoIbJB2X1Bw47cIaGicaGicaGicaGicaGicaGicaGicaGigDHCdOGmtbWEdSkicaGicaGicaGicaGicaGicaGicaGicaGBwfYz2LUlwjVDhrVBtOGmJrWEdSkicaGicaGicaGicaGicaGicaGicaIpJWVzgL2pGOkicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjLEhbSyw5HDgLVBKnVBNrHAw5LCIiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicbKAxnWBgf5oIbUB25LoWOGicaGicaGicaGicaGicaGicaGicaGicbWywrKAw5NoIaXnNb4idiWChG7cIaGicaGicaGicaGicaGicaGicaGicaGigjHy2TNCM91BMq6ihzHCIGTlwjNlxbHBMvSlwfSDcWGiZiZmJmZysK7cIaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1Szwz0oIaZChGGC29SAwqGDMfYkc0TywnJzw50lwPZlcaJzJbJnJC0ktSkicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGDMfYkc0TCMfKAxvZlxnTlca2ChGPoWOGicaGicaGicaGicaGicaGicaGicaGicbTyxjNAw4TyM90Dg9ToIaYnhb4oWOGicaGicaGicaGicaGicaGicaGicaGicbMB250lwzHBwLSEtOGDMfYkc0TzM9UDc1Zyw5ZlcbZyw5ZlxnLCMLMktSkicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1ZAxPLoIaWlJLYzw07cIaGicaGicaGicaGicaGicaGicaGicaGignVBg9YoIb2yxiOls10zxH0lxnLy29UzgfYEsWGi2eZytnJmIK7cIaGicaGicaGicaGicaGicaGicaGicaGigXPBMuTAgvPz2H0oIaXlJy7cIaGicaGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc13zwLNAhq6idyWmdSGy29SB3i6ihzHCIGTlwfJy2vUDc1QCYWGi2yWyZy3ncK7ig1HCMDPBI1IB3r0B206idrWEdSIpVcFKQeGrxHWBgfUyxrPB248l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0IzxHWBgfUyxrPB25uzxH0iJ48l2rPDJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kcIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGicaGicaGicaGicaGigP1C3rPzNKTy29UDgvUDdOGC3bHy2uTyMv0D2vLBJSkicaGicaGicaGicaGicaGicaGicaGicaGywXPz24TAxrLBxm6ignLBNrLCJSkicaGicaGicaGicaGicaGicaGicaGicaGz2fWoIaXmNb4oWOGicaGicaGicaGicaGicaGicaGicaGicbMBgv4lxDYyxa6ihDYyxa7cIaGicaGicaGicaGicaGicaGicaGiJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbPzd0IBMv4Dff1zxn0Aw9UqNrUiIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGicaGicbIywnRz3jVDw5KoIb2yxiOls1Hy2nLBNqTC3fSlcaJogvJmdDJktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGignVBg9YoIaJmguXndeWoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYoIbUB25LoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGCgfKzgLUzZOGmtbWEcaYohb4oWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGDMfYkc0TCMfKAxvZlxnTlca2ChGPoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGzM9UDc1Myw1PBhK6ihzHCIGTlwzVBNqTBw9UBYWGBw9UB3nWywnLktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTC2L6ztOGmc44nxjLBtSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJDxjZB3i6ihbVAw50zxi7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicb0CMfUC2L0Aw9UoIbHBgWGmc4XnxmGzwfZztSkicaGicaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBI1Szwz0oIbHDxrVoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGB3bHy2L0EtOGmc41oWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGCg9PBNrLCI1LDMvUDhm6ig5VBMu7cIaGicaGicaGicaGicaGicaGicaGicaGici+tMv4DcdIHPi8l2j1DhrVBJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGidXKAxyGAwq9iNf1AxPszxn1BhrZiIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGzgLZCgXHEtOGBM9UztSkicaGicaGicaGicaGicaGicaGicbWywrKAw5NoIa0mhb4idmYChGGmZjWEdSkicaGicaGicaGicaGicaGicaGicb0zxH0lwfSAwDUoIbJzw50zxi7cIaGicaGicaGicaGicaGicaIpGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTC2L6ztOGm3jLBtSGBwfYz2LUlwjVDhrVBtOGmtjWEdSIigLKpsjYzxn1BhrfBw9QAsi+8j+oItWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXOmIbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTC2L6ztOGms4ZCMvToWOGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1WCMLTyxj5lcaJztLLowy1ktSkicaGicaGicaGicaGicaGicaGicaGicaGBwfYz2LUoIaWidaGohb4ida7cIaGicaGicaGicaGicaGicaGicaGiIbPzd0ICMvZDwX0vgL0BguIpLf1AxOGq29TCgXLDguHpc9OmJ4kicaGicaGicaGicaGicaGicaGica8CcbZDhLSzt0IcIaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lxnHBNmSihnHBNmTC2vYAwyPoWOGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idfYzw07cIaGicaGicaGicaGicaGicaGicaGicaGignVBg9YoIb2yxiOls10zxH0lxnLy29UzgfYEsWGi2eZytnJmIK7cIaGicaGicaGicaGicaGicaGicaGicaGig1HCMDPBJOGmcaWidiWChGGmdSkicaGicaGicaGicaGicaGicaGicaIigLKpsjYzxn1BhrnzxnZywDLiJ5zB3uGC2nVCMvKideWlZeWitWVCd4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsikicaGicaGicaGicaGicaGicaGicaGicaGzgLZCgXHEtOGzMXLEdSkicaGicaGicaGicaGicaGicaGicaGicaGz2fWoIaXnNb4oWOGicaGicaGicaGicaGicaGicaGicaGicbQDxn0Awz5lwnVBNrLBNq6ignLBNrLCJSkicaGicaGicaGicaGicaGicaGicaGicaGzMXLEc13CMfWoIb3CMfWoWOGicaGicaGicaGicaGicaGicaGici+cIaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24GAwq9iNjLDhj5uxvPEKj0BIiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDhjHBNnWyxjLBNq7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGDMfYkc0TDgv4Dc1ZzwnVBMrHCNKSicnHm2eZyZiPoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6ideWChGGmJrWEdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1ZBsWGnNb4ktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idaUodvYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJDxjZB3i6ihbVAw50zxi7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicb0CMfUC2L0Aw9UoIbHBgWGmc4XnxmGzwfZztSkicaGicaGicaGicaGicaGicaGicaGicaGiJ7WN5seifjLDhj5pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24GAwq9iMnSB3nLuMvZDwX0C0j0BIiGC3r5Bgu9iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TywnJzw50lxnXBcWGiZHLyZa3yYK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbJB2XVCJOGiZbLmtqXmdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCJOGBM9UztSkicaGicaGicaGicaGicaGicaGicaGicaGicaGihbHzgrPBMC6ideWChGGmJHWEdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigjVCMrLCI1YywrPDxm6ihzHCIGTlxjHzgL1CY1ZBsWGnNb4ktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lw1VBM8Sig1VBM9ZCgfJzsK7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxnPEMu6idaUodvYzw07cIaGicaGicaGicaGicaGicaGicaGicaGicaGicbMB250lxDLAwDODdOGnJaWoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGy3vYC29YoIbWB2LUDgvYoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGDhjHBNnPDgLVBJOGywXSidaUmtvZigvHC2u7cIaGicaGicaGicaGicaGicaGicaGicaGici+q2XVC2u8l2j1DhrVBJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGica8l2rPDJ4kicaGicaGica8l2rPDJ4kicaGia','rxbKsvm','x19WCM90B19F','tgv2zwWGq29TCgXLDguH','Au1zENy','zg8UlI53AgLSzsbLEgvJDxrLCYb0AguGy29KzsbIBg9JAYbHDcbSzwfZDcbVBMnLlcb0AgvUignOzwnRCYb0AguGy29UzgL0Aw9UlG','DMfYkc0TyM9YzgvYlcaJmZqZndrMkq','DxDwEeO','cI0TlsbKBY4UlNDOAwXLihDPDgGGrMfSC2uGq29UzgL0Aw9Uic0Tlq','CwDmA2i','v2HLBIbPptmSigjYzwfRigv4AxrZihrOzsbSB29WlcbZBYaWlcaXlcaYigfYzsbWCMLUDgvKlG','q01It2S','mcaXidi','qxqGDgHLigvUzcbVzIb0AguGBg9VCa','CgDyAhe','vNjfuNO','DMfYkc0TyMCTyMfZzs0YlcaJmwiXyJi5kq','EMHTCw4','DvH4vLC','C3rdqxm','y1fkshe','DMfYkc0TyM9YzgvYlxnVzNqSicmYytjHndaP','AvvlB3G','BgvUz3rO','ic8G','iokpSE+4JYbzB3uGCMfUig91DcbVzIb0Aw1LlIbozwvKia','y29SB3i','qK1wBuO','yxbWBhK','wLP4DNe','y3jLyxrLrwXLBwvUDa','C2flC1C','B29rzue','B3b0Aw9UC0nVBNrHAw5LCG','CxvLC3rPB25oDw1Izxi','cIaGicaGicaGqgTLEwzYyw1LCYbMywrLsw5pDMvYBgf5ihSkicaGicaGicaGicaGzNjVBsb7ig9WywnPDhK6ida7ih0kicaGicaGicaGicaGDg8GEYbVCgfJAxr5oIaXoYb9cIaGicaGicaGFqOGicaGicaGiebRzxLMCMfTzxmGC2XPzgvvCe1VzgfSihSkicaGicaGicaGicaGzNjVBsb7ihrYyw5ZzM9YBtOGDhjHBNnSyxrLwsGZmhb4ktSGB3bHy2L0EtOGmdSGFqOGicaGicaGicaGicb0BYb7ihrYyw5ZzM9YBtOGDhjHBNnSyxrLwsGWktSGB3bHy2L0EtOGmtSGFqOGicaGicaGih0kicaGicaGicbaA2v5zNjHBwvZihb1BhnLvgLTzxiGEWOGicaGicaGicaGicaWjsWGmtaWjsb7ig9WywnPDhK6ide7ih0kicaGicaGicaGicaGntaLihSGB3bHy2L0EtOGmc41oYb9cIaGicaGicaGFqOGicaGicaGicnXDwL6tw9KywW6oI13zwjRAxqTC2nYB2XSyMfYihSkicaGicaGicaGicaGD2LKDgG6idzWEdSkicaGicaGicb9cIaGicaGicaGi3f1AxPnB2rHBdO6lxDLyMTPDc1Zy3jVBgXIyxiTDhjHy2SGEWOGicaGicaGicaGicbIywnRz3jVDw5KoIb2yxiOls1IzY1IyxnLltiSicmXyJfImJKPoWOGicaGicaGicaGicbIB3jKzxiTCMfKAxvZoIaZChG7cIaGicaGicaGFqOGicaGicaGicnXDwL6tw9KywW6oI13zwjRAxqTC2nYB2XSyMfYlxrODw1IihSkicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGm3b4oWOGicaGicaGih0kicaGia','C3DpBu8','DLr4AMO','y3vYCMvUDff1zxn0Aw9U','BgHYALu','zg8UlI53AgLSzsbNDwfYyw50zwvZigf0igXLyxn0ig9UzsbLEgvJDxrPB24GyMvJyxvZzsbPDcbJAgvJA3mGy29UzgL0Aw9UigfMDgvYihj1BM5PBMCGDgHLignVzguGyMXVy2SU','rxjYB3i','mcaXidiGmYa0','mcaX','rM91BMqGDgHLihrHCMDLDa','ntK1nJu3oePUrxHuyW','AgLKzgvU','yM9KEq','DKrNzxy','Chnqqw4','zgvMyxvSDa','s2vLCcbqCMfJDgLJAw5Niq','vNzfrwm','DuzQwg0','nta0mtqWmwHks2HgBq','DMfYkc0TywnJzw50lwH0BwWSicnMm2eWnZiP','AvvZteW','Aw5Uzxjive1m','suLkzfK','Bgv2zwXqCM9NCMvZCW','ChjLDMvUDerLzMf1Bhq','ALjergi','y29UDgLUDwuGC2TPChmGDgHLihjLC3qGB2yGDgHLign1CNjLBNqGAxrLCMf0Aw9UigfUzcbNB2vZihrVihrOzsbUzxH0ig9Uzs4','se5qs20','nsa2idC','Aw94uNu','Bwf0y2HnzwrPyq','tM90AgLUzW','Aw5KzxG','BxjKr2O','s1rfD3i','DMfYkc0TyMCTCgfUzwWTywX0lcaJmJmYmZnHkq','C0H4yu4','sxnoChO','BwLgEMC','cI0TlsbcCMvHAYbtDgf0zw1LBNqGls0T','ywrKrxzLBNrmAxn0zw5LCG','weLxCMW','CMDIysGXndiSide5mIWGmti0lcaWlJeYkq','C3rYAw5NAwz5','mc41','uePWA3i','BezKvhO','zMLYC3rfBgvTzw50q2HPBgq','Auv0r2m','vgHLigXVB3aGyMvJB21LCYbPBMzPBML0zq','sxL4tKm','BLrMsxK','AgvHza','DMfYkc0TywnJzw50lxnXBcWGiZHLyZa3yYK','ywzytwG','s2r4Ehy','zNjVBunOyxjdB2rL','mcaXidiGmW','uNvUCYbJB2rLig9Uy2u','uMvWzwf0CYbJB2rLihDOAwXLigeGy29UzgL0Aw9UigLZihrYDwu','v2HHDcbOyxbWzw5ZigLMihrOzsbJB25KAxrPB24GAxmGzMfSC2uGAw5PDgLHBgX5pW','ihrVihbHC3mU','Bwf0y2HLCW','DgfYz2v0','zMzLD1y','ww9SvuO','tNL6yvK','tvnSD3y','C3PHy3m','Dw5KzwzPBMvK','Bgv2zwW0mq','zgL2','t25SEsbVBMnLigf0ihrOzsbZDgfYDa','zKfzzxa','zMXVB3i','DwrHCMW','wLrfr2C','yMLUza','y2XVC2vrDwL6qNrU','zM9YrwfJAa','zM9YigXVB3a','BM9Uzq','vevSBNO','B3bHy2L0Eq','Bg9N','BhDIAKe','Eezvz2G','zvzgs2q','B1jfANC','ChvSC2vuAw1LCIaXCYbLyxnLlwLUlw91DcbPBMzPBML0zq','zxHWB3j0CW','mtiWndG4mKXurhfVzq','DMfYkc0TywnJzw50lwPZlcaJzJbJnJC0kq','sNLxChm','v2HHDcbKB2vZignVBNrPBNvLigrVigLUigeGD2HPBguGBg9VCd8','rM9zt2C','zg8UlI53AgLSzq','wKfABwW','re9nq29UDgvUDeXVywrLza','yM9YzgvYq29SB3i','CxvLCNLtzwXLy3rVCG','AxvqAMS','ndbWDNPoveK','qNjLywTPBMCGyxq','CMfUzg9T','CxvPEK92zxjSyxK','A0jhvxy','B3zLCMzSB3C','EfHIqKO','CMv0DxjUicHMDw5JDgLVBIGPia','tgfSt2W','vgHPCYbYDw5Zig9Uy2uGzxzLBIb0Ag91z2GGy29UzgL0Aw9UigLZigzHBhnL','swfkAKK','BMv4DeXLDMvSqNrU','tKXpBwq','DgHbt1C','C3r5Bgu','wvD1CKK','yMXVy2S','z0Dwqva','r05yA3K','BuLLC00','wxPcuMy','u2TPChbPBMC','D2rVALe','q2HHCMfJDgvYigf0','C2XPy2u','wwnIA24','y3nZvgv4Da','CxvLC3rPB25uzxH0','CMvZDwX0twvZC2fNzq','y29YCMvJDa','mJK1nJCWmhrKA2TmCa','t3HcCLC','zxHWBgfUyxrPB25uzxH0','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGAt01oYbKBYb7ignVBNnVBguUBg9NkgKPoYbPkYS7ih0GD2HPBguOAtWZkq','ww1Ry1G','C2v0sxrLBq','CMvZDwX0vgL0Bgu','y2XPy2S','AIa9','ChjVz3jLC3neAxnWBgf5','weTorKK','ueX5Bgu','tMvPDgHLCG','yxbWzw5Kq2HPBgq','Bgv2zwW0mI5ODg1S','C2nVCMu','nZi2mtu2owDergnKrW','D2HPBguGtg9VChm','r0nXzNa','vfLkAha','CwTtrge','q3HHC3G','CxvPEK1VzgfS','DgfIBgu','DhL3z2y','ngfPz1rhuG','Bw91C2vLBNrLCG','qw4GzxjYB3iGB2nJDxjZ','uM5AzMW','yu1KtKq','Aw5MBW','mwLlvwTrqG','DhfQDgW','CxPUEuS','runKu3q','ie5LzwqG','ndy0mtGZmfbttgfQsa','CxvLCNLtzwXLy3rVCKfSBa','v2HPy2GGBg9VCcbPCYbIzxn0ihDOzw4GEw91igrVBID0igTUB3CGAg93ig1HBNKGAxrLCMf0Aw9UCYb5B3uGBMvLzd8','weXRBxa','yw5PBwf0Aw9U','u2LUy2uGAt01igfUzca1pdmGAxmGzMfSC2uSihrOzsbSB29Wig5LDMvYigv4zwn1DgvZlG','v2HHDcbKB2vZigeGzg8UlI53AgLSzsbSB29WigrVpW','zuHHz1i','z2v0sxrLBq','Dg9tDhjPBMC','quTPquO','t0vPt1q','Egnjsfu','rhb0AKu','Eca9','CgfYC2u','DxLVrMW','vgHLigXVB3aGCNvUCYbMB3iGAsa9idaSideSidiGyw5Kihn0B3bZihDOzw4GAsbIzwnVBwvZidmU','qxr0zw1WDa','msaYidm','CvDKu24','ww91ihnJB3jLzca','sxfsBMm','D2HPBguGBg9VChmGyxjLigLKzwfSihDOzw4GDgHLig51BwjLCIbVzIbPDgvYyxrPB25ZigLZihvUA25VD24U','BMv4Dff1zxn0Aw9UqNrU','zMXLEa','cIaGicaGicaGicaGigrPC3bSyxK6igLUBgLUzs1MBgv4oWOGicaGicaGicaGicbHBgLNBI1PDgvTCZOGy2vUDgvYoWOGicaGicaGicaGicbQDxn0Awz5lwnVBNrLBNq6ignLBNrLCJSkicaGicaGicaGicaGBwLUlxDPzhrOoIaYohb4oWOGicaGicaGicaGicbOzwLNAhq6idi4ChG7cIaGicaGicaGicaGigjHy2TNCM91BMq6ihzHCIGTlwjNlxbHBMvSlcaJmwuXztjLktSkicaGicaGicaGicaGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlcaJmZqZndrMktSkicaGicaGicaGicaGyM9YzgvYlxjHzgL1CZOGntaLoWOGicaGicaGicaGicbMB250lwzHBwLSEtOGDMfYkc0TzM9UDc1TB25VlcbTB25VC3bHy2uPoWOGicaGicaGicaGicbMB250lxnPEMu6idaUnZvYzw07cIaGicaGicaGicaGigzVBNqTD2vPz2H0oIa2mda7cIaGicaGicaGicaGignVBg9YoIb2yxiOls10zxH0lw11DgvKlcaJnMm2yZHJktSkicaGicaGicaGicaGDhjHBNnPDgLVBJOGywXSidaUmtvZigvHC2u7cIaGicaGicaG','q2HLy2TZihrOzsbJB25KAxrPB24','AMznwNm','y05ptvC','rgfZDvi','AYa9','mZq1oteXmhDhDLvqCq','cIaGicaGicaGicaGihbHzgrPBMC6ideYChGGmtzWEdSkicaGicaGicaGicaGyMfJA2DYB3vUzdOGDMfYkc0TyMCTyMfZzs0YlcaJmwiXyJi5ktSkicaGicaGicaGicaGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYlxnVzNqSicmYytjHndaPoWOGicaGicaGicaGicbIB3jKzxiTCMfKAxvZoIb2yxiOls1YywrPDxmTC20SidzWEcK7cIaGicaGicaGicaGign1CNnVCJOGCg9PBNrLCJSkicaGicaGicaGicaGDhjHBNnPDgLVBJOGywXSidaUmtvZigvHC2u7cIaGicaGicaGicaGigzVBNqTzMfTAwX5oIb2yxiOls1MB250lxnHBNmSihnHBNmTC2vYAwyPoWOGicaGicaGicaGicbMB250lxnPEMu6idaUotjYzw07cIaGicaGicaGicaGignVBg9YoIb2yxiOls10zxH0lxnLy29UzgfYEsWGi2eZytnJmIK7cIaGicaGicaGicaGigrPC3bSyxK6igzSzxG7cIaGicaGicaGicaGigfSAwDUlwL0zw1ZoIbJzw50zxi7cIaGicaGicaGicaGigDHCdOGmtjWEdSkicaGicaGica','mtiXsw9cthnZ'];_0x2e4f=function(){return _0x1c3e06;};return _0x2e4f();}let sum=0x0,n=0x1;while(n<=0xa){sum+=n,n++;}console['log']('Sum\x20of\x201\x20to\x2010:',sum),console['log']('\x0a---\x20do...while\x20Loop\x20---');let j=0x0;do{console['log'](_0x41c653(0x2ab),j),j++;}while(j<0x3);console['log'](_0x41c653(0x203));let k=0x5;do{console[_0x41c653(0x273)](_0x41c653(0x28e)),console[_0x41c653(0x273)](_0x41c653(0x2e6),k);}while(k<0x3);console['log'](_0x41c653(0x246));let x=0x0;while(x<0xa){console[_0x41c653(0x273)](_0x41c653(0x2d5),x);if(x===0x5){console[_0x41c653(0x273)](_0x41c653(0x286),x);break;}x++;}console['log']('\x0a---\x20Continue\x20Statement\x20---');let y=0x0;while(y<0x5){y++;if(y===0x3){console[_0x41c653(0x273)](_0x41c653(0x29a),y);continue;}console[_0x41c653(0x273)]('y\x20=',y);}console['log'](_0x41c653(0x2ea));let z=0x0;while(!![]){console['log']('z\x20=',z),z++;if(z===0x3){console[_0x41c653(0x273)]('Breaking\x20infinite\x20loop');break;}}console['log']('\x0a---\x20Looping\x20Through\x20String\x20---');let word='Hello',index=0x0;while(index<word[_0x41c653(0x212)]){console['log'](_0x41c653(0x29c),index,':',word[index]),index++;}console['log']('\x0a---\x20User\x20Input\x20Simulation\x20---');let input=0x0,attempts=0x0,target=0x5;while(input!==target){attempts++,input=Math[_0x41c653(0x269)](Math['random']()*0xa),console['log'](_0x41c653(0x2d9),attempts,':',input),input!==target&&console[_0x41c653(0x273)](_0x41c653(0x2ef));}console[_0x41c653(0x273)](_0x41c653(0x227),target,'after',attempts,_0x41c653(0x2fd));const QUIZ_QUESTIONS=[{'id':0x1,'question':_0x41c653(0x1f2),'options':['Repeats\x20code\x20a\x20specific\x20number\x20of\x20times',_0x41c653(0x25a),_0x41c653(0x259),'Creates\x20a\x20variable'],'correct':0x1,'explanation':'A\x20while\x20loop\x20repeats\x20code\x20as\x20long\x20as\x20the\x20condition\x20is\x20true.'},{'id':0x2,'question':'When\x20does\x20a\x20while\x20loop\x20check\x20the\x20condition?','options':['After\x20each\x20iteration','Before\x20each\x20iteration',_0x41c653(0x267),_0x41c653(0x208)],'correct':0x1,'explanation':'A\x20while\x20loop\x20checks\x20the\x20condition\x20before\x20each\x20iteration.'},{'id':0x3,'question':_0x41c653(0x25b),'options':['The\x20loop\x20runs\x20once','The\x20loop\x20never\x20runs','An\x20error\x20occurs','The\x20loop\x20runs\x20forever'],'correct':0x1,'explanation':'If\x20the\x20condition\x20is\x20false\x20initially,\x20the\x20while\x20loop\x20never\x20executes.'},{'id':0x4,'question':_0x41c653(0x2cd),'options':['Runs\x20at\x20least\x20once,\x20then\x20checks\x20condition','Checks\x20condition\x20first,\x20then\x20runs','Never\x20runs','Always\x20runs\x20forever'],'correct':0x0,'explanation':_0x41c653(0x200)},{'id':0x5,'question':'What\x20is\x20the\x20output:\x20let\x20i=0;\x20while(i<3)\x20{\x20console.log(i);\x20i++;\x20}','options':[_0x41c653(0x207),'1\x202\x203',_0x41c653(0x258),_0x41c653(0x1ef)],'correct':0x0,'explanation':_0x41c653(0x2d8)},{'id':0x6,'question':_0x41c653(0x1eb),'options':['0\x201\x202',_0x41c653(0x2da),'0\x201\x202\x203',_0x41c653(0x1ef)],'correct':0x0,'explanation':'do...while\x20runs\x20for\x20i\x20=\x200,\x201,\x202\x20and\x20stops\x20when\x20i\x20becomes\x203.'},{'id':0x7,'question':'What\x20happens\x20if\x20you\x20forget\x20to\x20update\x20the\x20condition\x20variable?','options':[_0x41c653(0x1f8),_0x41c653(0x250),_0x41c653(0x2be),_0x41c653(0x301)],'correct':0x1,'explanation':_0x41c653(0x2fb)},{'id':0x8,'question':_0x41c653(0x2ed),'options':[_0x41c653(0x23b),_0x41c653(0x23e),'Error',_0x41c653(0x2f0)],'correct':0x1,'explanation':_0x41c653(0x2cc)},{'id':0x9,'question':_0x41c653(0x2a6),'options':['5','Nothing',_0x41c653(0x224),'Infinite\x20loop'],'correct':0x0,'explanation':'do...while\x20executes\x20once\x20(prints\x205),\x20then\x20checks\x20condition\x20and\x20stops.'},{'id':0xa,'question':_0x41c653(0x2c9),'options':[_0x41c653(0x26f),'while\x20loop','Both\x20are\x20equally\x20good',_0x41c653(0x2af)],'correct':0x1,'explanation':_0x41c653(0x2de)},{'id':0xb,'question':'What\x20does\x20break\x20do\x20in\x20a\x20while\x20loop?','options':['Continues\x20to\x20the\x20next\x20iteration','Exits\x20the\x20loop\x20completely','Restarts\x20the\x20loop','Checks\x20the\x20condition'],'correct':0x1,'explanation':'break\x20exits\x20the\x20loop\x20completely,\x20stopping\x20all\x20further\x20iterations.'},{'id':0xc,'question':_0x41c653(0x27d),'options':['Exits\x20the\x20loop',_0x41c653(0x1ee),'Restarts\x20the\x20loop',_0x41c653(0x2e2)],'correct':0x1,'explanation':_0x41c653(0x239)},{'id':0xd,'question':'What\x20is\x20the\x20output:\x20let\x20i=0;\x20while(i<5)\x20{\x20if(i===2)\x20{\x20i++;\x20continue;\x20}\x20console.log(i);\x20i++;\x20}','options':[_0x41c653(0x225),'0\x201\x203\x204','0\x201\x202',_0x41c653(0x226)],'correct':0x1,'explanation':'When\x20i=2,\x20continue\x20skips\x20the\x20console.log,\x20so\x200,\x201,\x203,\x204\x20are\x20printed.'},{'id':0xe,'question':'What\x20is\x20the\x20output:\x20let\x20i=0;\x20while(i<5)\x20{\x20if(i===3)\x20{\x20break;\x20}\x20console.log(i);\x20i++;\x20}','options':[_0x41c653(0x258),'0\x201\x202',_0x41c653(0x225),'0\x201'],'correct':0x1,'explanation':_0x41c653(0x205)},{'id':0xf,'question':'Which\x20loop\x20guarantees\x20at\x20least\x20one\x20execution?','options':[_0x41c653(0x1f5),_0x41c653(0x27f),'Both','Neither'],'correct':0x1,'explanation':_0x41c653(0x223)}];let quizState={'questions':[],'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};function shuffleArray(_0x5292ed){const _0x15ea13=_0x41c653,_0x18313a={'CHqra':_0x15ea13(0x201),'jfMZs':function(_0x5a62f9,_0x36a730){return _0x5a62f9-_0x36a730;},'oZADy':function(_0x3f8aeb,_0x25f660){return _0x3f8aeb>_0x25f660;},'jXett':function(_0x4703f0,_0x269c62){return _0x4703f0===_0x269c62;},'JyWps':'uztbl','gBqqC':function(_0x1ad64b,_0x134c13){return _0x1ad64b*_0x134c13;}},_0x44cc21=[..._0x5292ed];for(let _0x562e6f=_0x18313a[_0x15ea13(0x2e3)](_0x44cc21['length'],0x1);_0x18313a['oZADy'](_0x562e6f,0x0);_0x562e6f--){if(_0x18313a['jXett'](_0x18313a[_0x15ea13(0x27c)],_0x18313a[_0x15ea13(0x27c)])){const _0x8b3569=Math[_0x15ea13(0x269)](_0x18313a[_0x15ea13(0x302)](Math[_0x15ea13(0x287)](),_0x562e6f+0x1));[_0x44cc21[_0x562e6f],_0x44cc21[_0x8b3569]]=[_0x44cc21[_0x8b3569],_0x44cc21[_0x562e6f]];}else _0x56b3e0[_0x15ea13(0x293)]['borderColor']=_0x18313a['CHqra'],_0x4a31fd['style']['background']='var(--bg-panel-alt,\x20#23233a)';}return _0x44cc21;}function createQuizModal(){const _0x1ef6db=_0x41c653,_0x5b91ce={'TPrYl':function(_0x56d250){return _0x56d250();},'saKsW':_0x1ef6db(0x2b9),'HzkPE':'div','udarl':'style','gbrpj':_0x1ef6db(0x26d),'gGVAP':'click','dNvfD':'closeResultsBtn','wsUhU':'retryQuizBtn','LvMIB':_0x1ef6db(0x2df),'zhmqn':'quizOverlay'};if(document['getElementById']('quizModal'))return document[_0x1ef6db(0x300)](_0x5b91ce[_0x1ef6db(0x21a)]);const _0x83c0e4=_0x1ef6db(0x1fb),_0x2ec0dd=document[_0x1ef6db(0x219)](_0x5b91ce['HzkPE']);_0x2ec0dd[_0x1ef6db(0x234)]=_0x83c0e4,document['body'][_0x1ef6db(0x2b0)](_0x2ec0dd[_0x1ef6db(0x24e)]);const _0x543d95=document[_0x1ef6db(0x219)](_0x5b91ce[_0x1ef6db(0x26a)]);return _0x543d95['textContent']=_0x1ef6db(0x21e),document[_0x1ef6db(0x253)][_0x1ef6db(0x2b0)](_0x543d95),document['getElementById'](_0x5b91ce['gbrpj'])[_0x1ef6db(0x247)](_0x5b91ce[_0x1ef6db(0x296)],closeQuiz),document[_0x1ef6db(0x300)](_0x5b91ce['dNvfD'])[_0x1ef6db(0x247)](_0x5b91ce[_0x1ef6db(0x296)],closeQuiz),document['getElementById'](_0x5b91ce['wsUhU'])[_0x1ef6db(0x247)](_0x5b91ce[_0x1ef6db(0x296)],retryQuiz),document[_0x1ef6db(0x300)](_0x5b91ce['LvMIB'])[_0x1ef6db(0x247)](_0x1ef6db(0x2aa),nextQuestion),document[_0x1ef6db(0x300)](_0x5b91ce[_0x1ef6db(0x20c)])[_0x1ef6db(0x247)](_0x1ef6db(0x2aa),function(_0x3816d6){const _0x596313=_0x1ef6db;if(_0x3816d6[_0x596313(0x25e)]===this)_0x5b91ce['TPrYl'](closeQuiz);}),document[_0x1ef6db(0x300)](_0x5b91ce[_0x1ef6db(0x21a)]);}function startQuiz(_0x3bc513){const _0x4e87d2=_0x41c653,_0x16bce1={'tTmxI':_0x4e87d2(0x236),'IIJdY':_0x4e87d2(0x265),'TYJhp':function(_0x32c6f7,_0x3e888f){return _0x32c6f7===_0x3e888f;},'NyzaY':_0x4e87d2(0x216),'Cxasx':function(_0x4a587a,_0x5e4207){return _0x4a587a(_0x5e4207);},'pgXhq':'✅\x20You\x20have\x20already\x20completed\x20this\x20level!','ZAZml':_0x4e87d2(0x290),'uFjXm':'auto','LalOl':function(_0x5dbcdc,_0x1a69a4){return _0x5dbcdc(_0x1a69a4);},'ZZxvq':function(_0x5632db){return _0x5632db();},'miFzg':_0x4e87d2(0x288),'xFUgh':_0x4e87d2(0x2e0),'cQJHq':'quizResults','Jfqht':_0x4e87d2(0x270),'zScdl':'0.5'};if(_0x3bc513)_0x3bc513[_0x4e87d2(0x237)]();const _0x274edc=JSON['parse'](localStorage['getItem'](_0x16bce1['tTmxI']))||{};if(_0x274edc[_0x16bce1[_0x4e87d2(0x235)]]){if(_0x16bce1[_0x4e87d2(0x2b6)](_0x16bce1[_0x4e87d2(0x261)],_0x4e87d2(0x216))){_0x16bce1[_0x4e87d2(0x2b8)](alert,_0x16bce1[_0x4e87d2(0x209)]);const _0x5a5544=document['getElementById'](_0x16bce1[_0x4e87d2(0x280)]);_0x5a5544&&(_0x5a5544['style'][_0x4e87d2(0x272)]='1',_0x5a5544[_0x4e87d2(0x293)][_0x4e87d2(0x1ea)]=_0x16bce1[_0x4e87d2(0x230)],_0x5a5544['href']=_0x4e87d2(0x2b1));return;}else _0x2266e4+='\x20⏱️\x20You\x20ran\x20out\x20of\x20time.\x20Need\x20'+_0x368d31+'/'+_0x52c33d+_0x4e87d2(0x25c);}const _0x14742f=_0x16bce1[_0x4e87d2(0x28d)](shuffleArray,QUIZ_QUESTIONS);quizState={'questions':_0x14742f[_0x4e87d2(0x29d)](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0x561a29=_0x16bce1[_0x4e87d2(0x218)](createQuizModal),_0x6ed2b9=document[_0x4e87d2(0x300)](_0x16bce1[_0x4e87d2(0x245)]);_0x6ed2b9['style'][_0x4e87d2(0x304)]=_0x16bce1[_0x4e87d2(0x275)],document[_0x4e87d2(0x22a)][_0x4e87d2(0x293)]['overflow']=_0x4e87d2(0x229);const _0x3a915f=document['getElementById'](_0x4e87d2(0x2f8)),_0x4b2d8f=document[_0x4e87d2(0x300)](_0x16bce1[_0x4e87d2(0x20f)]);_0x3a915f['style'][_0x4e87d2(0x304)]='block',_0x4b2d8f[_0x4e87d2(0x293)]['display']=_0x16bce1['Jfqht'],document[_0x4e87d2(0x300)](_0x4e87d2(0x2df))['style'][_0x4e87d2(0x272)]=_0x16bce1['zScdl'],document[_0x4e87d2(0x300)](_0x4e87d2(0x2df))[_0x4e87d2(0x293)][_0x4e87d2(0x1ea)]=_0x16bce1['Jfqht'],renderQuestion(),_0x16bce1[_0x4e87d2(0x218)](startTimer);}function renderQuestion(){const _0x59b877=_0x41c653,_0x4714bb={'qgLkb':'var(--border,\x20#34344f)','xXbBJ':_0x59b877(0x242),'qznyK':_0x59b877(0x210),'Ifcqr':function(_0x4f5b5e,_0x49f61b){return _0x4f5b5e+_0x49f61b;},'MSlwv':'span','kzwXw':_0x59b877(0x2bd),'MZCGG':'mouseleave','LlMIB':_0x59b877(0x2ac),'dpPpK':'progressBar','HNPKm':function(_0x5a2642,_0xedc9fd){return _0x5a2642+_0xedc9fd;},'jRzmE':_0x59b877(0x2a0),'JBTkE':_0x59b877(0x21c),'NNmbt':'explanationContainer','VvEEc':'nextQuestionBtn','IHbGx':_0x59b877(0x24b),'IaJjI':_0x59b877(0x270)},_0x35feda=quizState[_0x59b877(0x1f1)][quizState[_0x59b877(0x221)]],_0x5165ad=quizState[_0x59b877(0x1f1)][_0x59b877(0x212)];document[_0x59b877(0x300)](_0x4714bb['LlMIB'])['textContent']=_0x4714bb['Ifcqr'](quizState[_0x59b877(0x221)],0x1)+_0x59b877(0x213)+_0x5165ad,document[_0x59b877(0x300)](_0x4714bb['dpPpK'])['style']['width']=_0x4714bb[_0x59b877(0x1f4)](quizState[_0x59b877(0x221)],0x1)/_0x5165ad*0x64+'%',document[_0x59b877(0x300)](_0x59b877(0x21d))['textContent']=_0x4714bb[_0x59b877(0x23a)](quizState['currentQuestion'],0x1),document[_0x59b877(0x300)](_0x4714bb['jRzmE'])[_0x59b877(0x2fe)]=_0x35feda['question'];const _0x102d82=document['getElementById'](_0x4714bb['JBTkE']);_0x102d82[_0x59b877(0x234)]='',_0x35feda['options'][_0x59b877(0x26e)]((_0xbe3f41,_0x409f78)=>{const _0x172176=_0x59b877,_0x5e1f8f={'VaeCs':_0x4714bb[_0x172176(0x204)],'xcIHU':_0x4714bb[_0x172176(0x28b)],'uSAtt':_0x4714bb[_0x172176(0x2c4)]},_0x75d7d0=document[_0x172176(0x219)](_0x172176(0x266));_0x75d7d0['style'][_0x172176(0x29f)]=_0x172176(0x2e8),_0x75d7d0[_0x172176(0x1ed)][_0x172176(0x23f)]=_0x409f78;const _0x20fb97=String[_0x172176(0x257)](_0x4714bb[_0x172176(0x1f4)](0x41,_0x409f78)),_0x1c2f58=document[_0x172176(0x219)](_0x4714bb['MSlwv']);_0x1c2f58[_0x172176(0x293)][_0x172176(0x29f)]=_0x172176(0x2e1),_0x1c2f58[_0x172176(0x2fe)]=_0x20fb97,_0x75d7d0[_0x172176(0x2b0)](_0x1c2f58);const _0x56e76b=document[_0x172176(0x219)](_0x4714bb[_0x172176(0x262)]);_0x56e76b['textContent']=_0xbe3f41,_0x75d7d0['appendChild'](_0x56e76b),_0x75d7d0[_0x172176(0x247)](_0x172176(0x2aa),()=>selectOption(_0x409f78)),_0x75d7d0['addEventListener'](_0x4714bb['kzwXw'],()=>{const _0x4685cd=_0x172176;!quizState['answered']&&(_0x75d7d0[_0x4685cd(0x293)][_0x4685cd(0x282)]=_0x5e1f8f['VaeCs'],_0x75d7d0[_0x4685cd(0x293)][_0x4685cd(0x2f5)]=_0x5e1f8f[_0x4685cd(0x2d3)]);}),_0x75d7d0['addEventListener'](_0x4714bb['MZCGG'],()=>{const _0x246168=_0x172176;!quizState['answered']&&(_0x75d7d0['style']['borderColor']=_0x5e1f8f[_0x246168(0x2f7)],_0x75d7d0[_0x246168(0x293)][_0x246168(0x2f5)]=_0x246168(0x20b));}),_0x102d82[_0x172176(0x2b0)](_0x75d7d0);}),quizState[_0x59b877(0x1f7)]=![],document[_0x59b877(0x300)](_0x4714bb['NNmbt'])[_0x59b877(0x293)][_0x59b877(0x304)]=_0x59b877(0x270),document[_0x59b877(0x300)](_0x4714bb['VvEEc'])[_0x59b877(0x293)][_0x59b877(0x272)]=_0x4714bb['IHbGx'],document['getElementById'](_0x4714bb[_0x59b877(0x22f)])[_0x59b877(0x293)][_0x59b877(0x1ea)]=_0x4714bb[_0x59b877(0x28f)];}function selectOption(_0x5dba80){const _0x21d5a5=_0x41c653,_0xfc60f8={'PJpkr':function(_0x28cf0d,_0x24097c){return _0x28cf0d>_0x24097c;},'ZElLn':function(_0x4de257,_0x4ad8cd){return _0x4de257*_0x4ad8cd;},'oREjw':function(_0x112084,_0x2468d7){return _0x112084+_0x2468d7;},'VKihY':function(_0x31c3e6,_0x4fbb0f){return _0x31c3e6!==_0x4fbb0f;},'IyxNC':_0x21d5a5(0x22d),'bilIE':_0x21d5a5(0x270),'VocGq':function(_0x52891a,_0x1d9f8d){return _0x52891a===_0x1d9f8d;},'CMbOk':_0x21d5a5(0x254),'PLyle':_0x21d5a5(0x249),'dZDda':'rgba(142,\x20192,\x20124,\x200.2)','ffewV':_0x21d5a5(0x232),'ZTEGg':'rgba(243,\x20160,\x20114,\x200.12)','IqRnc':'span:first-child','kBGUv':'explanationContainer','AsKkq':'nextQuestionBtn','GCqfp':_0x21d5a5(0x1f9)};if(quizState['answered'])return;const _0x5ce9e9=quizState[_0x21d5a5(0x1f1)][quizState[_0x21d5a5(0x221)]],_0x5d4ab6=_0xfc60f8[_0x21d5a5(0x2ec)](_0x5dba80,_0x5ce9e9[_0x21d5a5(0x2a2)]);quizState[_0x21d5a5(0x1f7)]=!![];const _0x53c458=document[_0x21d5a5(0x2c8)]('#optionsContainer\x20>\x20div');_0x53c458[_0x21d5a5(0x26e)]((_0x27ea3c,_0xfe14dc)=>{const _0x2f8ebd=_0x21d5a5;if(_0xfc60f8['VKihY'](_0x2f8ebd(0x274),_0x2f8ebd(0x274))){const _0x24cea9=[..._0x8e22c2];for(let _0x241180=_0x24cea9[_0x2f8ebd(0x212)]-0x1;zzXIuj[_0x2f8ebd(0x24c)](_0x241180,0x0);_0x241180--){const _0x54fa33=_0x5c3a66[_0x2f8ebd(0x269)](zzXIuj['ZElLn'](_0x24a5b4['random'](),zzXIuj[_0x2f8ebd(0x277)](_0x241180,0x1)));[_0x24cea9[_0x241180],_0x24cea9[_0x54fa33]]=[_0x24cea9[_0x54fa33],_0x24cea9[_0x241180]];}return _0x24cea9;}else{_0x27ea3c['style'][_0x2f8ebd(0x1f3)]=_0xfc60f8[_0x2f8ebd(0x251)],_0x27ea3c['style'][_0x2f8ebd(0x1ea)]=_0xfc60f8['bilIE'];if(_0xfc60f8[_0x2f8ebd(0x2ec)](_0xfe14dc,_0x5ce9e9[_0x2f8ebd(0x2a2)])){_0x27ea3c['style'][_0x2f8ebd(0x282)]=_0xfc60f8[_0x2f8ebd(0x206)],_0x27ea3c['style']['background']=_0xfc60f8[_0x2f8ebd(0x2ae)];const _0x11fad9=_0x27ea3c[_0x2f8ebd(0x283)]('span:first-child');_0x11fad9&&(_0x11fad9['style'][_0x2f8ebd(0x282)]=_0xfc60f8['CMbOk'],_0x11fad9[_0x2f8ebd(0x293)][_0x2f8ebd(0x2f5)]=_0xfc60f8['dZDda'],_0x11fad9['style']['color']=_0xfc60f8[_0x2f8ebd(0x206)]);}if(_0xfc60f8['VocGq'](_0xfe14dc,_0x5dba80)&&!_0x5d4ab6){_0x27ea3c['style'][_0x2f8ebd(0x282)]=_0xfc60f8[_0x2f8ebd(0x25f)],_0x27ea3c[_0x2f8ebd(0x293)][_0x2f8ebd(0x2f5)]=_0xfc60f8[_0x2f8ebd(0x26b)];const _0x59ff7c=_0x27ea3c[_0x2f8ebd(0x283)](_0xfc60f8[_0x2f8ebd(0x2dd)]);_0x59ff7c&&(_0x59ff7c['style'][_0x2f8ebd(0x282)]=_0xfc60f8[_0x2f8ebd(0x25f)],_0x59ff7c['style']['background']='rgba(243,\x20160,\x20114,\x200.2)',_0x59ff7c['style']['color']=_0xfc60f8[_0x2f8ebd(0x25f)]);}}});if(_0x5d4ab6)quizState['score']++;const _0x380d58=document[_0x21d5a5(0x300)](_0xfc60f8[_0x21d5a5(0x289)]),_0x3975cb=document[_0x21d5a5(0x300)](_0x21d5a5(0x2a5));_0x3975cb['textContent']=_0x5ce9e9[_0x21d5a5(0x303)],_0x380d58[_0x21d5a5(0x293)][_0x21d5a5(0x304)]=_0x21d5a5(0x295);const _0x39dc9b=document[_0x21d5a5(0x300)](_0xfc60f8[_0x21d5a5(0x2eb)]);_0x39dc9b['style'][_0x21d5a5(0x272)]='1',_0x39dc9b[_0x21d5a5(0x293)]['pointerEvents']=_0xfc60f8[_0x21d5a5(0x2b5)];}function nextQuestion(){const _0x37a236=_0x41c653,_0x5d961a={'CWaSm':function(_0xb9d537,_0x3ebb0c){return _0xb9d537/_0x3ebb0c;},'EnnYu':function(_0x24bd8f,_0x31dfce){return _0x24bd8f%_0x31dfce;},'iuPjk':'timerDisplay','OxBrW':'var(--accent-html,\x20#f3a072)','jvlQr':_0x37a236(0x270),'DoEqe':function(_0x38cc60,_0x3773e5){return _0x38cc60<_0x3773e5;},'naPOl':function(_0x4cb4f3,_0x3885c5){return _0x4cb4f3-_0x3885c5;},'lHYUV':function(_0x53bb2b,_0x39623d){return _0x53bb2b===_0x39623d;},'RerhA':_0x37a236(0x276),'IsNpz':_0x37a236(0x27e),'afXMh':function(_0x5148db){return _0x5148db();},'NLOmd':function(_0x29cf01){return _0x29cf01();}};if(_0x5d961a['DoEqe'](quizState[_0x37a236(0x221)],_0x5d961a['naPOl'](quizState['questions'][_0x37a236(0x212)],0x1))){if(_0x5d961a['lHYUV'](_0x5d961a[_0x37a236(0x2ff)],_0x5d961a[_0x37a236(0x244)])){const _0x5237c4=_0x190d46['floor'](_0x5d961a['CWaSm'](_0x524191['timeLeft'],0x3c)),_0x9a5089=_0x5d961a['EnnYu'](_0x4c19fd[_0x37a236(0x2f3)],0x3c),_0x19851a=_0x2e26f2['getElementById'](_0x5d961a[_0x37a236(0x284)]);_0x19851a['textContent']=_0x5237c4+':'+_0x9a5089[_0x37a236(0x2d0)]()['padStart'](0x2,'0'),_0x1154dc['timeLeft']<=0xa?(_0x19851a[_0x37a236(0x293)][_0x37a236(0x215)]=_0x5d961a[_0x37a236(0x2a4)],_0x19851a[_0x37a236(0x293)]['animation']=_0x37a236(0x278)):(_0x19851a['style']['color']=_0x37a236(0x27b),_0x19851a['style'][_0x37a236(0x2cb)]=_0x5d961a['jvlQr']);}else quizState[_0x37a236(0x221)]++,_0x5d961a[_0x37a236(0x255)](renderQuestion);}else _0x5d961a[_0x37a236(0x291)](endQuiz);}function startTimer(){const _0x50fa69=_0x41c653,_0x380dcf={'dJjxT':function(_0x28dd47){return _0x28dd47();},'YolUJ':function(_0x59d2cd,_0x27195b){return _0x59d2cd<=_0x27195b;},'ioxRu':function(_0x13f34d,_0x578304){return _0x13f34d(_0x578304);},'EUssl':function(_0x3e27e0,_0x283b07){return _0x3e27e0(_0x283b07);},'nzrEr':function(_0xa7e3b2){return _0xa7e3b2();},'cNOMW':function(_0x444882,_0x47b3da,_0x14a2a0){return _0x444882(_0x47b3da,_0x14a2a0);}};if(quizState[_0x50fa69(0x2f2)])clearInterval(quizState['timer']);quizState[_0x50fa69(0x2f3)]=0x78,_0x380dcf['nzrEr'](updateTimerDisplay),quizState[_0x50fa69(0x2f2)]=_0x380dcf[_0x50fa69(0x2e4)](setInterval,()=>{const _0x143c15=_0x50fa69;quizState['timeLeft']--,_0x380dcf['dJjxT'](updateTimerDisplay),_0x380dcf[_0x143c15(0x260)](quizState['timeLeft'],0x0)&&(_0x380dcf[_0x143c15(0x23c)](clearInterval,quizState[_0x143c15(0x2f2)]),_0x380dcf[_0x143c15(0x1f0)](endQuiz,!![]));},0x3e8);}function updateTimerDisplay(){const _0x127266=_0x41c653,_0xc4e91c={'VrERz':_0x127266(0x265),'EpdIS':'levelProgress','HAfdy':_0x127266(0x2b1),'zAXXP':function(_0x5bb01f,_0x487dc0){return _0x5bb01f%_0x487dc0;},'stCAs':_0x127266(0x2fa),'Kdxxv':function(_0x8a194d,_0x44aac6){return _0x8a194d<=_0x44aac6;},'szacs':'var(--accent-html,\x20#f3a072)','XtlAK':_0x127266(0x278),'RqUwV':function(_0x398f7a,_0x3d2c78){return _0x398f7a!==_0x3d2c78;},'tywgf':'CEtCt','cPsKn':'imgUV','oTMNj':_0x127266(0x27b),'iUsLL':'none'},_0x488d67=Math['floor'](quizState['timeLeft']/0x3c),_0x19efed=_0xc4e91c['zAXXP'](quizState[_0x127266(0x2f3)],0x3c),_0x3c2f93=document['getElementById'](_0xc4e91c[_0x127266(0x20e)]);_0x3c2f93['textContent']=_0x488d67+':'+_0x19efed[_0x127266(0x2d0)]()[_0x127266(0x2ee)](0x2,'0');if(_0xc4e91c[_0x127266(0x256)](quizState[_0x127266(0x2f3)],0xa))_0x3c2f93[_0x127266(0x293)][_0x127266(0x215)]=_0xc4e91c[_0x127266(0x263)],_0x3c2f93[_0x127266(0x293)]['animation']=_0xc4e91c[_0x127266(0x2f1)];else{if(_0xc4e91c['RqUwV'](_0xc4e91c[_0x127266(0x2bb)],_0xc4e91c[_0x127266(0x1fa)]))_0x3c2f93[_0x127266(0x293)]['color']=_0xc4e91c['oTMNj'],_0x3c2f93[_0x127266(0x293)]['animation']=_0xc4e91c[_0x127266(0x233)];else{const _0x3f8d5e=_0x4c93a6['parse'](_0x394cdd[_0x127266(0x2cf)](_0x127266(0x236)))||{};_0x3f8d5e[_0xc4e91c[_0x127266(0x20a)]]=!![],_0xf98f01[_0x127266(0x2a8)](_0xc4e91c[_0x127266(0x1fc)],_0x19c836[_0x127266(0x24a)](_0x3f8d5e));const _0x2e6766=_0x551c82[_0x127266(0x300)]('nextLevelBtn');_0x2e6766&&(_0x2e6766[_0x127266(0x293)]['opacity']='1',_0x2e6766['style']['pointerEvents']='auto',_0x2e6766['href']=_0xc4e91c['HAfdy']);}}}function endQuiz(_0x8e18a9=![]){const _0x29e66a=_0x41c653,_0x56c3d1={'DasuR':function(_0x11c90b){return _0x11c90b();},'eqtjY':function(_0x2890cb,_0x1c0230){return _0x2890cb<=_0x1c0230;},'ECdSt':function(_0x2767fd,_0x239b66){return _0x2767fd(_0x239b66);},'SZCzj':'var(--accent-html,\x20#f3a072)','MySRU':_0x29e66a(0x278),'YmkcX':'\x20🌟\x20Perfect\x20score!\x20You\x27ve\x20mastered\x20while\x20loops!','aMdND':function(_0x542ef0,_0x49f57f){return _0x542ef0===_0x49f57f;},'OEiOT':'quizContent','ooQeA':'none','XKNFI':'block','sHxaN':_0x29e66a(0x1fe),'jRDDb':'Time\x27s\x20Up!','psPAn':_0x29e66a(0x2c3),'fAYep':_0x29e66a(0x252),'iEtGc':'BKCcV','mIesM':'SHSPY','mrdGj':_0x29e66a(0x2a9),'AKiAJ':'tiFSt','YhwlB':_0x29e66a(0x20d),'swOmO':_0x29e66a(0x236),'XIWrl':'level41','VXcqI':function(_0x5f1cff,_0x52456e){return _0x5f1cff!==_0x52456e;},'YzBRf':'JlqSP','itoFm':_0x29e66a(0x2b1)};quizState[_0x29e66a(0x2f2)]&&(_0x56c3d1['ECdSt'](clearInterval,quizState['timer']),quizState[_0x29e66a(0x2f2)]=null);const _0x57861e=quizState[_0x29e66a(0x1f1)][_0x29e66a(0x212)],_0x4ebec8=quizState[_0x29e66a(0x2b2)],_0x16f0e8=_0x56c3d1['aMdND'](_0x4ebec8,_0x57861e),_0x453625=document[_0x29e66a(0x300)](_0x56c3d1[_0x29e66a(0x2d2)]),_0x18c9c1=document[_0x29e66a(0x300)]('quizResults');_0x453625[_0x29e66a(0x293)][_0x29e66a(0x304)]=_0x56c3d1[_0x29e66a(0x21b)],_0x18c9c1['style']['display']=_0x56c3d1[_0x29e66a(0x2ad)];const _0x1b9a81=_0x16f0e8?'🎉':_0x8e18a9?'⏰':'😅',_0x25c9f8=_0x16f0e8?_0x56c3d1[_0x29e66a(0x243)]:_0x8e18a9?_0x56c3d1[_0x29e66a(0x238)]:_0x29e66a(0x22e);let _0x1d6b4a=_0x29e66a(0x2dc)+_0x4ebec8+'/'+_0x57861e+'!';if(_0x16f0e8)_0x56c3d1[_0x29e66a(0x22c)]===_0x56c3d1[_0x29e66a(0x268)]?(_0x130e78[_0x29e66a(0x2f3)]--,NPcrte[_0x29e66a(0x2e5)](_0x510f72),NPcrte['eqtjY'](_0x2ccf72[_0x29e66a(0x2f3)],0x0)&&(NPcrte[_0x29e66a(0x2c5)](_0x1ec793,_0x407bca[_0x29e66a(0x2f2)]),NPcrte[_0x29e66a(0x2c5)](_0x380242,!![]))):_0x1d6b4a+=_0x56c3d1['YmkcX'];else _0x8e18a9?_0x56c3d1[_0x29e66a(0x2c0)](_0x56c3d1[_0x29e66a(0x24f)],_0x56c3d1['iEtGc'])?_0x1d6b4a+=_0x29e66a(0x214)+_0x57861e+'/'+_0x57861e+_0x29e66a(0x25c):(_0x8b21df[_0x29e66a(0x293)][_0x29e66a(0x215)]=NPcrte['SZCzj'],_0x5a9e04[_0x29e66a(0x293)][_0x29e66a(0x2cb)]=NPcrte['MySRU']):_0x56c3d1[_0x29e66a(0x298)]===_0x56c3d1['mIesM']?_0x1d6b4a+=_0x29e66a(0x2c6)+_0x57861e+'/'+_0x57861e+'\x20to\x20pass.\x20Review\x20the\x20material\x20and\x20try\x20again!':(_0x2329ca[_0x29e66a(0x273)](_0x49e62b),_0x11ef51++);document[_0x29e66a(0x300)](_0x29e66a(0x2fc))[_0x29e66a(0x2fe)]=_0x1b9a81,document['getElementById'](_0x56c3d1[_0x29e66a(0x240)])[_0x29e66a(0x2fe)]=_0x25c9f8,document['getElementById'](_0x29e66a(0x2a1))[_0x29e66a(0x2fe)]=_0x1d6b4a;if(_0x16f0e8){if(_0x56c3d1['aMdND'](_0x56c3d1[_0x29e66a(0x2d1)],_0x56c3d1['YhwlB']))_0x578e93=_0x5c5027;else{const _0x4727b7=JSON[_0x29e66a(0x2d6)](localStorage[_0x29e66a(0x2cf)](_0x56c3d1['swOmO']))||{};_0x4727b7[_0x56c3d1[_0x29e66a(0x248)]]=!![],localStorage[_0x29e66a(0x2a8)](_0x56c3d1[_0x29e66a(0x21f)],JSON['stringify'](_0x4727b7));const _0xf602c8=document['getElementById']('nextLevelBtn');_0xf602c8&&(_0x56c3d1['VXcqI'](_0x56c3d1[_0x29e66a(0x299)],_0x56c3d1[_0x29e66a(0x299)])?_0x189037+=_0x56c3d1[_0x29e66a(0x2a7)]:(_0xf602c8[_0x29e66a(0x293)][_0x29e66a(0x272)]='1',_0xf602c8['style'][_0x29e66a(0x1ea)]=_0x29e66a(0x1f9),_0xf602c8['href']=_0x56c3d1['itoFm']));}}}function closeQuiz(){const _0xd43d33=_0x41c653,_0x37d9d2={'LwUHi':'var(--accent-js,\x20#f0c674)','qwxcT':_0xd43d33(0x270),'sVRxQ':_0xd43d33(0x288),'qnzvn':function(_0x4b8c06,_0x8124ca){return _0x4b8c06===_0x8124ca;},'eMDZb':'voyUc'};quizState[_0xd43d33(0x2f2)]&&(clearInterval(quizState[_0xd43d33(0x2f2)]),quizState[_0xd43d33(0x2f2)]=null);const _0xf96b23=document[_0xd43d33(0x300)](_0x37d9d2['sVRxQ']);_0xf96b23&&(_0x37d9d2['qnzvn'](_0x37d9d2['eMDZb'],'voyUc')?(_0xf96b23['style'][_0xd43d33(0x304)]=_0x37d9d2['qwxcT'],document[_0xd43d33(0x22a)][_0xd43d33(0x293)][_0xd43d33(0x28a)]=''):(_0x21ad51[_0xd43d33(0x293)][_0xd43d33(0x215)]=ENAqkY['LwUHi'],_0x52cd7e[_0xd43d33(0x293)]['animation']=ENAqkY['qwxcT']));}function _0xd780(_0x494d66,_0x400148){_0x494d66=_0x494d66-0x1e9;const _0x55fc5e=_0x2e4f();let _0x2a9df9=_0x55fc5e[_0x494d66];if(_0xd780['CIjCAv']===undefined){var _0x3fbfbf=function(_0x54536e){const _0x4e461e='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0xbc8cb1='',_0x97e248='';for(let _0x34b3fb=0x0,_0x2883c6,_0x567abd,_0x370751=0x0;_0x567abd=_0x54536e['charAt'](_0x370751++);~_0x567abd&&(_0x2883c6=_0x34b3fb%0x4?_0x2883c6*0x40+_0x567abd:_0x567abd,_0x34b3fb++%0x4)?_0xbc8cb1+=String['fromCharCode'](0xff&_0x2883c6>>(-0x2*_0x34b3fb&0x6)):0x0){_0x567abd=_0x4e461e['indexOf'](_0x567abd);}for(let _0x109abc=0x0,_0x3524a9=_0xbc8cb1['length'];_0x109abc<_0x3524a9;_0x109abc++){_0x97e248+='%'+('00'+_0xbc8cb1['charCodeAt'](_0x109abc)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x97e248);};_0xd780['qErMCN']=_0x3fbfbf,_0xd780['NinTLu']={},_0xd780['CIjCAv']=!![];}const _0x1a88a6=_0x55fc5e[0x0],_0x2e4f81=_0x494d66+_0x1a88a6,_0xd780af=_0xd780['NinTLu'][_0x2e4f81];return!_0xd780af?(_0x2a9df9=_0xd780['qErMCN'](_0x2a9df9),_0xd780['NinTLu'][_0x2e4f81]=_0x2a9df9):_0x2a9df9=_0xd780af,_0x2a9df9;}function retryQuiz(){const _0x19efa1=_0x41c653,_0x4b2904={'XLkmp':function(_0x1b2ce4,_0x3767f5){return _0x1b2ce4(_0x3767f5);},'KTEwr':'quizResults','UrkJr':_0x19efa1(0x2f8),'fLsTD':_0x19efa1(0x270),'przob':_0x19efa1(0x295),'RnZfl':function(_0x4be98d){return _0x4be98d();}},_0x2932db=_0x4b2904[_0x19efa1(0x2ca)](shuffleArray,QUIZ_QUESTIONS);quizState={'questions':_0x2932db[_0x19efa1(0x29d)](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0x1c0625=document[_0x19efa1(0x300)](_0x4b2904[_0x19efa1(0x241)]),_0x1ae23c=document['getElementById'](_0x4b2904['UrkJr']);_0x1c0625['style']['display']=_0x4b2904[_0x19efa1(0x2f6)],_0x1ae23c[_0x19efa1(0x293)]['display']=_0x4b2904['przob'],_0x4b2904[_0x19efa1(0x2bf)](renderQuestion),startTimer();}document['addEventListener'](_0x41c653(0x281),function(){const _0x4c58c6=_0x41c653,_0x160108={'VAPCM':function(_0x26b840,_0xc79d25,_0x241aec){return _0x26b840(_0xc79d25,_0x241aec);},'kOHFo':_0x4c58c6(0x2b4),'DptjE':function(_0x514be5){return _0x514be5();}},_0x1db100=document[_0x4c58c6(0x300)](_0x4c58c6(0x2f9)),_0x47b33a=_0x160108['kOHFo'],_0x54ed86=window[_0x4c58c6(0x23d)]('(prefers-reduced-motion:\x20reduce)')[_0x4c58c6(0x25d)];if(_0x54ed86){_0x1db100[_0x4c58c6(0x2fe)]=_0x47b33a;return;}let _0x412c72=0x0;function _0x408156(){const _0x404c9a=_0x4c58c6;_0x1db100[_0x404c9a(0x2fe)]=_0x47b33a[_0x404c9a(0x29d)](0x0,_0x412c72),_0x412c72++;if(_0x412c72<=_0x47b33a['length'])_0x160108['VAPCM'](setTimeout,_0x408156,0x23);}_0x160108[_0x4c58c6(0x2d4)](_0x408156);});typeof module!==_0x41c653(0x264)&&module[_0x41c653(0x279)]&&(module['exports']={'startQuiz':startQuiz,'QUIZ_QUESTIONS':QUIZ_QUESTIONS});
+/**
+ * Level 41: while Loops
+ * 
+ * This file demonstrates while loops in JavaScript.
+ * All code here will run when the page loads.
+ */
+
+// ============================================
+// BASIC WHILE LOOP
+// ============================================
+
+console.log("--- Basic while Loop ---");
+
+let i = 0;
+
+while (i < 5) {
+    console.log("i =", i);
+    i++;
+}
+
+// ============================================
+// COUNTING FROM 1 TO 5
+// ============================================
+
+console.log("\n--- Counting from 1 to 5 ---");
+
+let count = 1;
+
+while (count <= 5) {
+    console.log(count);
+    count++;
+}
+
+// ============================================
+// COUNTING DOWN
+// ============================================
+
+console.log("\n--- Counting Down ---");
+
+let num = 5;
+
+while (num >= 0) {
+    console.log(num);
+    num--;
+}
+
+// ============================================
+// SUM OF NUMBERS
+// ============================================
+
+console.log("\n--- Sum of Numbers ---");
+
+let sum = 0;
+let n = 1;
+
+while (n <= 10) {
+    sum += n;
+    n++;
+}
+
+console.log("Sum of 1 to 10:", sum);
+
+// ============================================
+// DO...WHILE LOOP
+// ============================================
+
+console.log("\n--- do...while Loop ---");
+
+let j = 0;
+
+do {
+    console.log("j =", j);
+    j++;
+} while (j < 3);
+
+// ============================================
+// DO...WHILE WITH FALSE CONDITION
+// ============================================
+
+console.log("\n--- do...while with False Condition ---");
+
+let k = 5;
+
+do {
+    console.log("This runs once even though condition is false");
+    console.log("k =", k);
+} while (k < 3);
+
+// ============================================
+// BREAK STATEMENT
+// ============================================
+
+console.log("\n--- Break Statement ---");
+
+let x = 0;
+
+while (x < 10) {
+    console.log("x =", x);
+    if (x === 5) {
+        console.log("Breaking at", x);
+        break;
+    }
+    x++;
+}
+
+// ============================================
+// CONTINUE STATEMENT
+// ============================================
+
+console.log("\n--- Continue Statement ---");
+
+let y = 0;
+
+while (y < 5) {
+    y++;
+    if (y === 3) {
+        console.log("Skipping", y);
+        continue;
+    }
+    console.log("y =", y);
+}
+
+// ============================================
+// INFINITE LOOP (WITH BREAK)
+// ============================================
+
+console.log("\n--- Infinite Loop with Break ---");
+
+let z = 0;
+
+while (true) {
+    console.log("z =", z);
+    z++;
+    if (z === 3) {
+        console.log("Breaking infinite loop");
+        break;
+    }
+}
+
+// ============================================
+// LOOPING THROUGH STRING
+// ============================================
+
+console.log("\n--- Looping Through String ---");
+
+let word = "Hello";
+let index = 0;
+
+while (index < word.length) {
+    console.log("Character at", index, ":", word[index]);
+    index++;
+}
+
+// ============================================
+// USER INPUT SIMULATION
+// ============================================
+
+console.log("\n--- User Input Simulation ---");
+
+let input = 0;
+let attempts = 0;
+let target = 5;
+
+while (input !== target) {
+    attempts++;
+    input = Math.floor(Math.random() * 10);
+    console.log("Attempt", attempts, ":", input);
+    if (input !== target) {
+        console.log("Not the target, trying again...");
+    }
+}
+
+console.log("Found the target", target, "after", attempts, "attempts!");
+
+// ============================================
+// QUIZ SYSTEM
+// ============================================
+
+const QUIZ_QUESTIONS = [
+    {
+        id: 1,
+        question: 'What does a while loop do?',
+        options: [
+            "Repeats code a specific number of times",
+            "Repeats code while a condition is true",
+            "Runs code once",
+            "Creates a variable"
+        ],
+        correct: 1,
+        explanation: 'A while loop repeats code as long as the condition is true.'
+    },
+    {
+        id: 2,
+        question: 'When does a while loop check the condition?',
+        options: [
+            "After each iteration",
+            "Before each iteration",
+            "Only once at the start",
+            "At the end of the loop"
+        ],
+        correct: 1,
+        explanation: 'A while loop checks the condition before each iteration.'
+    },
+    {
+        id: 3,
+        question: 'What happens if the condition is false initially?',
+        options: [
+            "The loop runs once",
+            "The loop never runs",
+            "An error occurs",
+            "The loop runs forever"
+        ],
+        correct: 1,
+        explanation: 'If the condition is false initially, the while loop never executes.'
+    },
+    {
+        id: 4,
+        question: 'What does a do...while loop do?',
+        options: [
+            "Runs at least once, then checks condition",
+            "Checks condition first, then runs",
+            "Never runs",
+            "Always runs forever"
+        ],
+        correct: 0,
+        explanation: 'do...while executes the code block at least once, then checks the condition.'
+    },
+    {
+        id: 5,
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;while (i &lt; 3) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
+        options: [
+            "0 1 2",
+            "1 2 3",
+            "0 1 2 3",
+            "1 2"
+        ],
+        correct: 0,
+        explanation: 'The loop runs for i = 0, 1, 2 and stops when i becomes 3.'
+    },
+    {
+        id: 6,
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;do {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;} while (i &lt; 3)',
+        options: [
+            "0 1 2",
+            "1 2 3",
+            "0 1 2 3",
+            "1 2"
+        ],
+        correct: 0,
+        explanation: 'do...while runs for i = 0, 1, 2 and stops when i becomes 3.'
+    },
+    {
+        id: 7,
+        question: 'What happens if you forget to update the condition variable?',
+        options: [
+            "The loop runs normally",
+            "The loop becomes infinite",
+            "An error occurs",
+            "The loop never runs"
+        ],
+        correct: 1,
+        explanation: 'If you don\'t update the condition variable, the loop will run forever (infinite loop).'
+    },
+    {
+        id: 8,
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 5;<br/>&nbsp;&nbsp;while (i &lt; 3) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
+        options: [
+            "5 6 7",
+            "Nothing",
+            "Error",
+            "Infinite loop"
+        ],
+        correct: 1,
+        explanation: 'Since i=5 and 5<3 is false, the loop never executes.'
+    },
+    {
+        id: 9,
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 5;<br/>&nbsp;&nbsp;do {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;} while (i &lt; 3)',
+        options: [
+            "5",
+            "Nothing",
+            "Error",
+            "Infinite loop"
+        ],
+        correct: 0,
+        explanation: 'do...while executes once (prints 5), then checks condition and stops.'
+    },
+    {
+        id: 10,
+        question: 'Which loop is best when you don\'t know how many iterations you need?',
+        options: [
+            "for loop",
+            "while loop",
+            "Both are equally good",
+            "Neither"
+        ],
+        correct: 1,
+        explanation: 'while loops are ideal when the number of iterations is unknown.'
+    },
+    {
+        id: 11,
+        question: 'What does break do in a while loop?',
+        options: [
+            "Continues to the next iteration",
+            "Exits the loop completely",
+            "Restarts the loop",
+            "Checks the condition"
+        ],
+        correct: 1,
+        explanation: 'break exits the loop completely, stopping all further iterations.'
+    },
+    {
+        id: 12,
+        question: 'What does continue do in a while loop?',
+        options: [
+            "Exits the loop",
+            "Skips the rest of the current iteration",
+            "Restarts the loop",
+            "Checks the condition"
+        ],
+        correct: 1,
+        explanation: 'continue skips the rest of the current iteration and goes to the next one.'
+    },
+    {
+        id: 13,
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;while (i &lt; 5) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (i === 2) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
+        options: [
+            "0 1 2 3 4",
+            "0 1 3 4",
+            "0 1 2",
+            "0 1"
+        ],
+        correct: 1,
+        explanation: 'When i=2, continue skips the console.log, so 0, 1, 3, 4 are printed.'
+    },
+    {
+        id: 14,
+        question: 'What is the output:<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;while (i &lt; 5) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (i === 3) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;}',
+        options: [
+            "0 1 2 3",
+            "0 1 2",
+            "0 1 2 3 4",
+            "0 1"
+        ],
+        correct: 1,
+        explanation: 'When i=3, break exits the loop, so 0, 1, 2 are printed.'
+    },
+    {
+        id: 15,
+        question: 'Which loop guarantees at least one execution?',
+        options: [
+            "while",
+            "do...while",
+            "Both",
+            "Neither"
+        ],
+        correct: 1,
+        explanation: 'do...while guarantees at least one execution because it checks condition after running the code block.'
+    }
+];
+
+let quizState = {
+    questions: [],
+    currentQuestion: 0,
+    score: 0,
+    answered: false,
+    timeLeft: 120,
+    timer: null
+};
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+function createQuizModal() {
+    if (document.getElementById('quizModal')) {
+        return document.getElementById('quizModal');
+    }
+
+    const modalHTML = `
+        <div id="quizOverlay" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(21, 21, 31, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeInOverlay 0.3s ease;
+        ">
+            <div id="quizModal" style="
+                background: var(--bg-panel, #1e1e2e);
+                border: 1px solid var(--border, #34344f);
+                border-radius: var(--radius-lg, 16px);
+                max-width: 700px;
+                width: 100%;
+                max-height: 90vh;
+                overflow-y: auto;
+                box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+                animation: slideUpModal 0.3s ease;
+                position: relative;
+            ">
+                <div style="
+                    padding: 20px 24px;
+                    border-bottom: 1px solid var(--border-soft, #2a2a40);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: var(--bg-base-2, #1b1b29);
+                    border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
+                ">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        
+                        <h2 style="
+                            font-family: var(--font-mono, monospace);
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            color: var(--text-primary, #e9e9f5);
+                            margin: 0;
+                        ">Level 41 Quiz</h2>
+                    </div>
+                    <button id="closeQuizBtn" style="
+                        background: none;
+                        border: none;
+                        color: var(--text-muted, #6c6c8c);
+                        font-size: 1.3rem;
+                        cursor: pointer;
+                        padding: 4px 8px;
+                        border-radius: var(--radius-sm, 6px);
+                        transition: all 0.15s ease;
+                        line-height: 1;
+                    ">✕</button>
+                </div>
+
+                <div id="quizContent" style="padding: 32px 24px 24px;">
+                    <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 24px;
+                        font-family: var(--font-mono, monospace);
+                        font-size: 0.85rem;
+                        color: var(--text-secondary, #a3a3c2);
+                    ">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            
+                            <span id="timerDisplay" style="
+                                font-weight: 600;
+                                color: var(--accent-js, #f0c674);
+                                font-size: 1.1rem;
+                            ">2:00</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            
+                            <span id="progressDisplay">1 / 10</span>
+                        </div>
+                    </div>
+
+                    <div style="
+                        width: 100%;
+                        height: 4px;
+                        background: var(--bg-base-2, #1b1b29);
+                        border-radius: 4px;
+                        margin-bottom: 28px;
+                        overflow: hidden;
+                    ">
+                        <div id="progressBar" style="
+                            width: 10%;
+                            height: 100%;
+                            background: linear-gradient(90deg, var(--accent-js, #f0c674), var(--accent-php, #b58aef));
+                            border-radius: 4px;
+                            transition: width 0.4s ease;
+                        "></div>
+                    </div>
+
+                    <div id="questionContainer">
+                        <div style="
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.78rem;
+                            color: var(--text-muted, #6c6c8c);
+                            margin-bottom: 8px;
+                            letter-spacing: 0.5px;
+                        ">QUESTION <span id="questionNumber">1</span>/10</div>
+                        <h3 id="questionText" style="
+                            font-family: var(--font-sans, sans-serif);
+                            font-size: 1.05rem;
+                            font-weight: 500;
+                            color: var(--text-primary, #e9e9f5);
+                            margin: 0 0 20px 0;
+                            line-height: 1.6;
+                        ">Loading question...</h3>
+                    </div>
+
+                    <div id="optionsContainer" style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        margin-bottom: 24px;
+                    "></div>
+
+                    <div id="explanationContainer" style="
+                        display: none;
+                        padding: 16px 20px;
+                        background: var(--bg-panel-alt, #23233a);
+                        border-left: 3px solid var(--accent-js, #f0c674);
+                        border-radius: var(--radius-sm, 6px);
+                        margin-bottom: 24px;
+                        font-family: var(--font-sans, sans-serif);
+                        font-size: 0.9rem;
+                        color: var(--text-secondary, #a3a3c2);
+                        line-height: 1.6;
+                    ">
+                        <div style="font-weight: 600; color: var(--accent-js, #f0c674); margin-bottom: 4px;">💡 Explanation</div>
+                        <div id="explanationText"></div>
+                    </div>
+
+                    <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 12px;
+                        flex-wrap: wrap;
+                    ">
+                        <button id="nextQuestionBtn" style="
+                            background: var(--accent-sql, #8ec07c);
+                            color: #0e1410;
+                            border: none;
+                            padding: 10px 28px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                            margin-left: auto;
+                            opacity: 0.5;
+                            pointer-events: none;
+                        ">Next →</button>
+                    </div>
+                </div>
+
+                <div id="quizResults" style="
+                    display: none;
+                    padding: 40px 32px 32px;
+                    text-align: center;
+                ">
+                    <div style="font-size: 3rem; margin-bottom: 12px;" id="resultEmoji">🎉</div>
+                    <h2 style="
+                        font-family: var(--font-mono, monospace);
+                        font-size: 1.3rem;
+                        color: var(--text-primary, #e9e9f5);
+                        margin: 0 0 8px 0;
+                    " id="resultTitle">Quiz Complete!</h2>
+                    <p style="
+                        font-family: var(--font-sans, sans-serif);
+                        font-size: 1rem;
+                        color: var(--text-secondary, #a3a3c2);
+                        margin: 0 0 20px 0;
+                    " id="resultMessage">You scored 10/10!</p>
+                    <div style="
+                        display: flex;
+                        gap: 16px;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    ">
+                        <button id="retryQuizBtn" style="
+                            background: transparent;
+                            color: var(--text-secondary, #a3a3c2);
+                            border: 1px solid var(--border, #34344f);
+                            padding: 10px 24px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                        ">Retry</button>
+                        <button id="closeResultsBtn" style="
+                            background: var(--accent-sql, #8ec07c);
+                            color: #0e1410;
+                            border: none;
+                            padding: 10px 28px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                        ">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHTML;
+    document.body.appendChild(modalContainer.firstElementChild);
+
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUpModal {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulseTimer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        #quizModal::-webkit-scrollbar {
+            width: 6px;
+        }
+        #quizModal::-webkit-scrollbar-track {
+            background: var(--bg-base-2, #1b1b29);
+            border-radius: 3px;
+        }
+        #quizModal::-webkit-scrollbar-thumb {
+            background: var(--border, #34344f);
+            border-radius: 3px;
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.getElementById('closeQuizBtn').addEventListener('click', closeQuiz);
+    document.getElementById('closeResultsBtn').addEventListener('click', closeQuiz);
+    document.getElementById('retryQuizBtn').addEventListener('click', retryQuiz);
+    document.getElementById('nextQuestionBtn').addEventListener('click', nextQuestion);
+
+    document.getElementById('quizOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeQuiz();
+    });
+
+    return document.getElementById('quizModal');
+}
+
+function startQuiz(event) {
+    if (event) event.preventDefault();
+
+    const progress = JSON.parse(localStorage.getItem('levelProgress')) || {};
+    if (progress['level41']) {
+        alert('✅ You have already completed this level!');
+        const nextBtn = document.getElementById('nextLevelBtn');
+        if (nextBtn) {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+            nextBtn.href = 'level42.html';
+        }
+        return;
+    }
+
+    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
+    quizState = {
+        questions: shuffledQuestions.slice(0, 10),
+        currentQuestion: 0,
+        score: 0,
+        answered: false,
+        timeLeft: 120,
+        timer: null
+    };
+
+    const modal = createQuizModal();
+    const overlay = document.getElementById('quizOverlay');
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    const quizContent = document.getElementById('quizContent');
+    const quizResults = document.getElementById('quizResults');
+    quizContent.style.display = 'block';
+    quizResults.style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.opacity = '0.5';
+    document.getElementById('nextQuestionBtn').style.pointerEvents = 'none';
+
+    renderQuestion();
+    startTimer();
+}
+
+function renderQuestion() {
+    const q = quizState.questions[quizState.currentQuestion];
+    const total = quizState.questions.length;
+
+    document.getElementById('progressDisplay').textContent = `${quizState.currentQuestion + 1} / ${total}`;
+    document.getElementById('progressBar').style.width = `${((quizState.currentQuestion + 1) / total) * 100}%`;
+    document.getElementById('questionNumber').textContent = quizState.currentQuestion + 1;
+    document.getElementById('questionText').innerHTML = q.question;
+
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = '';
+
+    q.options.forEach((option, index) => {
+        const optionDiv = document.createElement('div');
+        optionDiv.style.cssText = `
+            padding: 12px 16px;
+            background: var(--bg-base-2, #1b1b29);
+            border: 1px solid var(--border-soft, #2a2a40);
+            border-radius: var(--radius-sm, 6px);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.92rem;
+            color: var(--text-secondary, #a3a3c2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        `;
+        optionDiv.dataset.index = index;
+
+        const letter = String.fromCharCode(65 + index);
+        const letterSpan = document.createElement('span');
+        letterSpan.style.cssText = `
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            background: var(--bg-panel, #1e1e2e);
+            border: 1px solid var(--border, #34344f);
+            border-radius: 50%;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted, #6c6c8c);
+            transition: all 0.15s ease;
+        `;
+        letterSpan.textContent = letter;
+        optionDiv.appendChild(letterSpan);
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = option;
+        optionDiv.appendChild(textSpan);
+
+        optionDiv.addEventListener('click', () => selectOption(index));
+        optionDiv.addEventListener('mouseenter', () => {
+            if (!quizState.answered) {
+                optionDiv.style.borderColor = 'var(--border, #34344f)';
+                optionDiv.style.background = 'var(--bg-panel-alt, #23233a)';
+            }
+        });
+        optionDiv.addEventListener('mouseleave', () => {
+            if (!quizState.answered) {
+                optionDiv.style.borderColor = 'var(--border-soft, #2a2a40)';
+                optionDiv.style.background = 'var(--bg-base-2, #1b1b29)';
+            }
+        });
+
+        optionsContainer.appendChild(optionDiv);
+    });
+
+    quizState.answered = false;
+    document.getElementById('explanationContainer').style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.opacity = '0.5';
+    document.getElementById('nextQuestionBtn').style.pointerEvents = 'none';
+}
+
+function selectOption(index) {
+    if (quizState.answered) return;
+
+    const q = quizState.questions[quizState.currentQuestion];
+    const isCorrect = index === q.correct;
+    quizState.answered = true;
+
+    const options = document.querySelectorAll('#optionsContainer > div');
+    options.forEach((opt, i) => {
+        opt.style.cursor = 'default';
+        opt.style.pointerEvents = 'none';
+        
+        if (i === q.correct) {
+            opt.style.borderColor = 'var(--accent-sql, #8ec07c)';
+            opt.style.background = 'rgba(142, 192, 124, 0.12)';
+            const letterSpan = opt.querySelector('span:first-child');
+            if (letterSpan) {
+                letterSpan.style.borderColor = 'var(--accent-sql, #8ec07c)';
+                letterSpan.style.background = 'rgba(142, 192, 124, 0.2)';
+                letterSpan.style.color = 'var(--accent-sql, #8ec07c)';
+            }
+        }
+        
+        if (i === index && !isCorrect) {
+            opt.style.borderColor = 'var(--accent-html, #f3a072)';
+            opt.style.background = 'rgba(243, 160, 114, 0.12)';
+            const letterSpan = opt.querySelector('span:first-child');
+            if (letterSpan) {
+                letterSpan.style.borderColor = 'var(--accent-html, #f3a072)';
+                letterSpan.style.background = 'rgba(243, 160, 114, 0.2)';
+                letterSpan.style.color = 'var(--accent-html, #f3a072)';
+            }
+        }
+    });
+
+    if (isCorrect) quizState.score++;
+
+    const explanationContainer = document.getElementById('explanationContainer');
+    const explanationText = document.getElementById('explanationText');
+    explanationText.textContent = q.explanation;
+    explanationContainer.style.display = 'block';
+
+    const nextBtn = document.getElementById('nextQuestionBtn');
+    nextBtn.style.opacity = '1';
+    nextBtn.style.pointerEvents = 'auto';
+}
+
+function nextQuestion() {
+    if (quizState.currentQuestion < quizState.questions.length - 1) {
+        quizState.currentQuestion++;
+        renderQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function startTimer() {
+    if (quizState.timer) clearInterval(quizState.timer);
+    
+    quizState.timeLeft = 120;
+    updateTimerDisplay();
+
+    quizState.timer = setInterval(() => {
+        quizState.timeLeft--;
+        updateTimerDisplay();
+
+        if (quizState.timeLeft <= 0) {
+            clearInterval(quizState.timer);
+            endQuiz(true);
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(quizState.timeLeft / 60);
+    const seconds = quizState.timeLeft % 60;
+    const display = document.getElementById('timerDisplay');
+    display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    if (quizState.timeLeft <= 10) {
+        display.style.color = 'var(--accent-html, #f3a072)';
+        display.style.animation = 'pulseTimer 1s ease-in-out infinite';
+    } else {
+        display.style.color = 'var(--accent-js, #f0c674)';
+        display.style.animation = 'none';
+    }
+}
+
+function endQuiz(timeUp = false) {
+    if (quizState.timer) {
+        clearInterval(quizState.timer);
+        quizState.timer = null;
+    }
+
+    const total = quizState.questions.length;
+    const score = quizState.score;
+    const passed = score === total;
+
+    const quizContent = document.getElementById('quizContent');
+    const quizResults = document.getElementById('quizResults');
+    quizContent.style.display = 'none';
+    quizResults.style.display = 'block';
+
+    const emoji = passed ? '🎉' : (timeUp ? '⏰' : '😅');
+    const title = passed ? 'Level Complete!' : (timeUp ? "Time's Up!" : 'Keep Practicing!');
+    let message = `You scored ${score}/${total}!`;
+    
+    if (passed) {
+        message += ' 🌟 Perfect score! You\'ve mastered while loops!';
+    } else if (timeUp) {
+        message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
+    } else {
+        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+    }
+
+    document.getElementById('resultEmoji').textContent = emoji;
+    document.getElementById('resultTitle').textContent = title;
+    document.getElementById('resultMessage').textContent = message;
+
+    if (passed) {
+        const progress = JSON.parse(localStorage.getItem('levelProgress')) || {};
+        progress['level41'] = true;
+        localStorage.setItem('levelProgress', JSON.stringify(progress));
+
+        const nextBtn = document.getElementById('nextLevelBtn');
+        if (nextBtn) {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+            nextBtn.href = 'level42.html';
+        }
+    }
+}
+
+function closeQuiz() {
+    if (quizState.timer) {
+        clearInterval(quizState.timer);
+        quizState.timer = null;
+    }
+    const overlay = document.getElementById('quizOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function retryQuiz() {
+    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
+    quizState = {
+        questions: shuffledQuestions.slice(0, 10),
+        currentQuestion: 0,
+        score: 0,
+        answered: false,
+        timeLeft: 120,
+        timer: null
+    };
+
+    const quizResults = document.getElementById('quizResults');
+    const quizContent = document.getElementById('quizContent');
+    quizResults.style.display = 'none';
+    quizContent.style.display = 'block';
+    renderQuestion();
+    startTimer();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'while Loops';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+        el.textContent = text;
+        return;
+    }
+
+    let i = 0;
+    function step() {
+        el.textContent = text.slice(0, i);
+        i++;
+        if (i <= text.length) setTimeout(step, 35);
+    }
+    step();
+});
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { startQuiz, QUIZ_QUESTIONS };
+}

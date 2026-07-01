@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 47: Objects Basics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,17 +263,9 @@
             margin: 5px 0;
         }
 
-        .object-card.person {
-            --card-color: var(--accent-sql);
-        }
-
-        .object-card.car {
-            --card-color: var(--accent-css);
-        }
-
-        .object-card.product {
-            --card-color: var(--accent-js);
-        }
+        .object-card.person { --card-color: var(--accent-sql); }
+        .object-card.car { --card-color: var(--accent-css); }
+        .object-card.product { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -345,12 +327,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -443,7 +423,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -454,7 +433,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -465,7 +443,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -484,23 +461,18 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .object-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
@@ -513,7 +485,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -553,13 +524,13 @@
                     <div class="description">Represents a person</div>
                     <div class="example">{ name: "John", age: 25 }</div>
                 </div>
-
+                
                 <div class="object-card car">
                     <div class="title">Car Object</div>
                     <div class="description">Represents a vehicle</div>
                     <div class="example">{ brand: "Toyota", year: 2020 }</div>
                 </div>
-
+                
                 <div class="object-card product">
                     <div class="title">Product Object</div>
                     <div class="description">Represents an item</div>
@@ -590,32 +561,25 @@
             <div class="console-output">
                 <div class="comment">// Creating and accessing objects</div>
                 <div><span class="arrow">&gt;</span> <span class="keyword">let</span> person = {</div>
-                <div><span class="arrow">&gt;</span> <span class="key">name</span>: <span class="value">"John"</span>,
-                </div>
-                <div><span class="arrow">&gt;</span> <span class="key">age</span>: <span class="value">25</span>,</div>
-                <div><span class="arrow">&gt;</span> <span class="key">city</span>: <span class="value">"New
-                        York"</span></div>
+                <div><span class="arrow">&gt;</span>   <span class="key">name</span>: <span class="value">"John"</span>,</div>
+                <div><span class="arrow">&gt;</span>   <span class="key">age</span>: <span class="value">25</span>,</div>
+                <div><span class="arrow">&gt;</span>   <span class="key">city</span>: <span class="value">"New York"</span></div>
                 <div><span class="arrow">&gt;</span> };</div>
                 <br>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person);</div>
-                <div class="output"> { name: "John", age: 25, city: "New York" }</div>
+                <div class="output">  { name: "John", age: 25, city: "New York" }</div>
                 <br>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.<span
-                        class="key">name</span>);</div>
-                <div class="output"> "John"</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.<span
-                        class="key">age</span>);</div>
-                <div class="output"> 25</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person[<span
-                        class="value">"city"</span>]);</div>
-                <div class="output"> "New York"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.<span class="key">name</span>);</div>
+                <div class="output">  "John"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.<span class="key">age</span>);</div>
+                <div class="output">  25</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person[<span class="value">"city"</span>]);</div>
+                <div class="output">  "New York"</div>
                 <br>
                 <div class="comment">// Modifying object properties</div>
-                <div><span class="arrow">&gt;</span> person.<span class="key">age</span> = <span
-                        class="value">26</span>;</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.<span
-                        class="key">age</span>);</div>
-                <div class="output"> 26</div>
+                <div><span class="arrow">&gt;</span> person.<span class="key">age</span> = <span class="value">26</span>;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.<span class="key">age</span>);</div>
+                <div class="output">  26</div>
             </div>
 
             <div class="info-box">
@@ -632,62 +596,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice objects by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>objects:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Create Book Object:</strong> Create an object called <code>book</code> with three
-                        properties: <code>title</code> (string), <code>author</code> (string), and <code>year</code>
-                        (number). Example: <code>{ title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937 }</code>
-                    </li>
-                    <li><strong>Access with Dot Notation:</strong> Log each property to the console using dot notation
-                        like <code>book.title</code>, <code>book.author</code>, and <code>book.year</code></li>
-                    <li><strong>Modify Property:</strong> Change the <code>year</code> property to a new value (like
-                        <code>book.year = 1954</code>) and log the object to see the change</li>
-                    <li><strong>Add New Property:</strong> Add a new property called <code>pages</code> to your book
-                        object (like <code>book.pages = 310</code>) and log the object to see the new property added
-                    </li>
-                    <li><strong>Nested Objects:</strong> Create an object called <code>person</code> with properties
-                        <code>name</code> and <code>address</code>. Make <code>address</code> an object itself with
-                        properties like <code>street</code>, <code>city</code>, and <code>zipCode</code>. Then log
-                        <code>person.address.city</code> to access the nested property</li>
+                    <li>Create an object for a book (title, author, year)</li>
+                    <li>Access properties using dot notation</li>
+                    <li>Modify a property value</li>
+                    <li>Add a new property to the object</li>
+                    <li>Create an object with nested objects</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Objects use
-                    key-value pairs inside curly braces <code>{ }</code>. Access properties with
-                    <code>objectName.propertyName</code>. You can add new properties anytime with
-                    <code>objectName.newProperty = value</code>. Nested objects are just objects inside other objects!
-                </p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 48
             </div>
 
             <div class="nav-row">
                 <a href="level46.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level48.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level48.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -696,5 +639,4 @@
 
     <script src="./scripts/level47.js"></script>
 </body>
-
 </html>

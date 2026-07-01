@@ -1,1 +1,959 @@
-const _0x304a81=_0x44f9;(function(_0x12067b,_0x4c83d4){const _0x5d0b4f=_0x44f9,_0x436d80=_0x12067b();while(!![]){try{const _0x123d8e=parseInt(_0x5d0b4f(0x187))/0x1*(parseInt(_0x5d0b4f(0xe8))/0x2)+-parseInt(_0x5d0b4f(0x122))/0x3+parseInt(_0x5d0b4f(0x123))/0x4*(parseInt(_0x5d0b4f(0x75))/0x5)+parseInt(_0x5d0b4f(0x159))/0x6+parseInt(_0x5d0b4f(0xbf))/0x7*(parseInt(_0x5d0b4f(0x97))/0x8)+-parseInt(_0x5d0b4f(0x82))/0x9+parseInt(_0x5d0b4f(0x12e))/0xa;if(_0x123d8e===_0x4c83d4)break;else _0x436d80['push'](_0x436d80['shift']());}catch(_0xe50da0){_0x436d80['push'](_0x436d80['shift']());}}}(_0xda55,0x7ec91));const _0x44abde=(function(){let _0x599716=!![];return function(_0x165275,_0x28f78c){const _0x72c992=_0x599716?function(){if(_0x28f78c){const _0x51bded=_0x28f78c['apply'](_0x165275,arguments);return _0x28f78c=null,_0x51bded;}}:function(){};return _0x599716=![],_0x72c992;};}()),_0x2345f0=_0x44abde(this,function(){const _0x22a70d=_0x44f9,_0x33193c={'UxlZO':_0x22a70d(0x15c),'fgtsE':_0x22a70d(0x145),'lSiVz':function(_0x248ab6,_0x428ae0){return _0x248ab6<=_0x428ae0;},'TytOT':function(_0x355032,_0x3f798d){return _0x355032(_0x3f798d);},'SJPEv':function(_0x10f30d,_0xa7a813,_0x4776cb){return _0x10f30d(_0xa7a813,_0x4776cb);},'dIDoJ':function(_0x11c0d7,_0x6602aa){return _0x11c0d7!==_0x6602aa;},'VMIJI':_0x22a70d(0x166),'YRkCl':function(_0x59091e,_0x1d3bda){return _0x59091e+_0x1d3bda;},'jebdG':_0x22a70d(0x12a),'UCpzy':'{}.constructor(\x22return\x20this\x22)(\x20)','IJmeg':function(_0x28d1c2,_0x133779){return _0x28d1c2(_0x133779);},'IsFSk':function(_0x4dab05,_0xc84a32){return _0x4dab05+_0xc84a32;},'urCTh':function(_0x3f2a9b){return _0x3f2a9b();},'TQMcJ':_0x22a70d(0xf9),'zHxzL':'info','ymxrS':_0x22a70d(0x199),'QvwWL':'table','FWulS':'trace','wcjJW':function(_0x4ce98a,_0x5b6b12){return _0x4ce98a<_0x5b6b12;},'jxotu':'PQfrM','deFyr':_0x22a70d(0x78)},_0x27eb7b=function(){const _0x142e60=_0x22a70d,_0x4cee0d={'qYoMh':function(_0x2d91e6){return _0x2d91e6();},'CxlGZ':function(_0x2e57cc,_0x45a662){const _0x18fee9=_0x44f9;return _0x33193c[_0x18fee9(0x7f)](_0x2e57cc,_0x45a662);},'VZyLT':function(_0x3384e8,_0x5d9fcf){const _0x1864cf=_0x44f9;return _0x33193c[_0x1864cf(0x1b9)](_0x3384e8,_0x5d9fcf);},'ePyUZ':function(_0x40af08,_0x380d61){return _0x33193c['TytOT'](_0x40af08,_0x380d61);},'xWhdM':function(_0x17de49){return _0x17de49();},'qWKXq':function(_0x3a82d3,_0x3bc778,_0x39ea27){const _0x18320d=_0x44f9;return _0x33193c[_0x18320d(0x10a)](_0x3a82d3,_0x3bc778,_0x39ea27);}};if(_0x33193c[_0x142e60(0x99)](_0x142e60(0x10b),_0x142e60(0x114))){let _0x588820;try{if(_0x33193c['dIDoJ'](_0x33193c['VMIJI'],_0x142e60(0xa8)))_0x588820=Function(_0x33193c['YRkCl'](_0x33193c[_0x142e60(0x176)],_0x33193c['UCpzy'])+');')();else return _0x234882[_0x142e60(0x182)](_0x33193c['UxlZO']),_0x5087f1['style'][_0x142e60(0x103)]=_0x33193c[_0x142e60(0x126)],![];}catch(_0x4577b0){_0x588820=window;}return _0x588820;}else{const _0x496b31={'jLHZw':function(_0x4333ee){const _0x136334=_0x142e60;return _0x4cee0d[_0x136334(0x1aa)](_0x4333ee);},'UHBsV':function(_0x52aaa2,_0xd938b2){return _0x4cee0d['CxlGZ'](_0x52aaa2,_0xd938b2);},'Bqlji':function(_0x102c29,_0x414a77){const _0x52e2af=_0x142e60;return _0x4cee0d[_0x52e2af(0x116)](_0x102c29,_0x414a77);}};if(_0x203f13[_0x142e60(0xa9)])_0x4cee0d['ePyUZ'](_0x2bb986,_0x4b1c29[_0x142e60(0xa9)]);_0xd4f282['timeLeft']=0x78,_0x4cee0d['xWhdM'](_0x329e2e),_0x193de6[_0x142e60(0xa9)]=_0x4cee0d['qWKXq'](_0x38c00c,()=>{const _0x599c4c=_0x142e60;_0x547d8f[_0x599c4c(0x131)]--,_0x496b31[_0x599c4c(0x133)](_0x117c1c),_0x496b31[_0x599c4c(0xa1)](_0x31f45a[_0x599c4c(0x131)],0x0)&&(_0x496b31[_0x599c4c(0x1b8)](_0x546968,_0x41c46b[_0x599c4c(0xa9)]),_0x496b31[_0x599c4c(0x1b8)](_0x1ab9c8,!![]));},0x3e8);}},_0x4c00d5=_0x33193c[_0x22a70d(0x14c)](_0x27eb7b),_0x24df8a=_0x4c00d5['console']=_0x4c00d5[_0x22a70d(0x106)]||{},_0xfc8971=['log',_0x33193c['TQMcJ'],_0x33193c[_0x22a70d(0x1c2)],_0x22a70d(0x161),_0x33193c['ymxrS'],_0x33193c[_0x22a70d(0x1a4)],_0x33193c[_0x22a70d(0x174)]];for(let _0xe99adf=0x0;_0x33193c['wcjJW'](_0xe99adf,_0xfc8971['length']);_0xe99adf++){if(_0x33193c['jxotu']!==_0x33193c['deFyr']){const _0x20ae06=_0x44abde[_0x22a70d(0x1ab)][_0x22a70d(0xdc)][_0x22a70d(0xfd)](_0x44abde),_0x20a9c0=_0xfc8971[_0xe99adf],_0x2772ff=_0x24df8a[_0x20a9c0]||_0x20ae06;_0x20ae06['__proto__']=_0x44abde[_0x22a70d(0xfd)](_0x44abde),_0x20ae06[_0x22a70d(0xee)]=_0x2772ff[_0x22a70d(0xee)][_0x22a70d(0xfd)](_0x2772ff),_0x24df8a[_0x20a9c0]=_0x20ae06;}else _0x294bed=_0x33193c[_0x22a70d(0x140)](_0x2e8a5f,_0x33193c['IsFSk'](_0x33193c['IsFSk'](_0x33193c[_0x22a70d(0x176)],'{}.constructor(\x22return\x20this\x22)(\x20)'),');'))();}});_0x2345f0(),console['log'](_0x304a81(0x1a3));let nameInput=document[_0x304a81(0x134)](_0x304a81(0x111)),emailInput=document[_0x304a81(0x134)](_0x304a81(0x1b7)),ageInput=document[_0x304a81(0x134)]('ageInput'),messageInput=document['getElementById']('messageInput');console['log']('Name\x20input:',nameInput),console['log'](_0x304a81(0xdb),emailInput),console[_0x304a81(0x182)](_0x304a81(0x7c),ageInput),console[_0x304a81(0x182)]('Message\x20input:',messageInput),console['log']('\x0a---\x20Getting\x20and\x20Setting\x20Values\x20---'),nameInput[_0x304a81(0x178)]=_0x304a81(0xcd),emailInput['value']=_0x304a81(0xa6),ageInput[_0x304a81(0x178)]='25',messageInput['value']=_0x304a81(0x193),console[_0x304a81(0x182)](_0x304a81(0x170),nameInput[_0x304a81(0x178)]),console[_0x304a81(0x182)](_0x304a81(0xb3),emailInput[_0x304a81(0x178)]),console[_0x304a81(0x182)]('Age\x20value:',ageInput[_0x304a81(0x178)]),console['log']('Message\x20value:',messageInput['value']),console['log']('\x0a---\x20Input\x20Event\x20Listener\x20---'),nameInput[_0x304a81(0x163)]('input',function(){const _0x4f7d4f=_0x304a81;console[_0x4f7d4f(0x182)](_0x4f7d4f(0x15f),this[_0x4f7d4f(0x178)]);}),emailInput[_0x304a81(0x163)](_0x304a81(0x8a),function(){const _0x28294a=_0x304a81;console[_0x28294a(0x182)](_0x28294a(0x89),this['value']);}),ageInput[_0x304a81(0x163)](_0x304a81(0x8a),function(){const _0x1fae6b=_0x304a81,_0x3d5398={'glKxT':'Age\x20changed\x20to:'};console[_0x1fae6b(0x182)](_0x3d5398['glKxT'],this['value']);}),messageInput[_0x304a81(0x163)](_0x304a81(0x8a),function(){const _0x2216d8=_0x304a81,_0x279259={'OxFmp':'Message\x20changed\x20to:'};console[_0x2216d8(0x182)](_0x279259[_0x2216d8(0x105)],this[_0x2216d8(0x178)]);}),console[_0x304a81(0x182)](_0x304a81(0x173)),nameInput[_0x304a81(0x163)](_0x304a81(0x13b),function(){const _0x8b5810=_0x304a81,_0x437d52={'CMgKi':_0x8b5810(0xa4)};console[_0x8b5810(0x182)](_0x437d52[_0x8b5810(0x1a5)],this[_0x8b5810(0x178)]);}),console['log'](_0x304a81(0x153)),nameInput[_0x304a81(0x163)](_0x304a81(0x77),function(){const _0x3019cd=_0x304a81,_0x392a1f={'TRxLi':_0x3019cd(0xd6)};console[_0x3019cd(0x182)](_0x392a1f['TRxLi']),this['style']['borderColor']='#7ec8e3';}),nameInput[_0x304a81(0x163)]('blur',function(){const _0x2eaa30=_0x304a81,_0x28691f={'aOhXb':'Name\x20input\x20blurred','opgYO':'#34344f'};console[_0x2eaa30(0x182)](_0x28691f[_0x2eaa30(0xfa)]),this[_0x2eaa30(0x1b0)][_0x2eaa30(0x103)]=_0x28691f[_0x2eaa30(0x189)];}),console['log']('\x0a---\x20Form\x20Submission\x20---');let form=document['getElementById'](_0x304a81(0x109));form[_0x304a81(0x163)]('submit',function(_0x19590b){const _0x16cdf8=_0x304a81,_0x4d9f50={'HxkpD':_0x16cdf8(0x144),'zxxty':'Name:','qesjO':_0x16cdf8(0x1a8),'EcyhP':_0x16cdf8(0x10d),'kJpPT':_0x16cdf8(0x7e),'KEKxE':_0x16cdf8(0x74)},_0x4c2729=_0x4d9f50[_0x16cdf8(0x7d)]['split']('|');let _0x398a58=0x0;while(!![]){switch(_0x4c2729[_0x398a58++]){case'0':console[_0x16cdf8(0x182)](_0x4d9f50['zxxty'],nameInput['value']);continue;case'1':console[_0x16cdf8(0x182)](_0x4d9f50[_0x16cdf8(0x154)],emailInput['value']);continue;case'2':console[_0x16cdf8(0x182)](_0x4d9f50['EcyhP'],messageInput[_0x16cdf8(0x178)]);continue;case'3':console['log'](_0x4d9f50[_0x16cdf8(0xa3)]);continue;case'4':console[_0x16cdf8(0x182)](_0x4d9f50[_0x16cdf8(0x11e)],ageInput['value']);continue;case'5':_0x19590b['preventDefault']();continue;}break;}}),console[_0x304a81(0x182)](_0x304a81(0x18a));function validateName(){const _0x3eefb5=_0x304a81,_0x37848b={'OwgGC':_0x3eefb5(0xcf),'KHvoC':'Enter\x20your\x20age','MMGyp':_0x3eefb5(0x145),'zYHmH':function(_0x2a11f5,_0x22f35a){return _0x2a11f5<_0x22f35a;},'xeJZe':_0x3eefb5(0x15c),'yNOTc':function(_0x206cbb,_0x5c4e32){return _0x206cbb!==_0x5c4e32;},'tOOJA':_0x3eefb5(0x16d),'IZwrH':_0x3eefb5(0x94)};let _0x4fe8f7=nameInput[_0x3eefb5(0x178)][_0x3eefb5(0x16e)]();if(_0x4fe8f7[_0x3eefb5(0x1a1)]===0x0)return console['log']('Name\x20is\x20empty!'),nameInput[_0x3eefb5(0x1b0)]['borderColor']=_0x37848b['MMGyp'],![];else{if(_0x37848b['zYHmH'](_0x4fe8f7['length'],0x2))return console['log'](_0x37848b['xeJZe']),nameInput['style']['borderColor']='#f3a072',![];else{if(_0x37848b[_0x3eefb5(0x129)](_0x37848b[_0x3eefb5(0xca)],_0x3eefb5(0x16d)))_0x4dc139['log'](_0x37848b[_0x3eefb5(0xa0)]),_0x1b5cac['disabled']=![],_0x4ff805['placeholder']=_0x37848b[_0x3eefb5(0x1a0)];else return nameInput['style'][_0x3eefb5(0x103)]=_0x37848b[_0x3eefb5(0xc5)],!![];}}}function validateEmail(){const _0x433ecd=_0x304a81,_0x989ed7={'uxOMv':'#8ec07c','TRggB':_0x433ecd(0x135)};let _0x78b86=emailInput['value'][_0x433ecd(0x16e)]();return _0x78b86[_0x433ecd(0x195)]('@')&&_0x78b86['includes']('.')?(emailInput[_0x433ecd(0x1b0)]['borderColor']=_0x989ed7['uxOMv'],!![]):(console[_0x433ecd(0x182)](_0x989ed7[_0x433ecd(0x80)]),emailInput['style'][_0x433ecd(0x103)]=_0x433ecd(0x145),![]);}emailInput['addEventListener']('blur',validateEmail),console[_0x304a81(0x182)]('\x0a---\x20Disabling\x20and\x20Enabling\x20Inputs\x20---'),setTimeout(function(){const _0x548cba=_0x304a81,_0x17bc7b={'wvSxx':function(_0x208fa5,_0x5e90bf){return _0x208fa5(_0x5e90bf);},'xagsV':function(_0x5bcdef,_0x3e4b4b){return _0x5bcdef===_0x3e4b4b;},'Cblgi':_0x548cba(0x19f),'evZIO':'Enabling\x20age\x20input','MPiCt':_0x548cba(0x15d)};console['log'](_0x548cba(0x79)),ageInput[_0x548cba(0x1c3)]=!![],ageInput[_0x548cba(0x10c)]=_0x17bc7b[_0x548cba(0x87)],setTimeout(function(){const _0x102237=_0x548cba,_0x37c3e9={'uBQSr':function(_0x2130e4,_0x53405d){return _0x17bc7b['wvSxx'](_0x2130e4,_0x53405d);}};_0x17bc7b['xagsV'](_0x102237(0x19f),_0x17bc7b[_0x102237(0x9a)])?(console[_0x102237(0x182)](_0x17bc7b[_0x102237(0x9b)]),ageInput[_0x102237(0x1c3)]=![],ageInput[_0x102237(0x10c)]=_0x102237(0x1ae)):(_0x37c3e9['uBQSr'](_0x1cfc00,_0x963bca['timer']),_0x229871['timer']=null);},0xbb8);},0x1388),console[_0x304a81(0x182)](_0x304a81(0xd7));function clearAllInputs(){const _0x3cb0b5=_0x304a81,_0x1e7b35={'LBYgN':'All\x20inputs\x20cleared!'},_0x141f1e='4|1|3|2|0'['split']('|');let _0x2c4339=0x0;while(!![]){switch(_0x141f1e[_0x2c4339++]){case'0':console[_0x3cb0b5(0x182)](_0x1e7b35[_0x3cb0b5(0x141)]);continue;case'1':emailInput[_0x3cb0b5(0x178)]='';continue;case'2':messageInput['value']='';continue;case'3':ageInput['value']='';continue;case'4':nameInput[_0x3cb0b5(0x178)]='';continue;}break;}}setTimeout(function(){clearAllInputs();},0x1f40);const QUIZ_QUESTIONS=[{'id':0x1,'question':_0x304a81(0x1a9),'options':[_0x304a81(0x84),_0x304a81(0xde),_0x304a81(0x15b),'input.getText()'],'correct':0x0,'explanation':_0x304a81(0x1af)},{'id':0x2,'question':_0x304a81(0x16a),'options':['input.value\x20=\x20\x27text\x27','input.text\x20=\x20\x27text\x27',_0x304a81(0xd8),'input.setText(\x27text\x27)'],'correct':0x0,'explanation':'Use\x20input.value\x20=\x20\x22text\x22\x20to\x20set\x20the\x20value\x20of\x20an\x20input\x20field.'},{'id':0x3,'question':_0x304a81(0xd1),'options':[_0x304a81(0xec),_0x304a81(0x8a),'mouseover','keydown'],'correct':0x1,'explanation':'The\x20input\x20event\x20fires\x20whenever\x20the\x20value\x20of\x20an\x20input\x20changes.'},{'id':0x4,'question':_0x304a81(0x17a),'options':[_0x304a81(0x101),_0x304a81(0x91),_0x304a81(0x148),'Validates\x20the\x20form'],'correct':0x0,'explanation':_0x304a81(0x1c0)},{'id':0x5,'question':'Which\x20input\x20type\x20is\x20used\x20for\x20email\x20addresses?','options':['text',_0x304a81(0x121),_0x304a81(0x175),'password'],'correct':0x2,'explanation':'Use\x20type=\x22email\x22\x20for\x20email\x20address\x20inputs.'},{'id':0x6,'question':_0x304a81(0x197),'options':[_0x304a81(0xac),'number',_0x304a81(0x175),'password'],'correct':0x3,'explanation':'Use\x20type=\x22password\x22\x20for\x20password\x20inputs.'},{'id':0x7,'question':_0x304a81(0x98),'options':['Shows\x20hint\x20text\x20in\x20the\x20input',_0x304a81(0xcc),_0x304a81(0x142),_0x304a81(0x1bf)],'correct':0x0,'explanation':'placeholder\x20shows\x20hint\x20text\x20in\x20the\x20input\x20when\x20it\x27s\x20empty.'},{'id':0x8,'question':_0x304a81(0x1ba),'options':[_0x304a81(0x77),'blur',_0x304a81(0x8a),_0x304a81(0x13b)],'correct':0x1,'explanation':_0x304a81(0xbd)},{'id':0x9,'question':_0x304a81(0x8f),'options':[_0x304a81(0x77),_0x304a81(0xef),_0x304a81(0x8a),'change'],'correct':0x0,'explanation':'The\x20focus\x20event\x20fires\x20when\x20an\x20input\x20gains\x20focus.'},{'id':0xa,'question':'How\x20do\x20you\x20disable\x20an\x20input\x20field?','options':['input.disabled\x20=\x20true','input.enabled\x20=\x20false','input.disable()','input.setDisabled(true)'],'correct':0x0,'explanation':_0x304a81(0x130)},{'id':0xb,'question':'What\x20does\x20the\x20change\x20event\x20do?','options':['Fires\x20when\x20the\x20value\x20changes\x20and\x20loses\x20focus',_0x304a81(0xbb),_0x304a81(0x110),_0x304a81(0xea)],'correct':0x0,'explanation':_0x304a81(0x138)},{'id':0xc,'question':_0x304a81(0xe4),'options':[_0x304a81(0xac),'number',_0x304a81(0x175),_0x304a81(0xe2)],'correct':0x1,'explanation':_0x304a81(0x1bd)},{'id':0xd,'question':_0x304a81(0xba),'options':[_0x304a81(0xeb),_0x304a81(0xb4),_0x304a81(0x149),_0x304a81(0x11c)],'correct':0x0,'explanation':_0x304a81(0xf4)},{'id':0xe,'question':_0x304a81(0x9f),'options':['input.value\x20===\x20\x27\x27',_0x304a81(0x19e),_0x304a81(0x160),_0x304a81(0xaf)],'correct':0x0,'explanation':_0x304a81(0xbc)},{'id':0xf,'question':_0x304a81(0xe0),'options':['Fires\x20when\x20the\x20form\x20is\x20submitted',_0x304a81(0x1bb),_0x304a81(0xc8),_0x304a81(0xb7)],'correct':0x0,'explanation':_0x304a81(0x17f)}];let quizState={'questions':[],'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};function shuffleArray(_0x4539bc){const _0x2e7e93=_0x304a81,_0x4609d7={'BTXWL':function(_0x46810d,_0x3b4188){return _0x46810d<=_0x3b4188;},'BfFtI':function(_0x3a79f9,_0xcbda1d,_0x1b2247){return _0x3a79f9(_0xcbda1d,_0x1b2247);},'UdtVQ':function(_0x2e5a75,_0x521f58){return _0x2e5a75-_0x521f58;},'gByjW':function(_0x2d9bf8,_0x5066b7){return _0x2d9bf8>_0x5066b7;},'kdSXh':_0x2e7e93(0xc9),'MTlAR':function(_0x1d7760,_0x24bf36){return _0x1d7760+_0x24bf36;}},_0x521e44=[..._0x4539bc];for(let _0x35d914=_0x4609d7[_0x2e7e93(0xb1)](_0x521e44[_0x2e7e93(0x1a1)],0x1);_0x4609d7[_0x2e7e93(0x18e)](_0x35d914,0x0);_0x35d914--){if(_0x4609d7['kdSXh']===_0x4609d7[_0x2e7e93(0x165)]){const _0x26ebee=Math[_0x2e7e93(0x96)](Math[_0x2e7e93(0x11a)]()*_0x4609d7['MTlAR'](_0x35d914,0x1));[_0x521e44[_0x35d914],_0x521e44[_0x26ebee]]=[_0x521e44[_0x26ebee],_0x521e44[_0x35d914]];}else{_0x5a4c40['textContent']=_0x4fe185[_0x2e7e93(0xc7)](0x0,_0x42a0a6),_0x5026f9++;if(_0x4609d7['BTXWL'](_0x1959dc,_0x96feae['length']))_0x4609d7['BfFtI'](_0x4f6823,_0x4f7048,0x23);}}return _0x521e44;}function createQuizModal(){const _0x5927b5=_0x304a81,_0x44b73e={'YZukW':function(_0x525c4a,_0x4f3e07){return _0x525c4a===_0x4f3e07;},'lvJyN':function(_0x23a26f){return _0x23a26f();},'HtWhN':_0x5927b5(0x117),'bVaBO':_0x5927b5(0xce),'AJKEZ':_0x5927b5(0x1b0),'bEBfb':'click','fbjfG':_0x5927b5(0x169),'NcGWB':_0x5927b5(0x85)};if(document[_0x5927b5(0x134)](_0x44b73e[_0x5927b5(0x157)]))return document['getElementById'](_0x5927b5(0x117));const _0x23bd4c='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizOverlay\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20fixed;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20left:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20rgba(21,\x2021,\x2031,\x200.92);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20backdrop-filter:\x20blur(12px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x2010000;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20fadeInOverlay\x200.3s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizModal\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-panel,\x20#1e1e2e);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border,\x20#34344f);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-lg,\x2016px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20max-width:\x20700px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20max-height:\x2090vh;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20overflow-y:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box-shadow:\x200\x2030px\x2080px\x20rgba(0,0,0,0.6);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20slideUpModal\x200.3s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20relative;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2020px\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-bottom:\x201px\x20solid\x20var(--border-soft,\x20#2a2a40);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-lg,\x2016px)\x20var(--radius-lg,\x2016px)\x200\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:\x201.2rem;\x22>📝</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.1rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-primary,\x20#e9e9f5);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Level\x2051\x20Quiz</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22closeQuizBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-muted,\x20#6c6c8c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.3rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x204px\x208px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20line-height:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>✕</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizContent\x22\x20style=\x22padding:\x2032px\x2024px\x2024px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>⏱️</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22timerDisplay\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--accent-js,\x20#f0c674);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.1rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>2:00</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>📊</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22progressDisplay\x22>1\x20/\x2010</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x204px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x204px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20overflow:\x20hidden;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22progressBar\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2010%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x20100%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20linear-gradient(90deg,\x20var(--accent-js,\x20#f0c674),\x20var(--accent-php,\x20#b58aef));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x204px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20width\x200.4s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22questionContainer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.78rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-muted,\x20#6c6c8c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x208px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20letter-spacing:\x200.5px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>QUESTION\x20<span\x20id=\x22questionNumber\x22>1</span>/10</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20id=\x22questionText\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.05rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20500;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-primary,\x20#e9e9f5);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x200\x2020px\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20line-height:\x201.6;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Loading\x20question...</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22optionsContainer\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-direction:\x20column;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2010px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22explanationContainer\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2016px\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-panel-alt,\x20#23233a);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-left:\x203px\x20solid\x20var(--accent-js,\x20#f0c674);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-bottom:\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.9rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20line-height:\x201.6;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:\x20600;\x20color:\x20var(--accent-js,\x20#f0c674);\x20margin-bottom:\x204px;\x22>💡\x20Explanation</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22explanationText\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20space-between;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2012px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-wrap:\x20wrap;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22nextQuestionBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--accent-sql,\x20#8ec07c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#0e1410;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-left:\x20auto;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opacity:\x200.5;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pointer-events:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Next\x20→</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22quizResults\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2040px\x2032px\x2032px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-align:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x203rem;\x20margin-bottom:\x2012px;\x22\x20id=\x22resultEmoji\x22>🎉</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201.3rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-primary,\x20#e9e9f5);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x200\x208px\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22\x20id=\x22resultTitle\x22>Quiz\x20Complete!</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x201rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200\x200\x2020px\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22\x20id=\x22resultMessage\x22>You\x20scored\x2010/10!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2016px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-wrap:\x20wrap;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22retryQuizBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20transparent;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border,\x20#34344f);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px\x2024px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>🔄\x20Retry</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22closeResultsBtn\x22\x20style=\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--accent-sql,\x20#8ec07c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#0e1410;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.85rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x22>Close</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20',_0x1215c8=document[_0x5927b5(0x115)](_0x44b73e[_0x5927b5(0x1c4)]);_0x1215c8[_0x5927b5(0x12c)]=_0x23bd4c,document[_0x5927b5(0xd0)]['appendChild'](_0x1215c8[_0x5927b5(0x150)]);const _0x4252ef=document['createElement'](_0x44b73e[_0x5927b5(0x136)]);return _0x4252ef[_0x5927b5(0x198)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20fadeInOverlay\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20{\x20opacity:\x200;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to\x20{\x20opacity:\x201;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20slideUpModal\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20from\x20{\x20transform:\x20translateY(30px);\x20opacity:\x200;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20to\x20{\x20transform:\x20translateY(0);\x20opacity:\x201;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20@keyframes\x20pulseTimer\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x200%,\x20100%\x20{\x20opacity:\x201;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2050%\x20{\x20opacity:\x200.5;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#quizModal::-webkit-scrollbar\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x206px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#quizModal::-webkit-scrollbar-track\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x203px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#quizModal::-webkit-scrollbar-thumb\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--border,\x20#34344f);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x203px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20',document[_0x5927b5(0x113)]['appendChild'](_0x4252ef),document['getElementById'](_0x5927b5(0x9c))['addEventListener'](_0x44b73e['bEBfb'],closeQuiz),document[_0x5927b5(0x134)](_0x44b73e[_0x5927b5(0x13e)])[_0x5927b5(0x163)](_0x44b73e[_0x5927b5(0x19b)],closeQuiz),document[_0x5927b5(0x134)](_0x44b73e[_0x5927b5(0xe6)])[_0x5927b5(0x163)](_0x5927b5(0xec),retryQuiz),document[_0x5927b5(0x134)]('nextQuestionBtn')[_0x5927b5(0x163)](_0x44b73e['bEBfb'],nextQuestion),document[_0x5927b5(0x134)]('quizOverlay')['addEventListener']('click',function(_0x174b06){const _0x45a001=_0x5927b5;if(_0x44b73e[_0x45a001(0x186)](_0x174b06[_0x45a001(0x124)],this))_0x44b73e[_0x45a001(0x184)](closeQuiz);}),document[_0x5927b5(0x134)](_0x44b73e[_0x5927b5(0x157)]);}function _0xda55(){const _0x902228=['D3f5A0u','rMvnwLe','yMLUza','sgrqq0u','C1f6q1e','Bgv2zwW1mI5ODg1S','uhjLDMvUDhmGDgHLigzVCM0GzNjVBsbZDwjTAxr0Aw5N','uKnqufu','yM9YzgvYq29SB3i','zgXwuvu','t3HgBxa','y29UC29Szq','C3DUEMi','B3bHy2L0Eq','zgvTB0zVCM0','u0Pqrxy','q1LXCeO','CgXHy2vOB2XKzxi','twvZC2fNztO','vwvkBuG','ENHYvva','rMLYzxmGD2HLBIb0AguGAw5WDxqGAxmGy2XPy2TLza','BMfTzuLUChv0','DhLWzwruAxrSzq','AgvHza','suHLrfC','y3jLyxrLrwXLBwvUDa','vLP5tfq','CxvPEK1VzgfS','iokpSE+4JYbzB3uGCMfUig91DcbVzIb0Aw1LlIbozwvKia','u29ivei','CMfUzg9T','D2PWsNm','rxjYB3i','Bwf0y2HLCW','s0vlEeu','s0LHsuq','zxHWB3j0CW','BNvTyMvY','mtCYmZu5mgv0t1zgBG','ota4mdC2uvD5AK9L','DgfYz2v0','yxv0BW','zMD0C0u','CxvPEK92zxjSyxK','y29YCMvJDa','Eu5pvgm','CMv0DxjUicHMDw5JDgLVBIGPia','zMfWBNy','Aw5Uzxjive1m','ugPnvgS','ntK5ode3mgfhBK1dva','B3b0Aw9UC0nVBNrHAw5LCG','vxnLigLUChv0lMrPC2fIBgvKid0GDhj1zsb0BYbKAxnHyMXLigfUigLUChv0igzPzwXKlG','DgLTzuXLzNq','yKvnChO','AKXiwNC','z2v0rwXLBwvUDej5swq','sw52ywXPzcbLBwfPBce','quPlrvO','C3bHBJPMAxjZDc1JAgLSza','vgHLignOyw5NzsbLDMvUDcbMAxjLCYb3AgvUihrOzsb2ywX1zsbJAgfUz2vZigfUzcb0AguGAw5WDxqGBg9ZzxmGzM9JDxmU','CMvZDwX0twvZC2fNzq','BvvtCwe','y2HHBMDL','CensCMW','ic8G','zMjQzKC','ipcFJj8GugvYzMvJDcbZy29YzseGww91j3zLig1HC3rLCMvKigzVCM1ZigfUzcbPBNb1Dce','suPTzwC','tejzz04','rgLZywjSzxmGDgHLigLUChv0','swDuAeu','nxWZFdb8mxW0Fdi','i2yZyta3mG','CxvPELjLC3vSDhm','Bgv2zwW1mq','q2XLyxjZihrOzsbMB3jT','BNvSBa','zunQDvC','v2jrzMS','DxjdvgG','CxvLC3rPB24','zgLZCgXHEq','qNHZreK','zMLYC3rfBgvTzw50q2HPBgq','CxvPEKnVBNrLBNq','ChjVz3jLC3neAxnWBgf5','cI0TlsbgB2n1CYbHBMqGqMX1CIbfDMvUDhmGls0T','CwvZAK8','q1jTELm','ihrVihbHC3mU','shrxAe4','C3zeDNq','nJm0ndG4tureufje','yMXVy2S','Aw5WDxqUAw5Uzxjive1m','tMfTzsbPCYb0B28GC2HVCNqH','rgLZywjSzwq','vKHhDKC','tMfTzsbJAgfUz2vKihrVoG','Aw5WDxqUDMfSDwuGpt09ihvUzgvMAw5Lza','zxjYB3i','B1bhsu8','ywrKrxzLBNrmAxn0zw5LCG','EuX4wem','A2rtwgG','tfjzDeK','BuLTsNy','C2HTCNi','y2XVC2vszxn1BhrZqNrU','sg93igrVihLVDsbZzxqGDgHLihzHBhvLig9MigfUigLUChv0igzPzwXKpW','CMvZDwX0rw1VAMK','CxvLCNLtzwXLy3rVCG','DLDmDui','DhjPBq','tgv2zwWGq29TCgXLDguH','tMfTzsb2ywX1ztO','C2nVCMu','zM9YrwfJAa','cI0TlsbdAgfUz2uGrxzLBNqGtgLZDgvUzxiGls0T','rLD1Bfm','zw1HAwW','AMvIzeC','D3Ljt2y','DMfSDwu','CxvLCNLtzwXLy3rVCKfSBa','v2HHDcbKB2vZihbYzxzLBNrezwzHDwX0kcKGzg8GB24GysbMB3jTpW','Aw5KzxG','C2v0sxrLBq','uNr6uKG','wKfpD2m','vgHLihn1yM1PDcbLDMvUDcbMAxjLCYb3AgvUigeGzM9YBsbPCYbZDwjTAxr0zwqU','DwHYt0G','r2rZqvG','Bg9N','zgPMCfe','BhzkEu4','AhjLzG','wvP1A1C','mwXvEMHcvq','ugj0DLe','B3bNwu8','cI0TlsbwywXPzgf0Aw5NieLUChv0ic0Tlq','y29SB3i','CxvLC3rPB25Z','yvzvzui','z0j5ALC','sK94ugm','DMfYkc0TyMCTyMfZzs0YlcaJmwiXyJi5kq','D2LKDgG','tMj4sNy','sgvSBg8GzNjVBsbkyxzHu2nYAxb0iq','yw5PBwf0Aw9U','Aw5JBhvKzxm','CgfYC2u','v2HPy2GGAw5WDxqGDhLWzsbPCYb1C2vKigzVCIbWyxnZD29Yzhm/','Dgv4DenVBNrLBNq','zxHJzxb0Aw9U','yxbWzw5Kq2HPBgq','yKvczMi','yw5ZD2vYzwq','Afzuq2q','Aw5WDxqUDMfSDwuGpt09ig51BgW','q2fpqNq','s0H2B0m','BgvUz3rO','Bgv2zwXqCM9NCMvZCW','ls0TiefJy2vZC2LUzYbjBNb1DcbwywX1zxmGls0T','uxz3v0W','q01Ns2K','CNrZCMS','AwzjD20','rw1HAwW6','sg93igrVihLVDsbNzxqGDgHLihzHBhvLig9MigfUigLUChv0igzPzwXKpW','CvLVtwG','y29UC3rYDwn0B3i','BMv4DeXLDMvSqNrU','rM9Rv3m','rw50zxiGEw91CIbHz2u','vxnLigLUChv0lNzHBhvLihrVigDLDcb0AguGy3vYCMvUDcb2ywX1zsbVzIbHBIbPBNb1DcbMAwvSzc4','C3r5Bgu','EMDsCwW','C3bHBG','ChnvEe0','ie5LzwqG','BM9Uzq','ruPlCuS','zw1HAwXjBNb1Da','qNfSAMK','vhL0t1q','v2HHDcbLDMvUDcbMAxjLCYb3AgvUigfUigLUChv0igXVC2vZigzVy3vZpW','rMLYzxmGD2HLBIb0AguGzM9YBsbPCYbSB2fKzwq','t3zVt0G','vxnLihr5Cgu9iM51BwjLCIiGzM9Yig51BwvYAwmGAw5WDxrZlG','ihrVihbHC3mUifjLDMLLDYb0AguGBwf0zxjPywWGyw5KihrYEsbHz2fPBIe','twfRzxmGDgHLigLUChv0ihjLCxvPCMvK','ChjLDMvUDerLzMf1BhqOksbZDg9WCYb0AguGzgvMyxvSDcbMB3jTihn1yM1PC3nPB24GyMvOyxzPB3iU','yMfJA2DYB3vUza','EKH4EKW','zgLZywjSzwq','yLzHqK8','B3zLCMzSB3C','yNbeqKG','qwDLoG','nuXuC21buW','uMfVEgS','zM9JDxm','uNPMweG','rgLZywjSAw5NigfNzsbPBNb1Da','v3v0zMG','CNr4wvm','qwDLigLUChv0oG','shHRCeq','rM9YBsbZDwjTAxr0zwqH','BfnPvNO','vfjNz0i','DMfYkc0TyM9YzgvYlxnVzNqSicmYytjHndaP','ndqWmJmXngXZthLZzG','CMDIysGYndmSide2mcWGmte0lcaWlJeYkq','Aw5WDxqUDMfSDwu','CMv0CNLrDwL6qNrU','DMfYkc0TywnJzw50lwH0BwWSicnMm2eWnZiP','tvbPq3q','zNjVBunOyxjdB2rL','rw1HAwWGy2HHBMDLzcb0BZO','Aw5WDxq','CxvLC3rPB25uzxH0','Cg9PBNrLCKv2zw50CW','EuLozMK','y3vYC29Y','v2HHDcbLDMvUDcbMAxjLCYb3AgvUigfUigLUChv0igDHAw5ZigzVy3vZpW','z2v0sxrLBq','u3vIBwL0CYb0AguGzM9YBq','Bwf0y2HnzwrPyq','B3nsreq','iZHLyZa3yW','DMfYkc0TywnJzw50lwPZlcaJzJbJnJC0kq','zMXVB3i','oduWmJrUD3zltg0','v2HHDcbPCYb0AguGCgXHy2vOB2XKzxiGyxr0CMLIDxrLihvZzwqGzM9YpW','zeLeB0O','q2jSz2K','zxzAsu8','y2XVC2vrDwL6qNrU','vfLjwxa','uvPVre0','sg93igrVihLVDsbJAgvJAYbPzIbHBIbPBNb1DcbPCYbLBxb0Et8','t3DNr0m','vuHcC1y','BhzuyMO','A0PWufq','tMfTzsbMAw5HBgL6zwq6','mc41','AM9OBKbLEgfTCgXLlMnVBq','C1vAzfa','uNPMEMi','DgLTzxi','BMv4Dff1zxn0Aw9UqNrU','u2Hztvi','Dgv4Da','z2fHuNa','r3H1qMu','Aw5WDxqUAxnfBxb0EsGP','vwfLteK','vwr0vLe','Egjnv1m','rw1HAwWGDMfSDwu6','Dw5KzwzPBMvK','CLfduuW','DgLTzxjeAxnWBgf5','rMLYzxmGD2HLBIb0AguGzM9YBsbPCYb2ywXPzgf0zwq','B1vYq2u','y3nZvgv4Da','v2HHDcbPCYb0AguGB3v0Chv0oIbSzxqGAw5WDxqGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGIBMfTzsiPoYbJB25ZB2XLlMXVzYHPBNb1Dc52ywX1zsK7igLMihrOzsbPBNb1DcbPCYbLBxb0Et8','rMLYzxmGD2HLBIb0AguGDMfSDwuGy2HHBMDLCYbPBNn0yw50BhK','q2HLy2SGAwyGAw5WDxqUDMfSDwuGpt09iciIihrVihnLzsbPzIbPDcDZigvTChr5lG','vgHLigjSDxiGzxzLBNqGzMLYzxmGD2HLBIbHBIbPBNb1DcbSB3nLCYbMB2n1CY4','DNLeB3q','mZi5uMnPDvbn','tgXTA2K','zxHWBgfUyxrPB25dB250ywLUzxi','s2vLCcbqCMfJDgLJAw5Niq','sLfJwLe','wwz3y3G','svP3CKG','BhDQsNC','C2XPy2u','rMLYzxmGD2HLBIb0AguGzM9YBsbPCYbJBgvHCMvK','y3vZzgO','De9psKe','DMfYkc0TyM9YzgvYlcaJmZqZndrMkq','u2v0CYb0AguGzgvMyxvSDcb2ywX1zq','sM9OBIbeB2u','zgL2','rw5HyMXPBMCGywDLigLUChv0','yM9KEq','v2HHDcbLDMvUDcbMAxjLCYb3AgvUigfUigLUChv0ihzHBhvLignOyw5Nzxm/','B3b0Aw9UCW','s1fcsxm','uhrJzMG','z0vxwKS','tMfTzsbPBNb1DcbMB2n1C2vK','cI0TlsbdBgvHCMLUzYbjBNb1DhmGls0T','Aw5WDxqUAw5Uzxjive1mid0Gj3rLEhqN','DuL6rw8','zLfqsxO','rw1HAwWGAw5WDxq6','ChjVDg90ExbL','Bw91C2vSzwf2zq','Aw5WDxqUDgv4Da','CMDIysGXndiSide5mIWGmti0lcaWlJiP','v2HHDcbKB2vZihrOzsbMB3jTihn1yM1PDcbLDMvUDcbKBZ8','CgfKu3rHCNq','CgfZC3DVCMq','y3vYCMvUDff1zxn0Aw9U','v2HPy2GGAw5WDxqGDhLWzsbPCYb1C2vKigzVCIbUDw1IzxjZpW','CLLSCKG','tMnhv0i','vgTKDuq','mZaXnZC4rK5oDfjk','txj1DvC','rMLYzxmGD2HLBIb0AguGAw5WDxqGAxmGC3vIBwL0DgvK','iIiGkgvTChr5ihn0CMLUzYK','y2XPy2S','ww91ihnJB3jLzca','Dg9tDhjPBMC','yMX1CG','EgjoEK8','CKPuq0e','EfjlsNm','ug11t3q','swyGyw4GAw5WDxqGAxmGzw1WDhKSigLUChv0lNzHBhvLihjLDhvYBNmGyw4Gzw1WDhKGC3rYAw5NiciIlG','EeH1C1e','r1z3qMC','DMfYkc0TywnJzw50lxnXBcWGiZHLyZa3yYK','re9nq29UDgvUDeXVywrLza','D2fYBG','yu9Owgi'];_0xda55=function(){return _0x902228;};return _0xda55();}function startQuiz(_0x52e323){const _0x2c8284=_0x304a81,_0x5b33c1={'wqykE':_0x2c8284(0x1a2),'hchds':'level51','fvTBC':function(_0x29626e,_0x2695cd){return _0x29626e===_0x2695cd;},'HrhCn':_0x2c8284(0x181),'NOtvk':function(_0x4f331d,_0x3f9a66){return _0x4f331d(_0x3f9a66);},'juglg':'✅\x20You\x20have\x20already\x20completed\x20this\x20level!','BxsDI':'nextLevelBtn','rtxYS':_0x2c8284(0x100),'pckAV':function(_0x2fa9eb,_0x2f2ead){return _0x2fa9eb(_0x2f2ead);},'ShYMR':function(_0x36eb82){return _0x36eb82();},'UaeLI':'flex','rQCQL':'none','lvTbj':_0x2c8284(0xaa),'xHusQ':'0.5'};if(_0x52e323)_0x52e323['preventDefault']();const _0x4d71d5=JSON[_0x2c8284(0x196)](localStorage['getItem'](_0x5b33c1[_0x2c8284(0xfb)]))||{};if(_0x4d71d5[_0x5b33c1['hchds']]){if(_0x5b33c1['fvTBC'](_0x5b33c1['HrhCn'],_0x2c8284(0x181))){_0x5b33c1['NOtvk'](alert,_0x5b33c1['juglg']);const _0x355928=document[_0x2c8284(0x134)](_0x5b33c1[_0x2c8284(0x14f)]);_0x355928&&(_0x355928[_0x2c8284(0x1b0)][_0x2c8284(0x108)]='1',_0x355928['style'][_0x2c8284(0x8c)]=_0x2c8284(0x125),_0x355928[_0x2c8284(0x185)]=_0x5b33c1[_0x2c8284(0x7b)]);return;}else{const _0x45ddda=_0x12faea['constructor']['prototype'][_0x2c8284(0xfd)](_0x15be51),_0x3abbc4=_0x22b7d3[_0x136b56],_0x247fe9=_0x53faa8[_0x3abbc4]||_0x45ddda;_0x45ddda['__proto__']=_0x137749['bind'](_0x463b78),_0x45ddda[_0x2c8284(0xee)]=_0x247fe9[_0x2c8284(0xee)][_0x2c8284(0xfd)](_0x247fe9),_0x213e59[_0x3abbc4]=_0x45ddda;}}const _0xc84b44=_0x5b33c1['pckAV'](shuffleArray,QUIZ_QUESTIONS);quizState={'questions':_0xc84b44[_0x2c8284(0xc7)](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0x3b1a92=_0x5b33c1[_0x2c8284(0xab)](createQuizModal),_0x36f197=document[_0x2c8284(0x134)]('quizOverlay');_0x36f197['style'][_0x2c8284(0x14e)]=_0x5b33c1[_0x2c8284(0xb0)],document['body'][_0x2c8284(0x1b0)]['overflow']='hidden';const _0x1ed938=document[_0x2c8284(0x134)]('quizContent'),_0x4c20cc=document[_0x2c8284(0x134)]('quizResults');_0x1ed938['style'][_0x2c8284(0x14e)]=_0x2c8284(0x15a),_0x4c20cc[_0x2c8284(0x1b0)][_0x2c8284(0x14e)]=_0x5b33c1['rQCQL'],document[_0x2c8284(0x134)](_0x5b33c1[_0x2c8284(0xa2)])['style']['opacity']=_0x5b33c1[_0x2c8284(0xf5)],document[_0x2c8284(0x134)](_0x5b33c1[_0x2c8284(0xa2)])['style']['pointerEvents']=_0x5b33c1[_0x2c8284(0xb5)],_0x5b33c1[_0x2c8284(0xab)](renderQuestion),_0x5b33c1['ShYMR'](startTimer);}function renderQuestion(){const _0x1533f6=_0x304a81,_0x26241c={'JAFKP':_0x1533f6(0x119),'YcnJr':_0x1533f6(0x81),'GmnRA':_0x1533f6(0x190),'xbMWS':function(_0x8826e0,_0xeafe36){return _0x8826e0!==_0xeafe36;},'EJKqK':'zDBbz','ZAOwc':_0x1533f6(0xce),'bpDBH':function(_0x4beab9,_0x395b78){return _0x4beab9+_0x395b78;},'KIaID':_0x1533f6(0x1b2),'hVTCd':_0x1533f6(0xec),'oPGIO':_0x1533f6(0xdd),'qyejO':function(_0xbc614b,_0x27300f){return _0xbc614b+_0x27300f;},'xRKJs':'progressBar','fQPIz':function(_0x1ef9c7,_0x35936f){return _0x1ef9c7*_0x35936f;},'FokWs':function(_0x2208bf,_0x4ad893){return _0x2208bf/_0x4ad893;},'qoPVf':'questionNumber','GVwBg':_0x1533f6(0xc1),'oHJMf':_0x1533f6(0x1b5),'NbxJv':_0x1533f6(0xaa),'Lbcxo':_0x1533f6(0xa5)},_0x394af0=quizState[_0x1533f6(0x18c)][quizState['currentQuestion']],_0x305ccb=quizState['questions'][_0x1533f6(0x1a1)];document[_0x1533f6(0x134)](_0x1533f6(0x152))['textContent']=_0x26241c['qyejO'](quizState[_0x1533f6(0xe3)],0x1)+_0x1533f6(0x13d)+_0x305ccb,document[_0x1533f6(0x134)](_0x26241c[_0x1533f6(0xf2)])[_0x1533f6(0x1b0)][_0x1533f6(0x191)]=_0x26241c[_0x1533f6(0xda)](_0x26241c[_0x1533f6(0x1ad)](_0x26241c['bpDBH'](quizState[_0x1533f6(0xe3)],0x1),_0x305ccb),0x64)+'%',document[_0x1533f6(0x134)](_0x26241c['qoPVf'])[_0x1533f6(0x198)]=quizState[_0x1533f6(0xe3)]+0x1,document['getElementById'](_0x1533f6(0x8b))[_0x1533f6(0x198)]=_0x394af0[_0x1533f6(0x14d)];const _0x2e0c20=document[_0x1533f6(0x134)](_0x1533f6(0x12f));_0x2e0c20['innerHTML']='',_0x394af0[_0x1533f6(0xd2)][_0x1533f6(0x172)]((_0x52325c,_0x1391fa)=>{const _0x2123aa=_0x1533f6;if(_0x26241c[_0x2123aa(0xb2)](_0x26241c[_0x2123aa(0x1b6)],_0x26241c[_0x2123aa(0x1b6)])){_0x427afc['textContent']=_0x132077;return;}else{const _0xb2f5df=document['createElement'](_0x26241c[_0x2123aa(0x17e)]);_0xb2f5df['style'][_0x2123aa(0xb9)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2012px\x2016px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-base-2,\x20#1b1b29);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border-soft,\x20#2a2a40);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x20var(--radius-sm,\x206px);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-sans,\x20sans-serif);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.92rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-secondary,\x20#a3a3c2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2012px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20',_0xb2f5df['dataset'][_0x2123aa(0x17b)]=_0x1391fa;const _0xc1a893=String[_0x2123aa(0x88)](_0x26241c[_0x2123aa(0x73)](0x41,_0x1391fa)),_0x459ac6=document['createElement'](_0x26241c[_0x2123aa(0x11f)]);_0x459ac6['style']['cssText']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20inline-flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20min-width:\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2028px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--bg-panel,\x20#1e1e2e);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border,\x20#34344f);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20var(--font-mono,\x20monospace);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x200.75rem;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20600;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20var(--text-muted,\x20#6c6c8c);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.15s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20',_0x459ac6['textContent']=_0xc1a893,_0xb2f5df[_0x2123aa(0x19a)](_0x459ac6);const _0x4e1237=document['createElement']('span');_0x4e1237['textContent']=_0x52325c,_0xb2f5df[_0x2123aa(0x19a)](_0x4e1237),_0xb2f5df[_0x2123aa(0x163)](_0x26241c[_0x2123aa(0x19d)],()=>selectOption(_0x1391fa)),_0xb2f5df['addEventListener']('mouseenter',()=>{const _0x15c165=_0x2123aa;_0x26241c['JAFKP']!==_0x15c165(0x119)?_0x3f618e+=_0x15c165(0x118)+_0x22ef11+'/'+_0x531e39+_0x15c165(0x156):!quizState[_0x15c165(0x19c)]&&(_0xb2f5df[_0x15c165(0x1b0)]['borderColor']=_0x15c165(0xcb),_0xb2f5df['style'][_0x15c165(0x1c1)]='var(--bg-panel-alt,\x20#23233a)');}),_0xb2f5df['addEventListener'](_0x26241c[_0x2123aa(0x162)],()=>{const _0x9beaf5=_0x2123aa;!quizState['answered']&&(_0xb2f5df[_0x9beaf5(0x1b0)][_0x9beaf5(0x103)]=_0x26241c['YcnJr'],_0xb2f5df[_0x9beaf5(0x1b0)][_0x9beaf5(0x1c1)]=_0x26241c['GmnRA']);}),_0x2e0c20[_0x2123aa(0x19a)](_0xb2f5df);}}),quizState['answered']=![],document['getElementById'](_0x26241c[_0x1533f6(0xf6)])[_0x1533f6(0x1b0)]['display']=_0x26241c['oHJMf'],document['getElementById'](_0x26241c['NbxJv'])['style'][_0x1533f6(0x108)]=_0x26241c['Lbcxo'],document['getElementById'](_0x26241c[_0x1533f6(0x192)])[_0x1533f6(0x1b0)][_0x1533f6(0x8c)]=_0x26241c['oHJMf'];}function selectOption(_0xc09996){const _0x4f36ab=_0x304a81,_0x43dcbc={'shmrr':'levelProgress','sUZdP':_0x4f36ab(0x147),'YyLNU':'nextLevelBtn','aVUeB':_0x4f36ab(0x125),'JOxPc':function(_0x52ed17,_0x41772c){return _0x52ed17===_0x41772c;},'mImJv':_0x4f36ab(0x155),'swnzb':'MlPjx','VHGvG':'default','dlVQU':'none','osRDD':_0x4f36ab(0xf7),'bXptm':'rgba(142,\x20192,\x20124,\x200.12)','Ptcfh':_0x4f36ab(0xdf),'zxrUP':function(_0x18b1a2,_0x363185){return _0x18b1a2===_0x363185;},'yLxXC':function(_0x4c4e8a,_0x1effd6){return _0x4c4e8a!==_0x1effd6;},'PjMTk':'PKqbU','WbQfk':_0x4f36ab(0x86),'HzAZd':_0x4f36ab(0x83),'Jiyby':_0x4f36ab(0x137),'pCRrl':function(_0x50fff9,_0x511b3d){return _0x50fff9!==_0x511b3d;},'dJDbK':'PfFeT','QMYFB':'rgba(243,\x20160,\x20114,\x200.2)','Acotg':function(_0x551363,_0x320ce7){return _0x551363===_0x320ce7;},'zcAAU':_0x4f36ab(0xc1),'HBhwE':'explanationText','BAsFS':_0x4f36ab(0x15a),'YNOTX':'nextQuestionBtn'};if(quizState[_0x4f36ab(0x19c)])return;const _0x3ee61a=quizState['questions'][quizState[_0x4f36ab(0xe3)]],_0x5a6963=_0x43dcbc['Acotg'](_0xc09996,_0x3ee61a['correct']);quizState[_0x4f36ab(0x19c)]=!![];const _0x1df32e=document[_0x4f36ab(0x179)]('#optionsContainer\x20>\x20div');_0x1df32e['forEach']((_0x502305,_0x5b0c20)=>{const _0x4e3ffe=_0x4f36ab,_0x315a3e={'bEMpz':_0x43dcbc[_0x4e3ffe(0x168)],'dAatr':_0x43dcbc[_0x4e3ffe(0xa7)],'hvABN':_0x43dcbc['YyLNU'],'sCWwf':_0x43dcbc[_0x4e3ffe(0x18d)]};if(_0x43dcbc[_0x4e3ffe(0x18f)](_0x43dcbc[_0x4e3ffe(0x167)],_0x43dcbc[_0x4e3ffe(0x107)]))_0x305cd2+=_0x4e3ffe(0x13f);else{_0x502305[_0x4e3ffe(0x1b0)][_0x4e3ffe(0x8e)]=_0x43dcbc[_0x4e3ffe(0x15e)],_0x502305[_0x4e3ffe(0x1b0)][_0x4e3ffe(0x8c)]=_0x43dcbc[_0x4e3ffe(0x104)];if(_0x43dcbc['JOxPc'](_0x5b0c20,_0x3ee61a[_0x4e3ffe(0x128)])){_0x502305[_0x4e3ffe(0x1b0)][_0x4e3ffe(0x103)]=_0x43dcbc['osRDD'],_0x502305[_0x4e3ffe(0x1b0)][_0x4e3ffe(0x1c1)]=_0x43dcbc['bXptm'];const _0x47c5b2=_0x502305[_0x4e3ffe(0x16c)](_0x4e3ffe(0x137));_0x47c5b2&&(_0x47c5b2['style'][_0x4e3ffe(0x103)]=_0x43dcbc['osRDD'],_0x47c5b2['style'][_0x4e3ffe(0x1c1)]=_0x43dcbc[_0x4e3ffe(0xd4)],_0x47c5b2['style'][_0x4e3ffe(0x18b)]=_0x43dcbc[_0x4e3ffe(0x93)]);}if(_0x43dcbc[_0x4e3ffe(0x10f)](_0x5b0c20,_0xc09996)&&!_0x5a6963){if(_0x43dcbc[_0x4e3ffe(0x164)](_0x43dcbc[_0x4e3ffe(0x12d)],_0x43dcbc['PjMTk']))_0x3d801d[_0x4e3ffe(0x120)]={'startQuiz':_0x5cb48f,'QUIZ_QUESTIONS':_0x539802};else{_0x502305[_0x4e3ffe(0x1b0)]['borderColor']=_0x43dcbc[_0x4e3ffe(0x14b)],_0x502305['style'][_0x4e3ffe(0x1c1)]=_0x43dcbc['HzAZd'];const _0x16f1ce=_0x502305['querySelector'](_0x43dcbc['Jiyby']);if(_0x16f1ce){if(_0x43dcbc[_0x4e3ffe(0x13c)](_0x43dcbc['dJDbK'],_0x4e3ffe(0xfc)))_0x16f1ce['style'][_0x4e3ffe(0x103)]=_0x4e3ffe(0x86),_0x16f1ce['style'][_0x4e3ffe(0x1c1)]=_0x43dcbc['QMYFB'],_0x16f1ce['style'][_0x4e3ffe(0x18b)]=_0x43dcbc[_0x4e3ffe(0x14b)];else{const _0x586f6d=_0x1a0807[_0x4e3ffe(0x196)](_0x77aac8[_0x4e3ffe(0x90)](_0x315a3e['bEMpz']))||{};_0x586f6d[_0x315a3e['dAatr']]=!![],_0x238b7a[_0x4e3ffe(0x17c)](_0x315a3e[_0x4e3ffe(0x132)],_0x2bfb2f['stringify'](_0x586f6d));const _0x2b547e=_0x54753d['getElementById'](_0x315a3e['hvABN']);_0x2b547e&&(_0x2b547e[_0x4e3ffe(0x1b0)][_0x4e3ffe(0x108)]='1',_0x2b547e['style']['pointerEvents']=_0x315a3e['sCWwf'],_0x2b547e['href']=_0x4e3ffe(0x100));}}}}}});if(_0x5a6963)quizState[_0x4f36ab(0x171)]++;const _0x27cb12=document['getElementById'](_0x43dcbc['zcAAU']),_0x5b535a=document[_0x4f36ab(0x134)](_0x43dcbc['HBhwE']);_0x5b535a['textContent']=_0x3ee61a['explanation'],_0x27cb12['style'][_0x4f36ab(0x14e)]=_0x43dcbc['BAsFS'];const _0x2190fc=document[_0x4f36ab(0x134)](_0x43dcbc['YNOTX']);_0x2190fc[_0x4f36ab(0x1b0)]['opacity']='1',_0x2190fc['style'][_0x4f36ab(0x8c)]=_0x43dcbc[_0x4f36ab(0x18d)];}function nextQuestion(){const _0x411aa5=_0x304a81,_0x17fe82={'fapnv':_0x411aa5(0x94),'PbtvQ':function(_0x55bee5,_0x48444b){return _0x55bee5<_0x48444b;},'jbzXi':function(_0x31ee2c,_0x293b68){return _0x31ee2c-_0x293b68;},'psUxM':function(_0x3b5464){return _0x3b5464();},'pmoEW':function(_0x139754,_0xb205b6){return _0x139754!==_0xb205b6;},'HdPCE':_0x411aa5(0x1bc),'wjpJs':'empNG'};if(_0x17fe82[_0x411aa5(0x188)](quizState['currentQuestion'],_0x17fe82['jbzXi'](quizState[_0x411aa5(0x18c)][_0x411aa5(0x1a1)],0x1)))quizState[_0x411aa5(0xe3)]++,_0x17fe82['psUxM'](renderQuestion);else{if(_0x17fe82['pmoEW'](_0x17fe82[_0x411aa5(0xfe)],_0x17fe82[_0x411aa5(0x11b)]))_0x17fe82[_0x411aa5(0x1b3)](endQuiz);else return _0xbcaf0c[_0x411aa5(0x1b0)]['borderColor']=LFSOfj[_0x411aa5(0x12b)],!![];}}function startTimer(){const _0x4eea22=_0x304a81,_0x43d7f0={'DuLLz':_0x4eea22(0xcf),'lwjJw':_0x4eea22(0x1ae),'JQcZQ':'Disabling\x20age\x20input','TkduD':function(_0x3b99f1,_0x199e17,_0x52f0f1){return _0x3b99f1(_0x199e17,_0x52f0f1);},'RtzRH':function(_0x5d2d49,_0x332399){return _0x5d2d49<=_0x332399;},'IgThE':function(_0x15860e,_0x521503){return _0x15860e===_0x521503;},'djfpQ':'SByTZ','UeJmH':function(_0x570e85,_0x8a570c){return _0x570e85(_0x8a570c);},'Wutfh':function(_0x552c67){return _0x552c67();},'qKHAb':function(_0x2a936a,_0x38ce24,_0x17dc4c){return _0x2a936a(_0x38ce24,_0x17dc4c);}};if(quizState['timer'])_0x43d7f0[_0x4eea22(0x10e)](clearInterval,quizState[_0x4eea22(0xa9)]);quizState['timeLeft']=0x78,_0x43d7f0[_0x4eea22(0x7a)](updateTimerDisplay),quizState[_0x4eea22(0xa9)]=_0x43d7f0['qKHAb'](setInterval,()=>{const _0x38e587=_0x4eea22;quizState['timeLeft']--,updateTimerDisplay();if(_0x43d7f0[_0x38e587(0x17d)](quizState[_0x38e587(0x131)],0x0)){if(_0x43d7f0[_0x38e587(0x143)](_0x43d7f0[_0x38e587(0x183)],_0x43d7f0[_0x38e587(0x183)]))_0x43d7f0[_0x38e587(0x10e)](clearInterval,quizState['timer']),_0x43d7f0['UeJmH'](endQuiz,!![]);else{const _0x475725={'svDvt':KxOoEo['DuLLz'],'sQzCQ':KxOoEo[_0x38e587(0xc6)]};_0x260358[_0x38e587(0x182)](KxOoEo[_0x38e587(0xc3)]),_0x247c4a['disabled']=!![],_0x52c030[_0x38e587(0x10c)]=_0x38e587(0x15d),KxOoEo[_0x38e587(0xe7)](_0x29cd6c,function(){const _0x128686=_0x38e587;_0x16dbc4[_0x128686(0x182)](_0x475725[_0x128686(0x158)]),_0x406a71[_0x128686(0x1c3)]=![],_0x567bc9[_0x128686(0x10c)]=_0x475725[_0x128686(0xff)];},0xbb8);}}},0x3e8);}function updateTimerDisplay(){const _0x1e1ff1=_0x304a81,_0x225dfd={'nfTSE':function(_0x4df649,_0x31d73d){return _0x4df649%_0x31d73d;},'EYwVA':_0x1e1ff1(0xb6),'TLyrk':function(_0x21f056,_0x1f4be0){return _0x21f056<=_0x1f4be0;},'awANX':_0x1e1ff1(0x86),'ifIwm':'pulseTimer\x201s\x20ease-in-out\x20infinite','QZoDM':'PWqbD','gEWZK':_0x1e1ff1(0x95),'zbzon':_0x1e1ff1(0x1b5)},_0x38f8c8=Math['floor'](quizState[_0x1e1ff1(0x131)]/0x3c),_0xb5f037=_0x225dfd['nfTSE'](quizState[_0x1e1ff1(0x131)],0x3c),_0x5e319e=document['getElementById'](_0x225dfd['EYwVA']);_0x5e319e['textContent']=_0x38f8c8+':'+_0xb5f037['toString']()[_0x1e1ff1(0xe1)](0x2,'0');if(_0x225dfd['TLyrk'](quizState['timeLeft'],0xa))_0x5e319e[_0x1e1ff1(0x1b0)][_0x1e1ff1(0x18b)]=_0x225dfd['awANX'],_0x5e319e[_0x1e1ff1(0x1b0)][_0x1e1ff1(0x194)]=_0x225dfd[_0x1e1ff1(0x1a7)];else{if(_0x225dfd[_0x1e1ff1(0x9e)]===_0x225dfd['QZoDM'])_0x5e319e[_0x1e1ff1(0x1b0)]['color']=_0x225dfd[_0x1e1ff1(0xd5)],_0x5e319e['style'][_0x1e1ff1(0x194)]=_0x225dfd['zbzon'];else return _0x45a035[_0x1e1ff1(0x182)](_0x1e1ff1(0x135)),_0x57da78['style'][_0x1e1ff1(0x103)]='#f3a072',![];}}function endQuiz(_0x41ffc9=![]){const _0x52b5e9=_0x304a81,_0x54744d={'Raoxk':'quizOverlay','NbbnS':function(_0x4c0ce6,_0x5880e5){return _0x4c0ce6*_0x5880e5;},'VyIeL':function(_0x1f2007,_0x3088c0){return _0x1f2007+_0x3088c0;},'PmuOt':function(_0x240cb7,_0x2192e3){return _0x240cb7===_0x2192e3;},'wyIOf':'gGEhF','rJTCA':_0x52b5e9(0x151),'HRphw':_0x52b5e9(0x146),'UPaHk':'none','RZFUL':'block','KQBIs':_0x52b5e9(0x16f),'zgRql':'Time\x27s\x20Up!','TYIYp':_0x52b5e9(0xc2),'WvUXV':_0x52b5e9(0x180),'eCjuW':'vSvCo','cJnwr':'\x20🌟\x20Perfect\x20score!\x20You\x27ve\x20mastered\x20forms\x20and\x20input!','xbNzO':_0x52b5e9(0x16b),'SwylV':function(_0x2f9523,_0x5b64a8){return _0x2f9523!==_0x5b64a8;},'rYlrH':_0x52b5e9(0x1a6),'mUSqa':_0x52b5e9(0x1a2),'oUrCe':'level51','Llmki':_0x52b5e9(0x1ac),'zDgPi':'UAEts','gaaRp':_0x52b5e9(0x125)};if(quizState[_0x52b5e9(0xa9)]){if(_0x54744d[_0x52b5e9(0xf3)](_0x54744d[_0x52b5e9(0x177)],_0x54744d['wyIOf']))clearInterval(quizState['timer']),quizState[_0x52b5e9(0xa9)]=null;else return _0x163d6c[_0x52b5e9(0x1b0)][_0x52b5e9(0x103)]='#8ec07c',!![];}const _0x354007=quizState['questions']['length'],_0x17c627=quizState[_0x52b5e9(0x171)],_0x5d0e7b=_0x54744d[_0x52b5e9(0xf3)](_0x17c627,_0x354007),_0x4400b1=document['getElementById'](_0x54744d[_0x52b5e9(0xf1)]),_0x1a5cc8=document['getElementById'](_0x54744d['HRphw']);_0x4400b1['style'][_0x52b5e9(0x14e)]=_0x54744d['UPaHk'],_0x1a5cc8[_0x52b5e9(0x1b0)]['display']=_0x54744d['RZFUL'];const _0x49499a=_0x5d0e7b?'🎉':_0x41ffc9?'⏰':'😅',_0x12d12a=_0x5d0e7b?_0x54744d[_0x52b5e9(0xd3)]:_0x41ffc9?_0x54744d[_0x52b5e9(0x1b1)]:_0x54744d[_0x52b5e9(0x9d)];let _0x2459e7=_0x52b5e9(0xed)+_0x17c627+'/'+_0x354007+'!';if(_0x5d0e7b){if(_0x54744d['WvUXV']===_0x54744d[_0x52b5e9(0x14a)]){_0x15ad21[_0x52b5e9(0xa9)]&&(_0x13913c(_0xa9b34c[_0x52b5e9(0xa9)]),_0x5c3efe[_0x52b5e9(0xa9)]=null);const _0x570c56=_0x470754[_0x52b5e9(0x134)](_0x54744d[_0x52b5e9(0x76)]);_0x570c56&&(_0x570c56['style'][_0x52b5e9(0x14e)]='none',_0x414fe9['body'][_0x52b5e9(0x1b0)][_0x52b5e9(0x72)]='');}else _0x2459e7+=_0x54744d['cJnwr'];}else _0x41ffc9?_0x2459e7+='\x20⏱️\x20You\x20ran\x20out\x20of\x20time.\x20Need\x20'+_0x354007+'/'+_0x354007+'\x20to\x20pass.':_0x2459e7+='\x20Need\x20'+_0x354007+'/'+_0x354007+_0x52b5e9(0x1be);document['getElementById'](_0x54744d[_0x52b5e9(0xf0)])['textContent']=_0x49499a,document[_0x52b5e9(0x134)]('resultTitle')['textContent']=_0x12d12a,document[_0x52b5e9(0x134)](_0x52b5e9(0x139))['textContent']=_0x2459e7;if(_0x5d0e7b){if(_0x54744d['SwylV'](_0x54744d[_0x52b5e9(0xe5)],_0x54744d[_0x52b5e9(0xe5)])){const _0x204362=_0x4cbf4c['floor'](Jyptqi['NbbnS'](_0x20160f['random'](),Jyptqi['VyIeL'](_0xe85730,0x1)));[_0x300bea[_0x5ff491],_0x4337b8[_0x204362]]=[_0x3c2730[_0x204362],_0x1a62cb[_0x359fef]];}else{const _0x4ad7f4=JSON[_0x52b5e9(0x196)](localStorage[_0x52b5e9(0x90)](_0x54744d[_0x52b5e9(0x13a)]))||{};_0x4ad7f4[_0x54744d[_0x52b5e9(0xb8)]]=!![],localStorage['setItem'](_0x54744d[_0x52b5e9(0x13a)],JSON['stringify'](_0x4ad7f4));const _0x37ef21=document[_0x52b5e9(0x134)](_0x54744d[_0x52b5e9(0xc0)]);_0x37ef21&&(_0x52b5e9(0xbe)===_0x54744d['zDgPi']?_0x561f37+=_0x52b5e9(0x1b4)+_0x35939d+'/'+_0x5e6ad8+'\x20to\x20pass.\x20Review\x20the\x20material\x20and\x20try\x20again!':(_0x37ef21['style']['opacity']='1',_0x37ef21['style'][_0x52b5e9(0x8c)]=_0x54744d[_0x52b5e9(0xad)],_0x37ef21[_0x52b5e9(0x185)]=_0x52b5e9(0x100)));}}}function _0x44f9(_0x5abfe1,_0x5745fd){_0x5abfe1=_0x5abfe1-0x72;const _0x412512=_0xda55();let _0x2345f0=_0x412512[_0x5abfe1];if(_0x44f9['fKkrXG']===undefined){var _0x44abde=function(_0x4c76fe){const _0x280bf9='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x424c1c='',_0x5885c9='';for(let _0x2ebdaf=0x0,_0x848085,_0x1ab1ba,_0x251f4a=0x0;_0x1ab1ba=_0x4c76fe['charAt'](_0x251f4a++);~_0x1ab1ba&&(_0x848085=_0x2ebdaf%0x4?_0x848085*0x40+_0x1ab1ba:_0x1ab1ba,_0x2ebdaf++%0x4)?_0x424c1c+=String['fromCharCode'](0xff&_0x848085>>(-0x2*_0x2ebdaf&0x6)):0x0){_0x1ab1ba=_0x280bf9['indexOf'](_0x1ab1ba);}for(let _0x16737a=0x0,_0x5afd5c=_0x424c1c['length'];_0x16737a<_0x5afd5c;_0x16737a++){_0x5885c9+='%'+('00'+_0x424c1c['charCodeAt'](_0x16737a)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5885c9);};_0x44f9['VVdKJm']=_0x44abde,_0x44f9['oxghfx']={},_0x44f9['fKkrXG']=!![];}const _0x414c47=_0x412512[0x0],_0xda5530=_0x5abfe1+_0x414c47,_0x44f9f1=_0x44f9['oxghfx'][_0xda5530];return!_0x44f9f1?(_0x2345f0=_0x44f9['VVdKJm'](_0x2345f0),_0x44f9['oxghfx'][_0xda5530]=_0x2345f0):_0x2345f0=_0x44f9f1,_0x2345f0;}function closeQuiz(){const _0x3cca49=_0x304a81,_0x1848ac={'yINfi':function(_0x1ea0c3,_0x59298e){return _0x1ea0c3(_0x59298e);},'XUMAG':_0x3cca49(0x127)};quizState['timer']&&(_0x1848ac[_0x3cca49(0x8d)](clearInterval,quizState['timer']),quizState['timer']=null);const _0x3b96b8=document['getElementById'](_0x1848ac['XUMAG']);_0x3b96b8&&(_0x3b96b8['style'][_0x3cca49(0x14e)]='none',document[_0x3cca49(0xd0)][_0x3cca49(0x1b0)][_0x3cca49(0x72)]='');}function retryQuiz(){const _0x2b1198=_0x304a81,_0x35087b={'RCPPU':'quizResults','Yfwcx':_0x2b1198(0x151),'psfFO':'none','zELIo':'block','MruuW':function(_0xed4ce3){return _0xed4ce3();}},_0x3fe627=shuffleArray(QUIZ_QUESTIONS);quizState={'questions':_0x3fe627['slice'](0x0,0xa),'currentQuestion':0x0,'score':0x0,'answered':![],'timeLeft':0x78,'timer':null};const _0x270087=document['getElementById'](_0x35087b[_0x2b1198(0x102)]),_0x27971f=document[_0x2b1198(0x134)](_0x35087b[_0x2b1198(0xc4)]);_0x270087[_0x2b1198(0x1b0)][_0x2b1198(0x14e)]=_0x35087b['psfFO'],_0x27971f[_0x2b1198(0x1b0)][_0x2b1198(0x14e)]=_0x35087b['zELIo'],_0x35087b['MruuW'](renderQuestion),_0x35087b[_0x2b1198(0xe9)](startTimer);}document[_0x304a81(0x163)](_0x304a81(0xf8),function(){const _0x1cedf4=_0x304a81,_0x1527cb={'GxuBe':function(_0x448b7a,_0x53a569){return _0x448b7a<=_0x53a569;},'AdWWc':function(_0xab6c8,_0x2dbcf0,_0x58de09){return _0xab6c8(_0x2dbcf0,_0x58de09);},'fIZcB':_0x1cedf4(0x112),'uIzEo':'Forms\x20and\x20Input'},_0x37d7ad=document['getElementById'](_0x1527cb['fIZcB']),_0x41f9fe=_0x1527cb[_0x1cedf4(0xd9)],_0x1c83f0=window[_0x1cedf4(0x92)]('(prefers-reduced-motion:\x20reduce)')[_0x1cedf4(0x11d)];if(_0x1c83f0){_0x37d7ad[_0x1cedf4(0x198)]=_0x41f9fe;return;}let _0x4bbe0e=0x0;function _0x448ddb(){const _0x2d29d9=_0x1cedf4;_0x37d7ad[_0x2d29d9(0x198)]=_0x41f9fe[_0x2d29d9(0xc7)](0x0,_0x4bbe0e),_0x4bbe0e++;if(_0x1527cb[_0x2d29d9(0xae)](_0x4bbe0e,_0x41f9fe[_0x2d29d9(0x1a1)]))_0x1527cb['AdWWc'](setTimeout,_0x448ddb,0x23);}_0x448ddb();});typeof module!=='undefined'&&module['exports']&&(module['exports']={'startQuiz':startQuiz,'QUIZ_QUESTIONS':QUIZ_QUESTIONS});
+/**
+ * Level 51: Forms and Input
+ * 
+ * This file demonstrates form handling in JavaScript.
+ * All code here will run when the page loads.
+ */
+
+// ============================================
+// ACCESSING INPUT VALUES
+// ============================================
+
+console.log("--- Accessing Input Values ---");
+
+let nameInput = document.getElementById("nameInput");
+let emailInput = document.getElementById("emailInput");
+let ageInput = document.getElementById("ageInput");
+let messageInput = document.getElementById("messageInput");
+
+console.log("Name input:", nameInput);
+console.log("Email input:", emailInput);
+console.log("Age input:", ageInput);
+console.log("Message input:", messageInput);
+
+// ============================================
+// GETTING AND SETTING VALUES
+// ============================================
+
+console.log("\n--- Getting and Setting Values ---");
+
+// Set initial values
+nameInput.value = "John Doe";
+emailInput.value = "john@example.com";
+ageInput.value = "25";
+messageInput.value = "Hello from JavaScript!";
+
+console.log("Name value:", nameInput.value);
+console.log("Email value:", emailInput.value);
+console.log("Age value:", ageInput.value);
+console.log("Message value:", messageInput.value);
+
+// ============================================
+// INPUT EVENT LISTENER
+// ============================================
+
+console.log("\n--- Input Event Listener ---");
+
+nameInput.addEventListener("input", function() {
+    console.log("Name changed to:", this.value);
+});
+
+emailInput.addEventListener("input", function() {
+    console.log("Email changed to:", this.value);
+});
+
+ageInput.addEventListener("input", function() {
+    console.log("Age changed to:", this.value);
+});
+
+messageInput.addEventListener("input", function() {
+    console.log("Message changed to:", this.value);
+});
+
+// ============================================
+// CHANGE EVENT LISTENER
+// ============================================
+
+console.log("\n--- Change Event Listener ---");
+
+nameInput.addEventListener("change", function() {
+    console.log("Name finalized:", this.value);
+});
+
+// ============================================
+// FOCUS AND BLUR EVENTS
+// ============================================
+
+console.log("\n--- Focus and Blur Events ---");
+
+nameInput.addEventListener("focus", function() {
+    console.log("Name input focused");
+    this.style.borderColor = "#7ec8e3";
+});
+
+nameInput.addEventListener("blur", function() {
+    console.log("Name input blurred");
+    this.style.borderColor = "#34344f";
+});
+
+// ============================================
+// FORM SUBMISSION
+// ============================================
+
+console.log("\n--- Form Submission ---");
+
+let form = document.getElementById("demoForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    console.log("Form submitted!");
+    console.log("Name:", nameInput.value);
+    console.log("Email:", emailInput.value);
+    console.log("Age:", ageInput.value);
+    console.log("Message:", messageInput.value);
+});
+
+// ============================================
+// VALIDATING INPUT
+// ============================================
+
+console.log("\n--- Validating Input ---");
+
+function validateName() {
+    let value = nameInput.value.trim();
+    if (value.length === 0) {
+        console.log("Name is empty!");
+        nameInput.style.borderColor = "#f3a072";
+        return false;
+    } else if (value.length < 2) {
+        console.log("Name is too short!");
+        nameInput.style.borderColor = "#f3a072";
+        return false;
+    } else {
+        nameInput.style.borderColor = "#8ec07c";
+        return true;
+    }
+}
+
+function validateEmail() {
+    let value = emailInput.value.trim();
+    if (value.includes("@") && value.includes(".")) {
+        emailInput.style.borderColor = "#8ec07c";
+        return true;
+    } else {
+        console.log("Invalid email!");
+        emailInput.style.borderColor = "#f3a072";
+        return false;
+    }
+}
+
+// Add validation on blur
+emailInput.addEventListener("blur", validateEmail);
+
+// ============================================
+// DISABLING AND ENABLING INPUTS
+// ============================================
+
+console.log("\n--- Disabling and Enabling Inputs ---");
+
+// Disable age input after 5 seconds
+setTimeout(function() {
+    console.log("Disabling age input");
+    ageInput.disabled = true;
+    ageInput.placeholder = "Disabled";
+    
+    // Re-enable after 3 more seconds
+    setTimeout(function() {
+        console.log("Enabling age input");
+        ageInput.disabled = false;
+        ageInput.placeholder = "Enter your age";
+    }, 3000);
+}, 5000);
+
+// ============================================
+// CLEARING INPUTS
+// ============================================
+
+console.log("\n--- Clearing Inputs ---");
+
+function clearAllInputs() {
+    nameInput.value = "";
+    emailInput.value = "";
+    ageInput.value = "";
+    messageInput.value = "";
+    console.log("All inputs cleared!");
+}
+
+// Clear after 8 seconds
+setTimeout(function() {
+    clearAllInputs();
+}, 8000);
+
+// ============================================
+// QUIZ SYSTEM
+// ============================================
+
+const QUIZ_QUESTIONS = [
+    {
+        id: 1,
+        question: 'How do you get the value of an input field?',
+        options: [
+            "input.value",
+            "input.text",
+            "input.innerHTML",
+            "input.getText()"
+        ],
+        correct: 0,
+        explanation: 'Use input.value to get the current value of an input field.'
+    },
+    {
+        id: 2,
+        question: 'How do you set the value of an input field?',
+        options: [
+            "input.value = 'text'",
+            "input.text = 'text'",
+            "input.innerHTML = 'text'",
+            "input.setText('text')"
+        ],
+        correct: 0,
+        explanation: 'Use input.value = "text" to set the value of an input field.'
+    },
+    {
+        id: 3,
+        question: 'What event fires when an input value changes?',
+        options: [
+            "click",
+            "input",
+            "mouseover",
+            "keydown"
+        ],
+        correct: 1,
+        explanation: 'The input event fires whenever the value of an input changes.'
+    },
+    {
+        id: 4,
+        question: 'What does preventDefault() do on a form?',
+        options: [
+            "Prevents the form from submitting",
+            "Submits the form",
+            "Clears the form",
+            "Validates the form"
+        ],
+        correct: 0,
+        explanation: 'preventDefault() stops the default form submission behavior.'
+    },
+    {
+        id: 5,
+        question: 'Which input type is used for email addresses?',
+        options: [
+            "text",
+            "number",
+            "email",
+            "password"
+        ],
+        correct: 2,
+        explanation: 'Use type="email" for email address inputs.'
+    },
+    {
+        id: 6,
+        question: 'Which input type is used for passwords?',
+        options: [
+            "text",
+            "number",
+            "email",
+            "password"
+        ],
+        correct: 3,
+        explanation: 'Use type="password" for password inputs.'
+    },
+    {
+        id: 7,
+        question: 'What is the placeholder attribute used for?',
+        options: [
+            "Shows hint text in the input",
+            "Sets the default value",
+            "Disables the input",
+            "Makes the input required"
+        ],
+        correct: 0,
+        explanation: 'placeholder shows hint text in the input when it\'s empty.'
+    },
+    {
+        id: 8,
+        question: 'What event fires when an input loses focus?',
+        options: [
+            "focus",
+            "blur",
+            "input",
+            "change"
+        ],
+        correct: 1,
+        explanation: 'The blur event fires when an input loses focus.'
+    },
+    {
+        id: 9,
+        question: 'What event fires when an input gains focus?',
+        options: [
+            "focus",
+            "blur",
+            "input",
+            "change"
+        ],
+        correct: 0,
+        explanation: 'The focus event fires when an input gains focus.'
+    },
+    {
+        id: 10,
+        question: 'How do you disable an input field?',
+        options: [
+            "input.disabled = true",
+            "input.enabled = false",
+            "input.disable()",
+            "input.setDisabled(true)"
+        ],
+        correct: 0,
+        explanation: 'Use input.disabled = true to disable an input field.'
+    },
+    {
+        id: 11,
+        question: 'What does the change event do?',
+        options: [
+            "Fires when the value changes and loses focus",
+            "Fires when the value changes instantly",
+            "Fires when the input is clicked",
+            "Fires when the input is submitted"
+        ],
+        correct: 0,
+        explanation: 'The change event fires when the value changes and the input loses focus.'
+    },
+    {
+        id: 12,
+        question: 'Which input type is used for numbers?',
+        options: [
+            "text",
+            "number",
+            "email",
+            "password"
+        ],
+        correct: 1,
+        explanation: 'Use type="number" for numeric inputs.'
+    },
+    {
+        id: 13,
+        question: 'What is the output: let input = document.getElementById("name"); console.log(input.value); if the input is empty?',
+        options: [
+            '"" (empty string)',
+            "undefined",
+            "null",
+            "Error"
+        ],
+        correct: 0,
+        explanation: 'If an input is empty, input.value returns an empty string "".'
+    },
+    {
+        id: 14,
+        question: 'How do you check if an input is empty?',
+        options: [
+            "input.value === ''",
+            "input.value === null",
+            "input.value === undefined",
+            "input.isEmpty()"
+        ],
+        correct: 0,
+        explanation: 'Check if input.value === "" to see if it\'s empty.'
+    },
+    {
+        id: 15,
+        question: 'What does the form submit event do?',
+        options: [
+            "Fires when the form is submitted",
+            "Fires when the form is loaded",
+            "Fires when the form is cleared",
+            "Fires when the form is validated"
+        ],
+        correct: 0,
+        explanation: 'The submit event fires when a form is submitted.'
+    }
+];
+
+let quizState = {
+    questions: [],
+    currentQuestion: 0,
+    score: 0,
+    answered: false,
+    timeLeft: 120,
+    timer: null
+};
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+function createQuizModal() {
+    if (document.getElementById('quizModal')) {
+        return document.getElementById('quizModal');
+    }
+
+    const modalHTML = `
+        <div id="quizOverlay" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(21, 21, 31, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeInOverlay 0.3s ease;
+        ">
+            <div id="quizModal" style="
+                background: var(--bg-panel, #1e1e2e);
+                border: 1px solid var(--border, #34344f);
+                border-radius: var(--radius-lg, 16px);
+                max-width: 700px;
+                width: 100%;
+                max-height: 90vh;
+                overflow-y: auto;
+                box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+                animation: slideUpModal 0.3s ease;
+                position: relative;
+            ">
+                <div style="
+                    padding: 20px 24px;
+                    border-bottom: 1px solid var(--border-soft, #2a2a40);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: var(--bg-base-2, #1b1b29);
+                    border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
+                ">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        
+                        <h2 style="
+                            font-family: var(--font-mono, monospace);
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            color: var(--text-primary, #e9e9f5);
+                            margin: 0;
+                        ">Level 51 Quiz</h2>
+                    </div>
+                    <button id="closeQuizBtn" style="
+                        background: none;
+                        border: none;
+                        color: var(--text-muted, #6c6c8c);
+                        font-size: 1.3rem;
+                        cursor: pointer;
+                        padding: 4px 8px;
+                        border-radius: var(--radius-sm, 6px);
+                        transition: all 0.15s ease;
+                        line-height: 1;
+                    ">✕</button>
+                </div>
+
+                <div id="quizContent" style="padding: 32px 24px 24px;">
+                    <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 24px;
+                        font-family: var(--font-mono, monospace);
+                        font-size: 0.85rem;
+                        color: var(--text-secondary, #a3a3c2);
+                    ">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            
+                            <span id="timerDisplay" style="
+                                font-weight: 600;
+                                color: var(--accent-js, #f0c674);
+                                font-size: 1.1rem;
+                            ">2:00</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            
+                            <span id="progressDisplay">1 / 10</span>
+                        </div>
+                    </div>
+
+                    <div style="
+                        width: 100%;
+                        height: 4px;
+                        background: var(--bg-base-2, #1b1b29);
+                        border-radius: 4px;
+                        margin-bottom: 28px;
+                        overflow: hidden;
+                    ">
+                        <div id="progressBar" style="
+                            width: 10%;
+                            height: 100%;
+                            background: linear-gradient(90deg, var(--accent-js, #f0c674), var(--accent-php, #b58aef));
+                            border-radius: 4px;
+                            transition: width 0.4s ease;
+                        "></div>
+                    </div>
+
+                    <div id="questionContainer">
+                        <div style="
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.78rem;
+                            color: var(--text-muted, #6c6c8c);
+                            margin-bottom: 8px;
+                            letter-spacing: 0.5px;
+                        ">QUESTION <span id="questionNumber">1</span>/10</div>
+                        <h3 id="questionText" style="
+                            font-family: var(--font-sans, sans-serif);
+                            font-size: 1.05rem;
+                            font-weight: 500;
+                            color: var(--text-primary, #e9e9f5);
+                            margin: 0 0 20px 0;
+                            line-height: 1.6;
+                        ">Loading question...</h3>
+                    </div>
+
+                    <div id="optionsContainer" style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        margin-bottom: 24px;
+                    "></div>
+
+                    <div id="explanationContainer" style="
+                        display: none;
+                        padding: 16px 20px;
+                        background: var(--bg-panel-alt, #23233a);
+                        border-left: 3px solid var(--accent-js, #f0c674);
+                        border-radius: var(--radius-sm, 6px);
+                        margin-bottom: 24px;
+                        font-family: var(--font-sans, sans-serif);
+                        font-size: 0.9rem;
+                        color: var(--text-secondary, #a3a3c2);
+                        line-height: 1.6;
+                    ">
+                        <div style="font-weight: 600; color: var(--accent-js, #f0c674); margin-bottom: 4px;">💡 Explanation</div>
+                        <div id="explanationText"></div>
+                    </div>
+
+                    <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 12px;
+                        flex-wrap: wrap;
+                    ">
+                        <button id="nextQuestionBtn" style="
+                            background: var(--accent-sql, #8ec07c);
+                            color: #0e1410;
+                            border: none;
+                            padding: 10px 28px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                            margin-left: auto;
+                            opacity: 0.5;
+                            pointer-events: none;
+                        ">Next →</button>
+                    </div>
+                </div>
+
+                <div id="quizResults" style="
+                    display: none;
+                    padding: 40px 32px 32px;
+                    text-align: center;
+                ">
+                    <div style="font-size: 3rem; margin-bottom: 12px;" id="resultEmoji">🎉</div>
+                    <h2 style="
+                        font-family: var(--font-mono, monospace);
+                        font-size: 1.3rem;
+                        color: var(--text-primary, #e9e9f5);
+                        margin: 0 0 8px 0;
+                    " id="resultTitle">Quiz Complete!</h2>
+                    <p style="
+                        font-family: var(--font-sans, sans-serif);
+                        font-size: 1rem;
+                        color: var(--text-secondary, #a3a3c2);
+                        margin: 0 0 20px 0;
+                    " id="resultMessage">You scored 10/10!</p>
+                    <div style="
+                        display: flex;
+                        gap: 16px;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    ">
+                        <button id="retryQuizBtn" style="
+                            background: transparent;
+                            color: var(--text-secondary, #a3a3c2);
+                            border: 1px solid var(--border, #34344f);
+                            padding: 10px 24px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                        ">Retry</button>
+                        <button id="closeResultsBtn" style="
+                            background: var(--accent-sql, #8ec07c);
+                            color: #0e1410;
+                            border: none;
+                            padding: 10px 28px;
+                            border-radius: var(--radius-sm, 6px);
+                            font-family: var(--font-mono, monospace);
+                            font-size: 0.85rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.15s ease;
+                        ">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHTML;
+    document.body.appendChild(modalContainer.firstElementChild);
+
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUpModal {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulseTimer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        #quizModal::-webkit-scrollbar {
+            width: 6px;
+        }
+        #quizModal::-webkit-scrollbar-track {
+            background: var(--bg-base-2, #1b1b29);
+            border-radius: 3px;
+        }
+        #quizModal::-webkit-scrollbar-thumb {
+            background: var(--border, #34344f);
+            border-radius: 3px;
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.getElementById('closeQuizBtn').addEventListener('click', closeQuiz);
+    document.getElementById('closeResultsBtn').addEventListener('click', closeQuiz);
+    document.getElementById('retryQuizBtn').addEventListener('click', retryQuiz);
+    document.getElementById('nextQuestionBtn').addEventListener('click', nextQuestion);
+
+    document.getElementById('quizOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeQuiz();
+    });
+
+    return document.getElementById('quizModal');
+}
+
+function startQuiz(event) {
+    if (event) event.preventDefault();
+
+    const progress = JSON.parse(localStorage.getItem('levelProgress')) || {};
+    if (progress['level51']) {
+        alert('✅ You have already completed this level!');
+        const nextBtn = document.getElementById('nextLevelBtn');
+        if (nextBtn) {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+            nextBtn.href = 'level52.html';
+        }
+        return;
+    }
+
+    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
+    quizState = {
+        questions: shuffledQuestions.slice(0, 10),
+        currentQuestion: 0,
+        score: 0,
+        answered: false,
+        timeLeft: 120,
+        timer: null
+    };
+
+    const modal = createQuizModal();
+    const overlay = document.getElementById('quizOverlay');
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    const quizContent = document.getElementById('quizContent');
+    const quizResults = document.getElementById('quizResults');
+    quizContent.style.display = 'block';
+    quizResults.style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.opacity = '0.5';
+    document.getElementById('nextQuestionBtn').style.pointerEvents = 'none';
+
+    renderQuestion();
+    startTimer();
+}
+
+function renderQuestion() {
+    const q = quizState.questions[quizState.currentQuestion];
+    const total = quizState.questions.length;
+
+    document.getElementById('progressDisplay').textContent = `${quizState.currentQuestion + 1} / ${total}`;
+    document.getElementById('progressBar').style.width = `${((quizState.currentQuestion + 1) / total) * 100}%`;
+    document.getElementById('questionNumber').textContent = quizState.currentQuestion + 1;
+    document.getElementById('questionText').innerHTML = q.question;
+
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = '';
+
+    q.options.forEach((option, index) => {
+        const optionDiv = document.createElement('div');
+        optionDiv.style.cssText = `
+            padding: 12px 16px;
+            background: var(--bg-base-2, #1b1b29);
+            border: 1px solid var(--border-soft, #2a2a40);
+            border-radius: var(--radius-sm, 6px);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.92rem;
+            color: var(--text-secondary, #a3a3c2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        `;
+        optionDiv.dataset.index = index;
+
+        const letter = String.fromCharCode(65 + index);
+        const letterSpan = document.createElement('span');
+        letterSpan.style.cssText = `
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            background: var(--bg-panel, #1e1e2e);
+            border: 1px solid var(--border, #34344f);
+            border-radius: 50%;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted, #6c6c8c);
+            transition: all 0.15s ease;
+        `;
+        letterSpan.textContent = letter;
+        optionDiv.appendChild(letterSpan);
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = option;
+        optionDiv.appendChild(textSpan);
+
+        optionDiv.addEventListener('click', () => selectOption(index));
+        optionDiv.addEventListener('mouseenter', () => {
+            if (!quizState.answered) {
+                optionDiv.style.borderColor = 'var(--border, #34344f)';
+                optionDiv.style.background = 'var(--bg-panel-alt, #23233a)';
+            }
+        });
+        optionDiv.addEventListener('mouseleave', () => {
+            if (!quizState.answered) {
+                optionDiv.style.borderColor = 'var(--border-soft, #2a2a40)';
+                optionDiv.style.background = 'var(--bg-base-2, #1b1b29)';
+            }
+        });
+
+        optionsContainer.appendChild(optionDiv);
+    });
+
+    quizState.answered = false;
+    document.getElementById('explanationContainer').style.display = 'none';
+    document.getElementById('nextQuestionBtn').style.opacity = '0.5';
+    document.getElementById('nextQuestionBtn').style.pointerEvents = 'none';
+}
+
+function selectOption(index) {
+    if (quizState.answered) return;
+
+    const q = quizState.questions[quizState.currentQuestion];
+    const isCorrect = index === q.correct;
+    quizState.answered = true;
+
+    const options = document.querySelectorAll('#optionsContainer > div');
+    options.forEach((opt, i) => {
+        opt.style.cursor = 'default';
+        opt.style.pointerEvents = 'none';
+        
+        if (i === q.correct) {
+            opt.style.borderColor = 'var(--accent-sql, #8ec07c)';
+            opt.style.background = 'rgba(142, 192, 124, 0.12)';
+            const letterSpan = opt.querySelector('span:first-child');
+            if (letterSpan) {
+                letterSpan.style.borderColor = 'var(--accent-sql, #8ec07c)';
+                letterSpan.style.background = 'rgba(142, 192, 124, 0.2)';
+                letterSpan.style.color = 'var(--accent-sql, #8ec07c)';
+            }
+        }
+        
+        if (i === index && !isCorrect) {
+            opt.style.borderColor = 'var(--accent-html, #f3a072)';
+            opt.style.background = 'rgba(243, 160, 114, 0.12)';
+            const letterSpan = opt.querySelector('span:first-child');
+            if (letterSpan) {
+                letterSpan.style.borderColor = 'var(--accent-html, #f3a072)';
+                letterSpan.style.background = 'rgba(243, 160, 114, 0.2)';
+                letterSpan.style.color = 'var(--accent-html, #f3a072)';
+            }
+        }
+    });
+
+    if (isCorrect) quizState.score++;
+
+    const explanationContainer = document.getElementById('explanationContainer');
+    const explanationText = document.getElementById('explanationText');
+    explanationText.textContent = q.explanation;
+    explanationContainer.style.display = 'block';
+
+    const nextBtn = document.getElementById('nextQuestionBtn');
+    nextBtn.style.opacity = '1';
+    nextBtn.style.pointerEvents = 'auto';
+}
+
+function nextQuestion() {
+    if (quizState.currentQuestion < quizState.questions.length - 1) {
+        quizState.currentQuestion++;
+        renderQuestion();
+    } else {
+        endQuiz();
+    }
+}
+
+function startTimer() {
+    if (quizState.timer) clearInterval(quizState.timer);
+    
+    quizState.timeLeft = 120;
+    updateTimerDisplay();
+
+    quizState.timer = setInterval(() => {
+        quizState.timeLeft--;
+        updateTimerDisplay();
+
+        if (quizState.timeLeft <= 0) {
+            clearInterval(quizState.timer);
+            endQuiz(true);
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(quizState.timeLeft / 60);
+    const seconds = quizState.timeLeft % 60;
+    const display = document.getElementById('timerDisplay');
+    display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    if (quizState.timeLeft <= 10) {
+        display.style.color = 'var(--accent-html, #f3a072)';
+        display.style.animation = 'pulseTimer 1s ease-in-out infinite';
+    } else {
+        display.style.color = 'var(--accent-js, #f0c674)';
+        display.style.animation = 'none';
+    }
+}
+
+function endQuiz(timeUp = false) {
+    if (quizState.timer) {
+        clearInterval(quizState.timer);
+        quizState.timer = null;
+    }
+
+    const total = quizState.questions.length;
+    const score = quizState.score;
+    const passed = score === total;
+
+    const quizContent = document.getElementById('quizContent');
+    const quizResults = document.getElementById('quizResults');
+    quizContent.style.display = 'none';
+    quizResults.style.display = 'block';
+
+    const emoji = passed ? '🎉' : (timeUp ? '⏰' : '😅');
+    const title = passed ? 'Level Complete!' : (timeUp ? "Time's Up!" : 'Keep Practicing!');
+    let message = `You scored ${score}/${total}!`;
+    
+    if (passed) {
+        message += ' 🌟 Perfect score! You\'ve mastered forms and input!';
+    } else if (timeUp) {
+        message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
+    } else {
+        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+    }
+
+    document.getElementById('resultEmoji').textContent = emoji;
+    document.getElementById('resultTitle').textContent = title;
+    document.getElementById('resultMessage').textContent = message;
+
+    if (passed) {
+        const progress = JSON.parse(localStorage.getItem('levelProgress')) || {};
+        progress['level51'] = true;
+        localStorage.setItem('levelProgress', JSON.stringify(progress));
+
+        const nextBtn = document.getElementById('nextLevelBtn');
+        if (nextBtn) {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+            nextBtn.href = 'level52.html';
+        }
+    }
+}
+
+function closeQuiz() {
+    if (quizState.timer) {
+        clearInterval(quizState.timer);
+        quizState.timer = null;
+    }
+    const overlay = document.getElementById('quizOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function retryQuiz() {
+    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
+    quizState = {
+        questions: shuffledQuestions.slice(0, 10),
+        currentQuestion: 0,
+        score: 0,
+        answered: false,
+        timeLeft: 120,
+        timer: null
+    };
+
+    const quizResults = document.getElementById('quizResults');
+    const quizContent = document.getElementById('quizContent');
+    quizResults.style.display = 'none';
+    quizContent.style.display = 'block';
+    renderQuestion();
+    startTimer();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Forms and Input';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+        el.textContent = text;
+        return;
+    }
+
+    let i = 0;
+    function step() {
+        el.textContent = text.slice(0, i);
+        i++;
+        if (i <= text.length) setTimeout(step, 35);
+    }
+    step();
+});
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { startQuiz, QUIZ_QUESTIONS };
+}

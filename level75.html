@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 75: Accordion Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #15151f;
+            --bg-base-2: #1b1b29;
+            --bg-panel: #1e1e2e;
+            --bg-panel-alt: #23233a;
+            --bg-elevated: #272741;
+            --border: #34344f;
+            --border-soft: #2a2a40;
+            --text-primary: #e9e9f5;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6c6c8c;
+            --accent-html: #f3a072;
+            --accent-css: #7ec8e3;
+            --accent-js: #f0c674;
+            --accent-sql: #8ec07c;
+            --accent-react: #6fd3e0;
+            --accent-php: #b58aef;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
+                var(--bg-base);
+            min-height: 100vh;
+            padding: 32px 20px 60px;
+        }
+
+        .page {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent-js);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-css);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .terminal-window {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 18px;
+            background: var(--bg-base-2);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+        .terminal-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: block;
+        }
+        .terminal-dots span:nth-child(1) {
+            background: #ec6a5e;
+        }
+        .terminal-dots span:nth-child(2) {
+            background: #f4bf4f;
+        }
+        .terminal-dots span:nth-child(3) {
+            background: #61c454;
+        }
+
+        .terminal-tab {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            background: var(--bg-panel-alt);
+            border-radius: 5px;
+        }
+
+        .terminal-body {
+            padding: 40px 44px 36px;
+        }
+
+        .terminal-comment {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+        }
+
+        .cursor {
+            display: inline-block;
+            color: var(--accent-js);
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 26px;
+        }
+
+        .chip-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--chip-c, var(--border));
+            color: var(--chip-c, var(--text-secondary));
+            background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
+        }
+        .chip.js {
+            --chip-c: var(--accent-js);
+        }
+        .chip.level {
+            --chip-c: var(--accent-sql);
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin: 24px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        h3 {
+            font-family: var(--font-mono);
+            font-size: 1.02rem;
+            color: var(--text-primary);
+            margin: 18px 0 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .accordion-app {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+            overflow: hidden;
+            transition: all 0.15s ease;
+        }
+
+        .accordion-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .accordion-item:hover {
+            border-color: var(--border);
+        }
+
+        .accordion-item .accordion-header {
+            padding: 14px 18px;
+            background: var(--bg-base-2);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .accordion-item .accordion-header:hover {
+            background: var(--bg-panel);
+        }
+
+        .accordion-item .accordion-header .accordion-title {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .accordion-item .accordion-header .accordion-icon {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            font-family: var(--font-mono);
+        }
+
+        .accordion-item.active .accordion-header .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 18px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .accordion-item.active .accordion-body {
+            max-height: 500px;
+            padding: 14px 18px 18px;
+        }
+
+        .accordion-item .accordion-body code {
+            background: var(--bg-base-2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: var(--accent-js);
+        }
+
+        .accordion-controls {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn-demo {
+            background: var(--accent-sql);
+            color: #0e1410;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .btn-demo:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo.danger {
+            background: var(--accent-html);
+        }
+
+        .btn-demo.reset {
+            background: var(--accent-js);
+            color: #1a1a1a;
+        }
+
+        .info-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-js);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .info-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-js);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        .info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+        .info-box li strong {
+            color: var(--text-primary);
+        }
+
+        .quiz-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(142, 192, 124, 0.15);
+            color: var(--accent-sql);
+        }
+
+        .nav-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            text-align: center;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-sql);
+            color: #0e1410;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .btn-secondary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+        .btn-ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+            .terminal-body {
+                padding: 24px 20px 28px;
+            }
+            .panel {
+                padding: 20px;
+            }
+            .nav-row {
+                flex-direction: column;
+            }
+            .nav-row .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-tab">level75.js</div>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-comment">// Level 75: Accordion Menu</p>
+                <h1 class="hero-title">
+                    <span id="typedTitle">Accordion Menu</span><span class="cursor">_</span>
+                </h1>
+                <p class="hero-sub">
+                    Build a collapsible accordion menu with smooth animations.
+                    Perfect for FAQs, documentation, and organizing content.
+                </p>
+                <div class="chip-row">
+                    <span class="chip js">JavaScript</span>
+                    <span class="chip level">Level 75</span>
+                    <span class="chip js">Quiz Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h1>Accordion Menu</h1>
+            <p>
+                An accordion is a vertically stacked list of items that can be expanded
+                or collapsed. Each item has a header that toggles the visibility of its content.
+            </p>
+
+            <div class="accordion-app" id="accordionApp">
+                <div class="accordion-item active">
+                    <div class="accordion-header" data-target="1">
+                        <span class="accordion-title">📚 What is an Accordion?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-body" id="body1">
+                        An accordion is a UI component that organizes content into collapsible sections. 
+                        Users can click on headers to expand or collapse content, making it ideal for 
+                        FAQs, navigation menus, and information dense interfaces.
+                        <br><br>
+                        <code>Click the header to toggle this section!</code>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="2">
+                        <span class="accordion-title">🚀 Why Use an Accordion?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-body" id="body2">
+                        Accordions help save space on your page while still providing access to 
+                        all content. They're perfect for:
+                        <ul style="margin-left: 20px; margin-top: 8px;">
+                            <li>Frequently Asked Questions (FAQs)</li>
+                            <li>Product features and specifications</li>
+                            <li>Documentation and guides</li>
+                            <li>Mobile navigation menus</li>
+                            <li>Settings and preferences panels</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="3">
+                        <span class="accordion-title">⚡ How It Works</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-body" id="body3">
+                        The accordion uses JavaScript to toggle the <code>active</code> class on each item.
+                        CSS transitions handle the smooth animation of the content height.
+                        <br><br>
+                        <strong>Key features:</strong>
+                        <ul style="margin-left: 20px; margin-top: 8px;">
+                            <li>Click a header to expand/collapse</li>
+                            <li>Smooth height transitions</li>
+                            <li>Keyboard accessible</li>
+                            <li>Multiple items can be open at once</li>
+                            <li>Customizable styling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="4">
+                        <span class="accordion-title">🎨 Customization Options</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-body" id="body4">
+                        You can customize the accordion in many ways:
+                        <ul style="margin-left: 20px; margin-top: 8px;">
+                            <li><strong>Colors:</strong> Match your brand or design system</li>
+                            <li><strong>Animation speed:</strong> Control the expand/collapse duration</li>
+                            <li><strong>Icons:</strong> Use different icons for open/closed states</li>
+                            <li><strong>Behavior:</strong> Allow multiple open sections or only one</li>
+                            <li><strong>Content:</strong> Add images, forms, or any HTML content</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-controls">
+                    <button class="btn-demo" id="expandAllBtn">📂 Expand All</button>
+                    <button class="btn-demo reset" id="collapseAllBtn">📁 Collapse All</button>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>Features</h4>
+                <ul>
+                    <li><strong>Collapsible sections</strong> - Toggle content visibility</li>
+                    <li><strong>Smooth animations</strong> - CSS transitions for height</li>
+                    <li><strong>Keyboard accessible</strong> - Use Enter/Space to toggle</li>
+                    <li><strong>Expand/Collapse All</strong> - Control all sections at once</li>
+                    <li><strong>Customizable</strong> - Easy to style and extend</li>
+                </ul>
+            </div>
+
+            <div class="quiz-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Pass the 10-question quiz to unlock Level 76
+            </div>
+
+            <div class="nav-row">
+                <a href="level74.html" class="btn btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    Previous Level
+                </a>
+                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Take Quiz
+                </a>
+                <a href="level76.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                    Next Level
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/level75.js"></script>
+</body>
+</html>

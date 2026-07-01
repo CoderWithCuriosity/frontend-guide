@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 65: Classes Basics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #15151f;
+            --bg-base-2: #1b1b29;
+            --bg-panel: #1e1e2e;
+            --bg-panel-alt: #23233a;
+            --bg-elevated: #272741;
+            --border: #34344f;
+            --border-soft: #2a2a40;
+            --text-primary: #e9e9f5;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6c6c8c;
+            --accent-html: #f3a072;
+            --accent-css: #7ec8e3;
+            --accent-js: #f0c674;
+            --accent-sql: #8ec07c;
+            --accent-react: #6fd3e0;
+            --accent-php: #b58aef;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background:
+                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                var(--bg-base);
+            min-height: 100vh;
+            padding: 32px 20px 60px;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent-js);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-css);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .terminal-window {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            margin-bottom: 24px;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 18px;
+            background: var(--bg-base-2);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .terminal-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .terminal-dots span:nth-child(1) {
+            background: #ec6a5e;
+        }
+
+        .terminal-dots span:nth-child(2) {
+            background: #f4bf4f;
+        }
+
+        .terminal-dots span:nth-child(3) {
+            background: #61c454;
+        }
+
+        .terminal-tab {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 4px 12px;
+            background: var(--bg-panel-alt);
+            border-radius: 5px;
+        }
+
+        .terminal-body {
+            padding: 40px 44px 36px;
+        }
+
+        .terminal-comment {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: clamp(1.7rem, 4vw, 2.7rem);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+        }
+
+        .cursor {
+            display: inline-block;
+            color: var(--accent-js);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 26px;
+        }
+
+        .chip-row {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--chip-c, var(--border));
+            color: var(--chip-c, var(--text-secondary));
+            background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
+        }
+
+        .chip.js {
+            --chip-c: var(--accent-js);
+        }
+
+        .chip.level {
+            --chip-c: var(--accent-sql);
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin: 24px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        h3 {
+            font-family: var(--font-mono);
+            font-size: 1.02rem;
+            color: var(--text-primary);
+            margin: 18px 0 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .demo-area {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: 16px 0;
+        }
+
+        .demo-area .output-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-js);
+            min-height: 80px;
+            margin-top: 12px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .btn-demo {
+            background: var(--accent-sql);
+            color: #0e1410;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin: 4px 4px 4px 0;
+        }
+
+        .btn-demo:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo.danger {
+            background: var(--accent-html);
+        }
+
+        .btn-demo.reset {
+            background: var(--accent-js);
+            color: #1a1a1a;
+        }
+
+        .btn-demo.info {
+            background: var(--accent-css);
+            color: #1a1a1a;
+        }
+
+        .console-output {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .console-output .log {
+            color: var(--accent-js);
+            margin-bottom: 4px;
+        }
+
+        .console-output .comment {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .console-output .arrow {
+            color: var(--accent-sql);
+            margin-right: 8px;
+        }
+
+        .console-output .keyword {
+            color: var(--accent-css);
+        }
+
+        .console-output .value {
+            color: var(--accent-html);
+        }
+
+        .console-output .output {
+            color: var(--accent-sql);
+        }
+
+        .info-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-js);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .info-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-js);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .info-box li strong {
+            color: var(--text-primary);
+        }
+
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .syntax-box {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin: 16px 0;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .syntax-box .keyword {
+            color: var(--accent-css);
+        }
+
+        .syntax-box .value {
+            color: var(--accent-html);
+        }
+
+        .syntax-box .comment {
+            color: var(--text-muted);
+        }
+
+        .quiz-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            background: rgba(142, 192, 124, 0.15);
+            color: var(--accent-sql);
+        }
+
+        .nav-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            text-align: center;
+            padding: 11px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-sql);
+            color: #0e1410;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            filter: brightness(1.08);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+
+            .terminal-body {
+                padding: 24px 20px 28px;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .nav-row {
+                flex-direction: column;
+            }
+
+            .nav-row .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="terminal-dots">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="terminal-tab">level65.js</div>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-comment">// Level 65: Classes Basics</p>
+                <h1 class="hero-title">
+                    <span id="typedTitle">Classes Basics</span><span class="cursor">_</span>
+                </h1>
+                <p class="hero-sub">
+                    Learn how to create blueprints for objects using classes.
+                    Classes are templates for creating objects with properties and methods.
+                </p>
+                <div class="chip-row">
+                    <span class="chip js">JavaScript</span>
+                    <span class="chip level">Level 65</span>
+                    <span class="chip js">Quiz Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h1>Classes Basics</h1>
+            <p>
+                Classes are blueprints for creating objects. They define properties and methods
+                that all instances of the class will have.
+            </p>
+
+            <h2>Try It Yourself</h2>
+
+            <div class="demo-area">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-demo" onclick="runBasicClass()">🏗️ Basic Class</button>
+                    <button class="btn-demo info" onclick="runCarClass()">🚗 Car Class</button>
+                    <button class="btn-demo" onclick="runMultipleInstances()">📋 Multiple Instances</button>
+                    <button class="btn-demo reset" onclick="clearOutput()">🧹 Clear</button>
+                </div>
+
+                <div class="output-area" id="outputArea">
+                    Click a button to see classes in action...
+                </div>
+            </div>
+
+            <h2>Syntax</h2>
+
+            <div class="syntax-box">
+                <span class="comment">// Class definition</span><br>
+                <span class="keyword">class</span> Person {<br>
+                &nbsp;&nbsp;<span class="keyword">constructor</span>(name, age) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.name = name;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.age = age;<br>
+                &nbsp;&nbsp;}<br>
+                <br>
+                &nbsp;&nbsp;<span class="keyword">greet</span>() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="value">`Hello,
+                    ${this.name}`</span>;<br>
+                &nbsp;&nbsp;}<br>
+                }<br>
+                <br>
+                <span class="comment">// Creating an instance</span><br>
+                <span class="keyword">let</span> john = <span class="keyword">new</span> Person(<span
+                    class="value">"John"</span>, <span class="value">25</span>);<br>
+                console.<span class="keyword">log</span>(john.<span class="keyword">greet</span>()); <span
+                    class="comment">// "Hello, John"</span>
+            </div>
+
+            <h2>Console Output</h2>
+
+            <div class="console-output">
+                <div class="comment">// Class Example</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">class</span> Person {</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">constructor</span>(name, age) {</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">this</span>.name = name;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">this</span>.age = age;</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">greet</span>() {</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">return</span> <span class="value">`Hello,
+                        ${this.name}`</span>;</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> john = <span
+                        class="keyword">new</span> Person(<span class="value">"John"</span>, <span
+                        class="value">25</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(john.<span
+                        class="keyword">name</span>);</div>
+                <div class="output"> John</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(john.<span
+                        class="keyword">age</span>);</div>
+                <div class="output"> 25</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(john.<span
+                        class="keyword">greet</span>());</div>
+                <div class="output"> Hello, John</div>
+            </div>
+
+            <div class="info-box">
+                <h4>Key Takeaways</h4>
+                <ul>
+                    <li><strong>class</strong> - Keyword to define a class</li>
+                    <li><strong>constructor</strong> - Special method for initializing objects</li>
+                    <li><strong>this</strong> - Refers to the current instance</li>
+                    <li><strong>new</strong> - Keyword to create instances</li>
+                    <li><strong>Methods</strong> - Functions defined inside the class</li>
+                    <li><strong>Properties</strong> - Values stored on the instance</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
+                    tag and place your solution for this level within the script.</p>
+                <p>Practice classes by doing the following:</p>
+                <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <li><strong>Create Book Class:</strong> Create a class called <code>Book</code> with a
+                        <code>constructor</code> that takes three parameters: <code>title</code>, <code>author</code>,
+                        and <code>year</code>. Inside the constructor, assign these parameters to properties using
+                        <code>this.title = title</code>, <code>this.author = author</code>, and
+                        <code>this.year = year</code></li>
+                    <li><strong>Add Method for Book Info:</strong> Inside the <code>Book</code> class, add a method
+                        called <code>getInfo()</code> that returns a string with the book information. Example:
+                        <code>return "${this.title} by ${this.author} (${this.year})"</code>. Test it by creating a book
+                        and calling the method</li>
+                    <li><strong>Create Multiple Book Instances:</strong> Create at least three different book objects
+                        using the <code>Book</code> class. Example:
+                        <code>let book1 = new Book("The Hobbit", "J.R.R. Tolkien", 1937)</code>,
+                        <code>let book2 = new Book("1984", "George Orwell", 1949)</code>, and
+                        <code>let book3 = new Book("Dune", "Frank Herbert", 1965)</code>. Log each book to the console
+                    </li>
+                    <li><strong>Add Method to Check if Book is Old:</strong> Inside the <code>Book</code> class, add a
+                        method called <code>isOld()</code> that returns <code>true</code> if the book was published more
+                        than 50 years ago, and <code>false</code> otherwise. Use the current year:
+                        <code>let currentYear = new Date().getFullYear(); return (currentYear - this.year) > 50</code>.
+                        Test it on your book instances</li>
+                    <li><strong>Create a Class that Extends Another:</strong> Create a class called <code>EBook</code>
+                        that extends the <code>Book</code> class. Add a new property called <code>fileSize</code> in the
+                        constructor. Use <code>super(title, author, year)</code> to call the parent constructor. Add a
+                        method called <code>getFileInfo()</code> that returns
+                        <code>"${this.title} is ${this.fileSize} MB"</code>. Create an instance of <code>EBook</code>
+                        and test both parent and child methods</li>
+                </ul>
+                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Use
+                    <code>class ClassName { }</code> to define a class. The <code>constructor()</code> method runs when
+                    creating instances. Use <code>this.property</code> to create and access properties. Methods are
+                    defined inside the class without the <code>function</code> keyword. Use <code>extends</code> to
+                    create a child class and <code>super()</code> to call the parent constructor. Create instances with
+                    <code>new ClassName()</code>. Use <code>console.log()</code> to verify your methods work!</p>
+            </div>
+
+            <div class="quiz-status">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Pass the 10-question quiz to unlock Level 66
+            </div>
+
+            <div class="nav-row">
+                <a href="level64.html" class="btn btn-ghost">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    Previous Level
+                </a>
+                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    Take Quiz
+                </a>
+                <a href="level66.html" class="btn btn-secondary" id="nextLevelBtn"
+                    style="opacity:0.5;pointer-events:none;">
+                    Next Level
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // CLASS DEMO FUNCTIONS
+        // ============================================
+
+        let output = document.getElementById("outputArea");
+
+        function logToOutput(message, type) {
+            let className = type || "";
+            output.innerHTML += `<div class="${className}">${message}</div>`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearOutput() {
+            output.innerHTML = "Click a button to see classes in action...";
+        }
+
+        function runBasicClass() {
+            output.innerHTML = '';
+
+            // Define a class
+            class Person {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+
+                greet() {
+                    return `Hello, my name is ${this.name}`;
+                }
+
+                getBirthYear() {
+                    return 2024 - this.age;
+                }
+            }
+
+            // Create instances
+            let john = new Person("John", 25);
+            let jane = new Person("Jane", 30);
+
+            logToOutput("👤 Person class created!", "");
+            logToOutput("📝 John: name = " + john.name + ", age = " + john.age, "");
+            logToOutput("📝 Jane: name = " + jane.name + ", age = " + jane.age, "");
+            logToOutput("💬 John says: " + john.greet(), "");
+            logToOutput("🎂 John's birth year: " + john.getBirthYear(), "");
+            logToOutput("💬 Jane says: " + jane.greet(), "");
+            logToOutput("✅ Each instance has its own data!", "");
+        }
+
+        function runCarClass() {
+            output.innerHTML = '';
+
+            // Define a Car class
+            class Car {
+                constructor(brand, model, year) {
+                    this.brand = brand;
+                    this.model = model;
+                    this.year = year;
+                    this.isRunning = false;
+                }
+
+                start() {
+                    this.isRunning = true;
+                    return `${this.brand} ${this.model} is now running!`;
+                }
+
+                stop() {
+                    this.isRunning = false;
+                    return `${this.brand} ${this.model} has stopped.`;
+                }
+
+                getInfo() {
+                    return `${this.brand} ${this.model} (${this.year})`;
+                }
+            }
+
+            let car1 = new Car("Toyota", "Camry", 2020);
+            let car2 = new Car("Tesla", "Model 3", 2022);
+
+            logToOutput("🚗 Car class created!", "");
+            logToOutput("📝 Car 1: " + car1.getInfo(), "");
+            logToOutput("📝 Car 2: " + car2.getInfo(), "");
+            logToOutput("▶️ " + car1.start(), "");
+            logToOutput("⏹️ " + car1.stop(), "");
+            logToOutput("💡 isRunning: " + car1.isRunning, "");
+            logToOutput("✅ Car class with methods works!", "");
+        }
+
+        function runMultipleInstances() {
+            output.innerHTML = '';
+
+            class Book {
+                constructor(title, author, year) {
+                    this.title = title;
+                    this.author = author;
+                    this.year = year;
+                }
+
+                getInfo() {
+                    return `"${this.title}" by ${this.author} (${this.year})`;
+                }
+
+                isOld() {
+                    return (2024 - this.year) > 50;
+                }
+            }
+
+            let books = [
+                new Book("1984", "George Orwell", 1949),
+                new Book("The Hobbit", "J.R.R. Tolkien", 1937),
+                new Book("Dune", "Frank Herbert", 1965)
+            ];
+
+            logToOutput("📚 Books created!", "");
+            books.forEach((book, index) => {
+                logToOutput(`📖 Book ${index + 1}: ${book.getInfo()}`, "");
+                logToOutput(`   Old? ${book.isOld() ? "Yes" : "No"}`, "");
+            });
+            logToOutput(`✅ ${books.length} books created successfully!`, "");
+        }
+
+        // Auto-run demo
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                runBasicClass();
+            }, 500);
+        });
+    </script>
+
+    <script src="./scripts/level65.js"></script>
+</body>
+
+</html>

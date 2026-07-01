@@ -199,7 +199,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: function sayHi() { console.log("Hi"); } sayHi();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function sayHi() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hi");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;sayHi();',
         options: [
             "Hi",
             "Hi Hi",
@@ -211,7 +211,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: function greet() { console.log("Hello"); } greet(); greet();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function greet() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;greet();<br/>&nbsp;&nbsp;greet();',
         options: [
             "Hello",
             "Hello Hello",
@@ -235,7 +235,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: function show() { console.log("A"); console.log("B"); } show();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function show() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A");<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;show();',
         options: [
             "A",
             "B",
@@ -247,7 +247,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: function test() { let x = 5; console.log(x); } test();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(x);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test();',
         options: [
             "5",
             "undefined",
@@ -259,7 +259,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: function a() { console.log("A"); } function b() { a(); console.log("B"); } b();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function a() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;function b() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;a();<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;b();',
         options: [
             "A B",
             "B A",
@@ -271,7 +271,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: function hello() { console.log("Hello"); } hello(); hello(); hello();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function hello() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;hello();<br/>&nbsp;&nbsp;hello();<br/>&nbsp;&nbsp;hello();',
         options: [
             "Hello",
             "Hello Hello Hello",
@@ -295,7 +295,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: function calc() { let x = 10; let y = 20; console.log(x + y); } calc();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function calc() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = 10;<br/>&nbsp;&nbsp;&nbsp;&nbsp;let y = 20;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(x + y);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;calc();',
         options: [
             "30",
             "1020",
@@ -307,7 +307,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: function run() { console.log("Start"); console.log("End"); } run(); run();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function run() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Start");<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("End");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;run();<br/>&nbsp;&nbsp;run();',
         options: [
             "Start End",
             "Start End Start End",
@@ -331,7 +331,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: function print() { console.log("Hello"); } print(); print(); print();',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function print() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;print();<br/>&nbsp;&nbsp;print();<br/>&nbsp;&nbsp;print();',
         options: [
             "Hello Hello Hello",
             "Hello",
@@ -343,7 +343,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: function say() { console.log("Hello"); } console.log("Start"); say(); console.log("End");',
+        question: 'What is the output:<br/>&nbsp;&nbsp;function say() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log("Start");<br/>&nbsp;&nbsp;say();<br/>&nbsp;&nbsp;console.log("End");',
         options: [
             "Start Hello End",
             "Hello Start End",
@@ -416,7 +416,7 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        <span style="font-size: 1.2rem;">📝</span>
+                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
@@ -449,7 +449,7 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span>⏱️</span>
+                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -457,7 +457,7 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            <span>📊</span>
+                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -579,7 +579,7 @@ function createQuizModal() {
                             font-size: 0.85rem;
                             cursor: pointer;
                             transition: all 0.15s ease;
-                        ">🔄 Retry</button>
+                        ">Retry</button>
                         <button id="closeResultsBtn" style="
                             background: var(--accent-sql, #8ec07c);
                             color: #0e1410;
@@ -690,7 +690,7 @@ function renderQuestion() {
     document.getElementById('progressDisplay').textContent = `${quizState.currentQuestion + 1} / ${total}`;
     document.getElementById('progressBar').style.width = `${((quizState.currentQuestion + 1) / total) * 100}%`;
     document.getElementById('questionNumber').textContent = quizState.currentQuestion + 1;
-    document.getElementById('questionText').textContent = q.question;
+    document.getElementById('questionText').innerHTML = q.question;
 
     const optionsContainer = document.getElementById('optionsContainer');
     optionsContainer.innerHTML = '';

@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 48: DOM Selectors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,17 +263,9 @@
             margin: 5px 0;
         }
 
-        .selector-card.id {
-            --card-color: var(--accent-sql);
-        }
-
-        .selector-card.class {
-            --card-color: var(--accent-css);
-        }
-
-        .selector-card.tag {
-            --card-color: var(--accent-js);
-        }
+        .selector-card.id { --card-color: var(--accent-sql); }
+        .selector-card.class { --card-color: var(--accent-css); }
+        .selector-card.tag { --card-color: var(--accent-js); }
 
         .demo-box {
             background: var(--bg-panel-alt);
@@ -366,12 +348,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -460,7 +440,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -471,7 +450,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -482,7 +460,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -501,23 +478,18 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .selector-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
@@ -530,7 +502,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -570,13 +541,13 @@
                     <div class="description">Select by ID attribute</div>
                     <div class="example">document.getElementById("demo")</div>
                 </div>
-
+                
                 <div class="selector-card class">
                     <div class="title">getElementsByClassName</div>
                     <div class="description">Select by class name</div>
                     <div class="example">document.getElementsByClassName("demo")</div>
                 </div>
-
+                
                 <div class="selector-card tag">
                     <div class="title">getElementsByTagName</div>
                     <div class="description">Select by tag name</div>
@@ -588,16 +559,13 @@
 
             <div class="syntax-box">
                 <span class="comment">// Select by ID (returns single element)</span><br>
-                <span class="keyword">let</span> element = document.<span class="selector">getElementById</span>(<span
-                    class="selector">"myId"</span>);<br>
+                <span class="keyword">let</span> element = document.<span class="selector">getElementById</span>(<span class="selector">"myId"</span>);<br>
                 <br>
                 <span class="comment">// Select by Class (returns HTMLCollection)</span><br>
-                <span class="keyword">let</span> elements = document.<span
-                    class="selector">getElementsByClassName</span>(<span class="selector">"myClass"</span>);<br>
+                <span class="keyword">let</span> elements = document.<span class="selector">getElementsByClassName</span>(<span class="selector">"myClass"</span>);<br>
                 <br>
                 <span class="comment">// Select by Tag Name (returns HTMLCollection)</span><br>
-                <span class="keyword">let</span> paragraphs = document.<span
-                    class="selector">getElementsByTagName</span>(<span class="selector">"p"</span>);<br>
+                <span class="keyword">let</span> paragraphs = document.<span class="selector">getElementsByTagName</span>(<span class="selector">"p"</span>);<br>
                 <br>
                 <span class="comment">// Access first element in collection</span><br>
                 <span class="keyword">let</span> first = elements[<span class="selector">0</span>];
@@ -617,26 +585,21 @@
 
             <div class="console-output">
                 <div class="comment">// DOM Selector Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> byId = document.<span
-                        class="selector">getElementById</span>(<span class="selector">"demoId"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> byId = document.<span class="selector">getElementById</span>(<span class="selector">"demoId"</span>);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(byId.textContent);</div>
-                <div class="output"> "This has an ID: "demoId""</div>
+                <div class="output">  "This has an ID: "demoId""</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> byClass = document.<span
-                        class="selector">getElementsByClassName</span>(<span class="selector">"demoClass"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> byClass = document.<span class="selector">getElementsByClassName</span>(<span class="selector">"demoClass"</span>);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(byClass.length);</div>
-                <div class="output"> 2</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(byClass[<span
-                        class="selector">0</span>].textContent);</div>
-                <div class="output"> "This has a class: "demoClass""</div>
+                <div class="output">  2</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(byClass[<span class="selector">0</span>].textContent);</div>
+                <div class="output">  "This has a class: "demoClass""</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> byTag = document.<span
-                        class="selector">getElementsByTagName</span>(<span class="selector">"p"</span>);</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> byTag = document.<span class="selector">getElementsByTagName</span>(<span class="selector">"p"</span>);</div>
                 <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(byTag.length);</div>
-                <div class="output"> 3</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(byTag[<span
-                        class="selector">0</span>].textContent);</div>
-                <div class="output"> "This has a class: "demoClass""</div>
+                <div class="output">  3</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(byTag[<span class="selector">0</span>].textContent);</div>
+                <div class="output">  "This has a class: "demoClass""</div>
             </div>
 
             <div class="info-box">
@@ -653,63 +616,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice DOM selectors by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>DOM selectors:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Select by ID:</strong> Use <code>document.getElementById("demoId")</code> to select an
-                        element with the ID <code>demoId</code> and log it to the console using
-                        <code>console.log()</code></li>
-                    <li><strong>Select by Class:</strong> Use <code>document.getElementsByClassName("demoClass")</code>
-                        to select all elements with the class <code>demoClass</code> and log how many there are using
-                        <code>.length</code></li>
-                    <li><strong>Select by Tag:</strong> Use <code>document.getElementsByTagName("p")</code> to select
-                        all paragraph tags, then log the text content of the first paragraph using
-                        <code>[0].textContent</code></li>
-                    <li><strong>Modify Text:</strong> Select an element (like a <code>&lt;p&gt;</code> or
-                        <code>&lt;h1&gt;</code>) and change its text using
-                        <code>element.textContent = "New text here!"</code></li>
-                    <li><strong>Change Style:</strong> Select an element and change its style using
-                        <code>element.style.color = "blue"</code> or
-                        <code>element.style.backgroundColor = "yellow"</code>. Try changing multiple style properties!
-                    </li>
+                    <li>Select the element with id="demoId" and log it</li>
+                    <li>Select all elements with class="demoClass" and count them</li>
+                    <li>Select all p tags and log the text of the first one</li>
+                    <li>Modify the text content of an element using textContent</li>
+                    <li>Change the style of an element using style property</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Before selecting
-                    elements, make sure they exist in your HTML! Add some test elements with the specified IDs, classes,
-                    and tags. Use <code>console.log()</code> to check what your selectors return. Remember:
-                    <code>getElementById</code> returns one element, while <code>getElementsByClassName</code> and
-                    <code>getElementsByTagName</code> return collections (like arrays)!</p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 49
             </div>
 
             <div class="nav-row">
                 <a href="level47.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level49.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level49.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -718,5 +659,4 @@
 
     <script src="./scripts/level48.js"></script>
 </body>
-
 </html>

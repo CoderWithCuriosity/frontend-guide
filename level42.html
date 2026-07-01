@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 42: Functions (Basic)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -46,9 +43,9 @@
             line-height: 1.6;
             color: var(--text-primary);
             background:
-                radial-gradient(circle at 12% 8%, rgba(126, 200, 227, 0.07), transparent 40%),
-                radial-gradient(circle at 88% 18%, rgba(181, 138, 239, 0.07), transparent 40%),
-                radial-gradient(circle at 50% 95%, rgba(142, 192, 124, 0.06), transparent 45%),
+                radial-gradient(circle at 12% 8%, rgba(126,200,227,0.07), transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(181,138,239,0.07), transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(142,192,124,0.06), transparent 45%),
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
@@ -102,22 +99,18 @@
             display: flex;
             gap: 7px;
         }
-
         .terminal-dots span {
             width: 11px;
             height: 11px;
             border-radius: 50%;
             display: block;
         }
-
         .terminal-dots span:nth-child(1) {
             background: #ec6a5e;
         }
-
         .terminal-dots span:nth-child(2) {
             background: #f4bf4f;
         }
-
         .terminal-dots span:nth-child(3) {
             background: #61c454;
         }
@@ -156,7 +149,6 @@
             color: var(--accent-js);
             animation: blink 1s step-end infinite;
         }
-
         @keyframes blink {
             50% {
                 opacity: 0;
@@ -186,11 +178,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-
         .chip.js {
             --chip-c: var(--accent-js);
         }
-
         .chip.level {
             --chip-c: var(--accent-sql);
         }
@@ -273,17 +263,9 @@
             margin: 5px 0;
         }
 
-        .function-card.definition {
-            --card-color: var(--accent-sql);
-        }
-
-        .function-card.call {
-            --card-color: var(--accent-css);
-        }
-
-        .function-card.reuse {
-            --card-color: var(--accent-js);
-        }
+        .function-card.definition { --card-color: var(--accent-sql); }
+        .function-card.call { --card-color: var(--accent-css); }
+        .function-card.reuse { --card-color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -345,12 +327,10 @@
             margin-left: 20px;
             margin-bottom: 0;
         }
-
         .info-box li {
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-
         .info-box li strong {
             color: var(--text-primary);
         }
@@ -443,7 +423,6 @@
             color: #0e1410;
             font-weight: 600;
         }
-
         .btn-primary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -454,7 +433,6 @@
             color: #1a1a1a;
             font-weight: 600;
         }
-
         .btn-secondary:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
@@ -465,7 +443,6 @@
             border-color: var(--border);
             color: var(--text-secondary);
         }
-
         .btn-ghost:hover {
             border-color: var(--text-muted);
             color: var(--text-primary);
@@ -484,23 +461,18 @@
             body {
                 padding: 16px 12px 40px;
             }
-
             .terminal-body {
                 padding: 24px 20px 28px;
             }
-
             .panel {
                 padding: 20px;
             }
-
             .function-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .nav-row {
                 flex-direction: column;
             }
-
             .nav-row .btn {
                 width: 100%;
             }
@@ -513,7 +485,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="page">
         <div class="terminal-window">
@@ -553,13 +524,13 @@
                     <div class="description">Defines a new function</div>
                     <div class="example">function sayHello() { ... }</div>
                 </div>
-
+                
                 <div class="function-card call">
                     <div class="keyword">Call</div>
                     <div class="description">Executes the function</div>
                     <div class="example">sayHello()</div>
                 </div>
-
+                
                 <div class="function-card reuse">
                     <div class="keyword">Reuse</div>
                     <div class="description">Use function multiple times</div>
@@ -578,34 +549,31 @@
                 <br>
                 <span class="comment">// Function call</span><br>
                 <span class="function-name">functionName</span>();<br>
-                <span class="function-name">functionName</span>(); <span class="comment">// Can call multiple
-                    times</span>
+                <span class="function-name">functionName</span>(); <span class="comment">// Can call multiple times</span>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
                 <div class="comment">// Function Console Output</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span
-                        class="function-name">sayHello</span>() {</div>
-                <div><span class="arrow">&gt;</span> console.log("Hello World!");</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span class="function-name">sayHello</span>() {</div>
+                <div><span class="arrow">&gt;</span>   console.log("Hello World!");</div>
                 <div><span class="arrow">&gt;</span> }</div>
                 <br>
                 <div><span class="arrow">&gt;</span> <span class="function-name">sayHello</span>();</div>
-                <div class="output"> "Hello World!"</div>
+                <div class="output">  "Hello World!"</div>
                 <div><span class="arrow">&gt;</span> <span class="function-name">sayHello</span>();</div>
-                <div class="output"> "Hello World!"</div>
+                <div class="output">  "Hello World!"</div>
                 <br>
                 <div class="comment">// Function with multiple statements</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span
-                        class="function-name">greetUser</span>() {</div>
-                <div><span class="arrow">&gt;</span> console.log("Welcome!");</div>
-                <div><span class="arrow">&gt;</span> console.log("Nice to meet you!");</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span class="function-name">greetUser</span>() {</div>
+                <div><span class="arrow">&gt;</span>   console.log("Welcome!");</div>
+                <div><span class="arrow">&gt;</span>   console.log("Nice to meet you!");</div>
                 <div><span class="arrow">&gt;</span> }</div>
                 <br>
                 <div><span class="arrow">&gt;</span> <span class="function-name">greetUser</span>();</div>
-                <div class="output"> "Welcome!"</div>
-                <div class="output"> "Nice to meet you!"</div>
+                <div class="output">  "Welcome!"</div>
+                <div class="output">  "Nice to meet you!"</div>
             </div>
 
             <div class="info-box">
@@ -622,59 +590,41 @@
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code>
-                    tag and place your solution for this level within the script.</p>
-                <p>Practice functions by doing the following:</p>
+                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>functions:</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li><strong>Print Name:</strong> Create a function called <code>printName()</code> that logs your
-                        full name to the console using <code>console.log()</code></li>
-                    <li><strong>Hello and Goodbye:</strong> Create a function called <code>greetings()</code> that logs
-                        both "Hello!" and "Goodbye!" to the console (two separate <code>console.log()</code> statements
-                        inside one function)</li>
-                    <li><strong>Call Multiple Times:</strong> Call your <code>printName()</code> function 3 times and
-                        your <code>greetings()</code> function 2 times to see how functions can be reused</li>
-                    <li><strong>Calculation Function:</strong> Create a function called <code>addNumbers()</code> that
-                        takes two parameters (like <code>a</code> and <code>b</code>), adds them together, and logs the
-                        result. Call it with different numbers like <code>addNumbers(5, 3)</code> and
-                        <code>addNumbers(10, 20)</code></li>
-                    <li><strong>Function Calling Function:</strong> Create a function called <code>showResult()</code>
-                        that calls your <code>addNumbers()</code> function inside it, passing in any two numbers</li>
+                    <li>Create a function that prints your name</li>
+                    <li>Create a function that prints "Hello" and "Goodbye"</li>
+                    <li>Call a function multiple times</li>
+                    <li>Create a function that performs a calculation</li>
+                    <li>Make a function that calls another function</li>
                 </ul>
-                <p style="margin-top: 10px; color: var(--text-secondary); font-size: 14px;">💡 Hint: Functions are
-                    reusable blocks of code! Use <code>function functionName() { }</code> to create a function and
-                    <code>functionName()</code> to call it. You can pass values using parameters:
-                    <code>function functionName(param1, param2) { }</code></p>
             </div>
 
             <div class="quiz-status">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 Pass the 10-question quiz to unlock Level 43
             </div>
 
             <div class="nav-row">
                 <a href="level41.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6"/>
                     </svg>
                     Previous Level
                 </a>
                 <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
                     </svg>
                     Take Quiz
                 </a>
-                <a href="level43.html" class="btn btn-secondary" id="nextLevelBtn"
-                    style="opacity:0.5;pointer-events:none;">
+                <a href="level43.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
                     Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6" />
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"/>
                     </svg>
                 </a>
             </div>
@@ -683,5 +633,4 @@
 
     <script src="./scripts/level42.js"></script>
 </body>
-
 </html>
