@@ -152,7 +152,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What will be the output? "Hello" + " " + "World"',
+        question: 'What will be the output?<br/>&nbsp;&nbsp;"Hello" + " " + "World"',
         options: [
             "HelloWorld",
             "Hello World",
@@ -212,7 +212,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the result of "The answer is" + 42?',
+        question: 'What is the result of<br/>&nbsp;&nbsp;"The answer is" + 42?',
         options: [
             "The answer is42",
             "The Answer is 42",
@@ -220,7 +220,7 @@ const QUIZ_QUESTIONS = [
             "Error: Cannot add string and number"
         ],
         correct: 0,
-        explanation: 'When a string is added to a number, JavaScript converts the number to a string and concatenates, resulting in "The answer is42" (no space) expect you manually give it space.'
+        explanation: 'When a string is added to a number, JavaScript converts the number to a string and concatenates, resulting in "The answer is42" (no space) unless you manually give it space.'
     }
 ];
 

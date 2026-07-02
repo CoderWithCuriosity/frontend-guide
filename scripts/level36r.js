@@ -151,7 +151,7 @@ console.log('"Alice" === "alice":', "Alice" === "alice");
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What will this code output? let x = 5; if (x > 3) { console.log("Yes"); } else { console.log("No"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;if (x > 3) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Yes");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("No");<br/>&nbsp;&nbsp;}',
         options: [
             "Yes",
             "No",
@@ -175,7 +175,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What will this code output? let age = 16; if (age >= 18) { console.log("Adult"); } else { console.log("Minor"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let age = 16;<br/>&nbsp;&nbsp;if (age >= 18) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Adult");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Minor");<br/>&nbsp;&nbsp;}',
         options: [
             "Adult",
             "Minor",
@@ -199,7 +199,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What will this code output? let score = 75; if (score >= 80) { console.log("A"); } else if (score >= 70) { console.log("B"); } else { console.log("C"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let score = 75;<br/>&nbsp;&nbsp;if (score >= 80) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A");<br/>&nbsp;&nbsp;} else if (score >= 70) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("C");<br/>&nbsp;&nbsp;}',
         options: [
             "A",
             "B",
@@ -223,7 +223,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What will this code output? let isLoggedIn = false; if (isLoggedIn) { console.log("Welcome"); } else { console.log("Please login"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let isLoggedIn = false;<br/>&nbsp;&nbsp;if (isLoggedIn) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Welcome");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Please login");<br/>&nbsp;&nbsp;}',
         options: [
             "Welcome",
             "Please login",
@@ -247,7 +247,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What will this code output? let num = 4; if (num % 2 === 0) { console.log("Even"); } else { console.log("Odd"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let num = 4;<br/>&nbsp;&nbsp;if (num % 2 === 0) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Even");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Odd");<br/>&nbsp;&nbsp;}',
         options: [
             "Even",
             "Odd",
@@ -271,7 +271,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What will this code output? let x = 10; let y = "10"; if (x == y) { console.log("Equal"); } else { console.log("Not equal"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let x = 10;<br/>&nbsp;&nbsp;let y = "10";<br/>&nbsp;&nbsp;if (x == y) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Equal");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Not equal");<br/>&nbsp;&nbsp;}',
         options: [
             "Equal",
             "Not equal",
@@ -283,7 +283,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What will this code output? let x = 10; let y = "10"; if (x === y) { console.log("Equal"); } else { console.log("Not equal"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let x = 10;<br/>&nbsp;&nbsp;let y = "10";<br/>&nbsp;&nbsp;if (x === y) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Equal");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Not equal");<br/>&nbsp;&nbsp;}',
         options: [
             "Equal",
             "Not equal",
@@ -319,7 +319,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What will this code output? let temperature = 30; if (temperature > 30) { console.log("Hot"); } else if (temperature > 20) { console.log("Warm"); } else { console.log("Cold"); }',
+        question: 'What will this code output?<br/>&nbsp;&nbsp;let temperature = 30;<br/>&nbsp;&nbsp;if (temperature > 30) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hot");<br/>&nbsp;&nbsp;} else if (temperature > 20) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Warm");<br/>&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Cold");<br/>&nbsp;&nbsp;}',
         options: [
             "Hot",
             "Warm",

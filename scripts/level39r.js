@@ -201,8 +201,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 5,
-    question:
-      'What is the result of: switch(5) { case 5: console.log("Five"); break; default: console.log("Other"); }',
+    question: 'What is the result of?<br/>&nbsp;&nbsp;switch(5) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 5: console.log("Five"); break;<br/>&nbsp;&nbsp;&nbsp;&nbsp;default: console.log("Other");<br/>&nbsp;&nbsp;}',
     options: ["Five", "Other", "Error", "Undefined"],
     correct: 0,
     explanation:
@@ -222,8 +221,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 7,
-    question:
-      'What is the result of: let x = 2; switch(x) { case 1: console.log("One"); case 2: console.log("Two"); case 3: console.log("Three"); }',
+    question: 'What is the result of?<br/>&nbsp;&nbsp;let x = 2;<br/>&nbsp;&nbsp;switch(x) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 1: console.log("One");<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 2: console.log("Two");<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 3: console.log("Three");<br/>&nbsp;&nbsp;}',
     options: ["Two", "Two Three", "Two Three (with fall-through)", "Error"],
     correct: 2,
     explanation:
@@ -243,8 +241,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 9,
-    question:
-      'What is the result of: let fruit = "apple"; switch(fruit) { case "apple": case "orange": console.log("Fruit"); break; default: console.log("Other"); }',
+    question: 'What is the result of?<br/>&nbsp;&nbsp;let fruit = "apple";<br/>&nbsp;&nbsp;switch(fruit) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;case "apple":<br/>&nbsp;&nbsp;&nbsp;&nbsp;case "orange": console.log("Fruit"); break;<br/>&nbsp;&nbsp;&nbsp;&nbsp;default: console.log("Other");<br/>&nbsp;&nbsp;}',
     options: ["Fruit", "Other", "Error", "Undefined"],
     correct: 0,
     explanation:
@@ -264,8 +261,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 11,
-    question:
-      'What is the result of: switch(5) { case "5": console.log("String"); break; case 5: console.log("Number"); break; }',
+    question: 'What is the result of?<br/>&nbsp;&nbsp;switch(5) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;case "5": console.log("String"); break;<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 5: console.log("Number"); break;<br/>&nbsp;&nbsp;}',
     options: ["String", "Number", "Error", "Undefined"],
     correct: 1,
     explanation:
@@ -286,8 +282,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 13,
-    question:
-      'What is the result of: let x = 1; switch(x) { case 1: console.log("One"); case 2: console.log("Two"); break; default: console.log("Default"); }',
+    question: 'What is the result of?<br/>&nbsp;&nbsp;let x = 1;<br/>&nbsp;&nbsp;switch(x) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 1: console.log("One");<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 2: console.log("Two"); break;<br/>&nbsp;&nbsp;&nbsp;&nbsp;default: console.log("Default");<br/>&nbsp;&nbsp;}',
     options: ["One", "One Two", "One Two Default", "Error"],
     correct: 1,
     explanation:
@@ -308,8 +303,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 15,
-    question:
-      'What is the result of: let x = 10; switch(x) { default: console.log("Default"); case 5: console.log("Five"); case 10: console.log("Ten"); }',
+    question: 'What is the result of?<br/>&nbsp;&nbsp;let x = 10;<br/>&nbsp;&nbsp;switch(x) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;default: console.log("Default");<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 5: console.log("Five");<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 10: console.log("Ten");<br/>&nbsp;&nbsp;}',
     options: ["Default Five Ten", "Default", "Ten", "Error"],
     correct: 2,
     explanation:

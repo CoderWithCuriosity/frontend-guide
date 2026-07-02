@@ -101,7 +101,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 4,
-    question: "What will be the output? let x = 5; x = 10; console.log(x);",
+    question: "What will be the output?<br/>&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;x = 10;<br/>&nbsp;&nbsp;console.log(x);",
     options: ["A) 5", "B) 10", "C) undefined", "D) Error"],
     correct: 1,
     explanation:
@@ -109,7 +109,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 5,
-    question: "What will be the output? const y = 5; y = 10; console.log(y);",
+    question: "What will be the output?<br/>&nbsp;&nbsp;const y = 5;<br/>&nbsp;&nbsp;y = 10;<br/>&nbsp;&nbsp;console.log(y);",
     options: ["A) 5", "B) 10", "C) undefined", "D) TypeError"],
     correct: 3,
     explanation:
@@ -169,8 +169,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 10,
-    question:
-      "What will be logged? let a = 1; let b = a; a = 2; console.log(b);",
+    question: "What will be logged?<br/>&nbsp;&nbsp;let a = 1;<br/>&nbsp;&nbsp;let b = a;<br/>&nbsp;&nbsp;a = 2;<br/>&nbsp;&nbsp;console.log(b);",
     options: ["A) 1", "B) 2", "C) undefined", "D) Error"],
     correct: 0,
     explanation:

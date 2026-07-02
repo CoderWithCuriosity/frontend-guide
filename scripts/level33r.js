@@ -106,7 +106,7 @@ console.log("\nUse 'typeof' to check the data type of a variable");
 // ============================================
 
 // Quiz questions database
-const QUIZ_QUESTIONS = [
+ const QUIZ_QUESTIONS = [
     {
         id: 1,
         question: "Which data type is used for text in JavaScript?",
@@ -169,7 +169,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: "What will be the output? console.log('5' + 3);",
+        question: "What will be the output?<br/>&nbsp;&nbsp;console.log('5' + 3);",
         options: [
             "A) 8",
             "B) '53'",
@@ -205,7 +205,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: "What will be the output? console.log(42 + 5);",
+        question: "What will be the output?<br/>&nbsp;&nbsp;console.log(42 + 5);",
         options: [
             "A) '425'",
             "B) 47",

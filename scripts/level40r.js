@@ -176,7 +176,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'How many times does this loop run? for(let i=0; i<5; i++)',
+        question: 'How many times does this loop run?<br/>&nbsp;&nbsp;for(let i=0; i&lt;5; i++)',
         options: [
             "4",
             "5",
@@ -200,7 +200,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output of: for(let i=0; i<3; i++) { console.log(i); }',
+        question: 'What is the output of?<br/>&nbsp;&nbsp;for(let i=0; i&lt;3; i++) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;}',
         options: [
             "0 1 2",
             "1 2 3",
@@ -236,7 +236,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output of: let sum=0; for(let i=1; i<=3; i++) { sum += i; } console.log(sum);',
+        question: 'What is the output of?<br/>&nbsp;&nbsp;let sum = 0;<br/>&nbsp;&nbsp;for(let i=1; i&lt;=3; i++) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;sum += i;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(sum);',
         options: [
             "3",
             "6",
@@ -248,7 +248,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'How many times does this loop run? for(let i=5; i>0; i--)',
+        question: 'How many times does this loop run?<br/>&nbsp;&nbsp;for(let i=5; i&gt;0; i--)',
         options: [
             "4",
             "5",
@@ -260,7 +260,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output of: for(let i=0; i<3; i++) { if(i===1) continue; console.log(i); }',
+        question: 'What is the output of?<br/>&nbsp;&nbsp;for(let i=0; i&lt;3; i++) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if(i === 1) continue;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;}',
         options: [
             "0 1 2",
             "0 2",
@@ -272,7 +272,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output of: for(let i=0; i<3; i++) { if(i===1) break; console.log(i); }',
+        question: 'What is the output of?<br/>&nbsp;&nbsp;for(let i=0; i&lt;3; i++) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if(i === 1) break;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;}',
         options: [
             "0 1 2",
             "0",
@@ -286,10 +286,10 @@ const QUIZ_QUESTIONS = [
         id: 13,
         question: 'Which loop runs from 0 to 9?',
         options: [
-            "for(let i=0; i<10; i++)",
-            "for(let i=0; i<=10; i++)",
-            "for(let i=1; i<10; i++)",
-            "for(let i=0; i<9; i++)"
+            "for(let i=0; i&lt;10; i++)",
+            "for(let i=0; i&lt;=10; i++)",
+            "for(let i=1; i&lt;10; i++)",
+            "for(let i=0; i&lt;9; i++)"
         ],
         correct: 0,
         explanation: 'for(let i=0; i<10; i++) runs for i = 0 to 9 (10 times).'
@@ -308,7 +308,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output of: for(let i=0; i<5; i+=2) { console.log(i); }',
+        question: 'What is the output of?<br/>&nbsp;&nbsp;for(let i=0; i&lt;5; i+=2) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;}',
         options: [
             "0 2 4",
             "0 1 2 3 4",
