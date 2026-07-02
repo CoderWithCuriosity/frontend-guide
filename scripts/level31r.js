@@ -188,7 +188,7 @@ const QUIZ_QUESTIONS = [
   },
   {
     id: 9,
-    question: "What will be logged? let x = 5; console.log('Value:', x);",
+    question: "What will be logged?<br/>&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;console.log('Value:', x);",
     options: ["A) Value: x", "B) Value: 5", "C) 'Value:' 5", "D) undefined"],
     correct: 1,
     explanation:
