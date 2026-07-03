@@ -182,7 +182,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: function greet(name) { console.log("Hello " + name); } greet("John");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function greet(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello " + name);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;greet("John");',
         options: [
             "Hello John",
             "Hello name",
@@ -194,7 +194,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: function add(a, b) { console.log(a + b); } add(5, 3);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function add(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(a + b);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;add(5, 3);',
         options: [
             "8",
             "53",
@@ -206,7 +206,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'How many parameters does this function have? function multiply(a, b, c) { return a * b * c; }',
+        question: 'How many parameters does this function have?<br/>&nbsp;&nbsp;function multiply(a, b, c) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a * b * c;<br/>&nbsp;&nbsp;}',
         options: [
             "1",
             "2",
@@ -218,7 +218,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: function greet(firstName, lastName) { console.log("Hello " + firstName + " " + lastName); } greet("John", "Doe");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function greet(firstName, lastName) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello " + firstName + " " + lastName);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;greet("John", "Doe");',
         options: [
             "Hello John Doe",
             "Hello John",
@@ -230,7 +230,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: function show(a, b) { console.log(a, b); } show(1);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function show(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(a, b);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;show(1);',
         options: [
             "1 undefined",
             "1",
@@ -242,7 +242,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: function calculate(x, y) { console.log(x * y); } calculate(4, 5); calculate(2, 3);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function calculate(x, y) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(x * y);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;calculate(4, 5);<br/>&nbsp;&nbsp;calculate(2, 3);',
         options: [
             "20 6",
             "20 6",
@@ -266,7 +266,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: function greet(name, city) { console.log("Hello " + name + " from " + city); } greet("Alice", "New York");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function greet(name, city) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Hello " + name + " from " + city);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;greet("Alice", "New York");',
         options: [
             "Hello Alice from New York",
             "Hello Alice",
@@ -278,7 +278,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: function info(name, age) { console.log(name, "is", age, "years old"); } info("Bob", 30);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function info(name, age) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(name, "is", age, "years old");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;info("Bob", 30);',
         options: [
             "Bob is 30 years old",
             "Bob 30",
@@ -290,7 +290,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: function multiply(a, b) { return a * b; } console.log(multiply(3, 4));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function multiply(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a * b;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(multiply(3, 4));',
         options: [
             "12",
             "7",
@@ -302,7 +302,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: function subtract(a, b) { console.log(a - b); } subtract(10, 3);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function subtract(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(a - b);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;subtract(10, 3);',
         options: [
             "7",
             "10",
@@ -314,7 +314,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: function combine(a, b) { console.log(a + " " + b); } combine("Hello", "World");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function combine(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(a + " " + b);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;combine("Hello", "World");',
         options: [
             "Hello World",
             "HelloWorld",
@@ -326,7 +326,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: function calc(a, b, c) { console.log(a + b + c); } calc(1, 2, 3);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function calc(a, b, c) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(a + b + c);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;calc(1, 2, 3);',
         options: [
             "6",
             "123",

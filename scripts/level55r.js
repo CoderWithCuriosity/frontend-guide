@@ -139,7 +139,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: let obj = { name: "John" }; console.log(JSON.stringify(obj));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(JSON.stringify(obj));',
         options: [
             '{"name":"John"}',
             '{ name: "John" }',
@@ -151,7 +151,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: let json = \'{"name":"John"}\'; console.log(JSON.parse(json).name);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John"}\';<br/>&nbsp;&nbsp;console.log(JSON.parse(json).name);',
         options: [
             "John",
             "name",
@@ -175,7 +175,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let arr = [1, 2, 3]; console.log(JSON.stringify(arr));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2, 3];<br/>&nbsp;&nbsp;console.log(JSON.stringify(arr));',
         options: [
             "[1,2,3]",
             "1,2,3",
@@ -187,7 +187,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let json = \'{"name":"John","age":25}\'; let obj = JSON.parse(json); console.log(obj.age);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John","age":25}\';<br/>&nbsp;&nbsp;let obj = JSON.parse(json);<br/>&nbsp;&nbsp;console.log(obj.age);',
         options: [
             "25",
             "age",
@@ -199,7 +199,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let obj = { name: "John", age: 25 }; console.log(JSON.stringify(obj, null, 2));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", age: 25 };<br/>&nbsp;&nbsp;console.log(JSON.stringify(obj, null, 2));',
         options: [
             '{\n  "name": "John",\n  "age": 25\n}',
             '{"name":"John","age":25}',
@@ -211,7 +211,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let json = \'{"name":"John"}\'; console.log(typeof JSON.parse(json));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John"}\';<br/>&nbsp;&nbsp;console.log(typeof JSON.parse(json));',
         options: [
             "object",
             "string",
@@ -223,7 +223,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let obj = { name: "John" }; console.log(typeof JSON.stringify(obj));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(typeof JSON.stringify(obj));',
         options: [
             "string",
             "object",
@@ -247,7 +247,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let obj = { name: "John", city: "New York" }; let json = JSON.stringify(obj); console.log(json);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", city: "New York" };<br/>&nbsp;&nbsp;let json = JSON.stringify(obj);<br/>&nbsp;&nbsp;console.log(json);',
         options: [
             '{"name":"John","city":"New York"}',
             '{ name: "John", city: "New York" }',
@@ -259,7 +259,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let json = \'{"name":"John","city":"New York"}\'; let obj = JSON.parse(json); console.log(obj.city);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John","city":"New York"}\';<br/>&nbsp;&nbsp;let obj = JSON.parse(json);<br/>&nbsp;&nbsp;console.log(obj.city);',
         options: [
             "New York",
             "city",
@@ -271,7 +271,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let obj = { name: "John", age: 25 }; let json = JSON.stringify(obj); console.log(json.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", age: 25 };<br/>&nbsp;&nbsp;let json = JSON.stringify(obj);<br/>&nbsp;&nbsp;console.log(json.length);',
         options: [
             "22",
             "25",
@@ -283,7 +283,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let json = \'{"name":"John","age":25}\'; let obj = JSON.parse(json); console.log(obj.name + " " + obj.age);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John","age":25}\';<br/>&nbsp;&nbsp;let obj = JSON.parse(json);<br/>&nbsp;&nbsp;console.log(obj.name + " " + obj.age);',
         options: [
             "John 25",
             "name age",

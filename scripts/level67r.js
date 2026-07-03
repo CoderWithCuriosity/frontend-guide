@@ -216,7 +216,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let app = new CounterApp(); app.increment(); console.log(app.count);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;console.log(app.count);',
         options: [
             "1",
             "0",
@@ -228,7 +228,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let app = new CounterApp(); app.increment(); app.increment(); app.decrement(); console.log(app.count);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.decrement();<br/>&nbsp;&nbsp;console.log(app.count);',
         options: [
             "1",
             "2",
@@ -240,7 +240,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let app = new CounterApp(); app.increment(); app.reset(); console.log(app.count);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.reset();<br/>&nbsp;&nbsp;console.log(app.count);',
         options: [
             "0",
             "1",
@@ -264,7 +264,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let app = new CounterApp(); app.increment(); app.increment(); app.increment(); console.log(app.count);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;console.log(app.count);',
         options: [
             "3",
             "2",
@@ -276,7 +276,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let app = new CounterApp(); app.decrement(); app.decrement(); app.decrement(); console.log(app.count);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;app.decrement();<br/>&nbsp;&nbsp;app.decrement();<br/>&nbsp;&nbsp;app.decrement();<br/>&nbsp;&nbsp;console.log(app.count);',
         options: [
             "-3",
             "-2",
@@ -288,7 +288,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let app = new CounterApp(); app.increment(); app.decrement(); app.increment(); app.decrement(); console.log(app.count);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.decrement();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.decrement();<br/>&nbsp;&nbsp;console.log(app.count);',
         options: [
             "0",
             "1",
@@ -300,7 +300,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let app = new CounterApp(); app.increment(); app.increment(); app.reset(); app.increment(); console.log(app.count);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;app.reset();<br/>&nbsp;&nbsp;app.increment();<br/>&nbsp;&nbsp;console.log(app.count);',
         options: [
             "1",
             "2",
@@ -312,7 +312,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let app = new CounterApp(); console.log(app.history.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new CounterApp();<br/>&nbsp;&nbsp;console.log(app.history.length);',
         options: [
             "0",
             "1",

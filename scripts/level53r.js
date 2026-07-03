@@ -200,7 +200,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: localStorage.setItem("name", "John"); console.log(localStorage.getItem("name"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("name", "John");<br/>&nbsp;&nbsp;console.log(localStorage.getItem("name"));',
         options: [
             "John",
             "name",
@@ -224,7 +224,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: localStorage.setItem("key", "value"); localStorage.removeItem("key"); console.log(localStorage.getItem("key"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("key", "value");<br/>&nbsp;&nbsp;localStorage.removeItem("key");<br/>&nbsp;&nbsp;console.log(localStorage.getItem("key"));',
         options: [
             "null",
             "value",
@@ -260,7 +260,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: localStorage.setItem("name", "John"); localStorage.setItem("name", "Jane"); console.log(localStorage.getItem("name"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("name", "John");<br/>&nbsp;&nbsp;localStorage.setItem("name", "Jane");<br/>&nbsp;&nbsp;console.log(localStorage.getItem("name"));',
         options: [
             "Jane",
             "John",
@@ -296,7 +296,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let obj = { name: "John" }; localStorage.setItem("user", JSON.stringify(obj)); console.log(localStorage.getItem("user"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;localStorage.setItem("user", JSON.stringify(obj));<br/>&nbsp;&nbsp;console.log(localStorage.getItem("user"));',
         options: [
             '{"name":"John"}',
             '{ name: "John" }',
@@ -308,7 +308,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: localStorage.setItem("key", "value"); console.log(localStorage.key(0));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("key", "value");<br/>&nbsp;&nbsp;console.log(localStorage.key(0));',
         options: [
             "key",
             "value",

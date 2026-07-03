@@ -259,7 +259,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: async function test() { return 5; } console.log(test());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return 5;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(test());',
         options: [
             "Logs a Promise",
             "Logs 5",
@@ -283,7 +283,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: async function test() { return 5; } test().then(data => console.log(data));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return 5;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test().then(data => console.log(data));',
         options: [
             "5",
             "Promise",
@@ -319,7 +319,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: async function test() { await new Promise(r => setTimeout(r, 1000)); console.log("Done"); } console.log("Start"); test();',
+        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;await new Promise(r => setTimeout(r, 1000));<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Done");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log("Start");<br/>&nbsp;&nbsp;test();',
         options: [
             "Start Done",
             "Done Start",
@@ -331,7 +331,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: async function test() { throw new Error("Failed"); } test().catch(e => console.log(e.message));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Failed");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test().catch(e => console.log(e.message));',
         options: [
             "Failed",
             "Error",
@@ -343,7 +343,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: async function test() { let x = await 5; console.log(x); } test();',
+        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = await 5;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(x);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test();',
         options: [
             "5",
             "undefined",
@@ -367,7 +367,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: async function test() { return await 10; } test().then(x => console.log(x));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return await 10;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test().then(x => console.log(x));',
         options: [
             "10",
             "Promise",

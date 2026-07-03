@@ -168,7 +168,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: let name = "John"; console.log(`Hello ${name}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name}`);',
         options: [
             "Hello John",
             "Hello ${name}",
@@ -180,7 +180,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: let x = 5; console.log(`x + 3 = ${x + 3}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;console.log(`x + 3 = ${x + 3}`);',
         options: [
             "x + 3 = 8",
             "x + 3 = ${x + 3}",
@@ -204,7 +204,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let name = "John"; console.log(`Hello ${name.toUpperCase()}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name.toUpperCase()}`);',
         options: [
             "Hello JOHN",
             "Hello John",
@@ -216,7 +216,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let a = 5; let b = 3; console.log(`${a} + ${b} = ${a + b}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let a = 5;<br/>&nbsp;&nbsp;let b = 3;<br/>&nbsp;&nbsp;console.log(`${a} + ${b} = ${a + b}`);',
         options: [
             "5 + 3 = 8",
             "5 + 3 = ${a + b}",
@@ -228,7 +228,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let items = ["A","B","C"]; console.log(`${items.join(",")}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let items = ["A","B","C"];<br/>&nbsp;&nbsp;console.log(`${items.join(",")}`);',
         options: [
             "A,B,C",
             "A, B, C",
@@ -240,7 +240,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let name = "John"; console.log(`Hello ${name}`); console.log(`Hello ${name}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name}`);<br/>&nbsp;&nbsp;console.log(`Hello ${name}`);',
         options: [
             "Hello John (twice)",
             "Hello John",
@@ -252,7 +252,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let x = 10; let y = 20; console.log(`${x} + ${y} = ${x + y}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let x = 10;<br/>&nbsp;&nbsp;let y = 20;<br/>&nbsp;&nbsp;console.log(`${x} + ${y} = ${x + y}`);',
         options: [
             "10 + 20 = 30",
             "10 + 20 = ${x + y}",
@@ -264,7 +264,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let name = "John"; console.log(`Hello ${name}!`.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name}!`.length);',
         options: [
             "11",
             "10",
@@ -288,7 +288,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let result = `5 * 3 = ${5 * 3}`; console.log(result);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let result = `5 * 3 = ${5 * 3}`;<br/>&nbsp;&nbsp;console.log(result);',
         options: [
             "5 * 3 = 15",
             "5 * 3 = ${5 * 3}",
@@ -300,7 +300,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let obj = { name: "John" }; console.log(`Hello ${obj.name}`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(`Hello ${obj.name}`);',
         options: [
             "Hello John",
             "Hello ${obj.name}",
@@ -312,7 +312,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let a = 1; let b = 2; console.log(`${a} + ${b} = ${a + b}`); console.log(`${a + b} is the sum`);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let a = 1;<br/>&nbsp;&nbsp;let b = 2;<br/>&nbsp;&nbsp;console.log(`${a} + ${b} = ${a + b}`);<br/>&nbsp;&nbsp;console.log(`${a + b} is the sum`);',
         options: [
             "1 + 2 = 3 and 3 is the sum",
             "1 + 2 = 3 and ${a + b} is the sum",

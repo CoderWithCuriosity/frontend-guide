@@ -201,7 +201,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: fetch("https://api.example.com") .then(response => response.json()) .then(data => console.log(data));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("https://api.example.com")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data));',
         options: [
             "Logs the parsed JSON data",
             "Logs the raw response",
@@ -237,7 +237,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: fetch("invalid.url").catch(error => console.log(error));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("invalid.url")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.catch(error => console.log(error));',
         options: [
             "Logs an error message",
             "Logs undefined",
@@ -249,7 +249,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let response = await fetch(url); let data = await response.json(); console.log(data);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let response = await fetch(url);<br/>&nbsp;&nbsp;let data = await response.json();<br/>&nbsp;&nbsp;console.log(data);',
         options: [
             "Logs the parsed JSON data",
             "Logs the raw response",
@@ -273,7 +273,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: fetch(url).then(response => { console.log(response.status); });',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url)<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(response.status);<br/>&nbsp;&nbsp;&nbsp;&nbsp;});',
         options: [
             "Logs the HTTP status code",
             "Logs the response body",
@@ -297,7 +297,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: fetch("https://jsonplaceholder.typicode.com/posts/1") .then(response => response.json()) .then(data => console.log(data.id));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("https://jsonplaceholder.typicode.com/posts/1")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data.id));',
         options: [
             "Logs the post ID (1)",
             "Logs the entire post",
@@ -309,7 +309,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: fetch("invalid.url").then(response => console.log("Success"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("invalid.url")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => console.log("Success"));',
         options: [
             "Does nothing (error)",
             "Logs 'Success'",
@@ -321,7 +321,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: fetch("https://jsonplaceholder.typicode.com/posts/1") .then(response => response.json()) .then(data => console.log(data.userId));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("https://jsonplaceholder.typicode.com/posts/1")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data.userId));',
         options: [
             "Logs the userId (1)",
             "Logs the entire post",

@@ -166,7 +166,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let acc = new Accordion(); console.log(acc.items.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;console.log(acc.items.length);',
         options: [
             "4",
             "5",
@@ -178,7 +178,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let acc = new Accordion(); acc.expandAll(); console.log(acc.getOpenCount());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.expandAll();<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
         options: [
             "4",
             "0",
@@ -190,7 +190,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let acc = new Accordion(); acc.collapseAll(); console.log(acc.getOpenCount());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.collapseAll();<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
         options: [
             "0",
             "4",
@@ -202,7 +202,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let acc = new Accordion(); acc.openItem(0); console.log(acc.isOpen(0));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.openItem(0);<br/>&nbsp;&nbsp;console.log(acc.isOpen(0));',
         options: [
             "true",
             "false",
@@ -214,7 +214,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let acc = new Accordion(); acc.closeItem(1); console.log(acc.isOpen(1));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.closeItem(1);<br/>&nbsp;&nbsp;console.log(acc.isOpen(1));',
         options: [
             "false",
             "true",
@@ -226,7 +226,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let acc = new Accordion(); console.log(acc.getOpenCount());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
         options: [
             "1",
             "0",
@@ -238,7 +238,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let acc = new Accordion(); acc.openItem(2); console.log(acc.isOpen(2));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.openItem(2);<br/>&nbsp;&nbsp;console.log(acc.isOpen(2));',
         options: [
             "true",
             "false",
@@ -250,7 +250,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let acc = new Accordion(); acc.openItem(2); console.log(acc.getOpenCount());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.openItem(2);<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
         options: [
             "2",
             "1",
@@ -262,7 +262,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let acc = new Accordion(); acc.collapseAll(); acc.openItem(0); console.log(acc.getOpenCount());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.collapseAll();<br/>&nbsp;&nbsp;acc.openItem(0);<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
         options: [
             "1",
             "0",
@@ -274,7 +274,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let acc = new Accordion(); console.log(acc.items[0].classList.contains("active"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;console.log(acc.items[0].classList.contains("active"));',
         options: [
             "true",
             "false",
@@ -286,7 +286,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let acc = new Accordion(); acc.toggleItem(acc.items[0]); console.log(acc.isOpen(0));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.toggleItem(acc.items[0]);<br/>&nbsp;&nbsp;console.log(acc.isOpen(0));',
         options: [
             "false",
             "true",

@@ -187,7 +187,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: class Person { constructor(name) { this.name = name; } } let p = new Person("John"); console.log(p.name);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Person {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let p = new Person("John");<br/>&nbsp;&nbsp;console.log(p.name);',
         options: [
             "John",
             "name",
@@ -199,7 +199,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: class Dog { bark() { return "Woof"; } } let d = new Dog(); console.log(d.bark());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Dog {<br/>&nbsp;&nbsp;&nbsp;&nbsp;bark() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Woof";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let d = new Dog();<br/>&nbsp;&nbsp;console.log(d.bark());',
         options: [
             "Woof",
             "undefined",
@@ -223,7 +223,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: class Car { constructor(brand) { this.brand = brand; } } let c = new Car("Toyota"); console.log(c.brand);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Car {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(brand) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.brand = brand;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let c = new Car("Toyota");<br/>&nbsp;&nbsp;console.log(c.brand);',
         options: [
             "Toyota",
             "brand",
@@ -235,7 +235,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: class User { constructor(name) { this.name = name; } } let u1 = new User("Alice"); let u2 = new User("Bob"); console.log(u1.name + " " + u2.name);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class User {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let u1 = new User("Alice");<br/>&nbsp;&nbsp;let u2 = new User("Bob");<br/>&nbsp;&nbsp;console.log(u1.name + " " + u2.name);',
         options: [
             "Alice Bob",
             "Alice",
@@ -247,7 +247,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: class Person { constructor(name) { this.name = name; } greet() { return "Hello"; } } let p = new Person("John"); console.log(p.greet());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Person {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;greet() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Hello";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let p = new Person("John");<br/>&nbsp;&nbsp;console.log(p.greet());',
         options: [
             "Hello",
             "Hello John",
@@ -259,7 +259,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: class Animal { constructor(type) { this.type = type; } } let a = new Animal("Dog"); console.log(a.type);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Animal {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(type) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.type = type;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let a = new Animal("Dog");<br/>&nbsp;&nbsp;console.log(a.type);',
         options: [
             "Dog",
             "type",
@@ -271,7 +271,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: class Product { constructor(name, price) { this.name = name; this.price = price; } } let p = new Product("Laptop", 999); console.log(p.name + " $" + p.price);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Product {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name, price) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.price = price;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let p = new Product("Laptop", 999);<br/>&nbsp;&nbsp;console.log(p.name + " $" + p.price);',
         options: [
             "Laptop $999",
             "Laptop",
@@ -283,7 +283,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: class Student { constructor(name) { this.name = name; } } let s = new Student("John"); console.log(s.name + " is a student");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Student {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let s = new Student("John");<br/>&nbsp;&nbsp;console.log(s.name + " is a student");',
         options: [
             "John is a student",
             "name is a student",
@@ -295,7 +295,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: class Book { constructor(title) { this.title = title; } } let b = new Book("1984"); console.log(b.title);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Book {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(title) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.title = title;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let b = new Book("1984");<br/>&nbsp;&nbsp;console.log(b.title);',
         options: [
             "1984",
             "title",
@@ -307,7 +307,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: class Animal { constructor(name) { this.name = name; } speak() { return "I am an animal"; } } let a = new Animal("Dog"); console.log(a.speak());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;class Animal {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;speak() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "I am an animal";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let a = new Animal("Dog");<br/>&nbsp;&nbsp;console.log(a.speak());',
         options: [
             "I am an animal",
             "I am a Dog",

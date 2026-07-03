@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("5"); calc.handleInput("+"); calc.handleInput("3"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("5");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("3");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "8",
             "5",
@@ -301,7 +301,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 2,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("10"); calc.handleInput("-"); calc.handleInput("4"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("10");<br/>&nbsp;&nbsp;calc.handleInput("-");<br/>&nbsp;&nbsp;calc.handleInput("4");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "6",
             "10",
@@ -313,7 +313,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("6"); calc.handleInput("*"); calc.handleInput("7"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("6");<br/>&nbsp;&nbsp;calc.handleInput("*");<br/>&nbsp;&nbsp;calc.handleInput("7");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "42",
             "6",
@@ -325,7 +325,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("15"); calc.handleInput("/"); calc.handleInput("3"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("15");<br/>&nbsp;&nbsp;calc.handleInput("/");<br/>&nbsp;&nbsp;calc.handleInput("3");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "5",
             "15",
@@ -337,15 +337,15 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("2"); calc.handleInput("+"); calc.handleInput("3"); calc.handleInput("*"); calc.handleInput("4"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("2");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("3");<br/>&nbsp;&nbsp;calc.handleInput("*");<br/>&nbsp;&nbsp;calc.handleInput("4");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
-            "14",
             "20",
-            "12",
-            "24"
+            "14",
+            "24",
+            "12"
         ],
         correct: 0,
-        explanation: '2 + 3 = 5, then 5 * 4 = 20? Actually the calculator evaluates in order: 2 + 3 * 4 = 14? No, it evaluates step by step: 2+3=5, then 5*4=20.'
+        explanation: '2 + 3 = 5, then 5 * 4 = 20.'
     },
     {
         id: 6,
@@ -373,7 +373,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("10"); calc.handleInput("%"); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("10");<br/>&nbsp;&nbsp;calc.handleInput("%");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "0.1",
             "10",
@@ -385,7 +385,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("5"); calc.handleInput("."); calc.handleInput("5"); calc.handleInput("+"); calc.handleInput("2"); calc.handleInput("."); calc.handleInput("5"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("5");<br/>&nbsp;&nbsp;calc.handleInput(".");<br/>&nbsp;&nbsp;calc.handleInput("5");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("2");<br/>&nbsp;&nbsp;calc.handleInput(".");<br/>&nbsp;&nbsp;calc.handleInput("5");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "8",
             "7.5",
@@ -397,7 +397,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("0"); calc.handleInput("5"); calc.handleInput("+"); calc.handleInput("3"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("0");<br/>&nbsp;&nbsp;calc.handleInput("5");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("3");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "8",
             "5",
@@ -409,7 +409,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("2"); calc.handleInput("+"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("2");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "4",
             "2",
@@ -421,19 +421,19 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("10"); calc.handleInput("backspace"); calc.handleInput("5"); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("10");<br/>&nbsp;&nbsp;calc.handleInput("backspace");<br/>&nbsp;&nbsp;calc.handleInput("5");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
-            "5",
-            "10",
             "15",
+            "10",
+            "5",
             "0"
         ],
         correct: 0,
-        explanation: '10 becomes "1" after backspace, then adding 5 makes "5"? Actually: "10" → backspace → "1", then "5" → "15"? Wait, the backspace removes the last character.'
+        explanation: '"10" → backspace → "1", then "5" → "15".'
     },
     {
         id: 13,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("5"); calc.handleInput("+"); calc.handleInput("3"); calc.handleInput("clear"); calc.handleInput("2"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("5");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("3");<br/>&nbsp;&nbsp;calc.handleInput("clear");<br/>&nbsp;&nbsp;calc.handleInput("2");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "2",
             "5",
@@ -445,7 +445,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("2"); calc.handleInput("+"); calc.handleInput("3"); calc.handleInput("+"); calc.handleInput("4"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("2");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("3");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("4");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "9",
             "7",
@@ -457,7 +457,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let calc = new Calculator(); calc.handleInput("2"); calc.handleInput("+"); calc.handleInput("3"); calc.handleInput("*"); calc.handleInput("4"); calc.handleInput("="); console.log(calc.currentInput);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let calc = new Calculator();<br/>&nbsp;&nbsp;calc.handleInput("2");<br/>&nbsp;&nbsp;calc.handleInput("+");<br/>&nbsp;&nbsp;calc.handleInput("3");<br/>&nbsp;&nbsp;calc.handleInput("*");<br/>&nbsp;&nbsp;calc.handleInput("4");<br/>&nbsp;&nbsp;calc.handleInput("=");<br/>&nbsp;&nbsp;console.log(calc.currentInput);',
         options: [
             "20",
             "14",

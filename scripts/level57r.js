@@ -238,7 +238,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: fetch(url, { method: "POST", body: JSON.stringify(data) }) .then(response => response.json()) .then(data => console.log(data));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify(data)<br/>&nbsp;&nbsp;})<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data));',
         options: [
             "Logs the parsed JSON response",
             "Logs the raw response",
@@ -262,7 +262,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: fetch(url, { method: "POST" }) .catch(error => console.log(error));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, { method: "POST" })<br/>&nbsp;&nbsp;&nbsp;&nbsp;.catch(error => console.log(error));',
         options: [
             "Logs any errors",
             "Logs undefined",
@@ -286,7 +286,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let data = { name: "John" }; fetch(url, { method: "POST", body: JSON.stringify(data) });',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let data = { name: "John" };<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify(data)<br/>&nbsp;&nbsp;});',
         options: [
             "Sends a POST request with JSON data",
             "Sends a GET request",
@@ -310,7 +310,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: fetch(url, { method: "POST", body: "plain text" }) .then(response => response.text()) .then(data => console.log(data));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: "plain text"<br/>&nbsp;&nbsp;})<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.text())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data));',
         options: [
             "Logs the response as text",
             "Throws an error",
@@ -334,7 +334,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let x = { a: 1 }; fetch(url, { method: "POST", body: x });',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let x = { a: 1 };<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: x<br/>&nbsp;&nbsp;});',
         options: [
             "Sends [object Object]",
             "Sends { a: 1 }",
@@ -358,7 +358,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: fetch(url, { method: "POST" }) .then(response => { if (!response.ok) { throw new Error("Failed"); } return response.json(); });',
+        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, { method: "POST" })<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Failed");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return response.json();<br/>&nbsp;&nbsp;&nbsp;&nbsp;});',
         options: [
             "Parses JSON if successful, throws error if not",
             "Always parses JSON",

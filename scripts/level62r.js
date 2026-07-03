@@ -166,7 +166,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: [1,2,3].reduce((acc, n) => acc + n, 0)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].reduce((acc, n) => acc + n, 0)',
         options: [
             "6",
             "3",
@@ -178,7 +178,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: [1,2,3,4].find(n => n > 2)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].find(n => n > 2)',
         options: [
             "3",
             "4",
@@ -202,7 +202,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: [1,2,3,4,5].reduce((acc, n) => acc * n, 1)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4,5].reduce((acc, n) => acc * n, 1)',
         options: [
             "120",
             "15",
@@ -214,7 +214,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: [1,2,3,4].find(n => n > 10)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].find(n => n > 10)',
         options: [
             "undefined",
             "null",
@@ -226,7 +226,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: [{id:1,name:"John"},{id:2,name:"Jane"}].find(obj => obj.id === 2)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[{id:1,name:"John"},{id:2,name:"Jane"}].find(obj => obj.id === 2)',
         options: [
             '{id:2,name:"Jane"}',
             '{id:1,name:"John"}',
@@ -238,7 +238,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: [{age:18},{age:20},{age:16}].reduce((acc, p) => acc + p.age, 0)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[{age:18},{age:20},{age:16}].reduce((acc, p) => acc + p.age, 0)',
         options: [
             "54",
             "18",
@@ -250,7 +250,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: [5,10,15,20].find(n => n > 12)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[5,10,15,20].find(n => n > 12)',
         options: [
             "15",
             "20",
@@ -262,7 +262,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: [1,2,3,4].reduce((acc, n) => acc + n, 10)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].reduce((acc, n) => acc + n, 10)',
         options: [
             "20",
             "10",
@@ -286,7 +286,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: [2,4,6,8].find(n => n % 2 !== 0)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[2,4,6,8].find(n => n % 2 !== 0)',
         options: [
             "undefined",
             "2",
@@ -298,7 +298,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: [{name:"John"},{name:"Jane"}].reduce((acc, p) => acc + " " + p.name, "")?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[{name:"John"},{name:"Jane"}].reduce((acc, p) => acc + " " + p.name, "")',
         options: [
             " John Jane",
             "John Jane",

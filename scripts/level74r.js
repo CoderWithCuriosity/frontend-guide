@@ -325,7 +325,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let modal = new Modal(); modal.showAlert("Test", "Alert Message"); console.log(modal.isOpen);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Alert Message");<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
         options: [
             "true",
             "false",
@@ -337,7 +337,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let modal = new Modal(); modal.close(); console.log(modal.isOpen);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.close();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
         options: [
             "false",
             "true",
@@ -361,7 +361,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let modal = new Modal(); modal.showAlert("Test", "Message"); console.log(modal.overlay);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;console.log(modal.overlay);',
         options: [
             "The overlay element",
             "undefined",
@@ -385,7 +385,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let modal = new Modal(); modal.showCustom(); console.log(modal.isOpen);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showCustom();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
         options: [
             "true",
             "false",
@@ -397,7 +397,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let modal = new Modal(); modal.showAlert("Test", "Message"); modal.close(); console.log(modal.isOpen);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;modal.close();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
         options: [
             "false",
             "true",
@@ -409,7 +409,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let modal = new Modal(); console.log(modal.isOpen);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
         options: [
             "false",
             "true",
@@ -433,7 +433,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let modal = new Modal(); modal.showAlert("Test", "Message"); console.log(typeof modal.overlay);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;console.log(typeof modal.overlay);',
         options: [
             "object",
             "string",
@@ -445,7 +445,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let modal = new Modal(); modal.showAlert("Test", "Message"); modal.close(); console.log(typeof modal.isOpen);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;modal.close();<br/>&nbsp;&nbsp;console.log(typeof modal.isOpen);',
         options: [
             "boolean",
             "string",

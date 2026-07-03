@@ -188,7 +188,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: setTimeout(() => console.log("A"), 0); console.log("B");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 0);<br/>&nbsp;&nbsp;console.log("B");',
         options: [
             "A B",
             "B A",
@@ -200,7 +200,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let i = 0; let id = setInterval(() => { i++; console.log(i); if(i===3) clearInterval(id); }, 100);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;let id = setInterval(() => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;if(i === 3) clearInterval(id);<br/>&nbsp;&nbsp;}, 100);',
         options: [
             "1 2 3",
             "1 2",
@@ -212,7 +212,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: setTimeout(() => console.log("A"), 100); setTimeout(() => console.log("B"), 50);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 100);<br/>&nbsp;&nbsp;setTimeout(() => console.log("B"), 50);',
         options: [
             "A B",
             "B A",
@@ -236,7 +236,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let id = setInterval(() => console.log("Hi"), 1000); clearInterval(id); console.log("Done");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let id = setInterval(() => console.log("Hi"), 1000);<br/>&nbsp;&nbsp;clearInterval(id);<br/>&nbsp;&nbsp;console.log("Done");',
         options: [
             "Done Hi",
             "Hi Done",
@@ -248,7 +248,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: setTimeout(() => console.log("A"), 500); console.log("B"); setTimeout(() => console.log("C"), 200);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 500);<br/>&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;setTimeout(() => console.log("C"), 200);',
         options: [
             "A B C",
             "B C A",
@@ -272,7 +272,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: setTimeout(() => console.log("A"), 0); setTimeout(() => console.log("B"), 0); console.log("C");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 0);<br/>&nbsp;&nbsp;setTimeout(() => console.log("B"), 0);<br/>&nbsp;&nbsp;console.log("C");',
         options: [
             "A B C",
             "C A B",
@@ -296,7 +296,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let count = 0; let id = setInterval(() => { count++; console.log(count); if(count===2) { clearInterval(id); } }, 1000);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let count = 0;<br/>&nbsp;&nbsp;let id = setInterval(() => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;count++;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(count);<br/>&nbsp;&nbsp;&nbsp;&nbsp;if(count === 2) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearInterval(id);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}, 1000);',
         options: [
             "1 2",
             "1 2 3",

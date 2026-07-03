@@ -198,7 +198,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 2,
-        question: 'What is the output: function add(a, b) { return a + b; } console.log(add(5, 3));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function add(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(add(5, 3));',
         options: [
             "8",
             "53",
@@ -210,7 +210,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: function greet() { return "Hello"; } let message = greet(); console.log(message);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function greet() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Hello";<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let message = greet();<br/>&nbsp;&nbsp;console.log(message);',
         options: [
             "Hello",
             "undefined",
@@ -234,7 +234,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: function isEven(num) { if (num % 2 === 0) { return true; } return false; } console.log(isEven(4));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function isEven(num) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (num % 2 === 0) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;return false;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(isEven(4));',
         options: [
             "true",
             "false",
@@ -246,7 +246,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: function double(n) { return n * 2; } let x = double(3); console.log(x + 1);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function double(n) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return n * 2;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let x = double(3);<br/>&nbsp;&nbsp;console.log(x + 1);',
         options: [
             "7",
             "6",
@@ -270,7 +270,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: function test() { return "A"; console.log("B"); } console.log(test());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "A";<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(test());',
         options: [
             "A",
             "A B",
@@ -282,7 +282,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: function max(a, b) { if (a > b) { return a; } else { return b; } } console.log(max(5, 10));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function max(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (a > b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return a;<br/>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return b;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(max(5, 10));',
         options: [
             "10",
             "5",
@@ -294,7 +294,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: function sum(a, b, c) { return a + b + c; } let result = sum(1, 2, 3); console.log(result * 2);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function sum(a, b, c) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b + c;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let result = sum(1, 2, 3);<br/>&nbsp;&nbsp;console.log(result * 2);',
         options: [
             "12",
             "6",
@@ -306,7 +306,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: function getLength(str) { return str.length; } console.log(getLength("Hello"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function getLength(str) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return str.length;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(getLength("Hello"));',
         options: [
             "5",
             "Hello",
@@ -318,7 +318,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: function calculate(a, b) { return a * b; } console.log(calculate(3, 4) + calculate(5, 2));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function calculate(a, b) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a * b;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(calculate(3, 4) + calculate(5, 2));',
         options: [
             "22",
             "12",
@@ -330,7 +330,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: function checkAge(age) { if (age >= 18) { return "Adult"; } return "Minor"; } console.log(checkAge(20));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function checkAge(age) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (age >= 18) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Adult";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Minor";<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(checkAge(20));',
         options: [
             "Adult",
             "Minor",
@@ -342,7 +342,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: function message() { return "Hello"; return "Goodbye"; } console.log(message());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function message() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Hello";<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Goodbye";<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(message());',
         options: [
             "Hello",
             "Goodbye",
@@ -354,7 +354,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: function square(n) { return n * n; } let x = square(4); console.log(x);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function square(n) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return n * n;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let x = square(4);<br/>&nbsp;&nbsp;console.log(x);',
         options: [
             "16",
             "8",

@@ -279,7 +279,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let elements = document.getElementsByTagName("p"); console.log(elements.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let elements = document.getElementsByTagName("p");<br/>&nbsp;&nbsp;console.log(elements.length);',
         options: [
             "The number of p elements",
             "The number of all elements",

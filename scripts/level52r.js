@@ -218,7 +218,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: function validate(value) { return value.length > 0; } console.log(validate(""));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function validate(value) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return value.length > 0;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(validate(""));',
         options: [
             "true",
             "false",
@@ -254,7 +254,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let str = "Hello"; console.log(str.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let str = "Hello";<br/>&nbsp;&nbsp;console.log(str.length);',
         options: [
             "5",
             "6",
@@ -266,7 +266,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let email = "test@test.com"; console.log(email.includes("@"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let email = "test@test.com";<br/>&nbsp;&nbsp;console.log(email.includes("@"));',
         options: [
             "true",
             "false",
@@ -278,7 +278,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let pw1 = "pass"; let pw2 = "word"; console.log(pw1 === pw2);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let pw1 = "pass";<br/>&nbsp;&nbsp;let pw2 = "word";<br/>&nbsp;&nbsp;console.log(pw1 === pw2);',
         options: [
             "true",
             "false",
@@ -302,7 +302,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: function validate(input) { return input !== ""; } console.log(validate("Hello"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;function validate(input) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return input !== "";<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(validate("Hello"));',
         options: [
             "true",
             "false",

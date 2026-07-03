@@ -142,7 +142,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 2,
-        question: 'What is the output: let add = (a, b) => a + b; console.log(add(5, 3));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let add = (a, b) => a + b;<br/>&nbsp;&nbsp;console.log(add(5, 3));',
         options: [
             "8",
             "53",
@@ -154,7 +154,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: let double = x => x * 2; console.log(double(4));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let double = x => x * 2;<br/>&nbsp;&nbsp;console.log(double(4));',
         options: [
             "8",
             "4",
@@ -178,7 +178,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let greet = () => "Hello"; console.log(greet());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let greet = () => "Hello";<br/>&nbsp;&nbsp;console.log(greet());',
         options: [
             "Hello",
             "undefined",
@@ -190,7 +190,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let add = (a, b) => { let c = a + b; return c; }; console.log(add(5, 3));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let add = (a, b) => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let c = a + b;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return c;<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(add(5, 3));',
         options: [
             "8",
             "5 + 3",
@@ -202,7 +202,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: [1,2,3].map(n => n * 2)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].map(n => n * 2)',
         options: [
             "[2,4,6]",
             "[1,2,3]",
@@ -214,7 +214,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: [1,2,3,4].filter(n => n > 2)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].filter(n => n > 2)',
         options: [
             "[3,4]",
             "[1,2]",
@@ -238,7 +238,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let square = x => { return x * x; }; console.log(square(5));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let square = x => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return x * x;<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(square(5));',
         options: [
             "25",
             "10",
@@ -250,7 +250,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let getGreeting = () => { return "Hi"; }; console.log(getGreeting());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let getGreeting = () => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Hi";<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(getGreeting());',
         options: [
             "Hi",
             "Hello",
@@ -262,7 +262,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let add = (a, b) => a + b; console.log(add(10, 20));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let add = (a, b) => a + b;<br/>&nbsp;&nbsp;console.log(add(10, 20));',
         options: [
             "30",
             "1020",
@@ -274,7 +274,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let process = (x) => { if (x > 5) return "Big"; return "Small"; }; console.log(process(10));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let process = (x) => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (x > 5) return "Big";<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Small";<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(process(10));',
         options: [
             "Big",
             "Small",
@@ -286,7 +286,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: [1,2,3,4].reduce((acc, n) => acc + n, 0)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].reduce((acc, n) => acc + n, 0)',
         options: [
             "10",
             "6",
@@ -298,7 +298,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let multiply = (a, b) => a * b; console.log(multiply(5, 5));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let multiply = (a, b) => a * b;<br/>&nbsp;&nbsp;console.log(multiply(5, 5));',
         options: [
             "25",
             "10",

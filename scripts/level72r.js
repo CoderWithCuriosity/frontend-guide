@@ -335,7 +335,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let gallery = new ImageGallery(); console.log(gallery.images.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;console.log(gallery.images.length);',
         options: [
             "0",
             "1",
@@ -371,7 +371,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let gallery = new ImageGallery(); gallery.addImage("data:image/png;base64,...", "test"); console.log(gallery.images.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;gallery.addImage("data:image/png;base64,...", "test");<br/>&nbsp;&nbsp;console.log(gallery.images.length);',
         options: [
             "1",
             "0",
@@ -395,7 +395,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let gallery = new ImageGallery(); gallery.clearGallery(); console.log(gallery.images.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;gallery.clearGallery();<br/>&nbsp;&nbsp;console.log(gallery.images.length);',
         options: [
             "0",
             "1",
@@ -419,7 +419,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let gallery = new ImageGallery(); console.log(gallery.maxStorageSize);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;console.log(gallery.maxStorageSize);',
         options: [
             "10485760",
             "1024",
@@ -443,7 +443,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let gallery = new ImageGallery(); gallery.addImage("data", "test"); console.log(gallery.images[0].name);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;gallery.addImage("data", "test");<br/>&nbsp;&nbsp;console.log(gallery.images[0].name);',
         options: [
             "test",
             "data",

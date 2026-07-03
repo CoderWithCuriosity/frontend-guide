@@ -221,7 +221,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: try { throw new Error("Failed"); } catch(e) { console.log(e.message); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Failed");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);<br/>&nbsp;&nbsp;}',
         options: [
             "Failed",
             "Error",
@@ -233,7 +233,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: try { let x = 5; } catch(e) { console.log("Error"); } finally { console.log("Done"); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Error");<br/>&nbsp;&nbsp;} finally {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Done");<br/>&nbsp;&nbsp;}',
         options: [
             "Done",
             "Error Done",
@@ -257,7 +257,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: try { JSON.parse("invalid"); } catch(e) { console.log(e.name); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;JSON.parse("invalid");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.name);<br/>&nbsp;&nbsp;}',
         options: [
             "SyntaxError",
             "Error",
@@ -281,7 +281,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: try { throw new Error("Oops"); } catch(e) { console.log(e.message); } finally { console.log("Finally"); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Oops");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);<br/>&nbsp;&nbsp;} finally {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Finally");<br/>&nbsp;&nbsp;}',
         options: [
             "Oops Finally",
             "Finally",
@@ -293,7 +293,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: try { let x = y; } catch(e) { console.log(e.name); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = y;<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.name);<br/>&nbsp;&nbsp;}',
         options: [
             "ReferenceError",
             "Error",
@@ -317,7 +317,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: try { console.log("A"); throw new Error(); console.log("B"); } catch(e) { console.log("C"); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A");<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error();<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("C");<br/>&nbsp;&nbsp;}',
         options: [
             "A C",
             "A B C",
@@ -329,7 +329,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: try { throw new Error("Test"); } catch(e) { console.log(e instanceof Error); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Test");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e instanceof Error);<br/>&nbsp;&nbsp;}',
         options: [
             "true",
             "false",
@@ -341,7 +341,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: try { } catch(e) { console.log("Caught"); } finally { console.log("Done"); }',
+        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Caught");<br/>&nbsp;&nbsp;} finally {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Done");<br/>&nbsp;&nbsp;}',
         options: [
             "Done",
             "Caught Done",

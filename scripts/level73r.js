@@ -263,7 +263,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: let cart = new ShoppingCart(); console.log(cart.products.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;console.log(cart.products.length);',
         options: [
             "8",
             "6",
@@ -275,7 +275,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); console.log(cart.cart.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;console.log(cart.cart.length);',
         options: [
             "1",
             "0",
@@ -299,7 +299,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); cart.addToCart(1); console.log(cart.cart[0].quantity);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;console.log(cart.cart[0].quantity);',
         options: [
             "2",
             "1",
@@ -311,7 +311,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); cart.addToCart(2); console.log(cart.getTotalItems());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(2);<br/>&nbsp;&nbsp;console.log(cart.getTotalItems());',
         options: [
             "2",
             "1",
@@ -335,7 +335,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); cart.updateQuantity(1, -1); console.log(cart.cart.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.updateQuantity(1, -1);<br/>&nbsp;&nbsp;console.log(cart.cart.length);',
         options: [
             "0",
             "1",
@@ -347,7 +347,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); console.log(cart.getSubtotal());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;console.log(cart.getSubtotal());',
         options: [
             "999.99",
             "999.99",
@@ -371,7 +371,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); cart.addToCart(2); cart.removeFromCart(1); console.log(cart.cart.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(2);<br/>&nbsp;&nbsp;cart.removeFromCart(1);<br/>&nbsp;&nbsp;console.log(cart.cart.length);',
         options: [
             "1",
             "2",
@@ -383,7 +383,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); cart.updateQuantity(1, 2); console.log(cart.cart[0].quantity);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.updateQuantity(1, 2);<br/>&nbsp;&nbsp;console.log(cart.cart[0].quantity);',
         options: [
             "3",
             "2",
@@ -395,7 +395,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let cart = new ShoppingCart(); cart.addToCart(1); cart.addToCart(2); cart.addToCart(3); console.log(cart.getTotalItems());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(2);<br/>&nbsp;&nbsp;cart.addToCart(3);<br/>&nbsp;&nbsp;console.log(cart.getTotalItems());',
         options: [
             "3",
             "2",

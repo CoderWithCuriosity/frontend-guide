@@ -157,7 +157,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: let arr = ["a", "b", "c"]; console.log(arr[1]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["a", "b", "c"];<br/>&nbsp;&nbsp;console.log(arr[1]);',
         options: [
             "a",
             "b",
@@ -181,7 +181,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let arr = [1, 2, 3]; console.log(arr.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2, 3];<br/>&nbsp;&nbsp;console.log(arr.length);',
         options: [
             "2",
             "3",
@@ -205,7 +205,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let arr = ["a", "b", "c"]; arr[1] = "x"; console.log(arr);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["a", "b", "c"];<br/>&nbsp;&nbsp;arr[1] = "x";<br/>&nbsp;&nbsp;console.log(arr);',
         options: [
             '["a", "b", "c"]',
             '["a", "x", "c"]',
@@ -217,7 +217,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let arr = []; console.log(arr.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [];<br/>&nbsp;&nbsp;console.log(arr.length);',
         options: [
             "0",
             "1",
@@ -241,7 +241,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let arr = ["apple", "banana"]; console.log(arr[2]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["apple", "banana"];<br/>&nbsp;&nbsp;console.log(arr[2]);',
         options: [
             "apple",
             "banana",
@@ -265,7 +265,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let arr = ["a", "b", "c"]; console.log(arr[0] + arr[2]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["a", "b", "c"];<br/>&nbsp;&nbsp;console.log(arr[0] + arr[2]);',
         options: [
             "ac",
             "ab",
@@ -277,7 +277,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let arr = [10, 20, 30]; console.log(arr[1] + arr[2]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [10, 20, 30];<br/>&nbsp;&nbsp;console.log(arr[1] + arr[2]);',
         options: [
             "50",
             "30",
@@ -289,7 +289,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let arr = ["a", "b", "c"]; console.log(arr.length + arr[1]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["a", "b", "c"];<br/>&nbsp;&nbsp;console.log(arr.length + arr[1]);',
         options: [
             "3b",
             "3",

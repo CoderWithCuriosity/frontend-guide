@@ -330,7 +330,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let input = document.getElementById("name"); console.log(input.value); if the input is empty?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let input = document.getElementById("name");<br/>&nbsp;&nbsp;console.log(input.value);<br/>if the input is empty?',
         options: [
             '"" (empty string)',
             "undefined",

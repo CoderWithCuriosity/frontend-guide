@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What is the output: let gen = new PasswordGenerator(); gen.generatePassword(); console.log(gen.password);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password);',
         options: [
             "A string of characters",
             "undefined",
@@ -260,7 +260,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: let gen = new PasswordGenerator(); console.log(gen.charSets.uppercase.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.uppercase.length);',
         options: [
             "26",
             "52",
@@ -284,7 +284,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let gen = new PasswordGenerator(); gen.generatePassword(); console.log(typeof gen.password);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(typeof gen.password);',
         options: [
             "string",
             "object",
@@ -308,7 +308,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let gen = new PasswordGenerator(); gen.charSets.numbers = "123"; console.log(gen.charSets.numbers);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.charSets.numbers = "123";<br/>&nbsp;&nbsp;console.log(gen.charSets.numbers);',
         options: [
             "123",
             "0123456789",
@@ -320,7 +320,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let gen = new PasswordGenerator(); console.log(gen.charSets.symbols.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.symbols.length);',
         options: [
             "26",
             "20",
@@ -332,7 +332,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let gen = new PasswordGenerator(); gen.generatePassword(); console.log(gen.password.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password.length);',
         options: [
             "12",
             "8",
@@ -344,7 +344,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let gen = new PasswordGenerator(); console.log(gen.charSets.lowercase);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.lowercase);',
         options: [
             "abcdefghijklmnopqrstuvwxyz",
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -356,7 +356,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let gen = new PasswordGenerator(); gen.generatePassword(); console.log(gen.password !== "");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password !== "");',
         options: [
             "true",
             "false",
@@ -368,7 +368,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let gen = new PasswordGenerator(); console.log(gen.charSets.uppercase[0]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.uppercase[0]);',
         options: [
             "A",
             "a",
@@ -380,7 +380,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let gen = new PasswordGenerator(); gen.generatePassword(); console.log(gen.password);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password);',
         options: [
             "A string of characters",
             "undefined",
@@ -392,7 +392,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let gen = new PasswordGenerator(); console.log(gen.charSets.numbers[0]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.numbers[0]);',
         options: [
             "0",
             "1",

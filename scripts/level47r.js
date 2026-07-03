@@ -172,7 +172,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 2,
-        question: 'What is the output: let obj = { name: "John" }; console.log(obj.name);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(obj.name);',
         options: [
             "John",
             "name",
@@ -184,7 +184,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: let obj = { age: 25 }; console.log(obj["age"]);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { age: 25 };<br/>&nbsp;&nbsp;console.log(obj["age"]);',
         options: [
             "25",
             "age",
@@ -208,7 +208,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let obj = { name: "John", age: 25 }; obj.age = 26; console.log(obj.age);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", age: 25 };<br/>&nbsp;&nbsp;obj.age = 26;<br/>&nbsp;&nbsp;console.log(obj.age);',
         options: [
             "25",
             "26",
@@ -232,7 +232,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let obj = {}; console.log(obj.name);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = {};<br/>&nbsp;&nbsp;console.log(obj.name);',
         options: [
             "undefined",
             "null",
@@ -244,7 +244,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let obj = { name: "John" }; console.log(obj.name + " Doe");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(obj.name + " Doe");',
         options: [
             "John Doe",
             "name Doe",
@@ -268,7 +268,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let obj = { a: 1, b: 2 }; console.log(obj.a + obj.b);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { a: 1, b: 2 };<br/>&nbsp;&nbsp;console.log(obj.a + obj.b);',
         options: [
             "3",
             "12",
@@ -280,7 +280,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let obj = { name: "John" }; console.log(obj["name"] + " Smith");',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(obj["name"] + " Smith");',
         options: [
             "John Smith",
             "name Smith",
@@ -292,7 +292,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let obj = { city: "New York" }; obj.city = "Boston"; console.log(obj.city);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { city: "New York" };<br/>&nbsp;&nbsp;obj.city = "Boston";<br/>&nbsp;&nbsp;console.log(obj.city);',
         options: [
             "New York",
             "Boston",
@@ -316,7 +316,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let obj = { name: "John", age: 25 }; console.log(obj);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", age: 25 };<br/>&nbsp;&nbsp;console.log(obj);',
         options: [
             '{ name: "John", age: 25 }',
             '["John", 25]',
@@ -328,7 +328,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let obj = { a: 5, b: 10 }; console.log(obj.a * obj.b);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { a: 5, b: 10 };<br/>&nbsp;&nbsp;console.log(obj.a * obj.b);',
         options: [
             "50",
             "15",

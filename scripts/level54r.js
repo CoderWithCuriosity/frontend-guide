@@ -196,7 +196,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: sessionStorage.setItem("temp", "123"); console.log(sessionStorage.getItem("temp"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("temp", "123");<br/>&nbsp;&nbsp;console.log(sessionStorage.getItem("temp"));',
         options: [
             "123",
             "temp",
@@ -232,7 +232,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: sessionStorage.setItem("key", "value"); sessionStorage.removeItem("key"); console.log(sessionStorage.getItem("key"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("key", "value");<br/>&nbsp;&nbsp;sessionStorage.removeItem("key");<br/>&nbsp;&nbsp;console.log(sessionStorage.getItem("key"));',
         options: [
             "null",
             "value",
@@ -256,7 +256,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let obj = { name: "John" }; sessionStorage.setItem("user", JSON.stringify(obj)); console.log(sessionStorage.getItem("user"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;sessionStorage.setItem("user", JSON.stringify(obj));<br/>&nbsp;&nbsp;console.log(sessionStorage.getItem("user"));',
         options: [
             '{"name":"John"}',
             '{ name: "John" }',
@@ -280,7 +280,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: sessionStorage.setItem("a", "1"); sessionStorage.setItem("b", "2"); console.log(sessionStorage.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("a", "1");<br/>&nbsp;&nbsp;sessionStorage.setItem("b", "2");<br/>&nbsp;&nbsp;console.log(sessionStorage.length);',
         options: [
             "2",
             "1",
@@ -292,7 +292,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: sessionStorage.setItem("key", "value"); console.log(sessionStorage.key(0));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("key", "value");<br/>&nbsp;&nbsp;console.log(sessionStorage.key(0));',
         options: [
             "key",
             "value",

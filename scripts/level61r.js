@@ -152,7 +152,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 3,
-        question: 'What is the output: [1,2,3].map(n => n * 2)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].map(n => n * 2)',
         options: [
             "[2,4,6]",
             "[1,2,3]",
@@ -164,7 +164,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 4,
-        question: 'What is the output: [1,2,3,4].filter(n => n > 2)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].filter(n => n > 2)',
         options: [
             "[3,4]",
             "[1,2]",
@@ -188,7 +188,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: ["a","b","c"].map(s => s.toUpperCase())?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;["a","b","c"].map(s => s.toUpperCase())',
         options: [
             '["A","B","C"]',
             '["a","b","c"]',
@@ -200,7 +200,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: [1,2,3,4,5].filter(n => n % 2 === 0)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4,5].filter(n => n % 2 === 0)',
         options: [
             "[2,4]",
             "[1,3,5]",
@@ -224,7 +224,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: [1,2,3,4].filter(n => n > 2).map(n => n * 2)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].filter(n => n > 2).map(n => n * 2)',
         options: [
             "[6,8]",
             "[3,4]",
@@ -236,7 +236,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: [{name:"John"},{name:"Jane"}].map(obj => obj.name)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[{name:"John"},{name:"Jane"}].map(obj => obj.name)',
         options: [
             '["John","Jane"]',
             '[{name:"John"},{name:"Jane"}]',
@@ -248,7 +248,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: [1,2,3,4,5].filter(n => n > 10)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4,5].filter(n => n > 10)',
         options: [
             "[]",
             "[1,2,3,4,5]",
@@ -272,7 +272,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: [1,2,3].map(n => n + 10)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].map(n => n + 10)',
         options: [
             "[11,12,13]",
             "[1,2,3]",
@@ -284,7 +284,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: [{age:18},{age:20},{age:16}].filter(p => p.age >= 18)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[{age:18},{age:20},{age:16}].filter(p => p.age >= 18)',
         options: [
             '[{age:18},{age:20}]',
             '[{age:18},{age:20},{age:16}]',
@@ -296,7 +296,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: [1,2,3,4].map(n => n * n).filter(n => n > 5)?',
+        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].map(n => n * n).filter(n => n > 5)',
         options: [
             "[9,16]",
             "[1,4,9,16]",

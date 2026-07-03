@@ -286,7 +286,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let btn = document.getElementById("btn"); btn.addEventListener("click", function() { console.log("Clicked"); });',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let btn = document.getElementById("btn");<br/>&nbsp;&nbsp;btn.addEventListener("click", function() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Clicked");<br/>&nbsp;&nbsp;});',
         options: [
             "Clicked",
             "Error",
@@ -322,7 +322,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: document.addEventListener("click", function() { console.log("Document clicked"); });',
+        question: 'What is the output?<br/>&nbsp;&nbsp;document.addEventListener("click", function() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Document clicked");<br/>&nbsp;&nbsp;});',
         options: [
             "Document clicked",
             "Error",
@@ -346,7 +346,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let btn = document.getElementById("btn"); btn.addEventListener("click", function() { console.log(this); });',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let btn = document.getElementById("btn");<br/>&nbsp;&nbsp;btn.addEventListener("click", function() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(this);<br/>&nbsp;&nbsp;});',
         options: [
             "The button element",
             "The window object",

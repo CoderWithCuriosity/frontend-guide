@@ -245,7 +245,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let app = new TodoApp(); app.addTask("Buy milk"); console.log(app.tasks.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new TodoApp();<br/>&nbsp;&nbsp;app.addTask("Buy milk");<br/>&nbsp;&nbsp;console.log(app.tasks.length);',
         options: [
             "1",
             "0",
@@ -281,7 +281,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let app = new TodoApp(); app.addTask("Task 1"); app.addTask("Task 2"); app.deleteTask(0); console.log(app.tasks.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new TodoApp();<br/>&nbsp;&nbsp;app.addTask("Task 1");<br/>&nbsp;&nbsp;app.addTask("Task 2");<br/>&nbsp;&nbsp;app.deleteTask(0);<br/>&nbsp;&nbsp;console.log(app.tasks.length);',
         options: [
             "1",
             "2",
@@ -293,7 +293,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 11,
-        question: 'What is the output: let app = new TodoApp(); app.addTask("Task 1"); app.toggleTask(0); console.log(app.tasks[0].completed);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new TodoApp();<br/>&nbsp;&nbsp;app.addTask("Task 1");<br/>&nbsp;&nbsp;app.toggleTask(0);<br/>&nbsp;&nbsp;console.log(app.tasks[0].completed);',
         options: [
             "true",
             "false",
@@ -305,7 +305,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let app = new TodoApp(); app.addTask("Task 1"); app.addTask("Task 2"); console.log(app.getActiveCount());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new TodoApp();<br/>&nbsp;&nbsp;app.addTask("Task 1");<br/>&nbsp;&nbsp;app.addTask("Task 2");<br/>&nbsp;&nbsp;console.log(app.getActiveCount());',
         options: [
             "2",
             "1",
@@ -317,7 +317,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let app = new TodoApp(); app.addTask("Task 1"); app.addTask("Task 2"); app.toggleTask(0); console.log(app.getCompletedCount());',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new TodoApp();<br/>&nbsp;&nbsp;app.addTask("Task 1");<br/>&nbsp;&nbsp;app.addTask("Task 2");<br/>&nbsp;&nbsp;app.toggleTask(0);<br/>&nbsp;&nbsp;console.log(app.getCompletedCount());',
         options: [
             "1",
             "2",
@@ -329,7 +329,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let app = new TodoApp(); app.addTask("Task 1"); app.addTask("Task 2"); app.deleteTask(1); console.log(app.tasks.length);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new TodoApp();<br/>&nbsp;&nbsp;app.addTask("Task 1");<br/>&nbsp;&nbsp;app.addTask("Task 2");<br/>&nbsp;&nbsp;app.deleteTask(1);<br/>&nbsp;&nbsp;console.log(app.tasks.length);',
         options: [
             "1",
             "2",
@@ -341,7 +341,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let app = new TodoApp(); app.addTask("Task 1"); app.addTask("Task 2"); app.toggleTask(1); app.toggleTask(1); console.log(app.tasks[1].completed);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let app = new TodoApp();<br/>&nbsp;&nbsp;app.addTask("Task 1");<br/>&nbsp;&nbsp;app.addTask("Task 2");<br/>&nbsp;&nbsp;app.toggleTask(1);<br/>&nbsp;&nbsp;app.toggleTask(1);<br/>&nbsp;&nbsp;console.log(app.tasks[1].completed);',
         options: [
             "false",
             "true",

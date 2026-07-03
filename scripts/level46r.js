@@ -189,7 +189,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 5,
-        question: 'What is the output: let arr = [1, 2]; arr.push(3); console.log(arr);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2];<br/>&nbsp;&nbsp;arr.push(3);<br/>&nbsp;&nbsp;console.log(arr);',
         options: [
             "[1, 2]",
             "[1, 2, 3]",
@@ -201,7 +201,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 6,
-        question: 'What is the output: let arr = [1, 2, 3]; let removed = arr.pop(); console.log(removed);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2, 3];<br/>&nbsp;&nbsp;let removed = arr.pop();<br/>&nbsp;&nbsp;console.log(removed);',
         options: [
             "1",
             "2",
@@ -213,7 +213,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 7,
-        question: 'What is the output: let arr = [1, 2, 3]; arr.pop(); console.log(arr);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2, 3];<br/>&nbsp;&nbsp;arr.pop();<br/>&nbsp;&nbsp;console.log(arr);',
         options: [
             "[1, 2]",
             "[1, 2, 3]",
@@ -237,7 +237,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 9,
-        question: 'What is the output: let arr = ["a", "b"]; console.log(arr.push("c", "d"));',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["a", "b"];<br/>&nbsp;&nbsp;console.log(arr.push("c", "d"));',
         options: [
             "2",
             "3",
@@ -249,7 +249,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 10,
-        question: 'What is the output: let arr = [1, 2, 3]; arr.push(4); let x = arr.pop(); console.log(x);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2, 3];<br/>&nbsp;&nbsp;arr.push(4);<br/>&nbsp;&nbsp;let x = arr.pop();<br/>&nbsp;&nbsp;console.log(x);',
         options: [
             "3",
             "4",
@@ -273,7 +273,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 12,
-        question: 'What is the output: let arr = ["a", "b", "c"]; arr.pop(); arr.pop(); console.log(arr);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["a", "b", "c"];<br/>&nbsp;&nbsp;arr.pop();<br/>&nbsp;&nbsp;arr.pop();<br/>&nbsp;&nbsp;console.log(arr);',
         options: [
             '["a"]',
             '["a", "b"]',
@@ -285,7 +285,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let arr = [10, 20]; let len = arr.push(30); console.log(len);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [10, 20];<br/>&nbsp;&nbsp;let len = arr.push(30);<br/>&nbsp;&nbsp;console.log(len);',
         options: [
             "2",
             "3",
@@ -297,7 +297,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 14,
-        question: 'What is the output: let arr = [1, 2, 3]; let last = arr.pop(); arr.push(last + 1); console.log(arr);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2, 3];<br/>&nbsp;&nbsp;let last = arr.pop();<br/>&nbsp;&nbsp;arr.push(last + 1);<br/>&nbsp;&nbsp;console.log(arr);',
         options: [
             "[1, 2, 3]",
             "[1, 2, 4]",
@@ -309,7 +309,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let arr = ["a", "b", "c"]; arr.push("d"); let removed = arr.pop(); console.log(removed);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = ["a", "b", "c"];<br/>&nbsp;&nbsp;arr.push("d");<br/>&nbsp;&nbsp;let removed = arr.pop();<br/>&nbsp;&nbsp;console.log(removed);',
         options: [
             '"c"',
             '"d"',

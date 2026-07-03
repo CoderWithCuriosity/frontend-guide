@@ -223,7 +223,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 8,
-        question: 'What is the output: let el = document.getElementById("demo"); el.textContent = "Hello"; console.log(el.textContent);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let el = document.getElementById("demo");<br/>&nbsp;&nbsp;el.textContent = "Hello";<br/>&nbsp;&nbsp;console.log(el.textContent);',
         options: [
             "Hello",
             "demo",
@@ -283,7 +283,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 13,
-        question: 'What is the output: let el = document.getElementById("demo"); el.remove(); console.log(el);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let el = document.getElementById("demo");<br/>&nbsp;&nbsp;el.remove();<br/>&nbsp;&nbsp;console.log(el);',
         options: [
             "null",
             "undefined",
@@ -307,7 +307,7 @@ const QUIZ_QUESTIONS = [
     },
     {
         id: 15,
-        question: 'What is the output: let el = document.getElementById("demo"); el.className = "newClass"; console.log(el.className);',
+        question: 'What is the output?<br/>&nbsp;&nbsp;let el = document.getElementById("demo");<br/>&nbsp;&nbsp;el.className = "newClass";<br/>&nbsp;&nbsp;console.log(el.className);',
         options: [
             "newClass",
             "demo",
