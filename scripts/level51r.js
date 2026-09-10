@@ -1,368 +1,273 @@
 /**
- * Level 51: Forms and Input
+ * Level 51: Array CRUD - Reading & Adding Elements
  * 
- * This file demonstrates form handling in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// ACCESSING INPUT VALUES
+// ARRAY CRUD DEMO (Reading & Adding)
 // ============================================
 
-console.log("--- Accessing Input Values ---");
+let demoArray = ["apple", "banana", "cherry"];
 
-let nameInput = document.getElementById("nameInput");
-let emailInput = document.getElementById("emailInput");
-let ageInput = document.getElementById("ageInput");
-let messageInput = document.getElementById("messageInput");
-
-console.log("Name input:", nameInput);
-console.log("Email input:", emailInput);
-console.log("Age input:", ageInput);
-console.log("Message input:", messageInput);
-
-// ============================================
-// GETTING AND SETTING VALUES
-// ============================================
-
-console.log("\n--- Getting and Setting Values ---");
-
-// Set initial values
-nameInput.value = "John Doe";
-emailInput.value = "john@example.com";
-ageInput.value = "25";
-messageInput.value = "Hello from JavaScript!";
-
-console.log("Name value:", nameInput.value);
-console.log("Email value:", emailInput.value);
-console.log("Age value:", ageInput.value);
-console.log("Message value:", messageInput.value);
-
-// ============================================
-// INPUT EVENT LISTENER
-// ============================================
-
-console.log("\n--- Input Event Listener ---");
-
-nameInput.addEventListener("input", function() {
-    console.log("Name changed to:", this.value);
-});
-
-emailInput.addEventListener("input", function() {
-    console.log("Email changed to:", this.value);
-});
-
-ageInput.addEventListener("input", function() {
-    console.log("Age changed to:", this.value);
-});
-
-messageInput.addEventListener("input", function() {
-    console.log("Message changed to:", this.value);
-});
-
-// ============================================
-// CHANGE EVENT LISTENER
-// ============================================
-
-console.log("\n--- Change Event Listener ---");
-
-nameInput.addEventListener("change", function() {
-    console.log("Name finalized:", this.value);
-});
-
-// ============================================
-// FOCUS AND BLUR EVENTS
-// ============================================
-
-console.log("\n--- Focus and Blur Events ---");
-
-nameInput.addEventListener("focus", function() {
-    console.log("Name input focused");
-    this.style.borderColor = "#7ec8e3";
-});
-
-nameInput.addEventListener("blur", function() {
-    console.log("Name input blurred");
-    this.style.borderColor = "#34344f";
-});
-
-// ============================================
-// FORM SUBMISSION
-// ============================================
-
-console.log("\n--- Form Submission ---");
-
-let form = document.getElementById("demoForm");
-
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    console.log("Form submitted!");
-    console.log("Name:", nameInput.value);
-    console.log("Email:", emailInput.value);
-    console.log("Age:", ageInput.value);
-    console.log("Message:", messageInput.value);
-});
-
-// ============================================
-// VALIDATING INPUT
-// ============================================
-
-console.log("\n--- Validating Input ---");
-
-function validateName() {
-    let value = nameInput.value.trim();
-    if (value.length === 0) {
-        console.log("Name is empty!");
-        nameInput.style.borderColor = "#f3a072";
-        return false;
-    } else if (value.length < 2) {
-        console.log("Name is too short!");
-        nameInput.style.borderColor = "#f3a072";
-        return false;
-    } else {
-        nameInput.style.borderColor = "#8ec07c";
-        return true;
+function updateGrid() {
+    for (let i = 0; i < 4; i++) {
+        const el = document.getElementById(`gridVal${i}`);
+        if (el) {
+            el.textContent = i < demoArray.length ? `"${demoArray[i]}"` : "undefined";
+        }
     }
 }
 
-function validateEmail() {
-    let value = emailInput.value.trim();
-    if (value.includes("@") && value.includes(".")) {
-        emailInput.style.borderColor = "#8ec07c";
-        return true;
-    } else {
-        console.log("Invalid email!");
-        emailInput.style.borderColor = "#f3a072";
-        return false;
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("arrayOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
     }
 }
 
-// Add validation on blur
-emailInput.addEventListener("blur", validateEmail);
-
-// ============================================
-// DISABLING AND ENABLING INPUTS
-// ============================================
-
-console.log("\n--- Disabling and Enabling Inputs ---");
-
-// Disable age input after 5 seconds
-setTimeout(function() {
-    console.log("Disabling age input");
-    ageInput.disabled = true;
-    ageInput.placeholder = "Disabled";
-    
-    // Re-enable after 3 more seconds
-    setTimeout(function() {
-        console.log("Enabling age input");
-        ageInput.disabled = false;
-        ageInput.placeholder = "Enter your age";
-    }, 3000);
-}, 5000);
-
-// ============================================
-// CLEARING INPUTS
-// ============================================
-
-console.log("\n--- Clearing Inputs ---");
-
-function clearAllInputs() {
-    nameInput.value = "";
-    emailInput.value = "";
-    ageInput.value = "";
-    messageInput.value = "";
-    console.log("All inputs cleared!");
+function readElement() {
+    const index = parseInt(document.getElementById("indexInput").value, 10);
+    if (isNaN(index) || index < 0) {
+        setOutput("⚠️ Please enter a valid non-negative index.", "#f3a072");
+        return;
+    }
+    const value = demoArray[index];
+    if (value === undefined) {
+        setOutput(`arr[${index}] → undefined  <span class="highlight">(index out of bounds)</span>`, "#f3a072");
+    } else {
+        setOutput(`arr[${index}] → "${value}"`, "#8ec07c");
+    }
+    console.log(`Read arr[${index}]:`, value);
+    updateGrid();
 }
 
-// Clear after 8 seconds
-setTimeout(function() {
-    clearAllInputs();
-}, 8000);
+function writeElement() {
+    const index = parseInt(document.getElementById("indexInput").value, 10);
+    const val = document.getElementById("valueInput").value.trim();
+    if (isNaN(index) || index < 0) {
+        setOutput("⚠️ Please enter a valid non-negative index.", "#f3a072");
+        return;
+    }
+    if (!val) {
+        setOutput("⚠️ Please enter a value to assign.", "#f3a072");
+        return;
+    }
+    const old = demoArray[index];
+    demoArray[index] = val;
+    setOutput(`arr[${index}] = "${val}"  <span class="highlight">(previous: ${old !== undefined ? `"${old}"` : 'undefined'})</span>`, "#8ec07c");
+    console.log(`Set arr[${index}] = "${val}"`);
+    updateGrid();
+}
+
+function pushElement() {
+    const val = document.getElementById("valueInput").value.trim();
+    if (!val) {
+        setOutput("⚠️ Please enter a value to push.", "#f3a072");
+        return;
+    }
+    demoArray.push(val);
+    setOutput(`Pushed "${val}" → array length is now ${demoArray.length}`, "#8ec07c");
+    console.log(`Pushed "${val}"`);
+    updateGrid();
+}
+
+function resetArray() {
+    demoArray = ["apple", "banana", "cherry"];
+    setOutput('Array reset to ["apple", "banana", "cherry"]', "#a3a3c2");
+    console.log("Array reset");
+    updateGrid();
+}
+
+function showArray() {
+    const display = JSON.stringify(demoArray);
+    setOutput(`Full array: ${display}  (length: ${demoArray.length})`, "#7ec8e3");
+    console.log("Array:", demoArray);
+}
+
+// Real-time input logging for demo array fields
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'Array CRUD: Read & Add';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    updateGrid();
+
+    // Demo array input logging
+    const idxInput = document.getElementById("indexInput");
+    const valInput = document.getElementById("valueInput");
+    if (idxInput) {
+        idxInput.addEventListener("input", function() {
+            console.log("Index field changed to:", this.value);
+        });
+    }
+    if (valInput) {
+        valInput.addEventListener("input", function() {
+            console.log("Value field changed to:", this.value);
+        });
+    }
+});
 
 // ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Array CRUD: Reading & Adding)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'How do you get the value of an input field?',
-        options: [
-            "input.value",
-            "input.text",
-            "input.innerHTML",
-            "input.getText()"
-        ],
+        question: 'How do you read the first element of an array <code>arr</code>?',
+        options: ["arr[0]", "arr[1]", "arr.first()", "arr.get(0)"],
         correct: 0,
-        explanation: 'Use input.value to get the current value of an input field.'
+        explanation: 'Arrays are zero-indexed, so the first element is at index 0: arr[0].'
     },
     {
         id: 2,
-        question: 'How do you set the value of an input field?',
+        question: 'What does <code>arr[arr.length] = "new"</code> do?',
         options: [
-            "input.value = 'text'",
-            "input.text = 'text'",
-            "input.innerHTML = 'text'",
-            "input.setText('text')"
+            "Appends 'new' to the end of the array",
+            "Adds 'new' at the beginning",
+            "Replaces the last element with 'new'",
+            "Throws an error"
         ],
         correct: 0,
-        explanation: 'Use input.value = "text" to set the value of an input field.'
+        explanation: 'Since indices start at 0, arr.length is the next empty index — assigning there appends to the end.'
     },
     {
         id: 3,
-        question: 'What event fires when an input value changes?',
-        options: [
-            "click",
-            "input",
-            "mouseover",
-            "keydown"
-        ],
-        correct: 1,
-        explanation: 'The input event fires whenever the value of an input changes.'
+        question: 'What is the value of <code>arr[10]</code> if the array has only 3 elements?',
+        options: ["undefined", "null", "0", "Error"],
+        correct: 0,
+        explanation: 'Accessing an index beyond the array length returns undefined.'
     },
     {
         id: 4,
-        question: 'What does preventDefault() do on a form?',
-        options: [
-            "Prevents the form from submitting",
-            "Submits the form",
-            "Clears the form",
-            "Validates the form"
-        ],
+        question: 'Which property gives the number of elements in an array?',
+        options: [".length", ".size", ".count", ".index"],
         correct: 0,
-        explanation: 'preventDefault() stops the default form submission behavior.'
+        explanation: 'The .length property returns the number of elements in an array.'
     },
     {
         id: 5,
-        question: 'Which input type is used for email addresses?',
+        question: 'What does <code>arr[1] = "x"</code> do if arr is <code>["a", "b"]</code>?',
         options: [
-            "text",
-            "number",
-            "email",
-            "password"
+            'Changes "b" to "x"',
+            'Adds "x" at the end',
+            'Adds "x" at the beginning',
+            'Throws an error'
         ],
-        correct: 2,
-        explanation: 'Use type="email" for email address inputs.'
+        correct: 0,
+        explanation: 'Assigning to an existing index overwrites the current value. Here it changes index 1 from "b" to "x".'
     },
     {
         id: 6,
-        question: 'Which input type is used for passwords?',
+        question: 'How do you access the last element of an array?',
         options: [
-            "text",
-            "number",
-            "email",
-            "password"
+            "arr[arr.length - 1]",
+            "arr[arr.length]",
+            "arr.last()",
+            "arr[-1]"
         ],
-        correct: 3,
-        explanation: 'Use type="password" for password inputs.'
+        correct: 0,
+        explanation: 'Since the last index is length - 1, you can use arr[arr.length - 1].'
     },
     {
         id: 7,
-        question: 'What is the placeholder attribute used for?',
+        question: 'What does <code>.push("value")</code> return?',
         options: [
-            "Shows hint text in the input",
-            "Sets the default value",
-            "Disables the input",
-            "Makes the input required"
+            "The new length of the array",
+            "The pushed value",
+            "The array itself",
+            "undefined"
         ],
         correct: 0,
-        explanation: 'placeholder shows hint text in the input when it\'s empty.'
+        explanation: '.push() returns the new length of the array after adding the element(s).'
     },
     {
         id: 8,
-        question: 'What event fires when an input loses focus?',
-        options: [
-            "focus",
-            "blur",
-            "input",
-            "change"
-        ],
-        correct: 1,
-        explanation: 'The blur event fires when an input loses focus.'
+        question: 'What is <code>arr.length</code> after <code>let arr = [1,2,3]; arr[3] = 4;</code>?',
+        options: ["4", "3", "undefined", "Error"],
+        correct: 0,
+        explanation: 'Assigning to index 3 extends the array, so length becomes 4.'
     },
     {
         id: 9,
-        question: 'What event fires when an input gains focus?',
+        question: 'Which syntax correctly adds "mango" at the end of <code>fruits</code>?',
         options: [
-            "focus",
-            "blur",
-            "input",
-            "change"
+            'fruits[fruits.length] = "mango"',
+            'fruits.push("mango")',
+            'Both A and B',
+            'fruits.add("mango")'
         ],
-        correct: 0,
-        explanation: 'The focus event fires when an input gains focus.'
+        correct: 2,
+        explanation: 'Both bracket assignment at length and .push() append to the end of an array.'
     },
     {
         id: 10,
-        question: 'How do you disable an input field?',
-        options: [
-            "input.disabled = true",
-            "input.enabled = false",
-            "input.disable()",
-            "input.setDisabled(true)"
-        ],
+        question: 'What is the index of the first element in an array?',
+        options: ["0", "1", "-1", "Depends on the array"],
         correct: 0,
-        explanation: 'Use input.disabled = true to disable an input field.'
+        explanation: 'JavaScript arrays are zero-indexed, so the first element is at index 0.'
     },
     {
         id: 11,
-        question: 'What does the change event do?',
+        question: 'What does <code>arr[5] = "hi"</code> do if the array has 2 elements?',
         options: [
-            "Fires when the value changes and loses focus",
-            "Fires when the value changes instantly",
-            "Fires when the input is clicked",
-            "Fires when the input is submitted"
+            "Creates empty slots at indices 2-4 then adds 'hi' at index 5",
+            "Adds 'hi' at index 2",
+            "Throws an error",
+            "Adds 'hi' at index 0"
         ],
         correct: 0,
-        explanation: 'The change event fires when the value changes and the input loses focus.'
+        explanation: 'Assigning beyond the current length creates a sparse array — intermediate indices become empty (undefined).'
     },
     {
         id: 12,
-        question: 'Which input type is used for numbers?',
-        options: [
-            "text",
-            "number",
-            "email",
-            "password"
-        ],
-        correct: 1,
-        explanation: 'Use type="number" for numeric inputs.'
+        question: 'How can you read the third element of <code>arr</code>?',
+        options: ["arr[2]", "arr[3]", "arr.third", "arr(2)"],
+        correct: 0,
+        explanation: 'The third element is at index 2 (0-based indexing).'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let input = document.getElementById("name");<br/>&nbsp;&nbsp;console.log(input.value);<br/>if the input is empty?',
-        options: [
-            '"" (empty string)',
-            "undefined",
-            "null",
-            "Error"
-        ],
+        question: 'What is the output?<br><code>let a = ["x","y"]; a[2] = "z"; console.log(a.length);</code>',
+        options: ["3", "2", "undefined", "Error"],
         correct: 0,
-        explanation: 'If an input is empty, input.value returns an empty string "".'
+        explanation: 'Assigning to index 2 adds a third element, so length becomes 3.'
     },
     {
         id: 14,
-        question: 'How do you check if an input is empty?',
+        question: 'Which of the following is NOT a way to add an element to an array?',
         options: [
-            "input.value === ''",
-            "input.value === null",
-            "input.value === undefined",
-            "input.isEmpty()"
+            "arr.append('value')",
+            "arr[arr.length] = 'value'",
+            "arr.push('value')",
+            "arr[3] = 'value' (if length is 3)"
         ],
         correct: 0,
-        explanation: 'Check if input.value === "" to see if it\'s empty.'
+        explanation: 'There is no .append() method in JavaScript arrays — use .push() or bracket assignment.'
     },
     {
         id: 15,
-        question: 'What does the form submit event do?',
-        options: [
-            "Fires when the form is submitted",
-            "Fires when the form is loaded",
-            "Fires when the form is cleared",
-            "Fires when the form is validated"
-        ],
+        question: 'What does <code>arr[0]</code> return if <code>arr = []</code>?',
+        options: ["undefined", "null", "0", "Error"],
         correct: 0,
-        explanation: 'The submit event fires when a form is submitted.'
+        explanation: 'An empty array has no elements, so accessing index 0 returns undefined.'
     }
 ];
 
@@ -427,14 +332,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 51 Quiz</h2>
+                        ">Level 51 Quiz · Array CRUD</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -460,7 +364,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -468,7 +371,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -678,7 +580,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -745,7 +647,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -879,7 +781,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered forms and input!';
+        message += ' 🌟 Perfect score! You\'ve mastered array reading and adding!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -935,25 +837,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Forms and Input';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

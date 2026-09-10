@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 57: Fetch API (POST)</title>
+    <title>Level 57: Simple Form Validation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,15 +105,9 @@
             border-radius: 50%;
             display: block;
         }
-        .terminal-dots span:nth-child(1) {
-            background: #ec6a5e;
-        }
-        .terminal-dots span:nth-child(2) {
-            background: #f4bf4f;
-        }
-        .terminal-dots span:nth-child(3) {
-            background: #61c454;
-        }
+        .terminal-dots span:nth-child(1) { background: #ec6a5e; }
+        .terminal-dots span:nth-child(2) { background: #f4bf4f; }
+        .terminal-dots span:nth-child(3) { background: #61c454; }
 
         .terminal-tab {
             font-family: var(--font-mono);
@@ -150,9 +144,7 @@
             animation: blink 1s step-end infinite;
         }
         @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            50% { opacity: 0; }
         }
 
         .hero-sub {
@@ -178,12 +170,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-        .chip.js {
-            --chip-c: var(--accent-js);
-        }
-        .chip.level {
-            --chip-c: var(--accent-sql);
-        }
+        .chip.js { --chip-c: var(--accent-js); }
+        .chip.level { --chip-c: var(--accent-sql); }
+        .chip.form { --chip-c: var(--accent-html); }
 
         .panel {
             background: var(--bg-panel);
@@ -221,7 +210,53 @@
             margin-bottom: 14px;
         }
 
-        .demo-area {
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .rule-card {
+            background: var(--bg-panel-alt);
+            border: 2px solid var(--card-color);
+            border-radius: var(--radius-md);
+            padding: 16px 14px;
+            transition: all 0.15s ease;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .rule-card .rule-name {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--card-color);
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .rule-card .rule-desc {
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }
+
+        .rule-card .rule-code {
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 6px;
+        }
+
+        .rule-card.c0 { --card-color: var(--accent-sql); }
+        .rule-card.c1 { --card-color: var(--accent-css); }
+        .rule-card.c2 { --card-color: var(--accent-js); }
+        .rule-card.c3 { --card-color: var(--accent-html); }
+
+        .demo-box {
             background: var(--bg-panel-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -229,11 +264,11 @@
             margin: 16px 0;
         }
 
-        .demo-area .form-group {
-            margin-bottom: 12px;
+        .demo-box .form-group {
+            margin-bottom: 16px;
         }
 
-        .demo-area label {
+        .demo-box label {
             display: block;
             font-family: var(--font-mono);
             font-size: 0.85rem;
@@ -241,12 +276,16 @@
             margin-bottom: 4px;
         }
 
-        .demo-area input,
-        .demo-area textarea {
+        .demo-box label .required {
+            color: var(--accent-html);
+            margin-left: 4px;
+        }
+
+        .demo-box input {
             width: 100%;
             padding: 10px 14px;
             background: var(--bg-base-2);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             border-radius: var(--radius-sm);
             color: var(--text-primary);
             font-family: var(--font-sans);
@@ -254,69 +293,78 @@
             transition: border-color 0.2s ease;
         }
 
-        .demo-area input:focus,
-        .demo-area textarea:focus {
+        .demo-box input:focus {
             outline: none;
             border-color: var(--accent-css);
         }
 
-        .demo-area textarea {
-            min-height: 60px;
-            resize: vertical;
+        .demo-box input.valid {
+            border-color: var(--accent-sql);
         }
 
-        .demo-area .result-area {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            padding: 16px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            min-height: 80px;
-            max-height: 200px;
-            overflow-y: auto;
-            margin-top: 12px;
-            white-space: pre-wrap;
-            word-break: break-all;
+        .demo-box input.invalid {
+            border-color: var(--accent-html);
         }
 
-        .demo-area .result-area .loading {
-            color: var(--accent-js);
-        }
-
-        .demo-area .result-area .success {
-            color: var(--accent-sql);
-        }
-
-        .demo-area .result-area .error {
-            color: var(--accent-html);
-        }
-
-        .url-display {
-            background: var(--bg-base-2);
-            border-radius: var(--radius-sm);
-            padding: 10px 14px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
+        .demo-box input::placeholder {
             color: var(--text-muted);
-            margin-bottom: 12px;
-            border: 1px solid var(--border-soft);
-            overflow-x: auto;
         }
+
+        .demo-box .error-message {
+            color: var(--accent-html);
+            font-size: 0.82rem;
+            margin-top: 4px;
+            display: none;
+            font-family: var(--font-sans);
+        }
+
+        .demo-box .error-message.show {
+            display: block;
+        }
+
+        .demo-box .success-message {
+            display: none;
+            background: rgba(142, 192, 124, 0.15);
+            border: 1px solid var(--accent-sql);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            color: var(--accent-sql);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        .demo-box .success-message.show {
+            display: block;
+        }
+
+        .output-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-top: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            min-height: 52px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .output-area .highlight { color: var(--accent-js); }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -324,24 +372,20 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo.info {
-            background: var(--accent-css);
-            color: #1a1a1a;
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
         }
 
-        .btn-demo:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
 
         .console-output {
@@ -355,11 +399,6 @@
             overflow-x: auto;
         }
 
-        .console-output .log {
-            color: var(--accent-js);
-            margin-bottom: 4px;
-        }
-
         .console-output .comment {
             color: var(--text-muted);
             font-style: italic;
@@ -370,21 +409,10 @@
             margin-right: 8px;
         }
 
-        .console-output .keyword {
-            color: var(--accent-css);
-        }
-
-        .console-output .value {
-            color: var(--accent-html);
-        }
-
-        .console-output .output {
-            color: var(--accent-sql);
-        }
-
-        .console-output .error {
-            color: var(--accent-html);
-        }
+        .console-output .keyword { color: var(--accent-css); }
+        .console-output .value { color: var(--accent-html); }
+        .console-output .output { color: var(--accent-sql); }
+        .console-output .error { color: var(--accent-html); }
 
         .info-box {
             background: var(--bg-panel-alt);
@@ -412,9 +440,7 @@
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-        .info-box li strong {
-            color: var(--text-primary);
-        }
+        .info-box li strong { color: var(--text-primary); }
 
         .challenge-box {
             background: var(--bg-panel-alt);
@@ -432,29 +458,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-        }
-
-        .syntax-box {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin: 16px 0;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            overflow-x: auto;
-        }
-
-        .syntax-box .keyword {
-            color: var(--accent-css);
-        }
-
-        .syntax-box .value {
-            color: var(--accent-html);
-        }
-
-        .syntax-box .comment {
-            color: var(--text-muted);
         }
 
         .quiz-status {
@@ -526,30 +529,15 @@
             transform: translateY(-2px);
         }
 
-        .btn svg {
-            flex-shrink: 0;
-        }
-
-        .text-muted {
-            color: var(--text-muted);
-        }
+        .btn svg { flex-shrink: 0; }
 
         @media (max-width: 768px) {
-            body {
-                padding: 16px 12px 40px;
-            }
-            .terminal-body {
-                padding: 24px 20px 28px;
-            }
-            .panel {
-                padding: 20px;
-            }
-            .nav-row {
-                flex-direction: column;
-            }
-            .nav-row .btn {
-                width: 100%;
-            }
+            body { padding: 16px 12px 40px; }
+            .terminal-body { padding: 24px 20px 28px; }
+            .panel { padding: 20px; }
+            .rules-grid { grid-template-columns: 1fr; }
+            .nav-row { flex-direction: column; }
+            .nav-row .btn { width: 100%; }
         }
     </style>
 </head>
@@ -563,16 +551,17 @@
                 <div class="terminal-tab">level57.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 57: Fetch API (POST)</p>
+                <p class="terminal-comment">// Level 57: Simple Form Validation — Check Empty Fields</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Fetch API (POST)</span><span class="cursor">_</span>
+                    <span id="typedTitle">Simple Form Validation</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to send data to a server using POST requests with the Fetch API.
-                    Create new resources by sending data to an API.
+                    Check if an input field is empty before performing an action.
+                    Show simple error text in HTML for required field checks.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip form">Forms</span>
                     <span class="chip level">Level 57</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -580,118 +569,116 @@
         </div>
 
         <div class="panel">
-            <h1>Fetch API (POST)</h1>
+            <h1>Simple Form Validation</h1>
             <p>
-                POST requests are used to send data to a server to create new resources.
-                You can send JSON data, form data, or other formats.
+                Before you submit or process a form, you should check that required fields
+                aren't empty. The core check is simple: <code>if (input.value === "")</code>.
+                When a field is empty, show an error message and stop the action.
             </p>
 
-            <h2>Try It Yourself</h2>
-
-            <div class="demo-area">
-                <div class="url-display">
-                    <span style="color: var(--accent-html);">POST</span>
-                    <span>https://jsonplaceholder.typicode.com/posts</span>
+            <div class="rules-grid">
+                <div class="rule-card c0">
+                    <div class="rule-name">Required check</div>
+                    <div class="rule-desc">Field cannot be empty</div>
+                    <div class="rule-code">if (value === "")</div>
                 </div>
-
-                <div class="form-group">
-                    <label for="postTitle">Title</label>
-                    <input type="text" id="postTitle" placeholder="Enter a title" value="My New Post">
+                <div class="rule-card c1">
+                    <div class="rule-name">Trim whitespace</div>
+                    <div class="rule-desc">Ignore accidental spaces</div>
+                    <div class="rule-code">value.trim() === ""</div>
                 </div>
-
-                <div class="form-group">
-                    <label for="postBody">Body</label>
-                    <textarea id="postBody" placeholder="Enter the content">This is the content of my new post.</textarea>
+                <div class="rule-card c2">
+                    <div class="rule-name">Show error</div>
+                    <div class="rule-desc">Display message in the page</div>
+                    <div class="rule-code">errorEl.classList.add("show")</div>
                 </div>
-
-                <div class="form-group">
-                    <label for="postUserId">User ID</label>
-                    <input type="number" id="postUserId" placeholder="Enter user ID" value="1">
-                </div>
-                
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" id="postBtn" onclick="sendPost()">📤 Send POST</button>
-                    <button class="btn-demo info" onclick="sendCustomPost()">📝 Send Custom</button>
-                    <button class="btn-demo reset" onclick="clearResult()">🧹 Clear</button>
-                </div>
-                
-                <div class="result-area" id="resultArea">
-                    <div class="comment">// Fill in the fields and click "Send POST"</div>
-                    <div class="comment">// Results will appear here...</div>
+                <div class="rule-card c3">
+                    <div class="rule-name">Stop the action</div>
+                    <div class="rule-desc">Return early if invalid</div>
+                    <div class="rule-code">if (!valid) return;</div>
                 </div>
             </div>
 
-            <h2>Syntax</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="syntax-box">
-                <span class="comment">// POST request with JSON data</span><br>
-                <span class="keyword">fetch</span>(<span class="value">"https://api.example.com/posts"</span>, {<br>
-                &nbsp;&nbsp;<span class="keyword">method</span>: <span class="value">"POST"</span>,<br>
-                &nbsp;&nbsp;<span class="keyword">headers</span>: {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="value">"Content-Type"</span>: <span class="value">"application/json"</span><br>
-                &nbsp;&nbsp;},<br>
-                &nbsp;&nbsp;<span class="keyword">body</span>: <span class="keyword">JSON</span>.<span class="keyword">stringify</span>({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;title: <span class="value">"New Post"</span>,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;body: <span class="value">"Content here"</span><br>
-                &nbsp;&nbsp;})<br>
-                })<br>
-                &nbsp;&nbsp;.<span class="keyword">then</span>(response => response.<span class="keyword">json</span>())<br>
-                &nbsp;&nbsp;.<span class="keyword">then</span>(data => {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="keyword">log</span>(data);<br>
-                &nbsp;&nbsp;})<br>
-                &nbsp;&nbsp;.<span class="keyword">catch</span>(error => {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="keyword">log</span>(error);<br>
-                &nbsp;&nbsp;});
+            <div class="demo-box" id="validationDemo">
+                <div class="form-group">
+                    <label for="username">Username <span class="required">*</span></label>
+                    <input type="text" id="username" placeholder="Enter username (required)">
+                    <div class="error-message" id="usernameError">Username is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" placeholder="Enter email (required)">
+                    <div class="error-message" id="emailError">Email is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" id="message" placeholder="Optional message">
+                    <div class="error-message" id="messageError">Message is required</div>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-demo" id="submitBtn" onclick="submitForm()">Submit Form</button>
+                    <button class="btn-demo secondary" onclick="validateUsername()">Check Username</button>
+                    <button class="btn-demo ghost" onclick="resetForm()">Reset</button>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    ✅ Form submitted successfully! All required fields are filled.
+                </div>
+
+                <div class="output-area" id="formOutput">
+                    // Click "Submit Form" to validate the fields...
+                </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// Fetch POST Request Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">fetch</span>(<span class="value">"https://jsonplaceholder.typicode.com/posts"</span>, {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">method</span>: <span class="value">"POST"</span>,</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">headers</span>: { <span class="value">"Content-Type"</span>: <span class="value">"application/json"</span> },</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">body</span>: <span class="keyword">JSON</span>.<span class="keyword">stringify</span>({</div>
-                <div><span class="arrow">&gt;</span>     title: <span class="value">"My New Post"</span>,</div>
-                <div><span class="arrow">&gt;</span>     body: <span class="value">"This is the content"</span>,</div>
-                <div><span class="arrow">&gt;</span>     userId: <span class="value">1</span></div>
-                <div><span class="arrow">&gt;</span>   })</div>
-                <div><span class="arrow">&gt;</span> })</div>
-                <div><span class="arrow">&gt;</span>   .<span class="keyword">then</span>(response => response.<span class="keyword">json</span>())</div>
-                <div><span class="arrow">&gt;</span>   .<span class="keyword">then</span>(data => {</div>
-                <div><span class="arrow">&gt;</span>     console.<span class="keyword">log</span>(data);</div>
-                <div><span class="arrow">&gt;</span>   });</div>
+                <div class="comment">// Check if an input is empty</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> username = document.<span class="keyword">getElementById</span>(<span class="value">"username"</span>).<span class="keyword">value</span>;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (username === <span class="value">""</span>) {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Username is required!"</span>);</div>
+                <div class="error">&gt;</span>   <span class="error">"Username is required!"</span></div>
+                <div><span class="arrow">&gt;</span> }</div>
                 <br>
-                <div class="comment">// Response:</div>
-                <div class="output">  {</div>
-                <div class="output">    "title": "My New Post",</div>
-                <div class="output">    "body": "This is the content",</div>
-                <div class="output">    "userId": 1,</div>
-                <div class="output">    "id": 101</div>
-                <div class="output">  }</div>
+                <div class="comment">// Trim whitespace before checking</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> value = document.<span class="keyword">getElementById</span>(<span class="value">"email"</span>).<span class="keyword">value</span>.<span class="keyword">trim</span>();</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (value === <span class="value">""</span>) {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Email is required!"</span>);</div>
+                <div class="error">&gt;</span>   <span class="error">"Email is required!"</span></div>
+                <div><span class="arrow">&gt;</span> }</div>
+                <br>
+                <div class="comment">// Valid submission</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> name = <span class="value">"Alice"</span>;</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (name !== <span class="value">""</span>) {</div>
+                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Form submitted!"</span>);</div>
+                <div class="output">&gt;</span>   <span class="output">"Form submitted!"</span></div>
+                <div><span class="arrow">&gt;</span> }</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>method: "POST"</strong> - Specifies the request method</li>
-                    <li><strong>headers</strong> - Set Content-Type for JSON data</li>
-                    <li><strong>body</strong> - The data to send (must be stringified)</li>
-                    <li><strong>JSON.stringify()</strong> - Converts data to JSON string</li>
-                    <li><strong>response.json()</strong> - Parses the response</li>
-                    <li><strong>Check status</strong> - Server responds with status code</li>
+                    <li><strong>input.value === ""</strong> — the basic empty check.</li>
+                    <li><strong>value.trim()</strong> — removes whitespace so "&nbsp;&nbsp;&nbsp;" is treated as empty.</li>
+                    <li><strong>Return early</strong> — if the field is empty, stop the action with <code>return;</code>.</li>
+                    <li><strong>Show error text</strong> — toggle a CSS class like <code>.show</code> to display the message.</li>
+                    <li><strong>Reset the error</strong> — clear the error when the field becomes valid.</li>
+                    <li><strong>One field at a time</strong> — validate each required field in order.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>POST requests:</p>
+                <p>Create a new file named <code>level57.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Send a POST request with custom data</li>
-                    <li>Check the response status</li>
-                    <li>Handle errors gracefully</li>
-                    <li>Send data with different Content-Types</li>
-                    <li>Chain multiple fetch requests</li>
+                    <li>Add two text inputs with IDs <code>firstName</code> and <code>lastName</code>.</li>
+                    <li>Add a "Submit" button that checks both fields.</li>
+                    <li>If either field is empty, show an error message near it.</li>
+                    <li>If both are filled, log a greeting like "Hello, Alice Smith!".</li>
+                    <li>Reset both inputs and errors after a successful submission.</li>
                 </ul>
             </div>
 
@@ -725,124 +712,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // ============================================
-        // FETCH POST DEMO FUNCTIONS
-        // ============================================
-
-        const POST_URL = "https://jsonplaceholder.typicode.com/posts";
-
-        function sendPost() {
-            let title = document.getElementById("postTitle").value.trim();
-            let body = document.getElementById("postBody").value.trim();
-            let userId = parseInt(document.getElementById("postUserId").value) || 1;
-            let resultArea = document.getElementById("resultArea");
-            let postBtn = document.getElementById("postBtn");
-
-            if (!title || !body) {
-                resultArea.innerHTML = '<div class="error">❌ Please fill in both title and body!</div>';
-                return;
-            }
-
-            let data = {
-                title: title,
-                body: body,
-                userId: userId
-            };
-
-            resultArea.innerHTML = '<div class="loading">⏳ Sending data...</div>';
-            postBtn.disabled = true;
-
-            fetch(POST_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP error! status: " + response.status);
-                }
-                return response.json();
-            })
-            .then(responseData => {
-                resultArea.innerHTML = `
-                    <div class="success">✅ Data sent successfully!</div>
-                    <div style="margin-top: 8px;">
-                        <strong>Status:</strong> 201 Created<br>
-                        <strong>ID:</strong> ${responseData.id}<br>
-                        <strong>Title:</strong> ${responseData.title}<br>
-                        <strong>Body:</strong> ${responseData.body}<br>
-                        <strong>User ID:</strong> ${responseData.userId}
-                    </div>
-                `;
-                console.log("POST response:", responseData);
-            })
-            .catch(error => {
-                resultArea.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
-                console.error("Error:", error);
-            })
-            .finally(() => {
-                postBtn.disabled = false;
-            });
-        }
-
-        function sendCustomPost() {
-            let resultArea = document.getElementById("resultArea");
-
-            let data = {
-                title: "Custom Post from Fetch API",
-                body: "This is a custom post created using the Fetch API POST method. It includes some extra fields.",
-                userId: 42,
-                tags: ["javascript", "fetch", "api"],
-                isPublished: true
-            };
-
-            resultArea.innerHTML = '<div class="loading">⏳ Sending custom data...</div>';
-
-            fetch(POST_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP error! status: " + response.status);
-                }
-                return response.json();
-            })
-            .then(responseData => {
-                resultArea.innerHTML = `
-                    <div class="success">✅ Custom data sent!</div>
-                    <div style="margin-top: 8px;">
-                        <strong>ID:</strong> ${responseData.id}<br>
-                        <strong>Title:</strong> ${responseData.title}<br>
-                        <strong>Body:</strong> ${responseData.body}<br>
-                        <strong>User ID:</strong> ${responseData.userId}<br>
-                        <strong>Tags:</strong> ${data.tags.join(", ")}<br>
-                        <strong>Published:</strong> ${data.isPublished}
-                    </div>
-                `;
-                console.log("Custom POST response:", responseData);
-            })
-            .catch(error => {
-                resultArea.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
-                console.error("Error:", error);
-            });
-        }
-
-        function clearResult() {
-            let resultArea = document.getElementById("resultArea");
-            resultArea.innerHTML = `
-                <div class="comment">// Fill in the fields and click "Send POST"</div>
-                <div class="comment">// Results will appear here...</div>
-            `;
-        }
-    </script>
 
     <script src="./scripts/level57.js"></script>
 </body>

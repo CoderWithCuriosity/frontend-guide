@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 58: Async/Await</title>
+    <title>Level 58: Background Color Changer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -49,6 +49,7 @@
                 var(--bg-base);
             min-height: 100vh;
             padding: 32px 20px 60px;
+            transition: background-color 0.4s ease;
         }
 
         .page {
@@ -105,15 +106,9 @@
             border-radius: 50%;
             display: block;
         }
-        .terminal-dots span:nth-child(1) {
-            background: #ec6a5e;
-        }
-        .terminal-dots span:nth-child(2) {
-            background: #f4bf4f;
-        }
-        .terminal-dots span:nth-child(3) {
-            background: #61c454;
-        }
+        .terminal-dots span:nth-child(1) { background: #ec6a5e; }
+        .terminal-dots span:nth-child(2) { background: #f4bf4f; }
+        .terminal-dots span:nth-child(3) { background: #61c454; }
 
         .terminal-tab {
             font-family: var(--font-mono);
@@ -150,9 +145,7 @@
             animation: blink 1s step-end infinite;
         }
         @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            50% { opacity: 0; }
         }
 
         .hero-sub {
@@ -178,12 +171,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-        .chip.js {
-            --chip-c: var(--accent-js);
-        }
-        .chip.level {
-            --chip-c: var(--accent-sql);
-        }
+        .chip.js { --chip-c: var(--accent-js); }
+        .chip.level { --chip-c: var(--accent-sql); }
+        .chip.dom { --chip-c: var(--accent-react); }
 
         .panel {
             background: var(--bg-panel);
@@ -221,58 +211,84 @@
             margin-bottom: 14px;
         }
 
-        .demo-area {
+        .color-demo-box {
             background: var(--bg-panel-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
             padding: 24px;
             margin: 16px 0;
+            transition: background-color 0.4s ease;
         }
 
-        .demo-area .result-area {
+        #colorTarget {
             background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            padding: 16px;
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-md);
+            padding: 40px 24px;
+            text-align: center;
+            margin: 20px 0;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        #colorTarget .target-label {
             font-family: var(--font-mono);
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            min-height: 120px;
-            max-height: 250px;
-            overflow-y: auto;
-            margin-top: 12px;
-            white-space: pre-wrap;
-            word-break: break-all;
+            color: var(--text-muted);
+            margin-bottom: 10px;
         }
 
-        .demo-area .result-area .loading {
-            color: var(--accent-js);
+        #colorTarget .target-value {
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
         }
 
-        .demo-area .result-area .success {
-            color: var(--accent-sql);
+        .swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 16px 0;
         }
 
-        .demo-area .result-area .error {
-            color: var(--accent-html);
+        .swatch {
+            height: 54px;
+            border-radius: var(--radius-sm);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
         }
 
-        .demo-area .result-area .step {
-            color: var(--accent-css);
+        .swatch:hover {
+            transform: translateY(-3px);
+            border-color: var(--text-primary);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .swatch::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            white-space: nowrap;
         }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -280,25 +296,37 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo.info {
-            background: var(--accent-css);
-            color: #1a1a1a;
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
         }
 
-        .btn-demo:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
+
+        .output-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-top: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            min-height: 52px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .output-area .highlight { color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -311,11 +339,6 @@
             overflow-x: auto;
         }
 
-        .console-output .log {
-            color: var(--accent-js);
-            margin-bottom: 4px;
-        }
-
         .console-output .comment {
             color: var(--text-muted);
             font-style: italic;
@@ -326,21 +349,9 @@
             margin-right: 8px;
         }
 
-        .console-output .keyword {
-            color: var(--accent-css);
-        }
-
-        .console-output .value {
-            color: var(--accent-html);
-        }
-
-        .console-output .output {
-            color: var(--accent-sql);
-        }
-
-        .console-output .error {
-            color: var(--accent-html);
-        }
+        .console-output .keyword { color: var(--accent-css); }
+        .console-output .value { color: var(--accent-html); }
+        .console-output .output { color: var(--accent-sql); }
 
         .info-box {
             background: var(--bg-panel-alt);
@@ -368,9 +379,7 @@
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-        .info-box li strong {
-            color: var(--text-primary);
-        }
+        .info-box li strong { color: var(--text-primary); }
 
         .challenge-box {
             background: var(--bg-panel-alt);
@@ -388,29 +397,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-        }
-
-        .syntax-box {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin: 16px 0;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            overflow-x: auto;
-        }
-
-        .syntax-box .keyword {
-            color: var(--accent-css);
-        }
-
-        .syntax-box .value {
-            color: var(--accent-html);
-        }
-
-        .syntax-box .comment {
-            color: var(--text-muted);
         }
 
         .quiz-status {
@@ -482,30 +468,15 @@
             transform: translateY(-2px);
         }
 
-        .btn svg {
-            flex-shrink: 0;
-        }
-
-        .text-muted {
-            color: var(--text-muted);
-        }
+        .btn svg { flex-shrink: 0; }
 
         @media (max-width: 768px) {
-            body {
-                padding: 16px 12px 40px;
-            }
-            .terminal-body {
-                padding: 24px 20px 28px;
-            }
-            .panel {
-                padding: 20px;
-            }
-            .nav-row {
-                flex-direction: column;
-            }
-            .nav-row .btn {
-                width: 100%;
-            }
+            body { padding: 16px 12px 40px; }
+            .terminal-body { padding: 24px 20px 28px; }
+            .panel { padding: 20px; }
+            .swatch-grid { grid-template-columns: repeat(3, 1fr); }
+            .nav-row { flex-direction: column; }
+            .nav-row .btn { width: 100%; }
         }
     </style>
 </head>
@@ -519,16 +490,17 @@
                 <div class="terminal-tab">level58.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 58: Async/Await</p>
+                <p class="terminal-comment">// Level 58: Background Color Changer — DOM Project</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Async/Await</span><span class="cursor">_</span>
+                    <span id="typedTitle">Background Color Changer</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to write asynchronous code that looks synchronous.
-                    Async/await makes working with promises easier and more readable.
+                    Change the page or element background color using a simple button click.
+                    A fun, visual way to practice DOM interaction with <code>element.style.backgroundColor</code>.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip dom">DOM</span>
                     <span class="chip level">Level 58</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -536,92 +508,80 @@
         </div>
 
         <div class="panel">
-            <h1>Async/Await</h1>
+            <h1>Background Color Changer</h1>
             <p>
-                Async/await is a modern way to handle asynchronous operations.
-                It makes your code look synchronous and easier to understand.
+                In this project, you'll use JavaScript to change the <code>backgroundColor</code> style
+                of an element. Click a swatch or a button to instantly change the color.
             </p>
 
-            <h2>Try It Yourself</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="demo-area">
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" onclick="runAsyncDemo()">🚀 Run Async Demo</button>
-                    <button class="btn-demo info" onclick="runParallelDemo()">⚡ Parallel Requests</button>
-                    <button class="btn-demo reset" onclick="clearResult()">🧹 Clear</button>
+            <div class="color-demo-box">
+                <div id="colorTarget">
+                    <div class="target-label">Color Target</div>
+                    <div class="target-value" id="currentColorDisplay">Default</div>
                 </div>
-                
-                <div class="result-area" id="resultArea">
-                    <div class="comment">// Click a button to see async/await in action</div>
-                    <div class="comment">// Results will appear here...</div>
+
+                <div class="swatch-grid" id="swatchGrid">
+                    <div class="swatch" style="background:#f38ba8;" data-color="#f38ba8" data-label="red" onclick="setTargetColor('#f38ba8')"></div>
+                    <div class="swatch" style="background:#fab387;" data-color="#fab387" data-label="peach" onclick="setTargetColor('#fab387')"></div>
+                    <div class="swatch" style="background:#f9e2af;" data-color="#f9e2af" data-label="yellow" onclick="setTargetColor('#f9e2af')"></div>
+                    <div class="swatch" style="background:#a6e3a1;" data-color="#a6e3a1" data-label="green" onclick="setTargetColor('#a6e3a1')"></div>
+                    <div class="swatch" style="background:#89dceb;" data-color="#89dceb" data-label="sky" onclick="setTargetColor('#89dceb')"></div>
+                    <div class="swatch" style="background:#cba6f7;" data-color="#cba6f7" data-label="mauve" onclick="setTargetColor('#cba6f7')"></div>
                 </div>
-            </div>
 
-            <h2>Syntax</h2>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px;">
+                    <button class="btn-demo secondary" onclick="randomColor()">🎲 Random Color</button>
+                    <button class="btn-demo ghost" onclick="cycleColors()">🔄 Cycle Colors</button>
+                    <button class="btn-demo ghost" onclick="changePageBackground()">🎨 Change Page Background</button>
+                    <button class="btn-demo ghost" onclick="resetColor()">↺ Reset</button>
+                </div>
 
-            <div class="syntax-box">
-                <span class="comment">// Async function declaration</span><br>
-                <span class="keyword">async</span> <span class="keyword">function</span> fetchData() {<br>
-                &nbsp;&nbsp;<span class="keyword">try</span> {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> response = <span class="keyword">await</span> <span class="keyword">fetch</span>(<span class="value">"url"</span>);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> data = <span class="keyword">await</span> response.<span class="keyword">json</span>();<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> data;<br>
-                &nbsp;&nbsp;} <span class="keyword">catch</span> (error) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="keyword">log</span>(error);<br>
-                &nbsp;&nbsp;}<br>
-                }
+                <div class="output-area" id="colorOutput">
+                    // Click a swatch or button to change the color...
+                </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// Async/Await Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">async function</span> getPost() {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">let</span> response = <span class="keyword">await</span> <span class="keyword">fetch</span>(<span class="value">"https://jsonplaceholder.typicode.com/posts/1"</span>);</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">let</span> data = <span class="keyword">await</span> response.<span class="keyword">json</span>();</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(data);</div>
-                <div><span class="arrow">&gt;</span> }</div>
+                <div class="comment">// Change background color directly</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> box = document.<span class="keyword">getElementById</span>(<span class="value">"colorTarget"</span>);</div>
+                <div><span class="arrow">&gt;</span> box.<span class="keyword">style</span>.<span class="keyword">backgroundColor</span> = <span class="value">"#a6e3a1"</span>;</div>
                 <br>
-                <div class="comment">// Output:</div>
-                <div class="output">  {</div>
-                <div class="output">    "userId": 1,</div>
-                <div class="output">    "id": 1,</div>
-                <div class="output">    "title": "sunt aut facere...",</div>
-                <div class="output">    "body": "quia et suscipit..."</div>
-                <div class="output">  }</div>
+                <div class="comment">// Add a click listener to a button</div>
+                <div><span class="arrow">&gt;</span> button.<span class="keyword">addEventListener</span>(<span class="value">"click"</span>, <span class="keyword">function</span>() {</div>
+                <div><span class="arrow">&gt;</span>   box.<span class="keyword">style</span>.<span class="keyword">backgroundColor</span> = <span class="value">"#89dceb"</span>;</div>
+                <div><span class="arrow">&gt;</span> });</div>
                 <br>
-                <div class="comment">// Error handling with try/catch</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">async function</span> fetchWithError() {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">try</span> {</div>
-                <div><span class="arrow">&gt;</span>     <span class="keyword">let</span> data = <span class="keyword">await</span> <span class="keyword">fetch</span>(<span class="value">"invalid.url"</span>);</div>
-                <div><span class="arrow">&gt;</span>   } <span class="keyword">catch</span> (error) {</div>
-                <div><span class="arrow">&gt;</span>     console.<span class="keyword">log</span>(<span class="value">"Error:"</span>, error);</div>
-                <div><span class="arrow">&gt;</span>   }</div>
-                <div><span class="arrow">&gt;</span> }</div>
-                <div class="error">  Error: Failed to fetch</div>
+                <div class="comment">// Generate a random color</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> random = <span class="value">"#"</span> + Math.<span class="keyword">floor</span>(Math.<span class="keyword">random</span>() * 16777215).<span class="keyword">toString</span>(16);</div>
+                <div><span class="arrow">&gt;</span> box.<span class="keyword">style</span>.<span class="keyword">backgroundColor</span> = random;</div>
+                <div class="output">  "#3a8fc4"</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>async</strong> - Declares an asynchronous function</li>
-                    <li><strong>await</strong> - Waits for a Promise to resolve</li>
-                    <li><strong>try/catch</strong> - Handles errors in async functions</li>
-                    <li><strong>Readability</strong> - Async/await looks like synchronous code</li>
-                    <li><strong>Parallel</strong> - Use <code>Promise.all()</code> for parallel requests</li>
-                    <li><strong>Returns Promise</strong> - Async functions always return a Promise</li>
+                    <li><strong>element.style.backgroundColor</strong> — sets the background color.</li>
+                    <li><strong>addEventListener("click", ...)</strong> — runs code when a button is clicked.</li>
+                    <li><strong>Colors as strings</strong> — use hex (<code>#ff0000</code>), rgb, or named colors.</li>
+                    <li><strong>Random colors</strong> — combine Math.random() with toString(16).</li>
+                    <li><strong>Transitions</strong> — CSS <code>transition</code> makes color changes smooth.</li>
+                    <li><strong>Inline styles</strong> — element.style writes CSS directly to the element.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>async/await:</p>
+                <p>Create a new file named <code>level58.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Create an async function that fetches a post</li>
-                    <li>Use try/catch for error handling</li>
-                    <li>Fetch multiple posts with await</li>
-                    <li>Use Promise.all() for parallel requests</li>
-                    <li>Create a function that waits for 2 seconds</li>
+                    <li>Add a button that changes a box's background to a specific color.</li>
+                    <li>Add three buttons for red, green, and blue.</li>
+                    <li>Add a "Random" button that picks a random color each click.</li>
+                    <li>Log the new color to the console each time.</li>
+                    <li>Add a "Reset" button that restores the original color.</li>
                 </ul>
             </div>
 
@@ -655,105 +615,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // ============================================
-        // ASYNC/AWAIT DEMO FUNCTIONS
-        // ============================================
-
-        function logToResult(message, type) {
-            let area = document.getElementById("resultArea");
-            let className = type || "";
-            area.innerHTML += `<div class="${className}">${message}</div>`;
-            area.scrollTop = area.scrollHeight;
-        }
-
-        function clearResult() {
-            let area = document.getElementById("resultArea");
-            area.innerHTML = `
-                <div class="comment">// Click a button to see async/await in action</div>
-                <div class="comment">// Results will appear here...</div>
-            `;
-        }
-
-        async function runAsyncDemo() {
-            let area = document.getElementById("resultArea");
-            area.innerHTML = '<div class="loading">⏳ Starting async demo...</div>';
-
-            try {
-                // Step 1: Fetch a post
-                logToResult('📡 Step 1: Fetching post data...', 'step');
-                let response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-                let post = await response.json();
-                logToResult(`✅ Post #${post.id}: ${post.title}`, 'success');
-
-                // Step 2: Wait 1 second
-                logToResult('⏳ Step 2: Waiting 1 second...', 'step');
-                await new Promise(resolve => setTimeout(resolve, 1000));
-
-                // Step 3: Fetch user data
-                logToResult('📡 Step 3: Fetching user data...', 'step');
-                let userResponse = await fetch("https://jsonplaceholder.typicode.com/users/1");
-                let user = await userResponse.json();
-                logToResult(`✅ User: ${user.name} (${user.email})`, 'success');
-
-                // Step 4: Wait another second
-                logToResult('⏳ Step 4: Waiting 1 second...', 'step');
-                await new Promise(resolve => setTimeout(resolve, 1000));
-
-                // Step 5: Combine data
-                logToResult('📝 Step 5: Combining data...', 'step');
-                logToResult(`📋 ${user.name} wrote: "${post.title}"`, 'success');
-                logToResult('🎉 Async demo complete!', 'success');
-
-            } catch (error) {
-                logToResult(`❌ Error: ${error.message}`, 'error');
-                console.error("Error:", error);
-            }
-        }
-
-        async function runParallelDemo() {
-            let area = document.getElementById("resultArea");
-            area.innerHTML = '<div class="loading">⏳ Starting parallel requests...</div>';
-
-            try {
-                // Start all requests at the same time
-                logToResult('📡 Fetching 3 posts simultaneously...', 'step');
-                let startTime = Date.now();
-
-                let [post1, post2, post3] = await Promise.all([
-                    fetch("https://jsonplaceholder.typicode.com/posts/1").then(r => r.json()),
-                    fetch("https://jsonplaceholder.typicode.com/posts/2").then(r => r.json()),
-                    fetch("https://jsonplaceholder.typicode.com/posts/3").then(r => r.json())
-                ]);
-
-                let endTime = Date.now();
-                let duration = (endTime - startTime) / 1000;
-
-                logToResult(`✅ All 3 posts fetched in ${duration} seconds!`, 'success');
-                logToResult(`📋 Post 1: ${post1.title}`, 'success');
-                logToResult(`📋 Post 2: ${post2.title}`, 'success');
-                logToResult(`📋 Post 3: ${post3.title}`, 'success');
-
-                if (duration < 1.5) {
-                    logToResult('⚡ Fast! Parallel requests are efficient.', 'success');
-                }
-
-                logToResult('🎉 Parallel demo complete!', 'success');
-
-            } catch (error) {
-                logToResult(`❌ Error: ${error.message}`, 'error');
-                console.error("Error:", error);
-            }
-        }
-
-        // Auto-run demo on page load
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(() => {
-                runAsyncDemo();
-            }, 500);
-        });
-    </script>
 
     <script src="./scripts/level58.js"></script>
 </body>

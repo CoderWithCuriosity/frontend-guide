@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 54: Session Storage</title>
+    <title>Level 54: Object CRUD · Updating & Deleting</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -184,6 +184,9 @@
         .chip.level {
             --chip-c: var(--accent-sql);
         }
+        .chip.object {
+            --chip-c: var(--accent-php);
+        }
 
         .panel {
             background: var(--bg-panel);
@@ -221,52 +224,55 @@
             margin-bottom: 14px;
         }
 
-        .compare-grid {
+        .object-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
             margin: 20px 0;
         }
 
-        .compare-card {
+        .object-card {
             background: var(--bg-panel-alt);
             border: 2px solid var(--card-color);
             border-radius: var(--radius-md);
-            padding: 20px 16px;
+            padding: 16px 12px;
             text-align: center;
             transition: all 0.15s ease;
         }
 
-        .compare-card:hover {
+        .object-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .compare-card .title {
+        .object-card .key {
             font-family: var(--font-mono);
             font-weight: 700;
             color: var(--card-color);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
-        .compare-card .description {
-            font-family: var(--font-sans);
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin: 8px 0;
-        }
-
-        .compare-card .example {
+        .object-card .value {
             font-family: var(--font-mono);
             color: var(--text-primary);
-            font-size: 0.8rem;
-            margin: 5px 0;
+            font-size: 0.9rem;
+            margin: 6px 0 2px;
         }
 
-        .compare-card.local { --card-color: var(--accent-sql); }
-        .compare-card.session { --card-color: var(--accent-js); }
+        .object-card .hint {
+            font-family: var(--font-sans);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
 
-        .demo-area {
+        .object-card.c0 { --card-color: var(--accent-sql); }
+        .object-card.c1 { --card-color: var(--accent-css); }
+        .object-card.c2 { --card-color: var(--accent-js); }
+        .object-card.c3 { --card-color: var(--accent-html); }
+        .object-card.c4 { --card-color: var(--accent-php); }
+        .object-card.c5 { --card-color: var(--accent-react); }
+
+        .demo-box {
             background: var(--bg-panel-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -274,64 +280,72 @@
             margin: 16px 0;
         }
 
-        .demo-area .form-group {
-            margin-bottom: 12px;
+        .demo-box .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
         }
 
-        .demo-area label {
-            display: block;
+        .demo-box label {
             font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            min-width: 80px;
         }
 
-        .demo-area input {
-            width: 100%;
-            padding: 10px 14px;
+        .demo-box input {
+            padding: 9px 14px;
             background: var(--bg-base-2);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             color: var(--text-primary);
             font-family: var(--font-sans);
             font-size: 0.95rem;
+            flex: 1;
+            min-width: 140px;
             transition: border-color 0.2s ease;
         }
 
-        .demo-area input:focus {
+        .demo-box input:focus {
             outline: none;
             border-color: var(--accent-css);
         }
 
-        .demo-area .storage-display {
+        .demo-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .output-area {
             background: var(--bg-base-2);
             border: 1px solid var(--border-soft);
             border-radius: var(--radius-sm);
-            padding: 12px 16px;
+            padding: 16px 18px;
+            margin-top: 14px;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            min-height: 40px;
-            margin-top: 12px;
-            overflow-x: auto;
+            min-height: 52px;
+            white-space: pre-wrap;
+            word-break: break-word;
         }
 
-        .demo-area .storage-display .label {
-            color: var(--accent-css);
+        .output-area .highlight {
+            color: var(--accent-js);
         }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -339,23 +353,25 @@
             transform: translateY(-2px);
         }
 
+        .btn-demo.secondary {
+            background: var(--accent-js);
+            color: #1a1a1a;
+        }
+
         .btn-demo.danger {
             background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
-            background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo.info {
-            background: var(--accent-css);
-            color: #1a1a1a;
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
         }
 
-        .btn-demo.session-btn {
-            background: var(--accent-js);
-            color: #1a1a1a;
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
 
         .console-output {
@@ -554,14 +570,20 @@
             .panel {
                 padding: 20px;
             }
-            .compare-grid {
-                grid-template-columns: 1fr;
+            .object-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             .nav-row {
                 flex-direction: column;
             }
             .nav-row .btn {
                 width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .object-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -576,16 +598,17 @@
                 <div class="terminal-tab">level54.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 54: Session Storage</p>
+                <p class="terminal-comment">// Level 54: Object CRUD — Updating & Deleting Properties</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Session Storage</span><span class="cursor">_</span>
+                    <span id="typedTitle">Object CRUD: Update & Delete</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to use sessionStorage to store data for a single session.
-                    Data is cleared when the browser tab or window is closed.
+                    Learn how to add or modify object properties with assignment and
+                    remove properties entirely using the <code>delete</code> keyword.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip object">Object CRUD</span>
                     <span class="chip level">Level 54</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -593,96 +616,114 @@
         </div>
 
         <div class="panel">
-            <h1>Session Storage</h1>
+            <h1>Object CRUD · Updating & Deleting</h1>
             <p>
-                sessionStorage works like localStorage but data is only available for the current
-                session. When the user closes the browser tab or window, the data is cleared.
+                Objects are mutable — you can change them after creation. You can
+                <strong>update</strong> a property by assigning a new value, or <strong>delete</strong>
+                a property entirely with the <code>delete</code> keyword.
             </p>
 
-            <div class="compare-grid">
-                <div class="compare-card local">
-                    <div class="title">localStorage</div>
-                    <div class="description">Persists until manually cleared</div>
-                    <div class="example">localStorage.setItem("key", "value")</div>
+            <div class="object-grid">
+                <div class="object-card c0">
+                    <div class="key">name</div>
+                    <div class="value" id="objVal0">"Alice"</div>
+                    <div class="hint">obj.name = "Alice"</div>
                 </div>
-                
-                <div class="compare-card session">
-                    <div class="title">sessionStorage</div>
-                    <div class="description">Cleared when tab/window closes</div>
-                    <div class="example">sessionStorage.setItem("key", "value")</div>
+                <div class="object-card c1">
+                    <div class="key">age</div>
+                    <div class="value" id="objVal1">28</div>
+                    <div class="hint">obj.age = 28</div>
+                </div>
+                <div class="object-card c2">
+                    <div class="key">city</div>
+                    <div class="value" id="objVal2">"Portland"</div>
+                    <div class="hint">obj.city = "Portland"</div>
+                </div>
+                <div class="object-card c3">
+                    <div class="key">hobby</div>
+                    <div class="value" id="objVal3">"coding"</div>
+                    <div class="hint">obj.hobby = "coding"</div>
+                </div>
+                <div class="object-card c4">
+                    <div class="key">active</div>
+                    <div class="value" id="objVal4">true</div>
+                    <div class="hint">obj.active = true</div>
+                </div>
+                <div class="object-card c5">
+                    <div class="key">score</div>
+                    <div class="value" id="objVal5">95</div>
+                    <div class="hint">obj.score = 95</div>
                 </div>
             </div>
 
-            <h2>Try It Yourself</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="demo-area">
-                <div class="form-group">
-                    <label for="sessionKey">Key</label>
-                    <input type="text" id="sessionKey" placeholder="Enter a key" value="sessionData">
+            <div class="demo-box" id="objectDemo">
+                <div class="row">
+                    <label for="keyInput">Key:</label>
+                    <input type="text" id="keyInput" placeholder="e.g. name, age, hobby" value="name">
+                    <button class="btn-demo secondary" onclick="readProperty()">Read obj[key]</button>
                 </div>
-                <div class="form-group">
-                    <label for="sessionValue">Value</label>
-                    <input type="text" id="sessionValue" placeholder="Enter a value" value="Hello Session!">
+                <div class="row">
+                    <label for="newKeyInput">Key:</label>
+                    <input type="text" id="newKeyInput" placeholder="e.g. email, country">
+                    <label for="newValueInput">Value:</label>
+                    <input type="text" id="newValueInput" placeholder="e.g. alice@example.com">
+                    <button class="btn-demo" onclick="updateProperty()">Update / Add</button>
+                    <button class="btn-demo danger" onclick="deleteProperty()">Delete with delete</button>
                 </div>
-                
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo session-btn" onclick="saveToSession()">💾 Save to Session</button>
-                    <button class="btn-demo info" onclick="loadFromSession()">📂 Load from Session</button>
-                    <button class="btn-demo danger" onclick="removeFromSession()">🗑️ Remove</button>
-                    <button class="btn-demo reset" onclick="clearSession()">🧹 Clear Session</button>
+                <div class="row">
+                    <button class="btn-demo ghost" onclick="resetObject()">Reset Object</button>
+                    <button class="btn-demo ghost" onclick="showObject()">Show Full Object</button>
                 </div>
-                
-                <div class="storage-display" id="sessionDisplay">
-                    Session data will appear here...
-                </div>
-                <div style="margin-top: 8px; font-size: 0.8rem; color: var(--text-muted);">
-                    ⚡ Data in sessionStorage is cleared when you close this tab or window.
+                <div class="output-area" id="objectOutput">
+                    // Object output will appear here...
                 </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// Session Storage Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span class="keyword">setItem</span>(<span class="value">"temp"</span>, <span class="value">"123"</span>);</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> temp = <span class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span class="value">"temp"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(temp);</div>
-                <div class="output">  "123"</div>
+                <div class="comment">// Updating an existing property</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> person = { name: <span class="value">"Alice"</span>, age: <span class="value">28</span> };</div>
+                <div><span class="arrow">&gt;</span> person.age = <span class="value">29</span>; <span class="comment">// update</span></div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.age);</div>
+                <div class="output">  29</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span class="keyword">removeItem</span>(<span class="value">"temp"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span class="value">"temp"</span>));</div>
-                <div class="output">  null</div>
+                <div class="comment">// Adding a new property</div>
+                <div><span class="arrow">&gt;</span> person.email = <span class="value">"alice@example.com"</span>;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.email);</div>
+                <div class="output">  "alice@example.com"</div>
                 <br>
-                <div class="comment">// Comparing localStorage and sessionStorage</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">localStorage</span>.<span class="keyword">setItem</span>(<span class="value">"persist"</span>, <span class="value">"I persist"</span>);</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">sessionStorage</span>.<span class="keyword">setItem</span>(<span class="value">"temp"</span>, <span class="value">"I'm temporary"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">localStorage</span>.<span class="keyword">getItem</span>(<span class="value">"persist"</span>));</div>
-                <div class="output">  "I persist"</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">sessionStorage</span>.<span class="keyword">getItem</span>(<span class="value">"temp"</span>));</div>
-                <div class="output">  "I'm temporary"</div>
+                <div class="comment">// Deleting a property</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">delete</span> person.age;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person.age);</div>
+                <div class="output">  undefined</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(person);</div>
+                <div class="output">  { name: "Alice", email: "alice@example.com" }</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>sessionStorage</strong> - Data is cleared when the tab/window closes</li>
-                    <li><strong>Same methods</strong> - setItem, getItem, removeItem, clear</li>
-                    <li><strong>Per-tab</strong> - Each tab has its own sessionStorage</li>
-                    <li><strong>JSON support</strong> - Use JSON.stringify() and JSON.parse() for objects</li>
-                    <li><strong>Security</strong> - Only accessible from the same origin</li>
-                    <li><strong>Use cases</strong> - Form data, temporary state, shopping cart</li>
+                    <li><strong>obj.key = value</strong> — updates an existing property or adds a new one.</li>
+                    <li><strong>delete obj.key</strong> — removes the property entirely from the object.</li>
+                    <li>After <code>delete</code>, reading the property returns <code>undefined</code>.</li>
+                    <li><strong>delete</strong> only works on properties, not on variables or array indices (use <code>.splice()</code> for arrays).</li>
+                    <li>You can also use <code>delete obj["key"]</code> with bracket notation.</li>
+                    <li>Deleting a non-existent property returns <code>true</code> but does nothing.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>sessionStorage:</p>
+                <p>Create a new file named <code>level54.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Save your current page scroll position to sessionStorage</li>
-                    <li>Save a temporary user preference</li>
-                    <li>Store a simple object using JSON</li>
-                    <li>Compare localStorage vs sessionStorage behavior</li>
-                    <li>Check what happens when you open a new tab</li>
+                    <li>Create an object <code>book = { title: "JS Basics", author: "CodeMaster", pages: 250 }</code>.</li>
+                    <li>Update the <code>pages</code> property to 300.</li>
+                    <li>Add a new property <code>year = 2024</code>.</li>
+                    <li>Delete the <code>author</code> property using the <code>delete</code> keyword.</li>
+                    <li>Log the object after each operation.</li>
                 </ul>
             </div>
 
@@ -716,121 +757,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // ============================================
-        // SESSION STORAGE DEMO FUNCTIONS
-        // ============================================
-
-        function saveToSession() {
-            let key = document.getElementById("sessionKey").value.trim();
-            let value = document.getElementById("sessionValue").value.trim();
-            
-            if (!key) {
-                document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a key!";
-                document.getElementById("sessionDisplay").style.color = "#f3a072";
-                return;
-            }
-            
-            if (!value) {
-                document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a value!";
-                document.getElementById("sessionDisplay").style.color = "#f3a072";
-                return;
-            }
-            
-            sessionStorage.setItem(key, value);
-            document.getElementById("sessionDisplay").innerHTML = "✅ Saved to session: " + key + " = " + value;
-            document.getElementById("sessionDisplay").style.color = "#8ec07c";
-            console.log("Saved to sessionStorage:", key, "=", value);
-            updateSessionDisplay();
-        }
-
-        function loadFromSession() {
-            let key = document.getElementById("sessionKey").value.trim();
-            
-            if (!key) {
-                document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a key!";
-                document.getElementById("sessionDisplay").style.color = "#f3a072";
-                return;
-            }
-            
-            let value = sessionStorage.getItem(key);
-            
-            if (value === null) {
-                document.getElementById("sessionDisplay").innerHTML = "❌ Key '" + key + "' not found in session!";
-                document.getElementById("sessionDisplay").style.color = "#f3a072";
-            } else {
-                document.getElementById("sessionDisplay").innerHTML = "📂 Loaded from session: " + key + " = " + value;
-                document.getElementById("sessionDisplay").style.color = "#7ec8e3";
-                document.getElementById("sessionValue").value = value;
-            }
-            console.log("Loaded from sessionStorage:", key, "=", value);
-        }
-
-        function removeFromSession() {
-            let key = document.getElementById("sessionKey").value.trim();
-            
-            if (!key) {
-                document.getElementById("sessionDisplay").innerHTML = "⚠️ Please enter a key!";
-                document.getElementById("sessionDisplay").style.color = "#f3a072";
-                return;
-            }
-            
-            let existed = sessionStorage.getItem(key) !== null;
-            sessionStorage.removeItem(key);
-            
-            if (existed) {
-                document.getElementById("sessionDisplay").innerHTML = "🗑️ Removed from session: " + key;
-                document.getElementById("sessionDisplay").style.color = "#f3a072";
-            } else {
-                document.getElementById("sessionDisplay").innerHTML = "❌ Key '" + key + "' not found in session!";
-                document.getElementById("sessionDisplay").style.color = "#f3a072";
-            }
-            console.log("Removed from sessionStorage:", key);
-            updateSessionDisplay();
-        }
-
-        function clearSession() {
-            if (confirm("Are you sure you want to clear all sessionStorage data?")) {
-                sessionStorage.clear();
-                document.getElementById("sessionDisplay").innerHTML = "🧹 All sessionStorage data cleared!";
-                document.getElementById("sessionDisplay").style.color = "#a3a3c2";
-                document.getElementById("sessionKey").value = "";
-                document.getElementById("sessionValue").value = "";
-                console.log("Cleared all sessionStorage");
-                updateSessionDisplay();
-            }
-        }
-
-        function updateSessionDisplay() {
-            // Show all session data in console
-            console.log("--- All sessionStorage data ---");
-            for (let i = 0; i < sessionStorage.length; i++) {
-                let key = sessionStorage.key(i);
-                let value = sessionStorage.getItem(key);
-                console.log(key + " = " + value);
-            }
-            console.log("--- End of session data ---");
-        }
-
-        // Show current session data on load
-        document.addEventListener("DOMContentLoaded", function() {
-            let display = document.getElementById("sessionDisplay");
-            let count = sessionStorage.length;
-            if (count === 0) {
-                display.innerHTML = "📭 No data in sessionStorage yet. Try saving something!";
-            } else {
-                display.innerHTML = "📦 " + count + " item(s) in sessionStorage. Check the console for details.";
-                updateSessionDisplay();
-            }
-            display.style.color = "#a3a3c2";
-        });
-
-        // Auto-save demo data on page load to show sessionStorage in action
-        if (!sessionStorage.getItem("autoDemo")) {
-            sessionStorage.setItem("autoDemo", "This data was auto-saved when the page loaded!");
-        }
-    </script>
 
     <script src="./scripts/level54.js"></script>
 </body>

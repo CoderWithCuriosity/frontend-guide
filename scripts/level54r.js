@@ -1,306 +1,326 @@
 /**
- * Level 54: Session Storage
+ * Level 54: Object CRUD - Updating & Deleting Properties
  * 
- * This file demonstrates sessionStorage in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// SETTING AND GETTING SESSION DATA
+// OBJECT CRUD DEMO (Updating & Deleting)
 // ============================================
 
-console.log("--- Setting and Getting Session Data ---");
-
-// Save data to sessionStorage
-sessionStorage.setItem("tempName", "Alice");
-sessionStorage.setItem("tempAge", "30");
-sessionStorage.setItem("tempCity", "Chicago");
-
-console.log("Data saved to sessionStorage!");
-
-// Retrieve data
-let tempName = sessionStorage.getItem("tempName");
-let tempAge = sessionStorage.getItem("tempAge");
-let tempCity = sessionStorage.getItem("tempCity");
-
-console.log("Temp Name:", tempName);
-console.log("Temp Age:", tempAge);
-console.log("Temp City:", tempCity);
-
-// ============================================
-// COMPARING LOCAL VS SESSION STORAGE
-// ============================================
-
-console.log("\n--- Comparing Local vs Session Storage ---");
-
-// Set data in both
-localStorage.setItem("compareKey", "I persist in localStorage");
-sessionStorage.setItem("compareKey", "I'm only in sessionStorage");
-
-console.log("localStorage compareKey:", localStorage.getItem("compareKey"));
-console.log("sessionStorage compareKey:", sessionStorage.getItem("compareKey"));
-
-console.log("Note: localStorage data persists, sessionStorage data is cleared when tab closes.");
-
-// ============================================
-// REMOVING SESSION DATA
-// ============================================
-
-console.log("\n--- Removing Session Data ---");
-
-sessionStorage.removeItem("tempAge");
-console.log("Removed 'tempAge' from sessionStorage");
-
-let ageCheck = sessionStorage.getItem("tempAge");
-console.log("Age after removal:", ageCheck);
-
-// ============================================
-// UPDATING SESSION DATA
-// ============================================
-
-console.log("\n--- Updating Session Data ---");
-
-sessionStorage.setItem("tempName", "Bob");
-let updatedName = sessionStorage.getItem("tempName");
-console.log("Updated tempName:", updatedName);
-
-// ============================================
-// STORING OBJECTS IN SESSION STORAGE
-// ============================================
-
-console.log("\n--- Storing Objects in Session Storage ---");
-
-let tempUser = {
+let demoObject = {
     name: "Alice",
-    age: 30,
-    city: "Chicago",
-    isStudent: false
+    age: 28,
+    city: "Portland",
+    hobby: "coding",
+    active: true,
+    score: 95
 };
 
-console.log("Object to store:", tempUser);
-
-let tempUserJSON = JSON.stringify(tempUser);
-sessionStorage.setItem("tempUser", tempUserJSON);
-
-let storedTempUser = JSON.parse(sessionStorage.getItem("tempUser"));
-console.log("Retrieved object:", storedTempUser);
-console.log("User name:", storedTempUser.name);
-
-// ============================================
-// LOOPING THROUGH SESSION DATA
-// ============================================
-
-console.log("\n--- Looping Through Session Data ---");
-
-function showAllSessionStorage() {
-    console.log("All sessionStorage data:");
-    for (let i = 0; i < sessionStorage.length; i++) {
-        let key = sessionStorage.key(i);
-        let value = sessionStorage.getItem(key);
-        console.log("  " + key + " = " + value);
+function updateGrid() {
+    const keys = Object.keys(demoObject);
+    for (let i = 0; i < 6; i++) {
+        const el = document.getElementById(`objVal${i}`);
+        const keyEl = el ? el.parentElement.querySelector(".key") : null;
+        if (el && i < keys.length) {
+            const key = keys[i];
+            el.textContent = JSON.stringify(demoObject[key]);
+            if (keyEl) keyEl.textContent = key;
+        } else if (el) {
+            el.textContent = "—";
+            if (keyEl) keyEl.textContent = "—";
+        }
     }
 }
 
-showAllSessionStorage();
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("objectOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
+    }
+}
+
+function readProperty() {
+    const key = document.getElementById("keyInput").value.trim();
+    if (!key) {
+        setOutput("⚠️ Please enter a key.", "#f3a072");
+        return;
+    }
+    const value = demoObject[key];
+    if (value === undefined) {
+        setOutput(`obj["${key}"] → undefined  <span class="highlight">(property not found or deleted)</span>`, "#f3a072");
+    } else {
+        setOutput(`obj["${key}"] → ${JSON.stringify(value)}`, "#8ec07c");
+    }
+    console.log(`Read obj["${key}"]:`, value);
+    updateGrid();
+}
+
+function updateProperty() {
+    const key = document.getElementById("newKeyInput").value.trim();
+    const val = document.getElementById("newValueInput").value.trim();
+    if (!key) {
+        setOutput("⚠️ Please enter a key.", "#f3a072");
+        return;
+    }
+    if (!val) {
+        setOutput("⚠️ Please enter a value.", "#f3a072");
+        return;
+    }
+    const old = demoObject[key];
+    demoObject[key] = val;
+    const action = old === undefined ? "Added" : "Updated";
+    setOutput(`${action} obj["${key}"] = "${val}"  <span class="highlight">(previous: ${old !== undefined ? JSON.stringify(old) : 'none'})</span>`, "#8ec07c");
+    console.log(`${action} obj["${key}"] = "${val}"`);
+    updateGrid();
+}
+
+function deleteProperty() {
+    const key = document.getElementById("newKeyInput").value.trim();
+    if (!key) {
+        setOutput("⚠️ Please enter a key to delete.", "#f3a072");
+        return;
+    }
+    if (!(key in demoObject)) {
+        setOutput(`⚠️ Property "${key}" does not exist — nothing to delete.`, "#f3a072");
+        return;
+    }
+    const old = demoObject[key];
+    delete demoObject[key];
+    setOutput(`delete obj["${key}"] removed ${JSON.stringify(old)}  <span class="highlight">(property no longer exists)</span>`, "#f3a072");
+    console.log(`Deleted obj["${key}"]`);
+    updateGrid();
+}
+
+function resetObject() {
+    demoObject = {
+        name: "Alice",
+        age: 28,
+        city: "Portland",
+        hobby: "coding",
+        active: true,
+        score: 95
+    };
+    setOutput('Object reset to { name: "Alice", age: 28, city: "Portland", hobby: "coding", active: true, score: 95 }', "#a3a3c2");
+    console.log("Object reset");
+    updateGrid();
+}
+
+function showObject() {
+    const display = JSON.stringify(demoObject, null, 2);
+    setOutput(`Full object:\n${display}`, "#7ec8e3");
+    console.log("Object:", demoObject);
+}
+
+// Real-time input logging for demo object fields
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'Object CRUD: Update & Delete';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    updateGrid();
+
+    // Demo object input logging
+    const keyInput = document.getElementById("keyInput");
+    const newKeyInput = document.getElementById("newKeyInput");
+    const newValueInput = document.getElementById("newValueInput");
+    if (keyInput) {
+        keyInput.addEventListener("input", function() {
+            console.log("Key field changed to:", this.value);
+        });
+    }
+    if (newKeyInput) {
+        newKeyInput.addEventListener("input", function() {
+            console.log("New key field changed to:", this.value);
+        });
+    }
+    if (newValueInput) {
+        newValueInput.addEventListener("input", function() {
+            console.log("New value field changed to:", this.value);
+        });
+    }
+});
 
 // ============================================
-// SESSION STORAGE LIFETIME DEMONSTRATION
-// ============================================
-
-console.log("\n--- Session Storage Lifetime ---");
-
-console.log("Open a new tab and try to access this session data:");
-console.log("sessionStorage.getItem('tempName') =", sessionStorage.getItem("tempName"));
-console.log("It will be null in a new tab because sessionStorage is per-tab!");
-
-// Store a timestamp to show session duration
-sessionStorage.setItem("sessionStart", Date.now());
-console.log("Session started at:", new Date(parseInt(sessionStorage.getItem("sessionStart"))));
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Object CRUD: Updating & Deleting)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What happens to sessionStorage data when you close the tab?',
-        options: [
-            "It is cleared",
-            "It persists forever",
-            "It is saved to the server",
-            "It moves to localStorage"
-        ],
+        question: 'How do you update the "age" property of an object <code>person</code>?',
+        options: ["person.age = 30", "person.update('age', 30)", "person.setAge(30)", "update person.age"],
         correct: 0,
-        explanation: 'sessionStorage data is cleared when the browser tab or window is closed.'
+        explanation: 'Assign a new value to the property: person.age = 30.'
     },
     {
         id: 2,
-        question: 'What is the difference between localStorage and sessionStorage?',
-        options: [
-            "localStorage persists, sessionStorage is cleared on tab close",
-            "sessionStorage persists, localStorage is cleared on tab close",
-            "They are exactly the same",
-            "localStorage is for servers only"
-        ],
+        question: 'How do you delete the "email" property from an object <code>user</code>?',
+        options: ["delete user.email", "user.delete('email')", "user.remove('email')", "remove user.email"],
         correct: 0,
-        explanation: 'localStorage persists until manually cleared, sessionStorage is cleared when the tab closes.'
+        explanation: 'Use the delete keyword: delete user.email.'
     },
     {
         id: 3,
-        question: 'How do you save data to sessionStorage?',
+        question: 'What does <code>obj.newKey = "value"</code> do if newKey doesn\'t exist?',
         options: [
-            "sessionStorage.setItem('key', 'value')",
-            "sessionStorage.save('key', 'value')",
-            "sessionStorage.put('key', 'value')",
-            "sessionStorage.store('key', 'value')"
+            "Adds the property",
+            "Throws an error",
+            "Returns undefined",
+            "Does nothing"
         ],
         correct: 0,
-        explanation: 'Use sessionStorage.setItem("key", "value") to save data to sessionStorage.'
+        explanation: 'Assigning to a non-existent property adds it to the object.'
     },
     {
         id: 4,
-        question: 'How do you retrieve data from sessionStorage?',
-        options: [
-            "sessionStorage.getItem('key')",
-            "sessionStorage.get('key')",
-            "sessionStorage.retrieve('key')",
-            "sessionStorage.load('key')"
-        ],
+        question: 'What is the output?<br><code>let o = { a: 1 }; delete o.a; console.log(o.a);</code>',
+        options: ["undefined", "null", "1", "Error"],
         correct: 0,
-        explanation: 'Use sessionStorage.getItem("key") to retrieve data from sessionStorage.'
+        explanation: 'After delete, reading the property returns undefined.'
     },
     {
         id: 5,
-        question: 'What does sessionStorage.getItem() return if the key doesn\'t exist?',
+        question: 'What does <code>delete obj.nonExistent</code> return?',
         options: [
-            "null",
+            "true",
+            "false",
             "undefined",
-            "''",
-            "0"
+            "Error"
         ],
         correct: 0,
-        explanation: 'sessionStorage.getItem() returns null if the key does not exist.'
+        explanation: 'delete returns true even if the property did not exist; it just does nothing.'
     },
     {
         id: 6,
-        question: 'Is sessionStorage shared between different tabs?',
+        question: 'What is the output?<br><code>let o = { a: 1, b: 2 }; o.a = 5; console.log(o);</code>',
         options: [
-            "No, each tab has its own sessionStorage",
-            "Yes, it is shared across all tabs",
-            "Only if the tabs are from the same domain",
-            "Only if the tabs are in the same window"
+            "{ a: 5, b: 2 }",
+            "{ a: 1, b: 2 }",
+            "{ a: 5 }",
+            "Error"
         ],
         correct: 0,
-        explanation: 'Each tab has its own separate sessionStorage. Data is not shared between tabs.'
+        explanation: 'Assigning o.a = 5 updates the "a" property, keeping "b".'
     },
     {
         id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("temp", "123");<br/>&nbsp;&nbsp;console.log(sessionStorage.getItem("temp"));',
+        question: 'Can you use <code>delete</code> to remove an array element by index?',
         options: [
-            "123",
-            "temp",
-            "null",
-            "undefined"
+            "No, use .splice() instead",
+            "Yes, delete arr[0] works perfectly",
+            "Yes, but it shifts the array",
+            "Only for the last element"
         ],
         correct: 0,
-        explanation: 'sessionStorage.getItem("temp") retrieves the value "123".'
+        explanation: 'delete on an array index leaves an empty slot; use .splice() for proper removal.'
     },
     {
         id: 8,
-        question: 'Can you store objects directly in sessionStorage?',
-        options: [
-            "No, you need to use JSON.stringify()",
-            "Yes, directly",
-            "Only if they are small",
-            "Only if they are strings"
-        ],
+        question: 'What is the output?<br><code>let o = { x: 10 }; let v = delete o.x; console.log(v);</code>',
+        options: ["true", "false", "10", "undefined"],
         correct: 0,
-        explanation: 'sessionStorage stores strings only. Use JSON.stringify() for objects.'
+        explanation: 'delete returns true when the operation succeeds.'
     },
     {
         id: 9,
-        question: 'What does sessionStorage.clear() do?',
+        question: 'How do you delete a property using bracket notation?',
         options: [
-            "Removes all data from sessionStorage",
-            "Removes one item from sessionStorage",
-            "Saves sessionStorage to localStorage",
-            "Deletes the sessionStorage object"
+            'delete obj["key"]',
+            'delete obj(key)',
+            'obj.delete["key"]',
+            'remove obj["key"]'
         ],
         correct: 0,
-        explanation: 'sessionStorage.clear() removes all data from sessionStorage.'
+        explanation: 'Bracket notation works with delete: delete obj["key"].'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("key", "value");<br/>&nbsp;&nbsp;sessionStorage.removeItem("key");<br/>&nbsp;&nbsp;console.log(sessionStorage.getItem("key"));',
+        question: 'What is the output?<br><code>let o = { a: 1 }; o.b = 2; o.a = 3; console.log(Object.keys(o));</code>',
         options: [
-            "null",
-            "value",
-            "undefined",
-            "''"
+            '["a", "b"]',
+            '["a"]',
+            '["b"]',
+            '["a", "b", "c"]'
         ],
         correct: 0,
-        explanation: 'After removeItem, getItem returns null.'
+        explanation: 'The object has keys "a" and "b" after adding b and updating a.'
     },
     {
         id: 11,
-        question: 'When is the best time to use sessionStorage instead of localStorage?',
+        question: 'What is the difference between <code>obj.key = undefined</code> and <code>delete obj.key</code>?',
         options: [
-            "For temporary data that should be cleared when tab closes",
-            "For data that should persist forever",
-            "For data that should be shared across tabs",
-            "For server-side data"
+            "delete removes the property; assignment keeps it with value undefined",
+            "They do exactly the same thing",
+            "Assignment removes the property",
+            "delete only works on strings"
         ],
         correct: 0,
-        explanation: 'Use sessionStorage for temporary data that should be cleared when the tab closes.'
+        explanation: 'delete removes the property entirely; assigning undefined keeps the key with value undefined.'
     },
     {
         id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;sessionStorage.setItem("user", JSON.stringify(obj));<br/>&nbsp;&nbsp;console.log(sessionStorage.getItem("user"));',
+        question: 'What is the output?<br><code>let o = { a: 1, b: 2 }; delete o.a; console.log(Object.keys(o));</code>',
         options: [
-            '{"name":"John"}',
-            '{ name: "John" }',
-            'John',
-            'null'
+            '["b"]',
+            '["a", "b"]',
+            '["a"]',
+            '[]'
         ],
         correct: 0,
-        explanation: 'JSON.stringify() converts the object to a JSON string, which is stored.'
+        explanation: 'After deleting "a", only "b" remains in Object.keys(o).'
     },
     {
         id: 13,
-        question: 'Can sessionStorage be accessed by other websites?',
+        question: 'How do you check if a property was successfully deleted?',
         options: [
-            "No, only from the same origin",
-            "Yes, from any website",
-            "Only if you allow it",
-            "Only if you use HTTPS"
+            'Check if obj.hasOwnProperty("key") is false',
+            "Check if obj.key === null",
+            "Check if obj.key === 0",
+            "Check if obj.key === false"
         ],
         correct: 0,
-        explanation: 'sessionStorage follows the same-origin policy. Only pages from the same origin can access it.'
+        explanation: 'After deletion, obj.hasOwnProperty("key") returns false.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("a", "1");<br/>&nbsp;&nbsp;sessionStorage.setItem("b", "2");<br/>&nbsp;&nbsp;console.log(sessionStorage.length);',
+        question: 'What is the output?<br><code>let o = { name: "Sam" }; o.name = "Alex"; o.age = 25; console.log(o);</code>',
         options: [
-            "2",
-            "1",
-            "3",
-            "0"
+            '{ name: "Alex", age: 25 }',
+            '{ name: "Sam", age: 25 }',
+            '{ name: "Alex" }',
+            "Error"
         ],
         correct: 0,
-        explanation: 'sessionStorage.length returns the number of items stored, which is 2.'
+        explanation: 'name is updated to "Alex" and age is added with value 25.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;sessionStorage.setItem("key", "value");<br/>&nbsp;&nbsp;console.log(sessionStorage.key(0));',
+        question: 'Which of the following correctly deletes a property?',
         options: [
-            "key",
-            "value",
-            "null",
-            "undefined"
+            'delete person["lastName"]',
+            "delete person.lastName()",
+            "person.delete.lastName",
+            "person.remove(lastName)"
         ],
         correct: 0,
-        explanation: 'sessionStorage.key(0) returns the key at index 0, which is "key".'
+        explanation: 'delete works with both dot and bracket notation: delete person["lastName"].'
     }
 ];
 
@@ -365,14 +385,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 54 Quiz</h2>
+                        ">Level 54 Quiz · Object CRUD</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -398,7 +417,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -406,7 +424,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -616,7 +633,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -683,7 +700,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -817,7 +834,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered session storage!';
+        message += ' 🌟 Perfect score! You\'ve mastered object updating and deleting!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -873,25 +890,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Session Storage';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

@@ -1,310 +1,359 @@
 /**
- * Level 61: Array Methods (map, filter)
+ * Level 61: LocalStorage with Objects - JSON Basics
  * 
- * This file demonstrates map and filter array methods in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// MAP() - TRANSFORM EACH ELEMENT
+// LOCALSTORAGE WITH OBJECTS DEMO
 // ============================================
 
-console.log("--- map() Method ---");
+const STORAGE_KEY = "level61_user";
 
-let numbers = [1, 2, 3, 4, 5];
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("storageOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
+    }
+}
 
-let doubled = numbers.map(num => num * 2);
-console.log("Original:", numbers);
-console.log("Doubled:", doubled);
+function updateDisplay(obj) {
+    const el = document.getElementById("jsonDisplay");
+    if (!el) return;
 
-let squared = numbers.map(num => num * num);
-console.log("Squared:", squared);
+    if (obj === null || obj === undefined) {
+        el.textContent = "(nothing saved yet)";
+        el.classList.add("empty");
+    } else {
+        el.textContent = JSON.stringify(obj, null, 2);
+        el.classList.remove("empty");
+    }
+}
+
+function saveUser() {
+    const name = document.getElementById("nameField").value.trim();
+    const ageRaw = document.getElementById("ageField").value.trim();
+    const city = document.getElementById("cityField").value.trim();
+
+    if (name === "" || city === "" || ageRaw === "") {
+        setOutput("⚠️ Please fill in all fields before saving.", "#f3a072");
+        return;
+    }
+
+    const age = Number(ageRaw);
+    if (isNaN(age)) {
+        setOutput("⚠️ Age must be a valid number.", "#f3a072");
+        return;
+    }
+
+    const user = { name, age, city };
+
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+        updateDisplay(user);
+        setOutput(`✅ Object saved as JSON: <span class="highlight">${JSON.stringify(user)}</span>`, "#8ec07c");
+        console.log("Saved user object:", user);
+    } catch (error) {
+        setOutput(`❌ Could not save: ${error.message}`, "#f3a072");
+        console.error("Save error:", error);
+    }
+}
+
+function loadUser() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+
+        if (raw === null) {
+            updateDisplay(null);
+            setOutput("📭 No saved object found. Save something first!", "#f3a072");
+            console.log("No saved object found");
+            return;
+        }
+
+        const user = JSON.parse(raw);
+        updateDisplay(user);
+
+        // Fill inputs with the loaded values
+        const nameField = document.getElementById("nameField");
+        const ageField = document.getElementById("ageField");
+        const cityField = document.getElementById("cityField");
+        if (nameField) nameField.value = user.name ?? "";
+        if (ageField) ageField.value = user.age ?? "";
+        if (cityField) cityField.value = user.city ?? "";
+
+        setOutput(`📂 Object loaded: <span class="highlight">${raw}</span>`, "#7ec8e3");
+        console.log("Loaded user object:", user);
+    } catch (error) {
+        setOutput(`❌ Could not parse saved data: ${error.message}`, "#f3a072");
+        console.error("Load error:", error);
+    }
+}
+
+function removeUser() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_KEY);
+        updateDisplay(null);
+
+        if (raw === null) {
+            setOutput("ℹ️ Nothing was saved — removeItem had no effect.", "#a3a3c2");
+        } else {
+            setOutput(`🗑️ Removed saved object: <span class="highlight">${raw}</span>`, "#f3a072");
+        }
+        console.log("Removed from localStorage:", STORAGE_KEY);
+    } catch (error) {
+        setOutput(`❌ Could not remove: ${error.message}`, "#f3a072");
+        console.error("Remove error:", error);
+    }
+}
+
+function clearFields() {
+    document.getElementById("nameField").value = "";
+    document.getElementById("ageField").value = "";
+    document.getElementById("cityField").value = "";
+    setOutput("🧹 Input fields cleared (localStorage untouched).", "#a3a3c2");
+    console.log("Input fields cleared");
+}
+
+// On page load, read any saved object and display it
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'LocalStorage with Objects';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    // Auto-load any saved object
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw !== null) {
+            const user = JSON.parse(raw);
+            updateDisplay(user);
+            const nameField = document.getElementById("nameField");
+            const ageField = document.getElementById("ageField");
+            const cityField = document.getElementById("cityField");
+            if (nameField) nameField.value = user.name ?? "";
+            if (ageField) ageField.value = user.age ?? "";
+            if (cityField) cityField.value = user.city ?? "";
+            setOutput(`📂 Auto-loaded saved object: <span class="highlight">${raw}</span>`, "#7ec8e3");
+            console.log("Auto-loaded user object:", user);
+        } else {
+            updateDisplay(null);
+            setOutput("💡 Fill in the fields and click Save. Reload the page to see it persist!", "#a3a3c2");
+        }
+    } catch (error) {
+        console.error("Initial load error:", error);
+    }
+
+    // Log keystrokes in the input fields
+    ["nameField", "ageField", "cityField"].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.addEventListener("input", function() {
+                console.log(`${id} changed to:`, this.value);
+            });
+        }
+    });
+});
 
 // ============================================
-// MAP WITH STRINGS
-// ============================================
-
-console.log("\n--- map() with Strings ---");
-
-let names = ["john", "jane", "bob", "alice"];
-
-let capitalized = names.map(name => name.charAt(0).toUpperCase() + name.slice(1));
-console.log("Original:", names);
-console.log("Capitalized:", capitalized);
-
-let nameLengths = names.map(name => name.length);
-console.log("Name lengths:", nameLengths);
-
-// ============================================
-// MAP WITH OBJECTS
-// ============================================
-
-console.log("\n--- map() with Objects ---");
-
-let users = [
-    { name: "John", age: 25 },
-    { name: "Jane", age: 30 },
-    { name: "Bob", age: 22 },
-    { name: "Alice", age: 28 }
-];
-
-let userNames = users.map(user => user.name);
-console.log("User names:", userNames);
-
-let userAges = users.map(user => user.age);
-console.log("User ages:", userAges);
-
-let userGreetings = users.map(user => `Hello, ${user.name}!`);
-console.log("Greetings:", userGreetings);
-
-// ============================================
-// FILTER() - FILTER ELEMENTS
-// ============================================
-
-console.log("\n--- filter() Method ---");
-
-let allNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-let evens = allNumbers.filter(num => num % 2 === 0);
-console.log("Original:", allNumbers);
-console.log("Evens:", evens);
-
-let odds = allNumbers.filter(num => num % 2 !== 0);
-console.log("Odds:", odds);
-
-let greaterThanFive = allNumbers.filter(num => num > 5);
-console.log("Greater than 5:", greaterThanFive);
-
-// ============================================
-// FILTER WITH OBJECTS
-// ============================================
-
-console.log("\n--- filter() with Objects ---");
-
-let people = [
-    { name: "John", age: 25, city: "New York" },
-    { name: "Jane", age: 30, city: "Boston" },
-    { name: "Bob", age: 17, city: "New York" },
-    { name: "Alice", age: 28, city: "Chicago" },
-    { name: "Charlie", age: 16, city: "Boston" }
-];
-
-let adults = people.filter(person => person.age >= 18);
-console.log("Adults:", adults);
-
-let newYorkers = people.filter(person => person.city === "New York");
-console.log("New Yorkers:", newYorkers);
-
-let adultsInBoston = people.filter(person => person.age >= 18 && person.city === "Boston");
-console.log("Adults in Boston:", adultsInBoston);
-
-// ============================================
-// CHAINING MAP AND FILTER
-// ============================================
-
-console.log("\n--- Chaining map and filter ---");
-
-let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-// Get squares of even numbers
-let result = nums
-    .filter(num => num % 2 === 0)
-    .map(num => num * num);
-
-console.log("Original:", nums);
-console.log("Squares of evens:", result);
-
-// Get capitalized names of adults
-let adultNames = people
-    .filter(person => person.age >= 18)
-    .map(person => person.name.toUpperCase());
-
-console.log("Adult names (uppercase):", adultNames);
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (LocalStorage with Objects)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does map() do to an array?',
+        question: 'Why do you need JSON.stringify() before saving an object to localStorage?',
         options: [
-            "Transforms each element",
-            "Filters elements",
-            "Reduces the array",
-            "Sorts the array"
+            "localStorage only stores strings",
+            "localStorage only stores numbers",
+            "JSON makes the data smaller",
+            "It is optional"
         ],
         correct: 0,
-        explanation: 'map() transforms each element in an array and returns a new array of the same length.'
+        explanation: 'localStorage only stores strings, so objects must be converted with JSON.stringify().'
     },
     {
         id: 2,
-        question: 'What does filter() do to an array?',
+        question: 'What does JSON.stringify() do?',
         options: [
-            "Creates a new array with elements that pass a test",
-            "Transforms each element",
-            "Reduces the array to a single value",
-            "Sorts the array"
+            "Converts an object to a JSON string",
+            "Converts a JSON string to an object",
+            "Validates JSON",
+            "Pretty prints JSON"
         ],
         correct: 0,
-        explanation: 'filter() creates a new array with only the elements that pass the test function.'
+        explanation: 'JSON.stringify() converts an object into a JSON string.'
     },
     {
         id: 3,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].map(n => n * 2)',
+        question: 'What does JSON.parse() do?',
         options: [
-            "[2,4,6]",
-            "[1,2,3]",
-            "[3,6,9]",
-            "[1,4,9]"
+            "Converts a JSON string to an object",
+            "Converts an object to a JSON string",
+            "Validates JSON",
+            "Minifies JSON"
         ],
         correct: 0,
-        explanation: 'map() multiplies each element by 2, resulting in [2,4,6].'
+        explanation: 'JSON.parse() parses a JSON string into a JavaScript object.'
     },
     {
         id: 4,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].filter(n => n > 2)',
+        question: 'What is the correct way to save an object?',
         options: [
-            "[3,4]",
-            "[1,2]",
-            "[1,2,3,4]",
-            "[2,3,4]"
+            'localStorage.setItem("key", JSON.stringify(obj))',
+            'localStorage.setItem("key", obj)',
+            'localStorage.setItem(JSON.stringify(obj))',
+            'localStorage.saveObject("key", obj)'
         ],
         correct: 0,
-        explanation: 'filter() keeps only elements greater than 2: [3,4].'
+        explanation: 'Convert the object to a string with JSON.stringify() before saving.'
     },
     {
         id: 5,
-        question: 'Does map() modify the original array?',
+        question: 'What is the correct way to load an object?',
         options: [
-            "No, it returns a new array",
-            "Yes, it modifies the original",
-            "Only if the array is small",
-            "Only if used with numbers"
+            'JSON.parse(localStorage.getItem("key"))',
+            'localStorage.getItem("key")',
+            'localStorage.getObject("key")',
+            'JSON.stringify(localStorage.getItem("key"))'
         ],
         correct: 0,
-        explanation: 'map() does not modify the original array; it returns a new array.'
+        explanation: 'Read the string with getItem, then convert it back with JSON.parse().'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;["a","b","c"].map(s => s.toUpperCase())',
+        question: 'What is the output?<br><code>let o = { a: 1 };<br>console.log(JSON.stringify(o));</code>',
         options: [
-            '["A","B","C"]',
-            '["a","b","c"]',
-            '["A","b","c"]',
-            '["a","B","C"]'
-        ],
-        correct: 0,
-        explanation: 'map() converts each string to uppercase, resulting in ["A","B","C"].'
-    },
-    {
-        id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4,5].filter(n => n % 2 === 0)',
-        options: [
-            "[2,4]",
-            "[1,3,5]",
-            "[1,2,3,4,5]",
-            "[2,4,6]"
-        ],
-        correct: 0,
-        explanation: 'filter() keeps even numbers: [2,4].'
-    },
-    {
-        id: 8,
-        question: 'Can map and filter be chained together?',
-        options: [
-            "Yes",
-            "No",
-            "Only if they are on separate lines",
-            "Only in older browsers"
-        ],
-        correct: 0,
-        explanation: 'Yes, map and filter can be chained together to perform multiple operations.'
-    },
-    {
-        id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].filter(n => n > 2).map(n => n * 2)',
-        options: [
-            "[6,8]",
-            "[3,4]",
-            "[1,2]",
-            "[2,4,6,8]"
-        ],
-        correct: 0,
-        explanation: 'First filter [3,4], then map to double them: [6,8].'
-    },
-    {
-        id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[{name:"John"},{name:"Jane"}].map(obj => obj.name)',
-        options: [
-            '["John","Jane"]',
-            '[{name:"John"},{name:"Jane"}]',
-            '["John Jane"]',
-            '[John,Jane]'
-        ],
-        correct: 0,
-        explanation: 'map() extracts the name property from each object, resulting in ["John","Jane"].'
-    },
-    {
-        id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4,5].filter(n => n > 10)',
-        options: [
-            "[]",
-            "[1,2,3,4,5]",
-            "[10]",
+            '{"a":1}',
+            "{ a: 1 }",
+            "1",
             "undefined"
         ],
         correct: 0,
-        explanation: 'No elements are greater than 10, so filter returns an empty array [].'
+        explanation: 'JSON.stringify({a:1}) returns the string {"a":1}.'
+    },
+    {
+        id: 7,
+        question: 'What is the output?<br><code>let s = \'{"name":"Alice"}\';<br>console.log(JSON.parse(s).name);</code>',
+        options: [
+            '"Alice"',
+            '"name"',
+            "undefined",
+            "null"
+        ],
+        correct: 0,
+        explanation: 'JSON.parse turns the string into an object, so .name is "Alice".'
+    },
+    {
+        id: 8,
+        question: 'What does localStorage.getItem() return if the key was never set?',
+        options: [
+            "null",
+            "undefined",
+            '"" (empty string)',
+            "0"
+        ],
+        correct: 0,
+        explanation: 'getItem returns null if the key does not exist, so guard before parsing.'
+    },
+    {
+        id: 9,
+        question: 'What happens if you call JSON.parse(null)?',
+        options: [
+            "It returns null",
+            "It throws an error",
+            "It returns undefined",
+            "It returns 0"
+        ],
+        correct: 0,
+        explanation: 'JSON.parse(null) actually returns null (it coerces to the string "null").'
+    },
+    {
+        id: 10,
+        question: 'Can localStorage store an array directly?',
+        options: [
+            "No, you must stringify it with JSON.stringify()",
+            "Yes, arrays are stored as-is",
+            "Only arrays of numbers",
+            "Only arrays of strings"
+        ],
+        correct: 0,
+        explanation: 'Arrays must be converted with JSON.stringify() before saving, just like objects.'
+    },
+    {
+        id: 11,
+        question: 'What is the output?<br><code>JSON.stringify([1,2,3])</code>',
+        options: [
+            '"[1,2,3]"',
+            "[1,2,3]",
+            '"1,2,3"',
+            "undefined"
+        ],
+        correct: 0,
+        explanation: 'JSON.stringify on an array returns the string "[1,2,3]".'
     },
     {
         id: 12,
-        question: 'What does the callback function in map receive?',
+        question: 'What is the output?<br><code>JSON.parse(\'[1,2,3]\').length</code>',
         options: [
-            "The current element, index, and array",
-            "Only the current element",
-            "Only the index",
-            "The entire array"
+            "3",
+            "1",
+            "undefined",
+            "Error"
         ],
         correct: 0,
-        explanation: 'The callback in map receives the current element, its index, and the original array.'
+        explanation: 'JSON.parse turns the string back into an array of length 3.'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].map(n => n + 10)',
+        question: 'Why should you wrap JSON.parse() in a try/catch?',
         options: [
-            "[11,12,13]",
-            "[1,2,3]",
-            "[10,11,12]",
-            "[1,10,2,10,3,10]"
+            "Because invalid JSON throws a SyntaxError",
+            "Because it is required by the spec",
+            "Because it always throws",
+            "Because it is asynchronous"
         ],
         correct: 0,
-        explanation: 'map() adds 10 to each element: [11,12,13].'
+        explanation: 'JSON.parse throws a SyntaxError if the string is not valid JSON, so try/catch is safer.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[{age:18},{age:20},{age:16}].filter(p => p.age >= 18)',
+        question: 'What is the output?<br><code>let obj = { n: 5 };<br>localStorage.setItem("k", JSON.stringify(obj));<br>console.log(typeof localStorage.getItem("k"));</code>',
         options: [
-            '[{age:18},{age:20}]',
-            '[{age:18},{age:20},{age:16}]',
-            '[{age:16}]',
-            '[]'
+            '"string"',
+            '"object"',
+            '"number"',
+            '"undefined"'
         ],
         correct: 0,
-        explanation: 'filter() keeps objects with age >= 18: [{age:18},{age:20}].'
+        explanation: 'localStorage stores strings, so getItem returns a string even though you saved an object.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].map(n => n * n).filter(n => n > 5)',
+        question: 'What is the output?<br><code>let obj = { n: 5 };<br>let s = JSON.stringify(obj);<br>console.log(JSON.parse(s).n);</code>',
         options: [
-            "[9,16]",
-            "[1,4,9,16]",
-            "[1,4]",
-            "[16]"
+            "5",
+            '"5"',
+            "undefined",
+            "Error"
         ],
         correct: 0,
-        explanation: 'First square numbers: [1,4,9,16], then filter > 5: [9,16].'
+        explanation: 'After stringify and parse, the object is restored, so .n is 5.'
     }
 ];
 
@@ -369,14 +418,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 61 Quiz</h2>
+                        ">Level 61 Quiz · LocalStorage + JSON</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -402,7 +450,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -410,7 +457,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -569,9 +615,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -620,7 +664,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -687,7 +731,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -821,7 +865,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered map and filter!';
+        message += ' 🌟 Perfect score! You\'ve mastered localStorage with JSON!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -877,25 +921,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Array Methods (map, filter)';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

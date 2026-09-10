@@ -1,372 +1,307 @@
 /**
- * Level 57: Fetch API (POST)
+ * Level 57: Simple Form Validation - Check Empty Fields
  * 
- * This file demonstrates POST requests with the Fetch API.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC POST REQUEST
+// SIMPLE FORM VALIDATION DEMO
 // ============================================
 
-console.log("--- Basic POST Request ---");
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("formOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
+    }
+}
 
-let postData = {
-    title: "My First Post",
-    body: "This is the content of my first post.",
-    userId: 1
-};
+function showError(fieldId, errorId) {
+    const field = document.getElementById(fieldId);
+    const error = document.getElementById(errorId);
+    field.classList.add("invalid");
+    field.classList.remove("valid");
+    error.classList.add("show");
+}
 
-fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(postData)
-})
-.then(response => {
-    console.log("Response status:", response.status);
-    console.log("Response ok:", response.ok);
-    return response.json();
-})
-.then(data => {
-    console.log("Data received:", data);
-    console.log("New post ID:", data.id);
-})
-.catch(error => {
-    console.error("Error:", error);
+function clearError(fieldId, errorId) {
+    const field = document.getElementById(fieldId);
+    const error = document.getElementById(errorId);
+    field.classList.remove("invalid");
+    field.classList.add("valid");
+    error.classList.remove("show");
+}
+
+function validateUsername() {
+    const username = document.getElementById("username").value.trim();
+    if (username === "") {
+        showError("username", "usernameError");
+        return false;
+    }
+    clearError("username", "usernameError");
+    return true;
+}
+
+function validateEmail() {
+    const email = document.getElementById("email").value.trim();
+    if (email === "") {
+        showError("email", "emailError");
+        return false;
+    }
+    clearError("email", "emailError");
+    return true;
+}
+
+function submitForm() {
+    const successMessage = document.getElementById("successMessage");
+    successMessage.classList.remove("show");
+
+    const isUsernameValid = validateUsername();
+    const isEmailValid = validateEmail();
+
+    if (!isUsernameValid || !isEmailValid) {
+        setOutput("❌ Please fill in all required fields before submitting.", "#f3a072");
+        console.log("Validation failed: missing required fields.");
+        return;
+    }
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    setOutput(
+        `✅ Form valid!\n  Username: "${username}"\n  Email: "${email}"\n  Message: ${message === "" ? "(optional, empty)" : `"${message}"`}`,
+        "#8ec07c"
+    );
+    successMessage.classList.add("show");
+    console.log("Form submitted:", { username, email, message });
+
+    // Reset after a short delay
+    setTimeout(() => {
+        successMessage.classList.remove("show");
+    }, 3000);
+}
+
+function resetForm() {
+    document.getElementById("username").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+
+    ["username", "email", "message"].forEach(id => {
+        const field = document.getElementById(id);
+        field.classList.remove("valid", "invalid");
+    });
+    ["usernameError", "emailError", "messageError"].forEach(id => {
+        document.getElementById(id).classList.remove("show");
+    });
+    document.getElementById("successMessage").classList.remove("show");
+
+    setOutput("🧹 Form reset. All fields cleared.", "#a3a3c2");
+    console.log("Form reset");
+}
+
+// Real-time validation as the user types
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'Simple Form Validation';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    // Username: validate on blur (when leaving field)
+    if (username) {
+        username.addEventListener("blur", validateUsername);
+        username.addEventListener("input", function() {
+            if (this.value.trim() !== "") {
+                clearError("username", "usernameError");
+            }
+        });
+    }
+
+    // Email: validate on blur
+    if (email) {
+        email.addEventListener("blur", validateEmail);
+        email.addEventListener("input", function() {
+            if (this.value.trim() !== "") {
+                clearError("email", "emailError");
+            }
+        });
+    }
+
+    // Message: just log changes
+    if (message) {
+        message.addEventListener("input", function() {
+            console.log("Message field changed to:", this.value);
+        });
+    }
 });
 
 // ============================================
-// POST WITH ASYNC/AWAIT
-// ============================================
-
-console.log("\n--- POST with Async/Await ---");
-
-async function createPost(title, body, userId) {
-    try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                title: title,
-                body: body,
-                userId: userId
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error("HTTP error! status: " + response.status);
-        }
-
-        let data = await response.json();
-        console.log("Post created:", data);
-        console.log("Post ID:", data.id);
-        return data;
-    } catch (error) {
-        console.error("Error creating post:", error.message);
-        return null;
-    }
-}
-
-createPost("Async Post", "Created using async/await", 1);
-
-// ============================================
-// POST WITH ERROR HANDLING
-// ============================================
-
-console.log("\n--- POST with Error Handling ---");
-
-async function createPostWithValidation(title, body) {
-    if (!title || title.length < 3) {
-        console.error("Title must be at least 3 characters");
-        return;
-    }
-
-    if (!body || body.length < 10) {
-        console.error("Body must be at least 10 characters");
-        return;
-    }
-
-    try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                title: title,
-                body: body,
-                userId: 1
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error("HTTP error! status: " + response.status);
-        }
-
-        let data = await response.json();
-        console.log("Success! Post created with ID:", data.id);
-        return data;
-    } catch (error) {
-        console.error("Failed to create post:", error.message);
-        return null;
-    }
-}
-
-// Test with valid data
-createPostWithValidation("Valid Post", "This is a valid post with enough content.");
-
-// Test with invalid data
-createPostWithValidation("Hi", "Short");
-
-// ============================================
-// POST WITH EXTRA HEADERS
-// ============================================
-
-console.log("\n--- POST with Extra Headers ---");
-
-async function postWithAuth() {
-    try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer my-token-123",
-                "X-Custom-Header": "CustomValue"
-            },
-            body: JSON.stringify({
-                title: "Authenticated Post",
-                body: "This post includes authentication headers.",
-                userId: 1
-            })
-        });
-
-        let data = await response.json();
-        console.log("Authenticated post created:", data);
-        console.log("Response status:", response.status);
-        return data;
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-
-postWithAuth();
-
-// ============================================
-// FORM DATA POST
-// ============================================
-
-console.log("\n--- Form Data POST ---");
-
-async function postFormData() {
-    try {
-        let formData = new FormData();
-        formData.append("title", "Form Data Post");
-        formData.append("body", "This was sent as form data");
-        formData.append("userId", "1");
-
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            body: formData
-        });
-
-        let data = await response.json();
-        console.log("Form data post created:", data);
-        return data;
-    } catch (error) {
-        console.error("Error sending form data:", error);
-    }
-}
-
-postFormData();
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Simple Form Validation)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What HTTP method does fetch() use for POST?',
+        question: 'How do you check if a text input with id "name" is empty?',
         options: [
-            "POST",
-            "GET",
-            "PUT",
-            "DELETE"
+            'document.getElementById("name").value === ""',
+            'document.getElementById("name").value === null',
+            'document.getElementById("name").isEmpty()',
+            'document.getElementById("name").value === undefined'
         ],
         correct: 0,
-        explanation: 'For POST requests, you set method: "POST" in the fetch options.'
+        explanation: 'An empty input returns an empty string, so compare with "".'
     },
     {
         id: 2,
-        question: 'How do you send JSON data in a POST request?',
+        question: 'Why should you use <code>.trim()</code> before checking if an input is empty?',
         options: [
-            "JSON.stringify(data) in the body",
-            "data directly in the body",
-            "JSON.parse(data) in the body",
-            "data.toString() in the body"
+            "To remove whitespace so a field with only spaces counts as empty",
+            "To make the string shorter",
+            "To convert the value to a number",
+            "To clear the field"
         ],
         correct: 0,
-        explanation: 'You must use JSON.stringify() to convert data to a JSON string for the body.'
+        explanation: '.trim() removes leading/trailing whitespace, so "   " is treated as empty.'
     },
     {
         id: 3,
-        question: 'What header is required for JSON POST requests?',
-        options: [
-            "Content-Type: application/json",
-            "Content-Type: text/plain",
-            "Content-Type: application/xml",
-            "Content-Type: form-data"
-        ],
+        question: 'What is the output?<br><code>let v = "";<br>console.log(v === "");</code>',
+        options: ["true", "false", "undefined", "Error"],
         correct: 0,
-        explanation: 'Set Content-Type: application/json to tell the server you\'re sending JSON data.'
+        explanation: 'An empty string === "" is true.'
     },
     {
         id: 4,
-        question: 'What does the response.json() method do in a POST request?',
-        options: [
-            "Parses the response body as JSON",
-            "Sends JSON data",
-            "Converts JSON to string",
-            "Deletes JSON data"
-        ],
+        question: 'What is the output?<br><code>let v = "   ";<br>console.log(v.trim() === "");</code>',
+        options: ["true", "false", "undefined", "Error"],
         correct: 0,
-        explanation: 'response.json() parses the response body as JSON, just like in GET requests.'
+        explanation: '"   ".trim() removes the spaces, leaving "", so it equals "".'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify(data)<br/>&nbsp;&nbsp;})<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data));',
+        question: 'How do you stop a form submission when a field is empty?',
         options: [
-            "Logs the parsed JSON response",
-            "Logs the raw response",
-            "Throws an error",
-            "Logs undefined"
+            "Use return; after showing the error",
+            "Use break;",
+            "Use continue;",
+            "Use stop();"
         ],
         correct: 0,
-        explanation: 'The code sends a POST request and logs the parsed JSON response.'
+        explanation: 'Return early from the function to stop the action.'
     },
     {
         id: 6,
-        question: 'How do you check if a POST request was successful?',
-        options: [
-            "response.ok",
-            "response.success",
-            "response.status === 200",
-            "Both response.ok and response.status"
-        ],
-        correct: 3,
-        explanation: 'Check response.ok (true for 200-299) or response.status for specific codes.'
+        question: 'What is the output?<br><code>let v = "";<br>console.log(v.length);</code>',
+        options: ["0", "1", "undefined", "null"],
+        correct: 0,
+        explanation: 'An empty string has length 0.'
     },
     {
         id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, { method: "POST" })<br/>&nbsp;&nbsp;&nbsp;&nbsp;.catch(error => console.log(error));',
+        question: 'Which is the correct way to show an error message?',
         options: [
-            "Logs any errors",
-            "Logs undefined",
-            "Throws an error",
-            "Returns null"
+            'errorEl.classList.add("show")',
+            "errorEl.show()",
+            "errorEl.display = 'block'",
+            "errorEl.visible = true"
         ],
         correct: 0,
-        explanation: 'The .catch() block catches and logs any errors that occur.'
+        explanation: 'Toggle a CSS class like "show" to display the error message.'
     },
     {
         id: 8,
-        question: 'What does the method property do in fetch options?',
-        options: [
-            "Sets the HTTP method (GET, POST, etc.)",
-            "Sets the request headers",
-            "Sets the request body",
-            "Sets the response type"
-        ],
+        question: 'What is the output?<br><code>let v = "abc";<br>console.log(v === "");</code>',
+        options: ["false", "true", "undefined", "Error"],
         correct: 0,
-        explanation: 'The method property specifies the HTTP method for the request.'
+        explanation: '"abc" is not empty, so the comparison is false.'
     },
     {
         id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let data = { name: "John" };<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify(data)<br/>&nbsp;&nbsp;});',
+        question: 'What is the best way to check if a field has a real value?',
         options: [
-            "Sends a POST request with JSON data",
-            "Sends a GET request",
-            "Throws an error",
-            "Sends a PUT request"
+            "value.trim() !== \"\"",
+            "value !== null",
+            "value !== undefined",
+            "value.length > 0"
         ],
         correct: 0,
-        explanation: 'This code sends a POST request with the data converted to JSON string.'
+        explanation: 'value.trim() !== "" handles whitespace and empty strings correctly.'
     },
     {
         id: 10,
-        question: 'What status code typically indicates a successful POST?',
-        options: [
-            "200 OK",
-            "201 Created",
-            "400 Bad Request",
-            "404 Not Found"
-        ],
-        correct: 1,
-        explanation: '201 Created is the typical success status for a POST request that creates a new resource.'
+        question: 'What is the output?<br><code>let v = "";<br>if (v) { console.log("Yes"); } else { console.log("No"); }</code>',
+        options: ['"No"', '"Yes"', "undefined", "Error"],
+        correct: 0,
+        explanation: 'An empty string is falsy, so the else branch runs and logs "No".'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: "plain text"<br/>&nbsp;&nbsp;})<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.text())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data));',
+        question: 'How do you reset the error styling after a field becomes valid?',
         options: [
-            "Logs the response as text",
-            "Throws an error",
-            "Logs undefined",
-            "Parses as JSON"
+            'Remove the "invalid" class and add a "valid" class',
+            "Delete the input element",
+            "Reload the page",
+            "Set value to null"
         ],
         correct: 0,
-        explanation: 'response.text() parses the response as plain text, regardless of the content type.'
+        explanation: 'Remove the invalid class and optionally add a valid class for feedback.'
     },
     {
         id: 12,
-        question: 'How do you send data without JSON in a POST request?',
-        options: [
-            "Use FormData or plain text",
-            "Only JSON is supported",
-            "Use XML",
-            "Send as query parameters"
-        ],
+        question: 'What is the output?<br><code>let v = "  ";<br>console.log(v.length);</code>',
+        options: ["2", "0", "undefined", "null"],
         correct: 0,
-        explanation: 'You can send FormData, plain text, or other formats in the body.'
+        explanation: '"  " contains 2 space characters, so length is 2 (but trim() would make it 0).'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let x = { a: 1 };<br/>&nbsp;&nbsp;fetch(url, {<br/>&nbsp;&nbsp;&nbsp;&nbsp;method: "POST",<br/>&nbsp;&nbsp;&nbsp;&nbsp;body: x<br/>&nbsp;&nbsp;});',
+        question: 'Which event is good for validating a field when the user leaves it?',
         options: [
-            "Sends [object Object]",
-            "Sends { a: 1 }",
-            "Throws an error",
-            "Sends undefined"
+            "blur",
+            "click",
+            "mouseover",
+            "submit"
         ],
-        correct: 2,
-        explanation: 'The body must be a string, FormData, or Blob. An object will cause an error.'
+        correct: 0,
+        explanation: 'The blur event fires when the input loses focus — a good time to validate.'
     },
     {
         id: 14,
-        question: 'What does the headers object do in fetch options?',
-        options: [
-            "Sets request headers",
-            "Sets response headers",
-            "Sets cookies",
-            "Sets the URL"
-        ],
+        question: 'What is the output?<br><code>let v = "Alice";<br>console.log(v.trim() === "");</code>',
+        options: ["false", "true", "undefined", "Error"],
         correct: 0,
-        explanation: 'The headers object sets HTTP headers for the request.'
+        explanation: '"Alice".trim() is still "Alice", so it is not equal to "".'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url, { method: "POST" })<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Failed");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return response.json();<br/>&nbsp;&nbsp;&nbsp;&nbsp;});',
+        question: 'Why is simple empty-field validation important?',
         options: [
-            "Parses JSON if successful, throws error if not",
-            "Always parses JSON",
-            "Always throws an error",
-            "Logs undefined"
+            "It prevents submitting incomplete or blank data",
+            "It makes the page load faster",
+            "It changes the input color",
+            "It is required by HTML"
         ],
         correct: 0,
-        explanation: 'The code checks if the response is OK before parsing JSON, throwing an error if not.'
+        explanation: 'Empty-field validation stops incomplete data from being submitted or processed.'
     }
 ];
 
@@ -431,14 +366,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 57 Quiz</h2>
+                        ">Level 57 Quiz · Form Validation</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -464,7 +398,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -472,7 +405,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -631,9 +563,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -682,7 +612,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -749,7 +679,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -883,7 +813,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered fetch POST requests!';
+        message += ' 🌟 Perfect score! You\'ve mastered simple form validation!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -939,25 +869,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Fetch API (POST)';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

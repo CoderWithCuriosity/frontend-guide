@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 55: JSON Basics</title>
+    <title>Level 55: Array of Objects · Structure & Access</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -184,6 +184,9 @@
         .chip.level {
             --chip-c: var(--accent-sql);
         }
+        .chip.list {
+            --chip-c: var(--accent-react);
+        }
 
         .panel {
             background: var(--bg-panel);
@@ -221,52 +224,59 @@
             margin-bottom: 14px;
         }
 
-        .json-grid {
+        .list-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
             margin: 20px 0;
         }
 
-        .json-card {
+        .list-card {
             background: var(--bg-panel-alt);
             border: 2px solid var(--card-color);
             border-radius: var(--radius-md);
-            padding: 20px 16px;
-            text-align: center;
+            padding: 16px 12px;
+            text-align: left;
             transition: all 0.15s ease;
         }
 
-        .json-card:hover {
+        .list-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .json-card .title {
+        .list-card .index-badge {
             font-family: var(--font-mono);
             font-weight: 700;
             color: var(--card-color);
-            font-size: 1.1rem;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        .json-card .description {
-            font-family: var(--font-sans);
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin: 8px 0;
-        }
-
-        .json-card .example {
+        .list-card .field {
             font-family: var(--font-mono);
-            color: var(--text-primary);
+            color: var(--text-secondary);
             font-size: 0.8rem;
-            margin: 5px 0;
+            margin: 2px 0;
         }
 
-        .json-card.stringify { --card-color: var(--accent-sql); }
-        .json-card.parse { --card-color: var(--accent-css); }
+        .list-card .field .key {
+            color: var(--card-color);
+        }
 
-        .demo-area {
+        .list-card .field .value {
+            color: var(--text-primary);
+        }
+
+        .list-card.c0 { --card-color: var(--accent-sql); }
+        .list-card.c1 { --card-color: var(--accent-css); }
+        .list-card.c2 { --card-color: var(--accent-js); }
+        .list-card.c3 { --card-color: var(--accent-html); }
+        .list-card.c4 { --card-color: var(--accent-php); }
+        .list-card.c5 { --card-color: var(--accent-react); }
+
+        .demo-box {
             background: var(--bg-panel-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -274,69 +284,72 @@
             margin: 16px 0;
         }
 
-        .demo-area .form-group {
-            margin-bottom: 12px;
+        .demo-box .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
         }
 
-        .demo-area label {
-            display: block;
+        .demo-box label {
             font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            min-width: 80px;
         }
 
-        .demo-area textarea,
-        .demo-area input {
-            width: 100%;
-            padding: 10px 14px;
+        .demo-box input {
+            padding: 9px 14px;
             background: var(--bg-base-2);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             color: var(--text-primary);
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            flex: 1;
+            min-width: 120px;
             transition: border-color 0.2s ease;
-            resize: vertical;
         }
 
-        .demo-area textarea:focus,
-        .demo-area input:focus {
+        .demo-box input:focus {
             outline: none;
             border-color: var(--accent-css);
         }
 
-        .demo-area textarea {
-            min-height: 80px;
+        .demo-box input::placeholder {
+            color: var(--text-muted);
         }
 
-        .demo-area .json-output {
+        .output-area {
             background: var(--bg-base-2);
             border: 1px solid var(--border-soft);
             border-radius: var(--radius-sm);
-            padding: 12px 16px;
+            padding: 16px 18px;
+            margin-top: 14px;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            min-height: 40px;
-            margin-top: 12px;
-            overflow-x: auto;
+            min-height: 52px;
             white-space: pre-wrap;
-            word-break: break-all;
+            word-break: break-word;
+        }
+
+        .output-area .highlight {
+            color: var(--accent-js);
         }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -344,18 +357,20 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo.info {
-            background: var(--accent-css);
-            color: #1a1a1a;
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
 
         .console-output {
@@ -367,11 +382,6 @@
             font-size: 0.9rem;
             margin: 16px 0;
             overflow-x: auto;
-        }
-
-        .console-output .log {
-            color: var(--accent-js);
-            margin-bottom: 4px;
         }
 
         .console-output .comment {
@@ -442,29 +452,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-        }
-
-        .syntax-box {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin: 16px 0;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            overflow-x: auto;
-        }
-
-        .syntax-box .keyword {
-            color: var(--accent-css);
-        }
-
-        .syntax-box .value {
-            color: var(--accent-html);
-        }
-
-        .syntax-box .comment {
-            color: var(--text-muted);
         }
 
         .quiz-status {
@@ -540,10 +527,6 @@
             flex-shrink: 0;
         }
 
-        .text-muted {
-            color: var(--text-muted);
-        }
-
         @media (max-width: 768px) {
             body {
                 padding: 16px 12px 40px;
@@ -554,14 +537,20 @@
             .panel {
                 padding: 20px;
             }
-            .json-grid {
-                grid-template-columns: 1fr;
+            .list-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             .nav-row {
                 flex-direction: column;
             }
             .nav-row .btn {
                 width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .list-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -576,16 +565,17 @@
                 <div class="terminal-tab">level55.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 55: JSON Basics</p>
+                <p class="terminal-comment">// Level 55: Array of Objects — Basic Structure & Access</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">JSON Basics</span><span class="cursor">_</span>
+                    <span id="typedTitle">Array of Objects</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to work with JSON (JavaScript Object Notation) to exchange data.
-                    Convert objects to strings and back for storage and transmission.
+                    Combine arrays and objects to store list data. Access items with
+                    <code>list[0].name</code> and loop through structured records.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip list">Array of Objects</span>
                     <span class="chip level">Level 55</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -593,87 +583,98 @@
         </div>
 
         <div class="panel">
-            <h1>JSON Basics</h1>
+            <h1>Array of Objects · Structure & Access</h1>
             <p>
-                JSON (JavaScript Object Notation) is a lightweight data format for exchanging information.
-                It's text-based and easy to read, making it perfect for APIs and data storage.
+                An array of objects is the most common way to store list data in JavaScript.
+                Each element in the array is an object, and you can access fields with
+                <code>list[index].property</code>.
             </p>
 
-            <div class="json-grid">
-                <div class="json-card stringify">
-                    <div class="title">JSON.stringify()</div>
-                    <div class="description">Convert object to JSON string</div>
-                    <div class="example">JSON.stringify({ name: "John" })</div>
+            <div class="list-grid" id="userListGrid">
+                <div class="list-card c0">
+                    <span class="index-badge">list[0]</span>
+                    <div class="field"><span class="key">name:</span> <span class="value">"Alice"</span></div>
+                    <div class="field"><span class="key">age:</span> <span class="value">28</span></div>
+                    <div class="field"><span class="key">role:</span> <span class="value">"Developer"</span></div>
                 </div>
-                
-                <div class="json-card parse">
-                    <div class="title">JSON.parse()</div>
-                    <div class="description">Convert JSON string to object</div>
-                    <div class="example">JSON.parse('{"name":"John"}')</div>
+                <div class="list-card c1">
+                    <span class="index-badge">list[1]</span>
+                    <div class="field"><span class="key">name:</span> <span class="value">"Bob"</span></div>
+                    <div class="field"><span class="key">age:</span> <span class="value">34</span></div>
+                    <div class="field"><span class="key">role:</span> <span class="value">"Designer"</span></div>
+                </div>
+                <div class="list-card c2">
+                    <span class="index-badge">list[2]</span>
+                    <div class="field"><span class="key">name:</span> <span class="value">"Carol"</span></div>
+                    <div class="field"><span class="key">age:</span> <span class="value">25</span></div>
+                    <div class="field"><span class="key">role:</span> <span class="value">"Manager"</span></div>
                 </div>
             </div>
 
-            <h2>Try It Yourself</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="demo-area">
-                <div class="form-group">
-                    <label for="jsonInput">JSON String (or Object)</label>
-                    <textarea id="jsonInput" placeholder='{"name": "John", "age": 25, "city": "New York"}'></textarea>
+            <div class="demo-box" id="listDemo">
+                <div class="row">
+                    <label for="indexInput">Index:</label>
+                    <input type="number" id="indexInput" placeholder="e.g. 0, 1, 2" min="0" value="0">
+                    <label for="propInput">Property:</label>
+                    <input type="text" id="propInput" placeholder="e.g. name, age, role" value="name">
+                    <button class="btn-demo secondary" onclick="accessProperty()">Read list[i].prop</button>
                 </div>
-                
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" onclick="jsonStringify()">🔀 Stringify</button>
-                    <button class="btn-demo info" onclick="jsonParse()">📂 Parse</button>
-                    <button class="btn-demo reset" onclick="jsonClear()">🧹 Clear</button>
-                    <button class="btn-demo" onclick="loadExample()">📋 Load Example</button>
+                <div class="row">
+                    <button class="btn-demo" onclick="loopList()">Loop Through List</button>
+                    <button class="btn-demo ghost" onclick="listNames()">List All Names</button>
+                    <button class="btn-demo ghost" onclick="showFullList()">Show Full List</button>
                 </div>
-                
-                <div class="json-output" id="jsonOutput">
-                    Results will appear here...
+                <div class="output-area" id="listOutput">
+                    // Output will appear here...
                 </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// JSON Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> obj = { name: <span class="value">"John"</span>, age: <span class="value">25</span>, city: <span class="value">"New York"</span> };</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> jsonString = <span class="keyword">JSON</span>.<span class="keyword">stringify</span>(obj);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(jsonString);</div>
-                <div class="output">  {"name":"John","age":25,"city":"New York"}</div>
+                <div class="comment">// Creating an array of objects</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> users = [</div>
+                <div><span class="arrow">&gt;</span>   { name: <span class="value">"Alice"</span>, age: <span class="value">28</span>, role: <span class="value">"Developer"</span> },</div>
+                <div><span class="arrow">&gt;</span>   { name: <span class="value">"Bob"</span>, age: <span class="value">34</span>, role: <span class="value">"Designer"</span> },</div>
+                <div><span class="arrow">&gt;</span>   { name: <span class="value">"Carol"</span>, age: <span class="value">25</span>, role: <span class="value">"Manager"</span> }</div>
+                <div><span class="arrow">&gt;</span> ];</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> parsed = <span class="keyword">JSON</span>.<span class="keyword">parse</span>(jsonString);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(parsed.name);</div>
-                <div class="output">  "John"</div>
+                <div class="comment">// Accessing a single item</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(users[<span class="value">0</span>].name);</div>
+                <div class="output">  "Alice"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(users[<span class="value">2</span>].role);</div>
+                <div class="output">  "Manager"</div>
                 <br>
-                <div class="comment">// Arrays in JSON</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> arr = [<span class="value">"apple"</span>, <span class="value">"banana"</span>, <span class="value">"orange"</span>];</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> arrJson = <span class="keyword">JSON</span>.<span class="keyword">stringify</span>(arr);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(arrJson);</div>
-                <div class="output">  ["apple","banana","orange"]</div>
+                <div class="comment">// Looping through the array</div>
+                <div><span class="arrow">&gt;</span> users.<span class="keyword">forEach</span>(u =&gt; console.<span class="keyword">log</span>(u.name));</div>
+                <div class="output">  "Alice"</div>
+                <div class="output">  "Bob"</div>
+                <div class="output">  "Carol"</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>JSON.stringify()</strong> - Converts objects to JSON strings</li>
-                    <li><strong>JSON.parse()</strong> - Converts JSON strings back to objects</li>
-                    <li><strong>JSON is text</strong> - Always a string when transmitted</li>
-                    <li><strong>Data types</strong> - Supports strings, numbers, booleans, arrays, objects, null</li>
-                    <li><strong>Keys must be strings</strong> - Always use double quotes for keys</li>
-                    <li><strong>No functions</strong> - JSON cannot store functions or undefined</li>
+                    <li><strong>list[index]</strong> — gets a single object from the array.</li>
+                    <li><strong>list[index].property</strong> — gets a field from that object.</li>
+                    <li><strong>list.length</strong> — number of objects in the array.</li>
+                    <li><strong>forEach / for…of</strong> — loop through every object in the list.</li>
+                    <li>Objects in the array can have different shapes, but usually share the same keys.</li>
+                    <li>Bracket notation also works: <code>list[0]["name"]</code>.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>JSON:</p>
+                <p>Create a new file named <code>level55.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Create a nested object and stringify it</li>
-                    <li>Parse a JSON string and access nested properties</li>
-                    <li>Convert an array of objects to JSON</li>
-                    <li>Store JSON data in localStorage</li>
-                    <li>Retrieve and parse JSON data from localStorage</li>
+                    <li>Create an array <code>books</code> with 3 book objects (title, author, year).</li>
+                    <li>Log the title of the first book using <code>books[0].title</code>.</li>
+                    <li>Log the author of the last book using <code>books[books.length - 1].author</code>.</li>
+                    <li>Loop through the array and log each book's title.</li>
+                    <li>Add a new book object to the end of the array.</li>
                 </ul>
             </div>
 
@@ -707,80 +708,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function jsonStringify() {
-            let input = document.getElementById("jsonInput").value.trim();
-            let output = document.getElementById("jsonOutput");
-            
-            if (!input) {
-                output.innerHTML = "⚠️ Please enter some data!";
-                output.style.color = "#f3a072";
-                return;
-            }
-            
-            try {
-                let parsed = JSON.parse(input);
-                let result = JSON.stringify(parsed, null, 2);
-                output.innerHTML = "✅ Stringified JSON:\n" + result;
-                output.style.color = "#8ec07c";
-                console.log("Stringified:", result);
-            } catch (e) {
-                try {
-                    let obj = eval('(' + input + ')');
-                    let result = JSON.stringify(obj, null, 2);
-                    output.innerHTML = "✅ Stringified JSON:\n" + result;
-                    output.style.color = "#8ec07c";
-                    console.log("Stringified:", result);
-                } catch (err) {
-                    output.innerHTML = "❌ Invalid input. Please enter a valid object or JSON string.";
-                    output.style.color = "#f3a072";
-                    console.error("Error:", err);
-                }
-            }
-        }
-
-        function jsonParse() {
-            let input = document.getElementById("jsonInput").value.trim();
-            let output = document.getElementById("jsonOutput");
-            
-            if (!input) {
-                output.innerHTML = "⚠️ Please enter a JSON string!";
-                output.style.color = "#f3a072";
-                return;
-            }
-            
-            try {
-                let parsed = JSON.parse(input);
-                output.innerHTML = "✅ Parsed object:\n" + JSON.stringify(parsed, null, 2);
-                output.style.color = "#7ec8e3";
-                console.log("Parsed:", parsed);
-            } catch (e) {
-                output.innerHTML = "❌ Invalid JSON string. Please check your format.";
-                output.style.color = "#f3a072";
-                console.error("Error:", e);
-            }
-        }
-
-        function jsonClear() {
-            document.getElementById("jsonInput").value = "";
-            document.getElementById("jsonOutput").innerHTML = "🧹 Cleared!";
-            document.getElementById("jsonOutput").style.color = "#a3a3c2";
-        }
-
-        function loadExample() {
-            let examples = [
-                '{"name": "John", "age": 25, "city": "New York"}',
-                '{"product": "Laptop", "price": 999.99, "inStock": true}',
-                '{"users": ["Alice", "Bob", "Charlie"], "count": 3}',
-                '{"company": "Tech Corp", "founded": 2010, "employees": [{"name": "John", "role": "Developer"}, {"name": "Jane", "role": "Designer"}]}'
-            ];
-            let random = examples[Math.floor(Math.random() * examples.length)];
-            document.getElementById("jsonInput").value = random;
-            document.getElementById("jsonOutput").innerHTML = "📋 Example loaded! Click Stringify or Parse.";
-            document.getElementById("jsonOutput").style.color = "#a3a3c2";
-        }
-    </script>
 
     <script src="./scripts/level55.js"></script>
 </body>

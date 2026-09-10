@@ -1,355 +1,271 @@
 /**
- * Level 59: Error Handling (try/catch)
+ * Level 59: Text Content Switcher - DOM Project
  * 
- * This file demonstrates error handling in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC TRY/CATCH
+// TEXT CONTENT SWITCHER DEMO
 // ============================================
 
-console.log("--- Basic try/catch ---");
+const MESSAGES = [
+    "Hello, world!",
+    "Welcome to Level 59!",
+    "You are learning JavaScript!",
+    "DOM manipulation is fun!",
+    "Keep practicing every day!",
+    "You are doing great!",
+    "Almost at Level 60!",
+    "Text content is easy!"
+];
 
-try {
-    console.log("Trying to parse invalid JSON...");
-    let data = JSON.parse("invalid json");
-    console.log("This won't run");
-} catch (error) {
-    console.log("Caught error:", error.message);
-    console.log("Error type:", error.name);
-}
+let currentMessageIndex = 0;
 
-// ============================================
-// TRY/CATCH WITH FINALLY
-// ============================================
-
-console.log("\n--- try/catch with finally ---");
-
-try {
-    console.log("Try block - no error");
-    let x = 10;
-    console.log("x =", x);
-} catch (error) {
-    console.log("Catch block - won't run");
-} finally {
-    console.log("Finally block - always runs!");
-}
-
-// ============================================
-// THROWING CUSTOM ERRORS
-// ============================================
-
-console.log("\n--- Throwing Custom Errors ---");
-
-function validateAge(age) {
-    if (age < 0) {
-        throw new Error("Age cannot be negative!");
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("textOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
     }
-    if (age < 18) {
-        throw new RangeError("Must be 18 or older!");
-    }
-    if (typeof age !== "number") {
-        throw new TypeError("Age must be a number!");
-    }
-    return true;
 }
 
-try {
-    console.log("Validating age 25...");
-    validateAge(25);
-    console.log("Age is valid!");
-    
-    console.log("\nValidating age 15...");
-    validateAge(15);
-    console.log("This won't run");
-} catch (error) {
-    console.log("Caught error:", error.message);
-    console.log("Error type:", error.name);
-}
-
-// ============================================
-// HANDLING DIFFERENT ERROR TYPES
-// ============================================
-
-console.log("\n--- Handling Different Error Types ---");
-
-function testErrorHandling(value) {
-    try {
-        console.log("Testing value:", value);
-        
-        if (typeof value === "undefined") {
-            throw new ReferenceError("Value is undefined!");
-        }
-        
-        if (value === null) {
-            throw new TypeError("Value is null!");
-        }
-        
-        if (!isNaN(value) && value > 100) {
-            throw new RangeError("Value is too large!");
-        }
-        
-        console.log("Value is valid!");
-        
-    } catch (error) {
-        console.log("Error type:", error.name);
-        console.log("Message:", error.message);
-        
-        if (error instanceof ReferenceError) {
-            console.log("→ This is a ReferenceError");
-        } else if (error instanceof TypeError) {
-            console.log("→ This is a TypeError");
-        } else if (error instanceof RangeError) {
-            console.log("→ This is a RangeError");
+function highlightActiveButton(text) {
+    const buttons = document.querySelectorAll("#buttonRow .btn-demo");
+    buttons.forEach(btn => {
+        if (btn.dataset.text === text) {
+            btn.classList.add("active");
         } else {
-            console.log("→ This is a generic Error");
+            btn.classList.remove("active");
         }
-    }
+    });
 }
 
-testErrorHandling(undefined);
-testErrorHandling(null);
-testErrorHandling(200);
-testErrorHandling(42);
+function setText(text) {
+    const el = document.getElementById("mainText");
+    if (!el) return;
 
-// ============================================
-// TRY/CATCH WITH ASYNC/AWAIT
-// ============================================
+    el.textContent = text;
 
-console.log("\n--- try/catch with Async/Await ---");
+    // Update state if this text is in the MESSAGES array
+    const idx = MESSAGES.indexOf(text);
+    if (idx !== -1) {
+        currentMessageIndex = idx;
+    }
 
-async function fetchWithTryCatch(url) {
-    try {
-        console.log("Fetching:", url);
-        let response = await fetch(url);
-        
-        if (!response.ok) {
-            throw new Error("HTTP error! status: " + response.status);
+    highlightActiveButton(text);
+    setOutput(`✅ Text updated to: <span class="highlight">"${text}"</span>`, "#8ec07c");
+    console.log("Text set to:", text);
+}
+
+function nextMessage() {
+    currentMessageIndex = (currentMessageIndex + 1) % MESSAGES.length;
+    const text = MESSAGES[currentMessageIndex];
+    setText(text);
+    setOutput(
+        `➡️ Next message (${currentMessageIndex + 1}/${MESSAGES.length}): <span class="highlight">"${text}"</span>`,
+        "#7ec8e3"
+    );
+}
+
+function randomMessage() {
+    let newIndex = currentMessageIndex;
+    // Make sure we get a different index when possible
+    if (MESSAGES.length > 1) {
+        while (newIndex === currentMessageIndex) {
+            newIndex = Math.floor(Math.random() * MESSAGES.length);
         }
-        
-        let data = await response.json();
-        console.log("Success:", data);
-        return data;
-    } catch (error) {
-        console.log("Error caught:", error.message);
-        return null;
+    } else {
+        newIndex = 0;
     }
+    currentMessageIndex = newIndex;
+    const text = MESSAGES[currentMessageIndex];
+    setText(text);
+    setOutput(`🎲 Random message: <span class="highlight">"${text}"</span>`, "#f0c674");
 }
 
-fetchWithTryCatch("https://jsonplaceholder.typicode.com/posts/1");
-fetchWithTryCatch("https://invalid-url-12345.com");
+function resetText() {
+    currentMessageIndex = 0;
+    const text = MESSAGES[0];
+    const el = document.getElementById("mainText");
+    if (el) el.textContent = text;
+    highlightActiveButton(text);
+    setOutput("↺ Reset to the first message.", "#a3a3c2");
+    console.log("Reset text to:", text);
+}
+
+// Typing animation + logging
+document.addEventListener("DOMContentLoaded", function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Text Content Switcher';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    // Highlight the initial active button
+    highlightActiveButton(MESSAGES[0]);
+});
 
 // ============================================
-// ERROR STACK TRACE
-// ============================================
-
-console.log("\n--- Error Stack Trace ---");
-
-function levelThree() {
-    throw new Error("Error from level three!");
-}
-
-function levelTwo() {
-    levelThree();
-}
-
-function levelOne() {
-    levelTwo();
-}
-
-try {
-    levelOne();
-} catch (error) {
-    console.log("Error message:", error.message);
-    console.log("\nStack trace:");
-    console.log(error.stack);
-}
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Text Content Switcher)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does the try block do?',
+        question: 'How do you change the text inside an element in JavaScript?',
         options: [
-            "Tries to run code that might throw an error",
-            "Catches errors",
-            "Runs code after errors",
-            "Creates a Promise"
+            'element.textContent = "new text"',
+            'element.value = "new text"',
+            'element.innerHTML = new text',
+            'element.setText("new text")'
         ],
         correct: 0,
-        explanation: 'The try block contains code that might throw an error.'
+        explanation: 'Use element.textContent = "new text" to change the text content.'
     },
     {
         id: 2,
-        question: 'What does the catch block do?',
+        question: 'What is the difference between textContent and innerHTML?',
         options: [
-            "Catches and handles errors",
-            "Runs code that might throw errors",
-            "Runs code always",
-            "Creates errors"
+            "textContent sets plain text; innerHTML parses HTML",
+            "They are identical",
+            "textContent only works on divs",
+            "innerHTML is safer"
         ],
         correct: 0,
-        explanation: 'The catch block catches and handles errors thrown in the try block.'
+        explanation: 'textContent sets text safely; innerHTML parses HTML tags.'
     },
     {
         id: 3,
-        question: 'What does the finally block do?',
-        options: [
-            "Runs code always, regardless of errors",
-            "Catches errors",
-            "Throws errors",
-            "Runs only if no error occurs"
-        ],
+        question: 'What is the output?<br><code>let el = document.getElementById("h");<br>el.textContent = "Hi";<br>console.log(el.textContent);</code>',
+        options: ['"Hi"', '"h"', "undefined", "Error"],
         correct: 0,
-        explanation: 'The finally block always runs, whether an error occurred or not.'
+        explanation: 'Setting textContent to "Hi" makes the element contain "Hi".'
     },
     {
         id: 4,
-        question: 'What keyword is used to throw a custom error?',
+        question: 'How do you attach a click handler to a button?',
         options: [
-            "throw",
-            "catch",
-            "try",
-            "error"
+            'button.addEventListener("click", fn)',
+            "button.click = fn",
+            'button.onClick = fn',
+            'button.listen("click")'
         ],
         correct: 0,
-        explanation: 'The throw keyword is used to throw custom errors.'
+        explanation: 'addEventListener("click", fn) is the standard way to handle clicks.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Failed");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);<br/>&nbsp;&nbsp;}',
-        options: [
-            "Failed",
-            "Error",
-            "undefined",
-            "null"
-        ],
+        question: 'What is the output?<br><code>let i = 0;<br>const arr = ["A","B","C"];<br>i = (i + 1) % arr.length;<br>console.log(arr[i]);</code>',
+        options: ['"B"', '"A"', '"C"', "undefined"],
         correct: 0,
-        explanation: 'The catch block catches the error and logs its message "Failed".'
+        explanation: '(0 + 1) % 3 = 1, so arr[1] is "B".'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Error");<br/>&nbsp;&nbsp;} finally {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Done");<br/>&nbsp;&nbsp;}',
+        question: 'What does the modulo operator % do in (i + 1) % arr.length?',
         options: [
-            "Done",
-            "Error Done",
-            "Error",
-            "undefined"
+            "Wraps the index back to 0 when it reaches the end",
+            "Multiplies i by arr.length",
+            "Divides i by arr.length",
+            "Throws an error if i is too large"
         ],
         correct: 0,
-        explanation: 'No error occurs, so only the finally block runs, logging "Done".'
+        explanation: 'Modulo wraps the index so it never goes past the end of the array.'
     },
     {
         id: 7,
-        question: 'What property of the error object contains the error message?',
-        options: [
-            "message",
-            "name",
-            "stack",
-            "code"
-        ],
+        question: 'What is the output?<br><code>let x = 3;<br>console.log(x % 2);</code>',
+        options: ["1", "0", "2", "3"],
         correct: 0,
-        explanation: 'The message property contains the error message string.'
+        explanation: '3 % 2 = 1 (remainder after dividing 3 by 2).'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;JSON.parse("invalid");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.name);<br/>&nbsp;&nbsp;}',
+        question: 'How do you select all buttons inside a container?',
         options: [
-            "SyntaxError",
-            "Error",
-            "TypeError",
-            "undefined"
+            'document.querySelectorAll("#container button")',
+            'document.getButton("#container")',
+            'document.buttons("#container")',
+            'document.select("#container button")'
         ],
         correct: 0,
-        explanation: 'JSON.parse() throws a SyntaxError for invalid JSON.'
+        explanation: 'querySelectorAll returns all matching elements.'
     },
     {
         id: 9,
-        question: 'Can you use try/catch with async/await?',
-        options: [
-            "Yes",
-            "No",
-            "Only in Node.js",
-            "Only in browsers"
-        ],
+        question: 'What is the output?<br><code>let el = document.getElementById("t");<br>el.textContent = "A";<br>el.textContent = "B";<br>console.log(el.textContent);</code>',
+        options: ['"B"', '"A"', '"AB"', "undefined"],
         correct: 0,
-        explanation: 'Yes, try/catch works with async/await to handle errors.'
+        explanation: 'The second assignment replaces the first, so textContent is "B".'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Oops");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);<br/>&nbsp;&nbsp;} finally {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Finally");<br/>&nbsp;&nbsp;}',
+        question: 'What does a state variable help you do?',
         options: [
-            "Oops Finally",
-            "Finally",
-            "Oops",
-            "Error"
+            "Track the current state so you can update it",
+            "Speed up the page",
+            "Change CSS automatically",
+            "Prevent errors"
         ],
         correct: 0,
-        explanation: 'The catch block logs "Oops", then the finally block logs "Finally".'
+        explanation: 'A state variable tracks the current state (like the current index) so you can update it.'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = y;<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.name);<br/>&nbsp;&nbsp;}',
-        options: [
-            "ReferenceError",
-            "Error",
-            "TypeError",
-            "undefined"
-        ],
+        question: 'What is the output?<br><code>let arr = ["x","y","z"];<br>let i = 2;<br>i = (i + 1) % arr.length;<br>console.log(i);</code>',
+        options: ["0", "3", "1", "2"],
         correct: 0,
-        explanation: 'Using an undefined variable throws a ReferenceError.'
+        explanation: '(2 + 1) % 3 = 0, so the index wraps to 0.'
     },
     {
         id: 12,
-        question: 'What does the stack property of an error contain?',
+        question: 'How do you reset an element back to its original text?',
         options: [
-            "The call stack trace",
-            "The error message",
-            "The error type",
-            "The line number only"
+            'element.textContent = "Original text"',
+            "element.reset()",
+            "element.clear()",
+            "element.restore()"
         ],
         correct: 0,
-        explanation: 'The stack property contains the call stack trace showing where the error occurred.'
+        explanation: 'Assign the original text to textContent to reset the element.'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A");<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error();<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("C");<br/>&nbsp;&nbsp;}',
-        options: [
-            "A C",
-            "A B C",
-            "C",
-            "A B"
-        ],
+        question: 'What is the output?<br><code>let el = document.getElementById("a");<br>el.textContent = "Hello";<br>console.log(el.textContent.length);</code>',
+        options: ["5", "4", "6", "0"],
         correct: 0,
-        explanation: '"A" is logged, then the error is thrown, so "B" is skipped and "C" is logged in catch.'
+        explanation: '"Hello" has 5 characters, so length is 5.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Test");<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e instanceof Error);<br/>&nbsp;&nbsp;}',
+        question: 'Why might you use an array of messages in a text switcher?',
         options: [
-            "true",
-            "false",
-            "undefined",
-            "null"
+            "To easily cycle through multiple texts",
+            "To store the element reference",
+            "To store CSS styles",
+            "To store click events"
         ],
         correct: 0,
-        explanation: 'The thrown error is an instance of the Error class, so it returns true.'
+        explanation: 'An array of messages lets you cycle through multiple texts easily.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;try {<br/>&nbsp;&nbsp;} catch(e) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Caught");<br/>&nbsp;&nbsp;} finally {<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Done");<br/>&nbsp;&nbsp;}',
-        options: [
-            "Done",
-            "Caught Done",
-            "undefined",
-            "Error"
-        ],
+        question: 'What is the output?<br><code>const arr = ["A","B","C"];<br>console.log(arr[1 % 3]);</code>',
+        options: ['"B"', '"A"', '"C"', "undefined"],
         correct: 0,
-        explanation: 'No error occurs, so only the finally block runs, logging "Done".'
+        explanation: '1 % 3 = 1, so arr[1] is "B".'
     }
 ];
 
@@ -414,14 +330,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 59 Quiz</h2>
+                        ">Level 59 Quiz · Text Switcher</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -447,7 +362,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -455,7 +369,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -614,9 +527,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -665,7 +576,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -732,7 +643,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -866,7 +777,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered error handling!';
+        message += ' 🌟 Perfect score! You\'ve mastered text content switching!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -922,25 +833,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Error Handling (try/catch)';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

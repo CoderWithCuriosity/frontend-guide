@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 56: Fetch API (GET)</title>
+    <title>Level 56: Basic Form Input Access</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,15 +105,9 @@
             border-radius: 50%;
             display: block;
         }
-        .terminal-dots span:nth-child(1) {
-            background: #ec6a5e;
-        }
-        .terminal-dots span:nth-child(2) {
-            background: #f4bf4f;
-        }
-        .terminal-dots span:nth-child(3) {
-            background: #61c454;
-        }
+        .terminal-dots span:nth-child(1) { background: #ec6a5e; }
+        .terminal-dots span:nth-child(2) { background: #f4bf4f; }
+        .terminal-dots span:nth-child(3) { background: #61c454; }
 
         .terminal-tab {
             font-family: var(--font-mono);
@@ -150,9 +144,7 @@
             animation: blink 1s step-end infinite;
         }
         @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            50% { opacity: 0; }
         }
 
         .hero-sub {
@@ -178,12 +170,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-        .chip.js {
-            --chip-c: var(--accent-js);
-        }
-        .chip.level {
-            --chip-c: var(--accent-sql);
-        }
+        .chip.js { --chip-c: var(--accent-js); }
+        .chip.level { --chip-c: var(--accent-sql); }
+        .chip.form { --chip-c: var(--accent-react); }
 
         .panel {
             background: var(--bg-panel);
@@ -221,7 +210,59 @@
             margin-bottom: 14px;
         }
 
-        .demo-area {
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .form-card {
+            background: var(--bg-panel-alt);
+            border: 2px solid var(--card-color);
+            border-radius: var(--radius-md);
+            padding: 18px 14px;
+            text-align: left;
+            transition: all 0.15s ease;
+        }
+
+        .form-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-card .input-label {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--card-color);
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .form-card .input-demo {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 8px 0;
+        }
+
+        .form-card .code-snippet {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .form-card.c0 { --card-color: var(--accent-sql); }
+        .form-card.c1 { --card-color: var(--accent-css); }
+        .form-card.c2 { --card-color: var(--accent-js); }
+        .form-card.c3 { --card-color: var(--accent-html); }
+
+        .demo-box {
             background: var(--bg-panel-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -229,58 +270,66 @@
             margin: 16px 0;
         }
 
-        .demo-area .url-display {
-            background: var(--bg-base-2);
-            border-radius: var(--radius-sm);
-            padding: 10px 14px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            border: 1px solid var(--border-soft);
-            overflow-x: auto;
+        .demo-box .form-group {
+            margin-bottom: 14px;
         }
 
-        .demo-area .result-area {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            padding: 16px;
+        .demo-box label {
+            display: block;
             font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--text-secondary);
-            min-height: 150px;
-            max-height: 300px;
-            overflow-y: auto;
-            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        .demo-box input {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .demo-box input:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+
+        .demo-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .output-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-top: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            min-height: 52px;
             white-space: pre-wrap;
-            word-break: break-all;
+            word-break: break-word;
         }
 
-        .demo-area .result-area .loading {
-            color: var(--accent-js);
-        }
-
-        .demo-area .result-area .success {
-            color: var(--accent-sql);
-        }
-
-        .demo-area .result-area .error {
-            color: var(--accent-html);
-        }
+        .output-area .highlight { color: var(--accent-js); }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -288,24 +337,20 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo.info {
-            background: var(--accent-css);
-            color: #1a1a1a;
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
         }
 
-        .btn-demo:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
 
         .console-output {
@@ -319,11 +364,6 @@
             overflow-x: auto;
         }
 
-        .console-output .log {
-            color: var(--accent-js);
-            margin-bottom: 4px;
-        }
-
         .console-output .comment {
             color: var(--text-muted);
             font-style: italic;
@@ -334,21 +374,9 @@
             margin-right: 8px;
         }
 
-        .console-output .keyword {
-            color: var(--accent-css);
-        }
-
-        .console-output .value {
-            color: var(--accent-html);
-        }
-
-        .console-output .output {
-            color: var(--accent-sql);
-        }
-
-        .console-output .error {
-            color: var(--accent-html);
-        }
+        .console-output .keyword { color: var(--accent-css); }
+        .console-output .value { color: var(--accent-html); }
+        .console-output .output { color: var(--accent-sql); }
 
         .info-box {
             background: var(--bg-panel-alt);
@@ -376,9 +404,7 @@
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-        .info-box li strong {
-            color: var(--text-primary);
-        }
+        .info-box li strong { color: var(--text-primary); }
 
         .challenge-box {
             background: var(--bg-panel-alt);
@@ -396,29 +422,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-        }
-
-        .syntax-box {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin: 16px 0;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            overflow-x: auto;
-        }
-
-        .syntax-box .keyword {
-            color: var(--accent-css);
-        }
-
-        .syntax-box .value {
-            color: var(--accent-html);
-        }
-
-        .syntax-box .comment {
-            color: var(--text-muted);
         }
 
         .quiz-status {
@@ -490,30 +493,15 @@
             transform: translateY(-2px);
         }
 
-        .btn svg {
-            flex-shrink: 0;
-        }
-
-        .text-muted {
-            color: var(--text-muted);
-        }
+        .btn svg { flex-shrink: 0; }
 
         @media (max-width: 768px) {
-            body {
-                padding: 16px 12px 40px;
-            }
-            .terminal-body {
-                padding: 24px 20px 28px;
-            }
-            .panel {
-                padding: 20px;
-            }
-            .nav-row {
-                flex-direction: column;
-            }
-            .nav-row .btn {
-                width: 100%;
-            }
+            body { padding: 16px 12px 40px; }
+            .terminal-body { padding: 24px 20px 28px; }
+            .panel { padding: 20px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .nav-row { flex-direction: column; }
+            .nav-row .btn { width: 100%; }
         }
     </style>
 </head>
@@ -527,16 +515,17 @@
                 <div class="terminal-tab">level56.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 56: Fetch API (GET)</p>
+                <p class="terminal-comment">// Level 56: Basic Form Input Access</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Fetch API (GET)</span><span class="cursor">_</span>
+                    <span id="typedTitle">Form Input Access</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to make HTTP GET requests using the Fetch API.
-                    Fetch data from APIs and display it on your page.
+                    Read values typed into HTML text inputs using JavaScript.
+                    Capture user input with <code>document.getElementById().value</code>.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip form">Forms</span>
                     <span class="chip level">Level 56</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -544,94 +533,102 @@
         </div>
 
         <div class="panel">
-            <h1>Fetch API (GET)</h1>
+            <h1>Basic Form Input Access</h1>
             <p>
-                The Fetch API provides a modern way to make HTTP requests in JavaScript.
-                Use <code>fetch()</code> to get data from APIs and servers.
+                HTML input elements hold the text the user types. In JavaScript, you can
+                read that text with <code>document.getElementById("myInput").value</code>.
+                The <code>.value</code> property returns a <strong>string</strong> (even for number inputs).
             </p>
 
-            <h2>Try It Yourself</h2>
-
-            <div class="demo-area">
-                <div class="url-display">
-                    <span style="color: var(--accent-css);">GET</span>
-                    <span id="apiUrlDisplay">https://jsonplaceholder.typicode.com/posts/1</span>
+            <div class="form-grid">
+                <div class="form-card c0">
+                    <div class="input-label">text</div>
+                    <div class="input-demo">Alice</div>
+                    <div class="code-snippet">&lt;input type="text"&gt;</div>
                 </div>
-                
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" id="fetchBtn" onclick="fetchData()">🚀 Fetch Data</button>
-                    <button class="btn-demo info" onclick="fetchUsers()">👥 Fetch Users</button>
-                    <button class="btn-demo info" onclick="fetchPosts()">📝 Fetch Posts</button>
-                    <button class="btn-demo reset" onclick="clearResult()">🧹 Clear</button>
+                <div class="form-card c1">
+                    <div class="input-label">number</div>
+                    <div class="input-demo">42</div>
+                    <div class="code-snippet">&lt;input type="number"&gt;</div>
                 </div>
-                
-                <div class="result-area" id="resultArea">
-                    <div class="comment">// Click "Fetch Data" to make a request</div>
-                    <div class="comment">// Results will appear here...</div>
+                <div class="form-card c2">
+                    <div class="input-label">email</div>
+                    <div class="input-demo">alice@example.com</div>
+                    <div class="code-snippet">&lt;input type="email"&gt;</div>
+                </div>
+                <div class="form-card c3">
+                    <div class="input-label">password</div>
+                    <div class="input-demo">••••••••</div>
+                    <div class="code-snippet">&lt;input type="password"&gt;</div>
                 </div>
             </div>
 
-            <h2>Syntax</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="syntax-box">
-                <span class="comment">// Basic GET request</span><br>
-                <span class="keyword">fetch</span>(<span class="value">"https://api.example.com/data"</span>)<br>
-                &nbsp;&nbsp;.<span class="keyword">then</span>(response => response.<span class="keyword">json</span>())<br>
-                &nbsp;&nbsp;.<span class="keyword">then</span>(data => {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="keyword">log</span>(data);<br>
-                &nbsp;&nbsp;})<br>
-                &nbsp;&nbsp;.<span class="keyword">catch</span>(error => {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="keyword">log</span>(error);<br>
-                &nbsp;&nbsp;});
+            <div class="demo-box" id="formDemo">
+                <div class="form-group">
+                    <label for="nameField">Name</label>
+                    <input type="text" id="nameField" placeholder="Type your name...">
+                </div>
+                <div class="form-group">
+                    <label for="ageField">Age</label>
+                    <input type="number" id="ageField" placeholder="Type your age...">
+                </div>
+                <div class="form-group">
+                    <label for="emailField">Email</label>
+                    <input type="email" id="emailField" placeholder="Type your email...">
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-demo secondary" onclick="readName()">Read Name</button>
+                    <button class="btn-demo secondary" onclick="readAge()">Read Age</button>
+                    <button class="btn-demo secondary" onclick="readEmail()">Read Email</button>
+                    <button class="btn-demo" onclick="readAll()">Read All Fields</button>
+                    <button class="btn-demo ghost" onclick="clearFields()">Clear Fields</button>
+                </div>
+                <div class="output-area" id="formOutput">
+                    // Output will appear here...
+                </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// Fetch GET Request Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">fetch</span>(<span class="value">"https://jsonplaceholder.typicode.com/posts/1"</span>)</div>
-                <div><span class="arrow">&gt;</span>   .<span class="keyword">then</span>(response => response.<span class="keyword">json</span>())</div>
-                <div><span class="arrow">&gt;</span>   .<span class="keyword">then</span>(data => {</div>
-                <div><span class="arrow">&gt;</span>     console.<span class="keyword">log</span>(data);</div>
-                <div><span class="arrow">&gt;</span>   });</div>
+                <div class="comment">// Reading a text input</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> nameInput = document.<span class="keyword">getElementById</span>(<span class="value">"nameField"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(nameInput.<span class="keyword">value</span>);</div>
+                <div class="output">  "Alice"</div>
                 <br>
-                <div class="comment">// Response:</div>
-                <div class="output">  {</div>
-                <div class="output">    "userId": 1,</div>
-                <div class="output">    "id": 1,</div>
-                <div class="output">    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",</div>
-                <div class="output">    "body": "quia et suscipit..."</div>
-                <div class="output">  }</div>
+                <div class="comment">// Storing the value in a variable</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> userInput = document.<span class="keyword">getElementById</span>(<span class="value">"ageField"</span>).<span class="keyword">value</span>;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(userInput);</div>
+                <div class="output">  "25"   <span class="comment">// note: a string, not a number</span></div>
                 <br>
-                <div class="comment">// Error handling</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">fetch</span>(<span class="value">"https://invalid.url"</span>)</div>
-                <div><span class="arrow">&gt;</span>   .<span class="keyword">catch</span>(error => {</div>
-                <div><span class="arrow">&gt;</span>     console.<span class="keyword">log</span>(<span class="value">"Error:"</span>, error);</div>
-                <div><span class="arrow">&gt;</span>   });</div>
-                <div class="error">  Error: Failed to fetch</div>
+                <div class="comment">// Empty input returns an empty string</div>
+                <div><span class="arrow">&gt;</span> document.<span class="keyword">getElementById</span>(<span class="value">"emailField"</span>).<span class="keyword">value</span>;</div>
+                <div class="output">  ""</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>fetch()</strong> - Makes an HTTP request</li>
-                    <li><strong>response.json()</strong> - Parses JSON response</li>
-                    <li><strong>.then()</strong> - Handles the response</li>
-                    <li><strong>.catch()</strong> - Handles errors</li>
-                    <li><strong>GET</strong> - Retrieves data from a server</li>
-                    <li><strong>Response</strong> - Check <code>response.ok</code> for success</li>
+                    <li><strong>getElementById("id")</strong> — grabs the input element by its id.</li>
+                    <li><strong>.value</strong> — returns the current text as a string.</li>
+                    <li>An empty input returns an empty string <code>""</code>, not <code>null</code>.</li>
+                    <li>Number inputs still give you a <strong>string</strong> — use <code>Number()</code> or <code>parseInt()</code> to convert.</li>
+                    <li>Values are read <em>at the moment</em> you access them — they update as the user types.</li>
+                    <li>Use <code>input.addEventListener("input", ...)</code> to react to typing in real time.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>Fetch API:</p>
+                <p>Create a new file named <code>level56.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Fetch data from a public API</li>
-                    <li>Log the response to the console</li>
-                    <li>Handle errors with try/catch</li>
-                    <li>Display fetched data on the page</li>
-                    <li>Try fetching from different endpoints</li>
+                    <li>Add a text input with id <code>username</code> to your HTML.</li>
+                    <li>Add a button that reads the value and logs it to the console.</li>
+                    <li>Add a second input and log both values together as a greeting.</li>
+                    <li>Log whether an input is empty (length === 0).</li>
+                    <li>Convert a number input's value to a real number with <code>Number()</code>.</li>
                 </ul>
             </div>
 
@@ -665,135 +662,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // ============================================
-        // FETCH API DEMO FUNCTIONS
-        // ============================================
-
-        const API_BASE = "https://jsonplaceholder.typicode.com";
-
-        function fetchData() {
-            let resultArea = document.getElementById("resultArea");
-            let fetchBtn = document.getElementById("fetchBtn");
-            
-            resultArea.innerHTML = '<div class="loading">⏳ Loading...</div>';
-            fetchBtn.disabled = true;
-            
-            fetch("https://jsonplaceholder.typicode.com/posts/1")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("HTTP error! status: " + response.status);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    resultArea.innerHTML = `
-                        <div class="success">✅ Success!</div>
-                        <div style="margin-top: 8px;">
-                            <strong>ID:</strong> ${data.id}
-                        </div>
-                        <div>
-                            <strong>User ID:</strong> ${data.userId}
-                        </div>
-                        <div>
-                            <strong>Title:</strong> ${data.title}
-                        </div>
-                        <div>
-                            <strong>Body:</strong> ${data.body}
-                        </div>
-                    `;
-                    console.log("Fetched data:", data);
-                })
-                .catch(error => {
-                    resultArea.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
-                    console.error("Error:", error);
-                })
-                .finally(() => {
-                    fetchBtn.disabled = false;
-                });
-        }
-
-        function fetchUsers() {
-            let resultArea = document.getElementById("resultArea");
-            
-            resultArea.innerHTML = '<div class="loading">⏳ Fetching users...</div>';
-            
-            fetch(API_BASE + "/users")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("HTTP error! status: " + response.status);
-                    }
-                    return response.json();
-                })
-                .then(users => {
-                    let html = '<div class="success">✅ Users loaded!</div><br>';
-                    users.slice(0, 5).forEach(user => {
-                        html += `
-                            <div style="border-bottom: 1px solid var(--border-soft); padding: 8px 0;">
-                                <strong>${user.name}</strong><br>
-                                <span style="color: var(--text-muted); font-size: 0.8rem;">
-                                    📧 ${user.email} | 📍 ${user.address.city}
-                                </span>
-                            </div>
-                        `;
-                    });
-                    if (users.length > 5) {
-                        html += `<div style="color: var(--text-muted); margin-top: 8px;">... and ${users.length - 5} more</div>`;
-                    }
-                    resultArea.innerHTML = html;
-                    console.log("Fetched users:", users);
-                })
-                .catch(error => {
-                    resultArea.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
-                    console.error("Error:", error);
-                });
-        }
-
-        function fetchPosts() {
-            let resultArea = document.getElementById("resultArea");
-            
-            resultArea.innerHTML = '<div class="loading">⏳ Fetching posts...</div>';
-            
-            fetch(API_BASE + "/posts?_limit=5")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("HTTP error! status: " + response.status);
-                    }
-                    return response.json();
-                })
-                .then(posts => {
-                    let html = '<div class="success">✅ Posts loaded!</div><br>';
-                    posts.forEach(post => {
-                        html += `
-                            <div style="border-bottom: 1px solid var(--border-soft); padding: 8px 0;">
-                                <div style="color: var(--accent-css); font-size: 0.85rem;">
-                                    #${post.id} | User: ${post.userId}
-                                </div>
-                                <div><strong>${post.title}</strong></div>
-                                <div style="color: var(--text-muted); font-size: 0.85rem;">
-                                    ${post.body.substring(0, 80)}...
-                                </div>
-                            </div>
-                        `;
-                    });
-                    resultArea.innerHTML = html;
-                    console.log("Fetched posts:", posts);
-                })
-                .catch(error => {
-                    resultArea.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
-                    console.error("Error:", error);
-                });
-        }
-
-        function clearResult() {
-            let resultArea = document.getElementById("resultArea");
-            resultArea.innerHTML = `
-                <div class="comment">// Click a button to fetch data</div>
-                <div class="comment">// Results will appear here...</div>
-            `;
-        }
-    </script>
 
     <script src="./scripts/level56.js"></script>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 60: setTimeout and setInterval</title>
+    <title>Level 60: LocalStorage Basics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,15 +105,9 @@
             border-radius: 50%;
             display: block;
         }
-        .terminal-dots span:nth-child(1) {
-            background: #ec6a5e;
-        }
-        .terminal-dots span:nth-child(2) {
-            background: #f4bf4f;
-        }
-        .terminal-dots span:nth-child(3) {
-            background: #61c454;
-        }
+        .terminal-dots span:nth-child(1) { background: #ec6a5e; }
+        .terminal-dots span:nth-child(2) { background: #f4bf4f; }
+        .terminal-dots span:nth-child(3) { background: #61c454; }
 
         .terminal-tab {
             font-family: var(--font-mono);
@@ -150,9 +144,7 @@
             animation: blink 1s step-end infinite;
         }
         @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            50% { opacity: 0; }
         }
 
         .hero-sub {
@@ -178,12 +170,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-        .chip.js {
-            --chip-c: var(--accent-js);
-        }
-        .chip.level {
-            --chip-c: var(--accent-sql);
-        }
+        .chip.js { --chip-c: var(--accent-js); }
+        .chip.level { --chip-c: var(--accent-sql); }
+        .chip.storage { --chip-c: var(--accent-php); }
 
         .panel {
             background: var(--bg-panel);
@@ -230,7 +219,7 @@
         }
 
         .demo-area .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .demo-area label {
@@ -245,7 +234,7 @@
             width: 100%;
             padding: 10px 14px;
             background: var(--bg-base-2);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             border-radius: var(--radius-sm);
             color: var(--text-primary);
             font-family: var(--font-sans);
@@ -258,61 +247,55 @@
             border-color: var(--accent-css);
         }
 
-        .demo-area .timer-display {
-            font-family: var(--font-mono);
-            font-size: 3rem;
-            color: var(--accent-js);
-            text-align: center;
-            padding: 20px;
-            background: var(--bg-base-2);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-soft);
-            margin: 12px 0;
-        }
-
-        .demo-area .timer-display .label {
-            font-size: 0.8rem;
+        .demo-area input::placeholder {
             color: var(--text-muted);
-            display: block;
-            margin-bottom: 4px;
         }
 
-        .demo-area .status-area {
+        .display-value {
             background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            padding: 12px 16px;
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-md);
+            padding: 28px 24px;
+            text-align: center;
+            margin: 18px 0;
+        }
+
+        .display-value .display-label {
             font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            min-height: 40px;
-            margin-top: 12px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
         }
 
-        .demo-area .status-area .success {
+        #savedDisplay {
+            font-family: var(--font-mono);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 700;
             color: var(--accent-sql);
+            transition: color 0.3s ease;
+            word-break: break-word;
         }
 
-        .demo-area .status-area .error {
-            color: var(--accent-html);
-        }
-
-        .demo-area .status-area .info {
-            color: var(--accent-css);
+        #savedDisplay.empty {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -320,25 +303,42 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo.info {
-            background: var(--accent-css);
+        .btn-demo.danger {
+            background: var(--accent-html);
             color: #1a1a1a;
         }
 
-        .btn-demo:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
         }
+
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .output-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-top: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            min-height: 52px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .output-area .highlight { color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -351,11 +351,6 @@
             overflow-x: auto;
         }
 
-        .console-output .log {
-            color: var(--accent-js);
-            margin-bottom: 4px;
-        }
-
         .console-output .comment {
             color: var(--text-muted);
             font-style: italic;
@@ -366,17 +361,9 @@
             margin-right: 8px;
         }
 
-        .console-output .keyword {
-            color: var(--accent-css);
-        }
-
-        .console-output .value {
-            color: var(--accent-html);
-        }
-
-        .console-output .output {
-            color: var(--accent-sql);
-        }
+        .console-output .keyword { color: var(--accent-css); }
+        .console-output .value { color: var(--accent-html); }
+        .console-output .output { color: var(--accent-sql); }
 
         .info-box {
             background: var(--bg-panel-alt);
@@ -404,9 +391,7 @@
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-        .info-box li strong {
-            color: var(--text-primary);
-        }
+        .info-box li strong { color: var(--text-primary); }
 
         .challenge-box {
             background: var(--bg-panel-alt);
@@ -424,29 +409,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-        }
-
-        .syntax-box {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin: 16px 0;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            overflow-x: auto;
-        }
-
-        .syntax-box .keyword {
-            color: var(--accent-css);
-        }
-
-        .syntax-box .value {
-            color: var(--accent-html);
-        }
-
-        .syntax-box .comment {
-            color: var(--text-muted);
         }
 
         .quiz-status {
@@ -518,30 +480,14 @@
             transform: translateY(-2px);
         }
 
-        .btn svg {
-            flex-shrink: 0;
-        }
-
-        .text-muted {
-            color: var(--text-muted);
-        }
+        .btn svg { flex-shrink: 0; }
 
         @media (max-width: 768px) {
-            body {
-                padding: 16px 12px 40px;
-            }
-            .terminal-body {
-                padding: 24px 20px 28px;
-            }
-            .panel {
-                padding: 20px;
-            }
-            .nav-row {
-                flex-direction: column;
-            }
-            .nav-row .btn {
-                width: 100%;
-            }
+            body { padding: 16px 12px 40px; }
+            .terminal-body { padding: 24px 20px 28px; }
+            .panel { padding: 20px; }
+            .nav-row { flex-direction: column; }
+            .nav-row .btn { width: 100%; }
         }
     </style>
 </head>
@@ -555,16 +501,17 @@
                 <div class="terminal-tab">level60.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 60: setTimeout and setInterval</p>
+                <p class="terminal-comment">// Level 60: LocalStorage Basics — Save &amp; Read Strings</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">setTimeout &amp; setInterval</span><span class="cursor">_</span>
+                    <span id="typedTitle">LocalStorage Basics</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to schedule code execution with setTimeout and setInterval.
-                    Run code after a delay or repeatedly at intervals.
+                    Save a single string value to the browser and display it when the page reloads.
+                    Master <code>localStorage.setItem()</code> and <code>localStorage.getItem()</code>.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip storage">Storage</span>
                     <span class="chip level">Level 60</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -572,102 +519,80 @@
         </div>
 
         <div class="panel">
-            <h1>setTimeout and setInterval</h1>
+            <h1>LocalStorage Basics</h1>
             <p>
-                setTimeout and setInterval are used to schedule code execution.
-                setTimeout runs once after a delay, setInterval runs repeatedly.
+                localStorage lets you save data in the browser so it survives page reloads
+                and even closing the tab. In this level we'll save a <strong>single string</strong>
+                with <code>setItem()</code> and read it back with <code>getItem()</code>.
             </p>
 
-            <h2>Try It Yourself</h2>
+            <h2>Interactive Playground</h2>
 
             <div class="demo-area">
                 <div class="form-group">
-                    <label for="delayInput">Delay (milliseconds)</label>
-                    <input type="number" id="delayInput" placeholder="Enter delay in ms" value="1000">
-                </div>
-
-                <div class="timer-display" id="timerDisplay">
-                    <span class="label">Timer</span>
-                    <span id="timerValue">0</span>
+                    <label for="nameInput">Type a value to save</label>
+                    <input type="text" id="nameInput" placeholder="e.g. Alice, my favorite color, etc.">
                 </div>
 
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" onclick="startTimeout()">⏰ setTimeout</button>
-                    <button class="btn-demo info" onclick="startInterval()">🔄 setInterval</button>
-                    <button class="btn-demo danger" onclick="stopInterval()">⏹️ Stop Interval</button>
-                    <button class="btn-demo reset" onclick="resetTimer()">🧹 Reset</button>
+                    <button class="btn-demo" onclick="saveName()">💾 Save to localStorage</button>
+                    <button class="btn-demo secondary" onclick="loadName()">📂 Load from localStorage</button>
+                    <button class="btn-demo danger" onclick="removeName()">🗑️ Remove</button>
+                    <button class="btn-demo ghost" onclick="clearName()">🧹 Clear Input</button>
                 </div>
-                
-                <div class="status-area" id="statusArea">
-                    <div class="info">// Click a button to start</div>
+
+                <div class="display-value">
+                    <div class="display-label">Saved Value (survives reload)</div>
+                    <div id="savedDisplay" class="empty">(nothing saved yet)</div>
                 </div>
-            </div>
 
-            <h2>Syntax</h2>
-
-            <div class="syntax-box">
-                <span class="comment">// setTimeout - runs once after delay</span><br>
-                <span class="keyword">setTimeout</span>(() => {<br>
-                &nbsp;&nbsp;console.<span class="keyword">log</span>(<span class="value">"Runs after 1 second"</span>);<br>
-                }, <span class="value">1000</span>);<br>
-                <br>
-                <span class="comment">// setInterval - runs repeatedly</span><br>
-                <span class="keyword">setInterval</span>(() => {<br>
-                &nbsp;&nbsp;console.<span class="keyword">log</span>(<span class="value">"Runs every second"</span>);<br>
-                }, <span class="value">1000</span>);<br>
-                <br>
-                <span class="comment">// Clear interval</span><br>
-                <span class="keyword">clearInterval</span>(intervalId);<br>
-                <span class="keyword">clearTimeout</span>(timeoutId);
+                <div class="output-area" id="storageOutput">
+                    // Save a value, then reload the page to see it persist...
+                </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// setTimeout Example</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">setTimeout</span>(() => {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Delayed message"</span>);</div>
-                <div><span class="arrow">&gt;</span> }, <span class="value">2000</span>);</div>
-                <div class="output">  (after 2 seconds) "Delayed message"</div>
+                <div class="comment">// Save a string to localStorage</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">localStorage</span>.<span class="keyword">setItem</span>(<span class="value">"username"</span>, <span class="value">"Alice"</span>);</div>
                 <br>
-                <div class="comment">// setInterval Example</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> count = 0;</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> interval = <span class="keyword">setInterval</span>(() => {</div>
-                <div><span class="arrow">&gt;</span>   count++;</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Count:"</span>, count);</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">if</span> (count === 5) {</div>
-                <div><span class="arrow">&gt;</span>     <span class="keyword">clearInterval</span>(interval);</div>
-                <div><span class="arrow">&gt;</span>   }</div>
-                <div><span class="arrow">&gt;</span> }, <span class="value">1000</span>);</div>
+                <div class="comment">// Read it back</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> name = <span class="keyword">localStorage</span>.<span class="keyword">getItem</span>(<span class="value">"username"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(name);</div>
+                <div class="output">  "Alice"</div>
                 <br>
-                <div class="output">  Count: 1</div>
-                <div class="output">  Count: 2</div>
-                <div class="output">  Count: 3</div>
-                <div class="output">  Count: 4</div>
-                <div class="output">  Count: 5</div>
+                <div class="comment">// Missing key returns null</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">localStorage</span>.<span class="keyword">getItem</span>(<span class="value">"doesNotExist"</span>));</div>
+                <div class="output">  null</div>
+                <br>
+                <div class="comment">// Remove a key</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">localStorage</span>.<span class="keyword">removeItem</span>(<span class="value">"username"</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(<span class="keyword">localStorage</span>.<span class="keyword">getItem</span>(<span class="value">"username"</span>));</div>
+                <div class="output">  null</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>setTimeout()</strong> - Runs code once after a delay (in milliseconds)</li>
-                    <li><strong>setInterval()</strong> - Runs code repeatedly at intervals</li>
-                    <li><strong>clearTimeout()</strong> - Cancels a scheduled timeout</li>
-                    <li><strong>clearInterval()</strong> - Stops an interval</li>
-                    <li><strong>Return value</strong> - Both return an ID that can be used to cancel</li>
-                    <li><strong>Milliseconds</strong> - 1000ms = 1 second</li>
+                    <li><strong>setItem(key, value)</strong> — saves a string under a key.</li>
+                    <li><strong>getItem(key)</strong> — reads the value back (or <code>null</code> if missing).</li>
+                    <li><strong>removeItem(key)</strong> — deletes a single key.</li>
+                    <li><strong>Persistence</strong> — data survives reloads and closing the tab.</li>
+                    <li><strong>Strings only</strong> — localStorage stores strings (numbers become strings).</li>
+                    <li><strong>Same origin</strong> — only your site can read your saved data.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>setTimeout and setInterval:</p>
+                <p>Create a new file named <code>level60.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Create a setTimeout that logs a message after 3 seconds</li>
-                    <li>Create a setInterval that counts from 1 to 10</li>
-                    <li>Stop the interval after 5 seconds</li>
-                    <li>Create a countdown timer from 10 to 0</li>
-                    <li>Combine setTimeout with setInterval</li>
+                    <li>Add a text input and a "Save" button.</li>
+                    <li>Save the input value to localStorage on click.</li>
+                    <li>On page load, read the saved value and show it on the page.</li>
+                    <li>Add a "Clear" button that calls <code>removeItem()</code>.</li>
+                    <li>Log every save, load, and clear action to the console.</li>
                 </ul>
             </div>
 
@@ -701,125 +626,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // ============================================
-        // TIMER DEMO FUNCTIONS
-        // ============================================
-
-        let timerValue = 0;
-        let intervalId = null;
-        let timeoutId = null;
-        let isRunning = false;
-
-        function updateTimerDisplay(value) {
-            document.getElementById("timerValue").textContent = value;
-        }
-
-        function setStatus(message, type) {
-            let area = document.getElementById("statusArea");
-            let className = type || "info";
-            area.innerHTML = `<div class="${className}">${message}</div>`;
-        }
-
-        function resetTimer() {
-            if (intervalId) {
-                clearInterval(intervalId);
-                intervalId = null;
-            }
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-                timeoutId = null;
-            }
-            timerValue = 0;
-            isRunning = false;
-            updateTimerDisplay(0);
-            setStatus("🧹 Timer reset", "info");
-            document.getElementById("timerValue").style.color = "#f0c674";
-        }
-
-        function startTimeout() {
-            resetTimer();
-            
-            let delay = parseInt(document.getElementById("delayInput").value) || 1000;
-            
-            if (delay < 100) {
-                setStatus("⚠️ Delay must be at least 100ms", "error");
-                return;
-            }
-
-            setStatus(`⏳ Starting timeout for ${delay}ms...`, "info");
-            document.getElementById("timerValue").style.color = "#7ec8e3";
-            
-            // Animate the timer
-            let startTime = Date.now();
-            let interval = setInterval(() => {
-                let elapsed = Date.now() - startTime;
-                let remaining = Math.max(0, delay - elapsed);
-                updateTimerDisplay(Math.ceil(remaining / 100) / 10);
-                
-                if (remaining <= 0) {
-                    clearInterval(interval);
-                }
-            }, 50);
-            
-            timeoutId = setTimeout(() => {
-                clearInterval(interval);
-                timerValue = 0;
-                updateTimerDisplay("Done!");
-                document.getElementById("timerValue").style.color = "#8ec07c";
-                setStatus("✅ Timeout completed! Code executed after " + delay + "ms", "success");
-                console.log("Timeout executed after", delay, "ms");
-                timeoutId = null;
-            }, delay);
-        }
-
-        function startInterval() {
-            resetTimer();
-            
-            let delay = parseInt(document.getElementById("delayInput").value) || 1000;
-            
-            if (delay < 100) {
-                setStatus("⚠️ Delay must be at least 100ms", "error");
-                return;
-            }
-
-            timerValue = 0;
-            isRunning = true;
-            document.getElementById("timerValue").style.color = "#f0c674";
-            setStatus(`🔄 Starting interval every ${delay}ms... (Click "Stop Interval" to stop)`, "info");
-            
-            intervalId = setInterval(() => {
-                timerValue++;
-                updateTimerDisplay(timerValue);
-                console.log("Interval count:", timerValue);
-                
-                if (timerValue % 5 === 0) {
-                    setStatus(`📊 Count: ${timerValue} (every 5th tick)`, "info");
-                }
-            }, delay);
-        }
-
-        function stopInterval() {
-            if (intervalId) {
-                clearInterval(intervalId);
-                intervalId = null;
-                isRunning = false;
-                setStatus(`⏹️ Interval stopped at count: ${timerValue}`, "success");
-                document.getElementById("timerValue").style.color = "#f3a072";
-                console.log("Interval stopped at count:", timerValue);
-            } else {
-                setStatus("⚠️ No interval is currently running", "error");
-            }
-        }
-
-        // Auto-start demo
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(() => {
-                setStatus("💡 Click 'setTimeout' or 'setInterval' to start", "info");
-            }, 500);
-        });
-    </script>
 
     <script src="./scripts/level60.js"></script>
 </body>

@@ -1,297 +1,283 @@
 /**
- * Level 55: JSON Basics
+ * Level 55: Array of Objects - Basic Structure & Access
  * 
- * This file demonstrates JSON in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
-console.log("--- JSON.stringify() ---");
+// ============================================
+// ARRAY OF OBJECTS DEMO
+// ============================================
 
-let person = {
-    name: "John",
-    age: 25,
-    city: "New York",
-    isStudent: false,
-    hobbies: ["reading", "gaming", "coding"]
-};
+let demoList = [
+    { name: "Alice", age: 28, role: "Developer" },
+    { name: "Bob", age: 34, role: "Designer" },
+    { name: "Carol", age: 25, role: "Manager" }
+];
 
-console.log("Original object:", person);
+function updateGrid() {
+    const grid = document.getElementById("userListGrid");
+    if (!grid) return;
+    grid.innerHTML = "";
+    const colorClasses = ["c0", "c1", "c2", "c3", "c4", "c5"];
+    demoList.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = `list-card ${colorClasses[index % colorClasses.length]}`;
+        const fields = Object.keys(item)
+            .map(k => `<div class="field"><span class="key">${k}:</span> <span class="value">${JSON.stringify(item[k])}</span></div>`)
+            .join("");
+        card.innerHTML = `<span class="index-badge">list[${index}]</span>${fields}`;
+        grid.appendChild(card);
+    });
+}
 
-let jsonString = JSON.stringify(person);
-console.log("JSON string:", jsonString);
-console.log("Type of JSON string:", typeof jsonString);
-
-console.log("\n--- JSON.parse() ---");
-
-let parsedPerson = JSON.parse(jsonString);
-console.log("Parsed object:", parsedPerson);
-console.log("Name:", parsedPerson.name);
-console.log("Hobbies:", parsedPerson.hobbies);
-console.log("First hobby:", parsedPerson.hobbies[0]);
-
-console.log("\n--- JSON with Arrays ---");
-
-let colors = ["red", "green", "blue", "yellow"];
-console.log("Array:", colors);
-
-let colorsJSON = JSON.stringify(colors);
-console.log("JSON string:", colorsJSON);
-
-let parsedColors = JSON.parse(colorsJSON);
-console.log("Parsed array:", parsedColors);
-console.log("First color:", parsedColors[0]);
-
-console.log("\n--- Nested Objects ---");
-
-let company = {
-    name: "Tech Corp",
-    founded: 2010,
-    address: {
-        street: "123 Main St",
-        city: "San Francisco",
-        zip: "94105"
-    },
-    employees: [
-        { name: "John", role: "Developer" },
-        { name: "Jane", role: "Designer" }
-    ]
-};
-
-console.log("Original nested object:", company);
-
-let nestedJSON = JSON.stringify(company);
-console.log("JSON string:", nestedJSON);
-
-let parsedCompany = JSON.parse(nestedJSON);
-console.log("Parsed company:", parsedCompany);
-console.log("Company city:", parsedCompany.address.city);
-console.log("First employee:", parsedCompany.employees[0].name);
-
-console.log("\n--- JSON with Numbers and Booleans ---");
-
-let data = {
-    score: 95,
-    isComplete: true,
-    percentage: 0.85,
-    count: null
-};
-
-console.log("Data object:", data);
-
-let dataJSON = JSON.stringify(data);
-console.log("JSON string:", dataJSON);
-
-let parsedData = JSON.parse(dataJSON);
-console.log("Parsed data:", parsedData);
-console.log("Score type:", typeof parsedData.score);
-console.log("isComplete type:", typeof parsedData.isComplete);
-
-console.log("\n--- Pretty Printing JSON ---");
-
-let prettyJSON = JSON.stringify(person, null, 2);
-console.log("Pretty printed JSON:");
-console.log(prettyJSON);
-
-console.log("\n--- JSON and Local Storage ---");
-
-let user = {
-    username: "johndoe",
-    email: "john@example.com",
-    preferences: {
-        theme: "dark",
-        notifications: true
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("listOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
     }
-};
+}
 
-localStorage.setItem("userData", JSON.stringify(user));
-console.log("Saved user data to localStorage");
+function accessProperty() {
+    const index = parseInt(document.getElementById("indexInput").value, 10);
+    const prop = document.getElementById("propInput").value.trim();
+    if (isNaN(index) || index < 0) {
+        setOutput("⚠️ Please enter a valid non-negative index.", "#f3a072");
+        return;
+    }
+    if (!prop) {
+        setOutput("⚠️ Please enter a property name.", "#f3a072");
+        return;
+    }
+    if (index >= demoList.length) {
+        setOutput(`⚠️ Index ${index} is out of bounds. List length is ${demoList.length}.`, "#f3a072");
+        return;
+    }
+    const value = demoList[index][prop];
+    if (value === undefined) {
+        setOutput(`list[${index}].${prop} → undefined  <span class="highlight">(property not found)</span>`, "#f3a072");
+    } else {
+        setOutput(`list[${index}].${prop} → ${JSON.stringify(value)}`, "#8ec07c");
+    }
+    console.log(`Read list[${index}].${prop}:`, value);
+    updateGrid();
+}
 
-let storedData = localStorage.getItem("userData");
-let parsedUser = JSON.parse(storedData);
-console.log("Retrieved user data:", parsedUser);
-console.log("Username:", parsedUser.username);
-console.log("Theme:", parsedUser.preferences.theme);
+function loopList() {
+    if (demoList.length === 0) {
+        setOutput("⚠️ The list is empty.", "#f3a072");
+        return;
+    }
+    let lines = [];
+    demoList.forEach((item, i) => {
+        lines.push(`list[${i}] → ${JSON.stringify(item)}`);
+    });
+    setOutput(lines.join("\n"), "#7ec8e3");
+    console.log("Looped through list:");
+    demoList.forEach((item, i) => console.log(`  [${i}]`, item));
+}
+
+function listNames() {
+    if (demoList.length === 0) {
+        setOutput("⚠️ The list is empty.", "#f3a072");
+        return;
+    }
+    const names = demoList.map(item => item.name);
+    setOutput(`Names: ${names.join(", ")}`, "#8ec07c");
+    console.log("All names:", names);
+}
+
+function showFullList() {
+    const display = JSON.stringify(demoList, null, 2);
+    setOutput(`Full list (${demoList.length} items):\n${display}`, "#f0c674");
+    console.log("Full list:", demoList);
+}
+
+// Real-time input logging + typing animation
+document.addEventListener("DOMContentLoaded", function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Array of Objects';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    updateGrid();
+
+    const idxInput = document.getElementById("indexInput");
+    const propInput = document.getElementById("propInput");
+    if (idxInput) {
+        idxInput.addEventListener("input", function() {
+            console.log("Index field changed to:", this.value);
+        });
+    }
+    if (propInput) {
+        propInput.addEventListener("input", function() {
+            console.log("Property field changed to:", this.value);
+        });
+    }
+});
+
+// ============================================
+// QUIZ SYSTEM (Array of Objects)
+// ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does JSON.stringify() do?',
-        options: [
-            "Converts an object to a JSON string",
-            "Converts a JSON string to an object",
-            "Converts a string to a number",
-            "Converts a number to a string"
-        ],
+        question: 'How do you access the "name" property of the first object in an array called <code>list</code>?',
+        options: ["list[0].name", "list.name[0]", "list(0).name", "list.name.0"],
         correct: 0,
-        explanation: 'JSON.stringify() converts a JavaScript object into a JSON string.'
+        explanation: 'Use list[0].name — index the array first, then use dot notation on the object.'
     },
     {
         id: 2,
-        question: 'What does JSON.parse() do?',
+        question: 'What is an array of objects best used for?',
         options: [
-            "Converts an object to a JSON string",
-            "Converts a JSON string to an object",
-            "Converts a string to a number",
-            "Converts a number to a string"
+            "Storing a list of structured records",
+            "Storing a single value",
+            "Storing only numbers",
+            "Replacing functions"
         ],
-        correct: 1,
-        explanation: 'JSON.parse() converts a JSON string back into a JavaScript object.'
+        correct: 0,
+        explanation: 'Array of objects is ideal for storing lists of records, like users, products, or books.'
     },
     {
         id: 3,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(JSON.stringify(obj));',
-        options: [
-            '{"name":"John"}',
-            '{ name: "John" }',
-            'John',
-            'undefined'
-        ],
+        question: 'What is the output?<br><code>let a = [{x:1},{x:2}]; console.log(a[1].x);</code>',
+        options: ["2", "1", "undefined", "Error"],
         correct: 0,
-        explanation: 'JSON.stringify() converts the object to a JSON string: {"name":"John"}'
+        explanation: 'a[1] is the second object, and its x property is 2.'
     },
     {
         id: 4,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John"}\';<br/>&nbsp;&nbsp;console.log(JSON.parse(json).name);',
-        options: [
-            "John",
-            "name",
-            "undefined",
-            "Error"
-        ],
+        question: 'How do you get the number of objects in an array <code>users</code>?',
+        options: ["users.length", "users.count", "users.size", "users.total"],
         correct: 0,
-        explanation: 'JSON.parse() converts the string to an object, and .name accesses the name property.'
+        explanation: 'The .length property gives the number of items in the array.'
     },
     {
         id: 5,
-        question: 'Can JSON store functions?',
+        question: 'How do you access the "title" of the last book in <code>books</code>?',
         options: [
-            "No",
-            "Yes",
-            "Only if they are small",
-            "Only if they are named"
+            "books[books.length - 1].title",
+            "books.last().title",
+            "books[-1].title",
+            "books[length].title"
         ],
         correct: 0,
-        explanation: 'JSON cannot store functions. It only supports data types: strings, numbers, booleans, arrays, objects, and null.'
+        explanation: 'The last index is books.length - 1, so use books[books.length - 1].title.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let arr = [1, 2, 3];<br/>&nbsp;&nbsp;console.log(JSON.stringify(arr));',
+        question: 'What is the output?<br><code>let a = [{n:"A"},{n:"B"}]; a.forEach(o => console.log(o.n));</code>',
         options: [
-            "[1,2,3]",
-            "1,2,3",
-            "[1, 2, 3]",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'JSON.stringify() converts arrays to JSON arrays: [1,2,3]'
-    },
-    {
-        id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John","age":25}\';<br/>&nbsp;&nbsp;let obj = JSON.parse(json);<br/>&nbsp;&nbsp;console.log(obj.age);',
-        options: [
-            "25",
-            "age",
-            "undefined",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'obj.age accesses the age property, which is 25.'
-    },
-    {
-        id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", age: 25 };<br/>&nbsp;&nbsp;console.log(JSON.stringify(obj, null, 2));',
-        options: [
-            '{\n  "name": "John",\n  "age": 25\n}',
-            '{"name":"John","age":25}',
-            '{\n"name":"John",\n"age":25\n}',
-            'Error'
-        ],
-        correct: 0,
-        explanation: 'The null, 2 parameters format the JSON with 2 spaces of indentation.'
-    },
-    {
-        id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John"}\';<br/>&nbsp;&nbsp;console.log(typeof JSON.parse(json));',
-        options: [
-            "object",
-            "string",
-            "undefined",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'JSON.parse() returns an object, so typeof is "object".'
-    },
-    {
-        id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(typeof JSON.stringify(obj));',
-        options: [
-            "string",
-            "object",
-            "undefined",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'JSON.stringify() returns a string, so typeof is "string".'
-    },
-    {
-        id: 11,
-        question: 'Can JSON store undefined values?',
-        options: [
-            "No",
-            "Yes",
-            "Only if they are in objects",
-            "Only if they are in arrays"
-        ],
-        correct: 0,
-        explanation: 'JSON cannot store undefined. Undefined values are omitted during stringification.'
-    },
-    {
-        id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", city: "New York" };<br/>&nbsp;&nbsp;let json = JSON.stringify(obj);<br/>&nbsp;&nbsp;console.log(json);',
-        options: [
-            '{"name":"John","city":"New York"}',
-            '{ name: "John", city: "New York" }',
-            'John, New York',
-            'Error'
-        ],
-        correct: 0,
-        explanation: 'JSON.stringify() converts the object to a JSON string with double quotes.'
-    },
-    {
-        id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John","city":"New York"}\';<br/>&nbsp;&nbsp;let obj = JSON.parse(json);<br/>&nbsp;&nbsp;console.log(obj.city);',
-        options: [
-            "New York",
-            "city",
-            "undefined",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'obj.city accesses the city property, which is "New York".'
-    },
-    {
-        id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John", age: 25 };<br/>&nbsp;&nbsp;let json = JSON.stringify(obj);<br/>&nbsp;&nbsp;console.log(json.length);',
-        options: [
-            "22",
-            "25",
-            "18",
-            "20"
-        ],
-        correct: 0,
-        explanation: '{"name":"John","age":25} has 22 characters.'
-    },
-    {
-        id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let json = \'{"name":"John","age":25}\';<br/>&nbsp;&nbsp;let obj = JSON.parse(json);<br/>&nbsp;&nbsp;console.log(obj.name + " " + obj.age);',
-        options: [
-            "John 25",
-            "name age",
-            "John25",
+            '"A" then "B"',
+            '"B" then "A"',
+            '"[object Object]" twice',
             "undefined"
         ],
         correct: 0,
-        explanation: 'obj.name is "John" and obj.age is 25, so "John" + " " + 25 = "John 25".'
+        explanation: 'forEach iterates in order, logging "A" then "B".'
+    },
+    {
+        id: 7,
+        question: 'Which is valid bracket notation for accessing an object in an array?',
+        options: [
+            'list[0]["name"]',
+            'list["0"].name',
+            'list[0][name]',
+            'list("0").name'
+        ],
+        correct: 0,
+        explanation: 'Both list[0]["name"] and list[0].name are valid and equivalent.'
+    },
+    {
+        id: 8,
+        question: 'What is the output?<br><code>let a = [{x:1}]; console.log(a[0].y);</code>',
+        options: ["undefined", "null", "0", "Error"],
+        correct: 0,
+        explanation: 'The object has no "y" property, so it returns undefined.'
+    },
+    {
+        id: 9,
+        question: 'How do you add a new object to the end of an array <code>items</code>?',
+        options: [
+            'items.push({ id: 4 })',
+            'items.add({ id: 4 })',
+            'items.append({ id: 4 })',
+            'items[length] = { id: 4 }'
+        ],
+        correct: 0,
+        explanation: 'Use .push() to add a new object to the end of the array.'
+    },
+    {
+        id: 10,
+        question: 'What is the output?<br><code>let a = [{v:10},{v:20},{v:30}]; console.log(a[2].v);</code>',
+        options: ["30", "20", "10", "undefined"],
+        correct: 0,
+        explanation: 'a[2] is the third object, and its v property is 30.'
+    },
+    {
+        id: 11,
+        question: 'How do you loop through an array of objects and log each name?',
+        options: [
+            'list.forEach(item => console.log(item.name))',
+            'list.name.forEach(log)',
+            'for (name of list) console.log(name)',
+            'list.loop(name)'
+        ],
+        correct: 0,
+        explanation: 'Use forEach with a callback that accesses item.name.'
+    },
+    {
+        id: 12,
+        question: 'What is the output?<br><code>let a = [{n:"A"},{n:"B"}]; console.log(a[0].n + a[1].n);</code>',
+        options: ['"AB"', '"A B"', '"BA"', "undefined"],
+        correct: 0,
+        explanation: 'a[0].n is "A" and a[1].n is "B", so "A" + "B" = "AB".'
+    },
+    {
+        id: 13,
+        question: 'What is the difference between <code>list[0]</code> and <code>list[0].name</code>?',
+        options: [
+            "list[0] is the object; list[0].name is a property of it",
+            "They are the same thing",
+            "list[0] returns a string",
+            "list[0].name returns the whole array"
+        ],
+        correct: 0,
+        explanation: 'list[0] returns the first object; list[0].name returns a specific property from that object.'
+    },
+    {
+        id: 14,
+        question: 'What is the output?<br><code>let a = [{x:1},{x:2},{x:3}]; console.log(a.length);</code>',
+        options: ["3", "2", "1", "undefined"],
+        correct: 0,
+        explanation: 'The array has 3 objects, so a.length is 3.'
+    },
+    {
+        id: 15,
+        question: 'Which syntax correctly stores an array of two user objects?',
+        options: [
+            'let users = [{ name: "A" }, { name: "B" }]',
+            'let users = { name: "A" }, { name: "B" }',
+            'let users = [name: "A", name: "B"]',
+            'let users = ({ name: "A" }, { name: "B" })'
+        ],
+        correct: 0,
+        explanation: 'An array of objects uses square brackets with objects separated by commas: [{...}, {...}].'
     }
 ];
 
@@ -356,14 +342,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 55 Quiz</h2>
+                        ">Level 55 Quiz · Array of Objects</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -389,7 +374,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -397,7 +381,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -607,7 +590,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -674,7 +657,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -808,7 +791,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered JSON!';
+        message += ' 🌟 Perfect score! You\'ve mastered arrays of objects!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -864,25 +847,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'JSON Basics';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

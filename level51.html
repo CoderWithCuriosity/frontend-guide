@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 51: Forms and Input</title>
+    <title>Level 51: Array CRUD · Reading & Adding</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -184,6 +184,9 @@
         .chip.level {
             --chip-c: var(--accent-sql);
         }
+        .chip.array {
+            --chip-c: var(--accent-react);
+        }
 
         .panel {
             background: var(--bg-panel);
@@ -221,54 +224,53 @@
             margin-bottom: 14px;
         }
 
-        .input-grid {
+        .array-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
             margin: 20px 0;
         }
 
-        .input-card {
+        .array-card {
             background: var(--bg-panel-alt);
             border: 2px solid var(--card-color);
             border-radius: var(--radius-md);
-            padding: 20px 16px;
+            padding: 16px 10px;
             text-align: center;
             transition: all 0.15s ease;
         }
 
-        .input-card:hover {
+        .array-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .input-card .title {
+        .array-card .index {
             font-family: var(--font-mono);
             font-weight: 700;
             color: var(--card-color);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
-        .input-card .description {
-            font-family: var(--font-sans);
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin: 8px 0;
-        }
-
-        .input-card .example {
+        .array-card .value {
             font-family: var(--font-mono);
             color: var(--text-primary);
-            font-size: 0.8rem;
-            margin: 5px 0;
+            font-size: 0.95rem;
+            margin: 6px 0 2px;
         }
 
-        .input-card.text { --card-color: var(--accent-sql); }
-        .input-card.number { --card-color: var(--accent-css); }
-        .input-card.email { --card-color: var(--accent-js); }
-        .input-card.password { --card-color: var(--accent-html); }
+        .array-card .hint {
+            font-family: var(--font-sans);
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
 
-        .demo-form {
+        .array-card.c0 { --card-color: var(--accent-sql); }
+        .array-card.c1 { --card-color: var(--accent-css); }
+        .array-card.c2 { --card-color: var(--accent-js); }
+        .array-card.c3 { --card-color: var(--accent-html); }
+
+        .demo-box {
             background: var(--bg-panel-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -276,82 +278,72 @@
             margin: 16px 0;
         }
 
-        .demo-form .form-group {
-            margin-bottom: 16px;
+        .demo-box .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
         }
 
-        .demo-form label {
-            display: block;
+        .demo-box label {
             font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            min-width: 80px;
         }
 
-        .demo-form input,
-        .demo-form select,
-        .demo-form textarea {
-            width: 100%;
-            padding: 10px 14px;
+        .demo-box input {
+            padding: 9px 14px;
             background: var(--bg-base-2);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             color: var(--text-primary);
             font-family: var(--font-sans);
             font-size: 0.95rem;
+            flex: 1;
+            min-width: 140px;
             transition: border-color 0.2s ease;
         }
 
-        .demo-form input:focus,
-        .demo-form select:focus,
-        .demo-form textarea:focus {
+        .demo-box input:focus {
             outline: none;
             border-color: var(--accent-css);
         }
 
-        .demo-form input::placeholder,
-        .demo-form textarea::placeholder {
+        .demo-box input::placeholder {
             color: var(--text-muted);
         }
 
-        .demo-form textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .demo-form .form-row {
-            display: flex;
-            gap: 12px;
-        }
-
-        .demo-form .form-row .form-group {
-            flex: 1;
-        }
-
-        .demo-form .form-output {
+        .output-area {
             background: var(--bg-base-2);
-            border-radius: var(--radius-sm);
-            padding: 12px 16px;
-            margin-top: 12px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            min-height: 40px;
             border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-top: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            min-height: 52px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .output-area .highlight {
+            color: var(--accent-js);
         }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 10px 20px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -359,13 +351,25 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
+        }
+
+        .btn-demo.danger {
+            background: var(--accent-html);
+            color: #1a1a1a;
+        }
+
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
 
         .console-output {
@@ -564,11 +568,8 @@
             .panel {
                 padding: 20px;
             }
-            .input-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .demo-form .form-row {
-                flex-direction: column;
+            .array-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             .nav-row {
                 flex-direction: column;
@@ -579,8 +580,8 @@
         }
 
         @media (max-width: 480px) {
-            .input-grid {
-                grid-template-columns: 1fr;
+            .array-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -595,16 +596,17 @@
                 <div class="terminal-tab">level51.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 51: Forms and Input</p>
+                <p class="terminal-comment">// Level 51: Array CRUD — Reading & Adding Elements</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Forms and Input</span><span class="cursor">_</span>
+                    <span id="typedTitle">Array CRUD: Read & Add</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to work with forms and input elements in JavaScript.
-                    Capture user input and respond to form events.
+                    Master array indexing, bracket assignment, and the <code>.length</code> property.
+                    Read elements by index and add new items with <code>arr[index] = value</code>.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip array">Array CRUD</span>
                     <span class="chip level">Level 51</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -612,115 +614,100 @@
         </div>
 
         <div class="panel">
-            <h1>Forms and Input</h1>
+            <h1>Array CRUD · Reading & Adding</h1>
             <p>
-                Forms are essential for collecting user input. JavaScript allows you to
-                access, validate, and process form data in real-time.
+                Arrays store ordered collections. You can read any element using its <strong>index</strong> (starting at 0),
+                and you can add new items by assigning a value to a new index or using <code>.push()</code>.
             </p>
 
-            <div class="input-grid">
-                <div class="input-card text">
-                    <div class="title">text</div>
-                    <div class="description">Single line text input</div>
-                    <div class="example">&lt;input type="text"&gt;</div>
+            <div class="array-grid">
+                <div class="array-card c0">
+                    <div class="index">arr[0]</div>
+                    <div class="value" id="gridVal0">"apple"</div>
+                    <div class="hint">first element</div>
                 </div>
-                
-                <div class="input-card number">
-                    <div class="title">number</div>
-                    <div class="description">Numeric input</div>
-                    <div class="example">&lt;input type="number"&gt;</div>
+                <div class="array-card c1">
+                    <div class="index">arr[1]</div>
+                    <div class="value" id="gridVal1">"banana"</div>
+                    <div class="hint">second element</div>
                 </div>
-                
-                <div class="input-card email">
-                    <div class="title">email</div>
-                    <div class="description">Email address input</div>
-                    <div class="example">&lt;input type="email"&gt;</div>
+                <div class="array-card c2">
+                    <div class="index">arr[2]</div>
+                    <div class="value" id="gridVal2">"cherry"</div>
+                    <div class="hint">third element</div>
                 </div>
-                
-                <div class="input-card password">
-                    <div class="title">password</div>
-                    <div class="description">Hidden text input</div>
-                    <div class="example">&lt;input type="password"&gt;</div>
+                <div class="array-card c3">
+                    <div class="index">arr[3]</div>
+                    <div class="value" id="gridVal3">undefined</div>
+                    <div class="hint">new index → add</div>
                 </div>
             </div>
 
-            <h2>Try It Yourself</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="demo-form" id="demoForm">
-                <div class="form-group">
-                    <label for="nameInput">Name</label>
-                    <input type="text" id="nameInput" placeholder="Enter your name">
+            <div class="demo-box" id="arrayDemo">
+                <div class="row">
+                    <label for="indexInput">Index:</label>
+                    <input type="number" id="indexInput" placeholder="e.g. 0, 1, 2..." min="0" value="0">
+                    <button class="btn-demo secondary" onclick="readElement()">Read arr[index]</button>
                 </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="emailInput">Email</label>
-                        <input type="email" id="emailInput" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="ageInput">Age</label>
-                        <input type="number" id="ageInput" placeholder="Enter your age">
-                    </div>
+                <div class="row">
+                    <label for="valueInput">Value:</label>
+                    <input type="text" id="valueInput" placeholder="e.g. 'date', 'elderberry'">
+                    <button class="btn-demo" onclick="writeElement()">Write arr[index] = value</button>
+                    <button class="btn-demo ghost" onclick="pushElement()">Push to end</button>
                 </div>
-                
-                <div class="form-group">
-                    <label for="messageInput">Message</label>
-                    <textarea id="messageInput" placeholder="Enter your message"></textarea>
+                <div class="row">
+                    <button class="btn-demo ghost" onclick="resetArray()">Reset Array</button>
+                    <button class="btn-demo ghost" onclick="showArray()">Show Full Array</button>
                 </div>
-                
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" onclick="submitForm()">Submit Form</button>
-                    <button class="btn-demo reset" onclick="clearForm()">Clear Form</button>
-                    <button class="btn-demo" onclick="showValues()">Show Values</button>
-                </div>
-                
-                <div class="form-output" id="formOutput">
-                    Form output will appear here...
+                <div class="output-area" id="arrayOutput">
+                    // Array output will appear here...
                 </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// Form Input Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> nameInput = document.<span class="keyword">getElementById</span>(<span class="value">"nameInput"</span>);</div>
-                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(nameInput.<span class="keyword">value</span>);</div>
-                <div class="output">  "John"</div>
+                <div class="comment">// Reading & Adding Elements</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> fruits = [<span class="value">"apple"</span>, <span class="value">"banana"</span>, <span class="value">"cherry"</span>];</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span class="value">0</span>]);</div>
+                <div class="output">  "apple"</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits[<span class="value">2</span>]);</div>
+                <div class="output">  "cherry"</div>
                 <br>
-                <div><span class="arrow">&gt;</span> nameInput.<span class="keyword">addEventListener</span>(<span class="value">"input"</span>, function() {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Input changed:"</span>, this.<span class="keyword">value</span>);</div>
-                <div><span class="arrow">&gt;</span> });</div>
-                <div class="output">  "Input changed: John"</div>
+                <div class="comment">// Add by assigning to a new index</div>
+                <div><span class="arrow">&gt;</span> fruits[<span class="value">3</span>] = <span class="value">"date"</span>;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits);</div>
+                <div class="output">  ["apple", "banana", "cherry", "date"]</div>
                 <br>
-                <div class="comment">// Form submission</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> form = document.<span class="keyword">getElementById</span>(<span class="value">"demoForm"</span>);</div>
-                <div><span class="arrow">&gt;</span> form.<span class="keyword">addEventListener</span>(<span class="value">"submit"</span>, function(e) {</div>
-                <div><span class="arrow">&gt;</span>   e.<span class="keyword">preventDefault</span>();</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Form submitted!"</span>);</div>
-                <div><span class="arrow">&gt;</span> });</div>
+                <div class="comment">// Using .length to append</div>
+                <div><span class="arrow">&gt;</span> fruits[fruits.<span class="keyword">length</span>] = <span class="value">"elderberry"</span>;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits.<span class="keyword">length</span>);</div>
+                <div class="output">  5</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>value</strong> - Gets or sets the value of an input</li>
-                    <li><strong>input event</strong> - Fires when the value changes</li>
-                    <li><strong>submit event</strong> - Fires when a form is submitted</li>
-                    <li><strong>preventDefault()</strong> - Prevents default form submission</li>
-                    <li><strong>type</strong> - Different input types: text, number, email, password</li>
-                    <li><strong>placeholder</strong> - Shows hint text in the input</li>
+                    <li><strong>arr[index]</strong> — reads the element at that position (0‑based).</li>
+                    <li><strong>arr[index] = value</strong> — writes/overwrites the element at that index.</li>
+                    <li><strong>arr[arr.length] = value</strong> — appends a new element at the end.</li>
+                    <li><strong>.length</strong> — returns the number of elements in the array.</li>
+                    <li><strong>.push(value)</strong> — adds one or more elements to the end.</li>
+                    <li>Reading a non‑existent index returns <code>undefined</code>.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>forms:</p>
+                <p>Create a new file named <code>level51.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Get the value from the name input and log it</li>
-                    <li>Add an input event listener to the email field</li>
-                    <li>Create a function that validates if the name is empty</li>
-                    <li>Change the placeholder text of an input</li>
-                    <li>Disable and enable an input field</li>
+                    <li>Create an array <code>colors = ["red", "green", "blue"]</code>.</li>
+                    <li>Log the first and last element using index and <code>.length</code>.</li>
+                    <li>Add a new color at index 3 using bracket assignment.</li>
+                    <li>Append another color using <code>colors[colors.length]</code>.</li>
+                    <li>Use <code>.push()</code> to add two more colors at once.</li>
                 </ul>
             </div>
 
@@ -755,76 +742,7 @@
         </div>
     </div>
 
-    <script>
-        // Demo functions for the interactive form
-        function submitForm() {
-            let name = document.getElementById("nameInput").value;
-            let email = document.getElementById("emailInput").value;
-            let age = document.getElementById("ageInput").value;
-            let message = document.getElementById("messageInput").value;
-            
-            let output = document.getElementById("formOutput");
-            
-            if (!name && !email && !age && !message) {
-                output.innerHTML = "⚠️ Please fill in at least one field!";
-                output.style.color = "#f3a072";
-                return;
-            }
-            
-            let html = "<strong>📋 Form Data:</strong><br>";
-            if (name) html += "👤 Name: " + name + "<br>";
-            if (email) html += "📧 Email: " + email + "<br>";
-            if (age) html += "🎂 Age: " + age + "<br>";
-            if (message) html += "💬 Message: " + message + "<br>";
-            html += "✅ Form submitted successfully!";
-            
-            output.innerHTML = html;
-            output.style.color = "#8ec07c";
-            
-            // Log to console
-            console.log("Form submitted:", { name, email, age, message });
-        }
-        
-        function clearForm() {
-            document.getElementById("nameInput").value = "";
-            document.getElementById("emailInput").value = "";
-            document.getElementById("ageInput").value = "";
-            document.getElementById("messageInput").value = "";
-            document.getElementById("formOutput").innerHTML = "Form cleared!";
-            document.getElementById("formOutput").style.color = "#a3a3c2";
-            console.log("Form cleared");
-        }
-        
-        function showValues() {
-            let name = document.getElementById("nameInput").value;
-            let email = document.getElementById("emailInput").value;
-            let age = document.getElementById("ageInput").value;
-            let message = document.getElementById("messageInput").value;
-            
-            let output = document.getElementById("formOutput");
-            output.innerHTML = `
-                <strong>📊 Current Values:</strong><br>
-                Name: ${name || "(empty)"}<br>
-                Email: ${email || "(empty)"}<br>
-                Age: ${age || "(empty)"}<br>
-                Message: ${message || "(empty)"}
-            `;
-            output.style.color = "#7ec8e3";
-            
-            console.log("Current form values:", { name, email, age, message });
-        }
-        
-        // Real-time input logging
-        document.addEventListener("DOMContentLoaded", function() {
-            let inputs = document.querySelectorAll("#demoForm input, #demoForm textarea");
-            inputs.forEach(input => {
-                input.addEventListener("input", function() {
-                    console.log(this.id + " changed to:", this.value);
-                });
-            });
-        });
-    </script>
-
+    <!-- Level 51 script -->
     <script src="./scripts/level51.js"></script>
 </body>
 </html>

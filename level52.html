@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 52: Form Validation</title>
+    <title>Level 52: Array CRUD · Updating & Deleting</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -184,6 +184,9 @@
         .chip.level {
             --chip-c: var(--accent-sql);
         }
+        .chip.array {
+            --chip-c: var(--accent-react);
+        }
 
         .panel {
             background: var(--bg-panel);
@@ -221,7 +224,53 @@
             margin-bottom: 14px;
         }
 
-        .demo-form {
+        .array-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .array-card {
+            background: var(--bg-panel-alt);
+            border: 2px solid var(--card-color);
+            border-radius: var(--radius-md);
+            padding: 16px 10px;
+            text-align: center;
+            transition: all 0.15s ease;
+        }
+
+        .array-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .array-card .index {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--card-color);
+            font-size: 0.9rem;
+        }
+
+        .array-card .value {
+            font-family: var(--font-mono);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin: 6px 0 2px;
+        }
+
+        .array-card .hint {
+            font-family: var(--font-sans);
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .array-card.c0 { --card-color: var(--accent-sql); }
+        .array-card.c1 { --card-color: var(--accent-css); }
+        .array-card.c2 { --card-color: var(--accent-js); }
+        .array-card.c3 { --card-color: var(--accent-html); }
+
+        .demo-box {
             background: var(--bg-panel-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -229,92 +278,72 @@
             margin: 16px 0;
         }
 
-        .demo-form .form-group {
-            margin-bottom: 16px;
+        .demo-box .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
         }
 
-        .demo-form label {
-            display: block;
+        .demo-box label {
             font-family: var(--font-mono);
             font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            min-width: 80px;
         }
 
-        .demo-form label .required {
-            color: var(--accent-html);
-            margin-left: 4px;
-        }
-
-        .demo-form input,
-        .demo-form select,
-        .demo-form textarea {
-            width: 100%;
-            padding: 10px 14px;
+        .demo-box input {
+            padding: 9px 14px;
             background: var(--bg-base-2);
-            border: 2px solid var(--border);
+            border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             color: var(--text-primary);
             font-family: var(--font-sans);
             font-size: 0.95rem;
+            flex: 1;
+            min-width: 140px;
             transition: border-color 0.2s ease;
         }
 
-        .demo-form input:focus,
-        .demo-form select:focus,
-        .demo-form textarea:focus {
+        .demo-box input:focus {
             outline: none;
             border-color: var(--accent-css);
         }
 
-        .demo-form input.valid {
-            border-color: var(--accent-sql);
+        .demo-box input::placeholder {
+            color: var(--text-muted);
         }
 
-        .demo-form input.invalid {
-            border-color: var(--accent-html);
-        }
-
-        .demo-form .error-message {
-            color: var(--accent-html);
-            font-size: 0.82rem;
-            margin-top: 4px;
-            display: none;
-            font-family: var(--font-sans);
-        }
-
-        .demo-form .error-message.show {
-            display: block;
-        }
-
-        .demo-form .success-message {
-            display: none;
-            background: rgba(142, 192, 124, 0.15);
-            border: 1px solid var(--accent-sql);
+        .output-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
             border-radius: var(--radius-sm);
-            padding: 12px 16px;
-            color: var(--accent-sql);
+            padding: 16px 18px;
+            margin-top: 14px;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
-            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            min-height: 52px;
+            white-space: pre-wrap;
+            word-break: break-word;
         }
 
-        .demo-form .success-message.show {
-            display: block;
+        .output-area .highlight {
+            color: var(--accent-js);
         }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 10px 20px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -322,19 +351,25 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
+        .btn-demo.danger {
+            background: var(--accent-html);
+            color: #1a1a1a;
+        }
+
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
 
         .console-output {
@@ -373,10 +408,6 @@
 
         .console-output .output {
             color: var(--accent-sql);
-        }
-
-        .console-output .error {
-            color: var(--accent-html);
         }
 
         .info-box {
@@ -448,32 +479,6 @@
 
         .syntax-box .comment {
             color: var(--text-muted);
-        }
-
-        .validation-rules {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 16px 0;
-        }
-
-        .validation-rule {
-            background: var(--bg-panel-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 12px 16px;
-        }
-
-        .validation-rule .rule-name {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--accent-css);
-        }
-
-        .validation-rule .rule-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 2px;
         }
 
         .quiz-status {
@@ -563,14 +568,20 @@
             .panel {
                 padding: 20px;
             }
-            .validation-rules {
-                grid-template-columns: 1fr;
+            .array-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             .nav-row {
                 flex-direction: column;
             }
             .nav-row .btn {
                 width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .array-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -585,16 +596,17 @@
                 <div class="terminal-tab">level52.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 52: Form Validation</p>
+                <p class="terminal-comment">// Level 52: Array CRUD — Updating & Deleting with .splice()</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Form Validation</span><span class="cursor">_</span>
+                    <span id="typedTitle">Array CRUD: Update & Delete</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to validate form data before submission.
-                    Ensure users enter valid information with real-time feedback.
+                    Learn how to update existing elements with bracket assignment and remove items
+                    using <code>.splice(startIndex, 1)</code>. Master array modification.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip array">Array CRUD</span>
                     <span class="chip level">Level 52</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -602,113 +614,102 @@
         </div>
 
         <div class="panel">
-            <h1>Form Validation</h1>
+            <h1>Array CRUD · Updating & Deleting</h1>
             <p>
-                Form validation ensures that users enter correct and complete information.
-                Validate fields in real-time or when the form is submitted.
+                Once you have an array, you'll often need to modify its contents. You can
+                <strong>update</strong> an element by assigning to its index, and <strong>delete</strong> an element
+                using <code>.splice(startIndex, 1)</code> — which removes one item at the given position.
             </p>
 
-            <h2>Validation Rules</h2>
-
-            <div class="validation-rules">
-                <div class="validation-rule">
-                    <div class="rule-name">Required</div>
-                    <div class="rule-desc">Field cannot be empty</div>
+            <div class="array-grid">
+                <div class="array-card c0">
+                    <div class="index">arr[0]</div>
+                    <div class="value" id="gridVal0">"apple"</div>
+                    <div class="hint">first element</div>
                 </div>
-                <div class="validation-rule">
-                    <div class="rule-name">Min Length</div>
-                    <div class="rule-desc">Minimum number of characters</div>
+                <div class="array-card c1">
+                    <div class="index">arr[1]</div>
+                    <div class="value" id="gridVal1">"banana"</div>
+                    <div class="hint">second element</div>
                 </div>
-                <div class="validation-rule">
-                    <div class="rule-name">Email Format</div>
-                    <div class="rule-desc">Must contain @ and .</div>
+                <div class="array-card c2">
+                    <div class="index">arr[2]</div>
+                    <div class="value" id="gridVal2">"cherry"</div>
+                    <div class="hint">third element</div>
                 </div>
-                <div class="validation-rule">
-                    <div class="rule-name">Password Match</div>
-                    <div class="rule-desc">Two passwords must match</div>
+                <div class="array-card c3">
+                    <div class="index">arr[3]</div>
+                    <div class="value" id="gridVal3">"date"</div>
+                    <div class="hint">fourth element</div>
                 </div>
             </div>
 
-            <h2>Try It Yourself</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="demo-form" id="demoForm">
-                <div class="form-group">
-                    <label for="username">Username <span class="required">*</span></label>
-                    <input type="text" id="username" placeholder="Enter username (min 3 chars)">
-                    <div class="error-message" id="usernameError">Username must be at least 3 characters</div>
+            <div class="demo-box" id="arrayDemo">
+                <div class="row">
+                    <label for="indexInput">Index:</label>
+                    <input type="number" id="indexInput" placeholder="e.g. 0, 1, 2..." min="0" value="0">
+                    <button class="btn-demo secondary" onclick="readElement()">Read arr[index]</button>
                 </div>
-
-                <div class="form-group">
-                    <label for="email">Email <span class="required">*</span></label>
-                    <input type="email" id="email" placeholder="Enter your email">
-                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                <div class="row">
+                    <label for="valueInput">Value:</label>
+                    <input type="text" id="valueInput" placeholder="e.g. 'apricot', 'blueberry'">
+                    <button class="btn-demo" onclick="updateElement()">Update arr[index] = value</button>
+                    <button class="btn-demo danger" onclick="deleteElement()">Delete arr[index] with .splice()</button>
                 </div>
-
-                <div class="form-group">
-                    <label for="password">Password <span class="required">*</span></label>
-                    <input type="password" id="password" placeholder="Enter password (min 6 chars)">
-                    <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+                <div class="row">
+                    <button class="btn-demo ghost" onclick="resetArray()">Reset Array</button>
+                    <button class="btn-demo ghost" onclick="showArray()">Show Full Array</button>
                 </div>
-
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
-                    <input type="password" id="confirmPassword" placeholder="Confirm your password">
-                    <div class="error-message" id="confirmError">Passwords do not match</div>
-                </div>
-
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" id="submitBtn" onclick="validateAndSubmit()">Submit</button>
-                    <button class="btn-demo reset" onclick="resetForm()">Reset Form</button>
-                </div>
-
-                <div class="success-message" id="successMessage">
-                    ✅ Form submitted successfully! All fields are valid.
+                <div class="output-area" id="arrayOutput">
+                    // Array output will appear here...
                 </div>
             </div>
 
             <h2>Console Output</h2>
 
             <div class="console-output">
-                <div class="comment">// Form Validation Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">function</span> <span class="value">validateEmail</span>(email) {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">return</span> email.includes(<span class="value">"@"</span>) && email.includes(<span class="value">"."</span>);</div>
-                <div><span class="arrow">&gt;</span> }</div>
+                <div class="comment">// Updating Elements</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> fruits = [<span class="value">"apple"</span>, <span class="value">"banana"</span>, <span class="value">"cherry"</span>];</div>
+                <div><span class="arrow">&gt;</span> fruits[<span class="value">1</span>] = <span class="value">"blueberry"</span>;</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits);</div>
+                <div class="output">  ["apple", "blueberry", "cherry"]</div>
                 <br>
-                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> username = document.<span class="keyword">getElementById</span>(<span class="value">"username"</span>);</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">if</span> (username.<span class="keyword">value</span>.length < 3) {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Username too short!"</span>);</div>
-                <div><span class="error">&gt;</span>   <span class="error">"Username too short!"</span></div>
-                <div><span class="arrow">&gt;</span> }</div>
+                <div class="comment">// Deleting with .splice(startIndex, 1)</div>
+                <div><span class="arrow">&gt;</span> fruits.<span class="keyword">splice</span>(<span class="value">1</span>, <span class="value">1</span>); <span class="comment">// remove 1 element at index 1</span></div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits);</div>
+                <div class="output">  ["apple", "cherry"]</div>
                 <br>
-                <div class="comment">// Real-time validation</div>
-                <div><span class="arrow">&gt;</span> username.<span class="keyword">addEventListener</span>(<span class="value">"input"</span>, function() {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">if</span> (this.<span class="keyword">value</span>.length >= 3) {</div>
-                <div><span class="arrow">&gt;</span>     this.<span class="keyword">classList</span>.<span class="keyword">add</span>(<span class="value">"valid"</span>);</div>
-                <div><span class="arrow">&gt;</span>   }</div>
-                <div><span class="arrow">&gt;</span> });</div>
+                <div class="comment">// .splice returns the removed elements</div>
+                <div><span class="arrow">&gt;</span> <span class="keyword">let</span> removed = fruits.<span class="keyword">splice</span>(<span class="value">0</span>, <span class="value">1</span>);</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(removed);</div>
+                <div class="output">  ["apple"]</div>
+                <div><span class="arrow">&gt;</span> console.<span class="keyword">log</span>(fruits);</div>
+                <div class="output">  ["cherry"]</div>
             </div>
 
             <div class="info-box">
                 <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>Required fields</strong> - Check if input has value</li>
-                    <li><strong>Min length</strong> - Use <code>input.value.length</code></li>
-                    <li><strong>Email validation</strong> - Check for @ and .</li>
-                    <li><strong>Password match</strong> - Compare two password fields</li>
-                    <li><strong>Real-time validation</strong> - Use <code>input</code> event</li>
-                    <li><strong>Visual feedback</strong> - Use CSS classes for valid/invalid</li>
+                    <li><strong>arr[index] = newValue</strong> — updates/overwrites an existing element.</li>
+                    <li><strong>arr.splice(startIndex, 1)</strong> — removes ONE element at <code>startIndex</code>.</li>
+                    <li><strong>.splice() returns</strong> an array of the removed elements.</li>
+                    <li><strong>.splice() mutates</strong> the original array (it changes it in place).</li>
+                    <li>After deletion, indices shift down — array length decreases by 1.</li>
+                    <li>Use <code>.length</code> to verify the new array size after deleting.</li>
                 </ul>
             </div>
 
             <div class="challenge-box">
                 <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>form validation:</p>
+                <p>Create a new file named <code>level52.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
                 <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Add validation for minimum password length (8 characters)</li>
-                    <li>Add validation for age (must be 18-100)</li>
-                    <li>Create a custom validation rule for phone numbers</li>
-                    <li>Add real-time validation feedback</li>
-                    <li>Show a success message when all fields are valid</li>
+                    <li>Create an array <code>colors = ["red", "green", "blue", "yellow"]</code>.</li>
+                    <li>Update <code>colors[2]</code> from "blue" to "purple".</li>
+                    <li>Use <code>colors.splice(1, 1)</code> to remove "green".</li>
+                    <li>Log the array after each operation.</li>
+                    <li>Check that the length decreased by 1 after the splice.</li>
                 </ul>
             </div>
 
@@ -742,173 +743,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // ============================================
-        // DOM ELEMENTS
-        // ============================================
-
-        let username = document.getElementById("username");
-        let email = document.getElementById("email");
-        let password = document.getElementById("password");
-        let confirmPassword = document.getElementById("confirmPassword");
-        let submitBtn = document.getElementById("submitBtn");
-
-        // ============================================
-        // VALIDATION FUNCTIONS
-        // ============================================
-
-        function validateUsername() {
-            let value = username.value.trim();
-            let error = document.getElementById("usernameError");
-            
-            if (value.length === 0) {
-                username.className = "invalid";
-                error.textContent = "Username is required";
-                error.classList.add("show");
-                return false;
-            } else if (value.length < 3) {
-                username.className = "invalid";
-                error.textContent = "Username must be at least 3 characters";
-                error.classList.add("show");
-                return false;
-            } else {
-                username.className = "valid";
-                error.classList.remove("show");
-                return true;
-            }
-        }
-
-        function validateEmail() {
-            let value = email.value.trim();
-            let error = document.getElementById("emailError");
-            
-            if (value.length === 0) {
-                email.className = "invalid";
-                error.textContent = "Email is required";
-                error.classList.add("show");
-                return false;
-            } else if (!value.includes("@") || !value.includes(".")) {
-                email.className = "invalid";
-                error.textContent = "Please enter a valid email address";
-                error.classList.add("show");
-                return false;
-            } else {
-                email.className = "valid";
-                error.classList.remove("show");
-                return true;
-            }
-        }
-
-        function validatePassword() {
-            let value = password.value;
-            let error = document.getElementById("passwordError");
-            
-            if (value.length === 0) {
-                password.className = "invalid";
-                error.textContent = "Password is required";
-                error.classList.add("show");
-                return false;
-            } else if (value.length < 6) {
-                password.className = "invalid";
-                error.textContent = "Password must be at least 6 characters";
-                error.classList.add("show");
-                return false;
-            } else {
-                password.className = "valid";
-                error.classList.remove("show");
-                return true;
-            }
-        }
-
-        function validateConfirmPassword() {
-            let error = document.getElementById("confirmError");
-            
-            if (password.value !== confirmPassword.value) {
-                confirmPassword.className = "invalid";
-                error.classList.add("show");
-                return false;
-            } else if (confirmPassword.value.length === 0) {
-                confirmPassword.className = "invalid";
-                error.textContent = "Please confirm your password";
-                error.classList.add("show");
-                return false;
-            } else {
-                confirmPassword.className = "valid";
-                error.classList.remove("show");
-                return true;
-            }
-        }
-
-        function validateAll() {
-            let isUsernameValid = validateUsername();
-            let isEmailValid = validateEmail();
-            let isPasswordValid = validatePassword();
-            let isConfirmValid = validateConfirmPassword();
-            
-            return isUsernameValid && isEmailValid && isPasswordValid && isConfirmValid;
-        }
-
-        // ============================================
-        // REAL-TIME VALIDATION
-        // ============================================
-
-        username.addEventListener("input", validateUsername);
-        email.addEventListener("input", validateEmail);
-        password.addEventListener("input", function() {
-            validatePassword();
-            if (confirmPassword.value.length > 0) {
-                validateConfirmPassword();
-            }
-        });
-        confirmPassword.addEventListener("input", validateConfirmPassword);
-
-        // ============================================
-        // FORM SUBMISSION
-        // ============================================
-
-        function validateAndSubmit() {
-            if (validateAll()) {
-                console.log("Form submitted successfully!");
-                console.log("Username:", username.value);
-                console.log("Email:", email.value);
-                console.log("Password:", password.value);
-                
-                document.getElementById("successMessage").classList.add("show");
-                submitBtn.disabled = true;
-                
-                // Reset after 3 seconds
-                setTimeout(() => {
-                    resetForm();
-                }, 3000);
-            } else {
-                console.log("Form validation failed!");
-                document.getElementById("successMessage").classList.remove("show");
-                submitBtn.disabled = false;
-            }
-        }
-
-        function resetForm() {
-            username.value = "";
-            email.value = "";
-            password.value = "";
-            confirmPassword.value = "";
-            
-            username.className = "";
-            email.className = "";
-            password.className = "";
-            confirmPassword.className = "";
-            
-            document.getElementById("usernameError").classList.remove("show");
-            document.getElementById("emailError").classList.remove("show");
-            document.getElementById("passwordError").classList.remove("show");
-            document.getElementById("confirmError").classList.remove("show");
-            document.getElementById("successMessage").classList.remove("show");
-            
-            submitBtn.disabled = false;
-            console.log("Form reset");
-        }
-    </script>
 
     <script src="./scripts/level52.js"></script>
 </body>

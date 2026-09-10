@@ -1,324 +1,361 @@
 /**
- * Level 62: Array Methods (reduce, find)
+ * Level 62: Simple Timer - setInterval & clearInterval
  * 
- * This file demonstrates reduce and find array methods in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive timer and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// REDUCE() - REDUCE TO SINGLE VALUE
+// SIMPLE TIMER DEMO
 // ============================================
 
-console.log("--- reduce() Method ---");
+let totalSeconds = 10;
+let remainingSeconds = 10;
+let timerId = null;
+let isRunning = false;
 
-let numbers = [1, 2, 3, 4, 5];
+const timerDisplay = () => document.getElementById("timerDisplay");
+const progressFill = () => document.getElementById("progressFill");
+const statusEl = () => document.getElementById("timerStatus");
+const startBtn = () => document.getElementById("startBtn");
+const pauseBtn = () => document.getElementById("pauseBtn");
+const resetBtn = () => document.getElementById("resetBtn");
 
-let sum = numbers.reduce((acc, num) => acc + num, 0);
-console.log("Sum:", sum);
+function setStatus(message, color = "#a3a3c2") {
+    const el = statusEl();
+    if (el) {
+        el.textContent = message;
+        el.style.color = color;
+    }
+}
 
-let product = numbers.reduce((acc, num) => acc * num, 1);
-console.log("Product:", product);
+function updateDisplay(animate = false) {
+    const display = timerDisplay();
+    const fill = progressFill();
 
-let max = numbers.reduce((acc, num) => acc > num ? acc : num, numbers[0]);
-console.log("Max:", max);
+    if (display) {
+        display.textContent = remainingSeconds;
 
-// ============================================
-// REDUCE WITH OBJECTS
-// ============================================
+        // Update color based on remaining time
+        display.classList.remove("warning", "done");
+        if (remainingSeconds === 0) {
+            display.classList.add("done");
+        } else if (remainingSeconds <= 3) {
+            display.classList.add("warning");
+        }
 
-console.log("\n--- reduce() with Objects ---");
+        // Animate on tick
+        if (animate) {
+            display.classList.add("tick");
+            setTimeout(() => display.classList.remove("tick"), 150);
+        }
+    }
 
-let users = [
-    { name: "John", age: 25 },
-    { name: "Jane", age: 30 },
-    { name: "Bob", age: 22 },
-    { name: "Alice", age: 28 }
-];
+    if (fill) {
+        const pct = (remainingSeconds / totalSeconds) * 100;
+        fill.style.width = pct + "%";
 
-let totalAge = users.reduce((acc, user) => acc + user.age, 0);
-console.log("Total age:", totalAge);
+        fill.classList.remove("warning");
+        if (remainingSeconds <= 3 && remainingSeconds > 0) {
+            fill.classList.add("warning");
+        }
+    }
+}
 
-let averageAge = totalAge / users.length;
-console.log("Average age:", averageAge);
+function startTimer() {
+    if (isRunning) return;
+    if (remainingSeconds <= 0) {
+        setStatus("Timer already finished. Click Reset to start again.", "#f3a072");
+        return;
+    }
 
-// ============================================
-// REDUCE TO OBJECT
-// ============================================
+    isRunning = true;
+    startBtn().disabled = true;
+    pauseBtn().disabled = false;
 
-console.log("\n--- reduce() to Object ---");
+    setStatus(`⏱️ Counting down from ${remainingSeconds}...`, "#f0c674");
+    console.log("Timer started at", remainingSeconds);
 
-let fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+    timerId = setInterval(() => {
+        remainingSeconds--;
+        updateDisplay(true);
+        console.log("Tick:", remainingSeconds);
 
-let count = fruits.reduce((acc, fruit) => {
-    acc[fruit] = (acc[fruit] || 0) + 1;
-    return acc;
-}, {});
+        if (remainingSeconds <= 0) {
+            clearInterval(timerId);
+            timerId = null;
+            isRunning = false;
 
-console.log("Fruit counts:", count);
+            startBtn().disabled = true;
+            pauseBtn().disabled = true;
 
-// ============================================
-// FIND() - FIND FIRST MATCH
-// ============================================
+            setStatus("⏰ Time's up!", "#8ec07c");
+            console.log("Timer finished!");
+        }
+    }, 1000);
+}
 
-console.log("\n--- find() Method ---");
+function pauseTimer() {
+    if (!isRunning) return;
 
-let nums = [1, 2, 3, 4, 5, 6];
+    clearInterval(timerId);
+    timerId = null;
+    isRunning = false;
 
-let firstEven = nums.find(num => num % 2 === 0);
-console.log("First even:", firstEven);
+    startBtn().disabled = false;
+    pauseBtn().disabled = true;
 
-let firstGreaterThanFour = nums.find(num => num > 4);
-console.log("First > 4:", firstGreaterThanFour);
+    setStatus(`⏸️ Paused at ${remainingSeconds}. Click Start to resume.`, "#7ec8e3");
+    console.log("Timer paused at", remainingSeconds);
+}
 
-let firstLessThanZero = nums.find(num => num < 0);
-console.log("First < 0:", firstLessThanZero); // undefined
+function resetTimer() {
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+    }
+    isRunning = false;
 
-// ============================================
-// FIND WITH OBJECTS
-// ============================================
+    remainingSeconds = totalSeconds;
+    updateDisplay(false);
 
-console.log("\n--- find() with Objects ---");
+    startBtn().disabled = false;
+    pauseBtn().disabled = true;
 
-let people = [
-    { id: 1, name: "John", age: 25, city: "New York" },
-    { id: 2, name: "Jane", age: 30, city: "Boston" },
-    { id: 3, name: "Bob", age: 17, city: "New York" },
-    { id: 4, name: "Alice", age: 28, city: "Chicago" }
-];
+    setStatus(`↺ Timer reset to ${totalSeconds}. Click Start to begin.`, "#a3a3c2");
+    console.log("Timer reset to", totalSeconds);
+}
 
-let foundJohn = people.find(person => person.name === "John");
-console.log("Found John:", foundJohn);
+function setPreset(seconds) {
+    totalSeconds = seconds;
+    remainingSeconds = seconds;
 
-let foundNewYorker = people.find(person => person.city === "New York");
-console.log("Found New Yorker:", foundNewYorker);
+    // Update active preset button
+    document.querySelectorAll(".preset-btn").forEach(btn => {
+        btn.classList.toggle("active", Number(btn.dataset.seconds) === seconds);
+    });
 
-let foundAdult = people.find(person => person.age >= 18);
-console.log("First adult:", foundAdult);
+    // If running, stop the timer so the new preset takes effect
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+    }
+    isRunning = false;
 
-// ============================================
-// FINDINDEX() - FIND INDEX OF FIRST MATCH
-// ============================================
+    updateDisplay(false);
+    startBtn().disabled = false;
+    pauseBtn().disabled = true;
 
-console.log("\n--- findIndex() Method ---");
+    setStatus(`Preset set to ${seconds} seconds. Click Start.`, "#a3a3c2");
+    console.log("Preset set to", seconds, "seconds");
+}
 
-let items = [10, 20, 30, 40, 50];
+// Typing animation + initial state
+document.addEventListener("DOMContentLoaded", function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Simple Timer';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-let index = items.findIndex(num => num > 25);
-console.log("Index of first > 25:", index);
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
 
-let missingIndex = items.findIndex(num => num > 100);
-console.log("Index of > 100:", missingIndex); // -1
-
-// ============================================
-// COMBINING REDUCE AND FIND
-// ============================================
-
-console.log("\n--- Combining reduce and find ---");
-
-let orders = [
-    { id: 1, product: "Laptop", price: 999, quantity: 2 },
-    { id: 2, product: "Mouse", price: 25, quantity: 5 },
-    { id: 3, product: "Keyboard", price: 75, quantity: 3 }
-];
-
-// Calculate total revenue
-let totalRevenue = orders.reduce((acc, order) => acc + (order.price * order.quantity), 0);
-console.log("Total revenue:", totalRevenue);
-
-// Find the most expensive product
-let mostExpensive = orders.reduce((acc, order) => {
-    return acc.price > order.price ? acc : order;
+    updateDisplay(false);
 });
-console.log("Most expensive:", mostExpensive);
-
-// Find an order by ID
-let orderById = orders.find(order => order.id === 2);
-console.log("Order #2:", orderById);
 
 // ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Simple Timer)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does reduce() do to an array?',
+        question: 'What does setInterval() do?',
         options: [
-            "Reduces it to a single value",
-            "Filters elements",
-            "Transforms each element",
-            "Finds an element"
+            "Runs a function repeatedly at a specified interval",
+            "Runs a function once after a delay",
+            "Stops a running timer",
+            "Returns the current time"
         ],
         correct: 0,
-        explanation: 'reduce() reduces an array to a single value using an accumulator function.'
+        explanation: 'setInterval() runs a function repeatedly at a specified interval in milliseconds.'
     },
     {
         id: 2,
-        question: 'What does find() do to an array?',
+        question: 'What does clearInterval() do?',
         options: [
-            "Returns the first matching element",
-            "Returns all matching elements",
-            "Returns the index of a match",
-            "Returns a boolean"
+            "Stops an interval started by setInterval()",
+            "Runs a function once",
+            "Resets the timer to 0",
+            "Pauses for a moment"
         ],
         correct: 0,
-        explanation: 'find() returns the first element that matches the condition.'
+        explanation: 'clearInterval() stops a running interval using the ID returned by setInterval().'
     },
     {
         id: 3,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].reduce((acc, n) => acc + n, 0)',
+        question: 'What is the output?<br><code>let id = setInterval(() => console.log("Hi"), 1000);<br>clearInterval(id);</code>',
         options: [
-            "6",
-            "3",
-            "0",
-            "123"
-        ],
-        correct: 0,
-        explanation: '1 + 2 + 3 = 6, so reduce returns 6.'
-    },
-    {
-        id: 4,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].find(n => n > 2)',
-        options: [
-            "3",
-            "4",
-            "2",
-            "undefined"
-        ],
-        correct: 0,
-        explanation: 'The first element greater than 2 is 3.'
-    },
-    {
-        id: 5,
-        question: 'What does reduce() return if no initial value is provided?',
-        options: [
-            "Uses the first element as initial value",
-            "Returns undefined",
-            "Throws an error",
-            "Returns 0"
-        ],
-        correct: 0,
-        explanation: 'If no initial value is provided, reduce uses the first element as the initial value.'
-    },
-    {
-        id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4,5].reduce((acc, n) => acc * n, 1)',
-        options: [
-            "120",
-            "15",
-            "1",
-            "12345"
-        ],
-        correct: 0,
-        explanation: '1 * 2 * 3 * 4 * 5 = 120, so reduce returns 120.'
-    },
-    {
-        id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].find(n => n > 10)',
-        options: [
-            "undefined",
-            "null",
-            "0",
+            'Nothing is logged',
+            '"Hi" once',
+            '"Hi" repeatedly',
             "Error"
         ],
         correct: 0,
-        explanation: 'No element is greater than 10, so find returns undefined.'
+        explanation: 'The interval is cleared immediately, so the callback never runs.'
     },
     {
-        id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[{id:1,name:"John"},{id:2,name:"Jane"}].find(obj => obj.id === 2)',
+        id: 4,
+        question: 'How many milliseconds are in one second?',
         options: [
-            '{id:2,name:"Jane"}',
-            '{id:1,name:"John"}',
-            '2',
-            'undefined'
-        ],
-        correct: 0,
-        explanation: 'The object with id === 2 is {id:2,name:"Jane"}.'
-    },
-    {
-        id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[{age:18},{age:20},{age:16}].reduce((acc, p) => acc + p.age, 0)',
-        options: [
-            "54",
-            "18",
-            "0",
-            "54 (with error)"
-        ],
-        correct: 0,
-        explanation: '18 + 20 + 16 = 54, so reduce returns 54.'
-    },
-    {
-        id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[5,10,15,20].find(n => n > 12)',
-        options: [
-            "15",
-            "20",
+            "1000",
+            "100",
             "10",
-            "undefined"
+            "10000"
         ],
         correct: 0,
-        explanation: 'The first element greater than 12 is 15.'
+        explanation: 'There are 1000 milliseconds in 1 second.'
     },
     {
-        id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].reduce((acc, n) => acc + n, 10)',
+        id: 5,
+        question: 'Why should you store the return value of setInterval()?',
         options: [
-            "20",
-            "10",
-            "16",
-            "14"
+            "So you can stop it later with clearInterval()",
+            "Because it is required",
+            "To make it run faster",
+            "To log it to the console"
         ],
         correct: 0,
-        explanation: '10 + 1 + 2 + 3 + 4 = 20, so reduce returns 20.'
+        explanation: 'The return value is the interval ID needed to stop it later with clearInterval().'
     },
     {
-        id: 12,
-        question: 'What does findIndex() return if no match is found?',
+        id: 6,
+        question: 'What is the output?<br><code>let count = 3;<br>let id = setInterval(() => {<br>&nbsp;&nbsp;count--;<br>&nbsp;&nbsp;console.log(count);<br>&nbsp;&nbsp;if (count === 0) clearInterval(id);<br>}, 1000);</code>',
         options: [
-            "-1",
-            "undefined",
-            "null",
+            "2, 1, 0",
+            "3, 2, 1",
+            "3, 2, 1, 0",
             "0"
         ],
         correct: 0,
-        explanation: 'findIndex() returns -1 if no element matches the condition.'
+        explanation: 'count starts at 3, decrements to 2, 1, then 0. The interval stops when count hits 0.'
+    },
+    {
+        id: 7,
+        question: 'What happens if you call clearInterval() with no running interval?',
+        options: [
+            "Nothing happens",
+            "It throws an error",
+            "It restarts the interval",
+            "It returns true"
+        ],
+        correct: 0,
+        explanation: 'clearInterval() silently does nothing if no interval matches the ID.'
+    },
+    {
+        id: 8,
+        question: 'Which method runs code only once after a delay?',
+        options: [
+            "setTimeout()",
+            "setInterval()",
+            "setTimer()",
+            "delay()"
+        ],
+        correct: 0,
+        explanation: 'setTimeout() runs code once after a delay, while setInterval() runs it repeatedly.'
+    },
+    {
+        id: 9,
+        question: 'What is the output?<br><code>let x = 5;<br>let id = setInterval(() => {<br>&nbsp;&nbsp;x--;<br>&nbsp;&nbsp;console.log(x);<br>&nbsp;&nbsp;if (x === 2) clearInterval(id);<br>}, 500);</code>',
+        options: [
+            "4, 3, 2",
+            "5, 4, 3, 2",
+            "4, 3, 2, 1",
+            "2"
+        ],
+        correct: 0,
+        explanation: 'x decrements from 5 to 4, 3, 2, and stops when it reaches 2.'
+    },
+    {
+        id: 10,
+        question: 'What is the typical delay used for a 1-second tick?',
+        options: [
+            "1000ms",
+            "100ms",
+            "10ms",
+            "1ms"
+        ],
+        correct: 0,
+        explanation: '1000 milliseconds (1000ms) equals 1 second.'
+    },
+    {
+        id: 11,
+        question: 'What does setInterval() return?',
+        options: [
+            "An interval ID",
+            "A Promise",
+            "The callback function",
+            "A number of remaining ticks"
+        ],
+        correct: 0,
+        explanation: 'setInterval() returns a numeric ID that identifies the interval.'
+    },
+    {
+        id: 12,
+        question: 'What is the output?<br><code>let id = setInterval(() => console.log("Tick"), 1000);<br>setTimeout(() => clearInterval(id), 3500);</code>',
+        options: [
+            '"Tick" three times',
+            '"Tick" four times',
+            '"Tick" once',
+            '"Tick" forever'
+        ],
+        correct: 0,
+        explanation: 'The interval logs every 1s and stops after 3.5s, so it logs at 1s, 2s, and 3s.'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[2,4,6,8].find(n => n % 2 !== 0)',
+        question: 'Which pair of methods is used to start and stop a repeating timer?',
         options: [
-            "undefined",
-            "2",
-            "4",
-            "null"
+            "setInterval() and clearInterval()",
+            "setTimeout() and clearTimeout()",
+            "startTimer() and stopTimer()",
+            "run() and stop()"
         ],
         correct: 0,
-        explanation: 'All numbers are even, so no odd number is found. Returns undefined.'
+        explanation: 'setInterval() starts the timer and clearInterval() stops it.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[{name:"John"},{name:"Jane"}].reduce((acc, p) => acc + " " + p.name, "")',
+        question: 'What is the output?<br><code>let n = 0;<br>let id = setInterval(() => {<br>&nbsp;&nbsp;n++;<br>&nbsp;&nbsp;if (n === 3) clearInterval(id);<br>&nbsp;&nbsp;console.log(n);<br>}, 1000);</code>',
         options: [
-            " John Jane",
-            "John Jane",
-            "JohnJane",
-            "undefined"
+            "1, 2, 3",
+            "1, 2",
+            "0, 1, 2",
+            "3"
         ],
         correct: 0,
-        explanation: 'The reducer concatenates names with a space, starting with an empty string: " John Jane".'
+        explanation: 'n increments to 1, 2, 3 and stops when it reaches 3.'
     },
     {
         id: 15,
-        question: 'Can reduce() be used to find the maximum value in an array?',
+        question: 'What should you do before starting a new interval if one is already running?',
         options: [
-            "Yes",
-            "No",
-            "Only with numbers",
-            "Only with strings"
+            "Clear the previous one with clearInterval()",
+            "Nothing, they can run together",
+            "Reload the page",
+            "Wait for it to finish"
         ],
         correct: 0,
-        explanation: 'Yes, you can use reduce() to find the maximum value by comparing the accumulator with each element.'
+        explanation: 'Always clear the previous interval with clearInterval() before starting a new one to avoid multiple timers running.'
     }
 ];
 
@@ -383,14 +420,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 62 Quiz</h2>
+                        ">Level 62 Quiz · Simple Timer</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -416,15 +452,13 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
-                            <span id="timerDisplay" style="
+                            <span id="timerDisplayQuiz" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
                                 font-size: 1.1rem;
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -583,9 +617,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -634,7 +666,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -647,7 +679,7 @@ function startQuiz(event) {
     document.getElementById('nextQuestionBtn').style.pointerEvents = 'none';
 
     renderQuestion();
-    startTimer();
+    startQuizTimer();
 }
 
 function renderQuestion() {
@@ -701,7 +733,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -783,15 +815,15 @@ function nextQuestion() {
     }
 }
 
-function startTimer() {
+function startQuizTimer() {
     if (quizState.timer) clearInterval(quizState.timer);
     
     quizState.timeLeft = 120;
-    updateTimerDisplay();
+    updateQuizTimerDisplay();
 
     quizState.timer = setInterval(() => {
         quizState.timeLeft--;
-        updateTimerDisplay();
+        updateQuizTimerDisplay();
 
         if (quizState.timeLeft <= 0) {
             clearInterval(quizState.timer);
@@ -800,10 +832,11 @@ function startTimer() {
     }, 1000);
 }
 
-function updateTimerDisplay() {
+function updateQuizTimerDisplay() {
     const minutes = Math.floor(quizState.timeLeft / 60);
     const seconds = quizState.timeLeft % 60;
-    const display = document.getElementById('timerDisplay');
+    const display = document.getElementById('timerDisplayQuiz');
+    if (!display) return;
     display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     
     if (quizState.timeLeft <= 10) {
@@ -835,7 +868,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered reduce and find!';
+        message += ' 🌟 Perfect score! You\'ve mastered simple timers!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -888,28 +921,10 @@ function retryQuiz() {
     quizResults.style.display = 'none';
     quizContent.style.display = 'block';
     renderQuestion();
-    startTimer();
+    startQuizTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Array Methods (reduce, find)';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

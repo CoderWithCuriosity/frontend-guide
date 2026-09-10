@@ -1,310 +1,334 @@
 /**
- * Level 60: setTimeout and setInterval
+ * Level 60: LocalStorage Basics - Save & Read Strings
  * 
- * This file demonstrates setTimeout and setInterval in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// SETTIMEOUT - RUN ONCE AFTER DELAY
+// LOCALSTORAGE DEMO
 // ============================================
 
-console.log("--- setTimeout ---");
+const STORAGE_KEY = "level60_savedValue";
 
-console.log("Starting timeout...");
-setTimeout(() => {
-    console.log("This runs after 1 second!");
-}, 1000);
-
-console.log("This runs immediately");
-
-// ============================================
-// SETTIMEOUT WITH CLEAR
-// ============================================
-
-console.log("\n--- setTimeout with clear ---");
-
-let timeoutId = setTimeout(() => {
-    console.log("This will NOT run!");
-}, 2000);
-
-console.log("Timeout scheduled, clearing it...");
-clearTimeout(timeoutId);
-console.log("Timeout cleared!");
-
-// ============================================
-// SETINTERVAL - RUN REPEATEDLY
-// ============================================
-
-console.log("\n--- setInterval ---");
-
-let count = 0;
-let intervalId = setInterval(() => {
-    count++;
-    console.log("Interval count:", count);
-    
-    if (count === 5) {
-        console.log("Stopping interval at count 5");
-        clearInterval(intervalId);
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("storageOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
     }
-}, 1000);
+}
 
-// ============================================
-// SETINTERVAL WITH DELAY
-// ============================================
+function updateDisplay(value) {
+    const el = document.getElementById("savedDisplay");
+    if (!el) return;
 
-console.log("\n--- setInterval with different delays ---");
-
-let counter = 0;
-let fastInterval = setInterval(() => {
-    counter++;
-    console.log("Fast interval count:", counter);
-    
-    if (counter === 3) {
-        console.log("Stopping fast interval");
-        clearInterval(fastInterval);
-    }
-}, 500); // 0.5 second
-
-// ============================================
-// NESTED SETTIMEOUT
-// ============================================
-
-console.log("\n--- Nested setTimeout ---");
-
-function nestedTimeout(level) {
-    console.log("Level", level);
-    
-    if (level < 3) {
-        setTimeout(() => {
-            nestedTimeout(level + 1);
-        }, 500);
+    if (value === null || value === undefined || value === "") {
+        el.textContent = "(nothing saved yet)";
+        el.classList.add("empty");
     } else {
-        console.log("Nested timeout complete!");
+        el.textContent = `"${value}"`;
+        el.classList.remove("empty");
     }
 }
 
-nestedTimeout(1);
+function saveName() {
+    const input = document.getElementById("nameInput");
+    if (!input) return;
 
-// ============================================
-// COUNTDOWN TIMER
-// ============================================
+    const value = input.value.trim();
 
-console.log("\n--- Countdown Timer ---");
+    if (value === "") {
+        setOutput("⚠️ Please type something before saving.", "#f3a072");
+        return;
+    }
 
-function countdown(seconds) {
-    console.log("Countdown starting:", seconds);
-    
-    let timer = setInterval(() => {
-        seconds--;
-        console.log("Countdown:", seconds);
-        
-        if (seconds <= 0) {
-            console.log("Countdown complete! 🎉");
-            clearInterval(timer);
+    try {
+        localStorage.setItem(STORAGE_KEY, value);
+        updateDisplay(value);
+        setOutput(`✅ Saved to localStorage: <span class="highlight">"${value}"</span>`, "#8ec07c");
+        console.log("Saved to localStorage:", STORAGE_KEY, "=", value);
+    } catch (error) {
+        setOutput(`❌ Could not save: ${error.message}`, "#f3a072");
+        console.error("Save error:", error);
+    }
+}
+
+function loadName() {
+    try {
+        const value = localStorage.getItem(STORAGE_KEY);
+
+        if (value === null) {
+            updateDisplay(null);
+            setOutput("📭 No saved value found. Save something first!", "#f3a072");
+        } else {
+            updateDisplay(value);
+            const input = document.getElementById("nameInput");
+            if (input) input.value = value;
+            setOutput(`📂 Loaded from localStorage: <span class="highlight">"${value}"</span>`, "#7ec8e3");
         }
-    }, 1000);
+        console.log("Loaded from localStorage:", STORAGE_KEY, "=", value);
+    } catch (error) {
+        setOutput(`❌ Could not load: ${error.message}`, "#f3a072");
+        console.error("Load error:", error);
+    }
 }
 
-countdown(5);
+function removeName() {
+    try {
+        const existing = localStorage.getItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_KEY);
+        updateDisplay(null);
 
-// ============================================
-// SETTIMEOUT WITH PARAMETERS
-// ============================================
-
-console.log("\n--- setTimeout with Parameters ---");
-
-function greet(name, greeting) {
-    console.log(greeting + ", " + name + "!");
+        if (existing === null) {
+            setOutput("ℹ️ Nothing was saved — removeItem had no effect.", "#a3a3c2");
+        } else {
+            setOutput(`🗑️ Removed saved value: <span class="highlight">"${existing}"</span>`, "#f3a072");
+        }
+        console.log("Removed from localStorage:", STORAGE_KEY);
+    } catch (error) {
+        setOutput(`❌ Could not remove: ${error.message}`, "#f3a072");
+        console.error("Remove error:", error);
+    }
 }
 
-setTimeout(greet, 1500, "John", "Hello");
-setTimeout(greet, 2000, "Alice", "Hi");
+function clearName() {
+    const input = document.getElementById("nameInput");
+    if (input) input.value = "";
+    setOutput("🧹 Input cleared (localStorage untouched).", "#a3a3c2");
+    console.log("Input cleared");
+}
+
+// On page load, read any saved value and display it
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'LocalStorage Basics';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    // Read saved value from localStorage
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved !== null) {
+            updateDisplay(saved);
+            const input = document.getElementById("nameInput");
+            if (input) input.value = saved;
+            setOutput(`📂 Loaded saved value on page load: <span class="highlight">"${saved}"</span>`, "#7ec8e3");
+            console.log("Auto-loaded from localStorage:", saved);
+        } else {
+            updateDisplay(null);
+            setOutput("💡 Type something and click Save. Reload the page to see it persist!", "#a3a3c2");
+        }
+    } catch (error) {
+        console.error("Initial load error:", error);
+    }
+
+    // Log keystrokes in the input
+    const input = document.getElementById("nameInput");
+    if (input) {
+        input.addEventListener("input", function() {
+            console.log("Input changed to:", this.value);
+        });
+    }
+});
 
 // ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (LocalStorage Basics)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does setTimeout() do?',
+        question: 'How do you save a string to localStorage?',
         options: [
-            "Runs code once after a delay",
-            "Runs code repeatedly",
-            "Stops a timer",
-            "Runs code immediately"
+            'localStorage.setItem("key", "value")',
+            'localStorage.save("key", "value")',
+            'localStorage.store("key", "value")',
+            'localStorage.put("key", "value")'
         ],
         correct: 0,
-        explanation: 'setTimeout() runs code once after a specified delay in milliseconds.'
+        explanation: 'Use localStorage.setItem("key", "value") to save a string.'
     },
     {
         id: 2,
-        question: 'What does setInterval() do?',
+        question: 'How do you read a value from localStorage?',
         options: [
-            "Runs code once after a delay",
-            "Runs code repeatedly at intervals",
-            "Stops a timer",
-            "Runs code immediately"
+            'localStorage.getItem("key")',
+            'localStorage.get("key")',
+            'localStorage.read("key")',
+            'localStorage.load("key")'
         ],
-        correct: 1,
-        explanation: 'setInterval() runs code repeatedly at specified intervals.'
+        correct: 0,
+        explanation: 'Use localStorage.getItem("key") to read a value.'
     },
     {
         id: 3,
-        question: 'How many milliseconds are in 1 second?',
+        question: 'What does localStorage.getItem() return if the key does not exist?',
         options: [
-            "100",
-            "1000",
-            "10000",
-            "100000"
+            "null",
+            "undefined",
+            '"" (empty string)',
+            "0"
         ],
-        correct: 1,
-        explanation: 'There are 1000 milliseconds in 1 second.'
+        correct: 0,
+        explanation: 'localStorage.getItem() returns null if the key was never set.'
     },
     {
         id: 4,
-        question: 'What does clearTimeout() do?',
+        question: 'What is the output?<br><code>localStorage.setItem("name", "Alice");<br>console.log(localStorage.getItem("name"));</code>',
         options: [
-            "Cancels a scheduled timeout",
-            "Cancels an interval",
-            "Starts a timer",
-            "Runs a timer"
+            '"Alice"',
+            '"name"',
+            "null",
+            "undefined"
         ],
         correct: 0,
-        explanation: 'clearTimeout() cancels a timeout that was scheduled with setTimeout().'
+        explanation: 'getItem("name") returns the saved string "Alice".'
     },
     {
         id: 5,
-        question: 'What does clearInterval() do?',
+        question: 'How do you remove a single key from localStorage?',
         options: [
-            "Stops a running interval",
-            "Stops a timeout",
-            "Starts a timer",
-            "Runs a timer"
+            'localStorage.removeItem("key")',
+            "localStorage.delete(\"key\")",
+            'localStorage.clearItem("key")',
+            "localStorage.pop(\"key\")"
         ],
         correct: 0,
-        explanation: 'clearInterval() stops a running interval that was started with setInterval().'
+        explanation: 'Use localStorage.removeItem("key") to delete one key.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 0);<br/>&nbsp;&nbsp;console.log("B");',
+        question: 'How do you remove ALL keys from localStorage?',
         options: [
-            "A B",
-            "B A",
-            "A",
-            "B"
+            "localStorage.clear()",
+            "localStorage.removeAll()",
+            "localStorage.deleteAll()",
+            "localStorage.reset()"
         ],
-        correct: 1,
-        explanation: 'Even with 0ms delay, setTimeout is asynchronous, so "B" logs first, then "A".'
+        correct: 0,
+        explanation: 'localStorage.clear() removes every key stored for your origin.'
     },
     {
         id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let i = 0;<br/>&nbsp;&nbsp;let id = setInterval(() => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;i++;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>&nbsp;&nbsp;&nbsp;&nbsp;if(i === 3) clearInterval(id);<br/>&nbsp;&nbsp;}, 100);',
+        question: 'What type of data does localStorage store?',
         options: [
-            "1 2 3",
-            "1 2",
-            "1 2 3 4",
-            "Error"
+            "Strings only",
+            "Numbers only",
+            "Any JavaScript value directly",
+            "Only objects"
         ],
         correct: 0,
-        explanation: 'The interval runs three times (1, 2, 3) and stops when i===3.'
+        explanation: 'localStorage stores strings only. Numbers and objects get converted or stringified.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 100);<br/>&nbsp;&nbsp;setTimeout(() => console.log("B"), 50);',
+        question: 'What is the output?<br><code>localStorage.setItem("age", 25);<br>console.log(typeof localStorage.getItem("age"));</code>',
         options: [
-            "A B",
-            "B A",
-            "A",
-            "B"
+            '"string"',
+            '"number"',
+            '"object"',
+            '"undefined"'
         ],
-        correct: 1,
-        explanation: '"B" has a shorter delay (50ms) so it executes before "A" (100ms).'
+        correct: 0,
+        explanation: 'Even though you pass 25, localStorage stores and returns a string.'
     },
     {
         id: 9,
-        question: 'What does setInterval() return?',
+        question: 'Does localStorage data survive a page reload?',
         options: [
-            "An ID number",
-            "A string",
-            "A boolean",
-            "An object"
+            "Yes, it persists until manually cleared",
+            "No, it resets on reload",
+            "Only on the same tab",
+            "Only for 1 hour"
         ],
         correct: 0,
-        explanation: 'setInterval() returns a numeric ID that can be used with clearInterval().'
+        explanation: 'localStorage persists across reloads and browser sessions until removed.'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let id = setInterval(() => console.log("Hi"), 1000);<br/>&nbsp;&nbsp;clearInterval(id);<br/>&nbsp;&nbsp;console.log("Done");',
+        question: 'What is the output?<br><code>localStorage.setItem("x", "1");<br>localStorage.setItem("x", "2");<br>console.log(localStorage.getItem("x"));</code>',
         options: [
-            "Done Hi",
-            "Hi Done",
-            "Done",
-            "Hi"
+            '"2"',
+            '"1"',
+            '"12"',
+            "null"
         ],
-        correct: 2,
-        explanation: 'The interval is cleared immediately, so only "Done" is logged.'
+        correct: 0,
+        explanation: 'The second setItem overwrites the first, so getItem returns "2".'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 500);<br/>&nbsp;&nbsp;console.log("B");<br/>&nbsp;&nbsp;setTimeout(() => console.log("C"), 200);',
+        question: 'Can localStorage store data across different websites?',
         options: [
-            "A B C",
-            "B C A",
-            "B A C",
-            "C B A"
+            "No, each origin has its own storage",
+            "Yes, it is shared globally",
+            "Only with permission",
+            "Only on localhost"
         ],
-        correct: 1,
-        explanation: '"B" runs immediately, then "C" after 200ms, then "A" after 500ms.'
+        correct: 0,
+        explanation: 'localStorage is scoped to the origin (protocol + domain + port).'
     },
     {
         id: 12,
-        question: 'How do you stop a running interval?',
+        question: 'What is the output?<br><code>localStorage.removeItem("key");<br>console.log(localStorage.getItem("key"));</code>',
         options: [
-            "clearInterval(intervalId)",
-            "stopInterval(intervalId)",
-            "clearTimeout(intervalId)",
-            "endInterval(intervalId)"
+            "null",
+            "undefined",
+            '"" (empty string)',
+            "0"
         ],
         correct: 0,
-        explanation: 'Use clearInterval() with the ID returned by setInterval() to stop it.'
+        explanation: 'After removeItem, getItem returns null.'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;setTimeout(() => console.log("A"), 0);<br/>&nbsp;&nbsp;setTimeout(() => console.log("B"), 0);<br/>&nbsp;&nbsp;console.log("C");',
+        question: 'How do you check if a key exists in localStorage?',
         options: [
-            "A B C",
-            "C A B",
-            "A C B",
-            "B A C"
+            'localStorage.getItem("key") !== null',
+            'localStorage.has("key")',
+            'localStorage.exists("key")',
+            'localStorage.contains("key")'
         ],
-        correct: 1,
-        explanation: '"C" runs first (synchronous), then the timeouts run in order (A then B).'
+        correct: 0,
+        explanation: 'Check if getItem returns something other than null.'
     },
     {
         id: 14,
-        question: 'Can setTimeout be used to create a repeating timer?',
+        question: 'What is the output?<br><code>localStorage.setItem("count", 5);<br>console.log(localStorage.getItem("count") + 1);</code>',
         options: [
-            "Yes, by calling setTimeout inside itself",
-            "No, only setInterval can repeat",
-            "Only in Node.js",
-            "Only in browsers"
-        ],
-        correct: 0,
-        explanation: 'Yes, you can create a repeating timer by calling setTimeout recursively within itself.'
-    },
-    {
-        id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let count = 0;<br/>&nbsp;&nbsp;let id = setInterval(() => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;count++;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(count);<br/>&nbsp;&nbsp;&nbsp;&nbsp;if(count === 2) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearInterval(id);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}, 1000);',
-        options: [
-            "1 2",
-            "1 2 3",
-            "1",
+            '"51"',
+            "6",
+            "51",
             "Error"
         ],
         correct: 0,
-        explanation: 'The interval runs twice (1, 2) and stops when count===2.'
+        explanation: 'The value is stored as the string "5", so "5" + 1 = "51" (string concatenation).'
+    },
+    {
+        id: 15,
+        question: 'Where is localStorage data actually saved?',
+        options: [
+            "In the browser, tied to the origin",
+            "On the server",
+            "In the HTML file",
+            "In a cookie"
+        ],
+        correct: 0,
+        explanation: 'localStorage is saved by the browser, tied to the origin of the page.'
     }
 ];
 
@@ -369,14 +393,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 60 Quiz</h2>
+                        ">Level 60 Quiz · LocalStorage</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -402,7 +425,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -410,7 +432,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -569,9 +590,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -620,7 +639,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -687,7 +706,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -821,7 +840,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered setTimeout and setInterval!';
+        message += ' 🌟 Perfect score! You\'ve mastered localStorage basics!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -877,25 +896,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'setTimeout & setInterval';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

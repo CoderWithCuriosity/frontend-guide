@@ -1,222 +1,194 @@
 /**
- * Level 63: Template Literals
+ * Level 63: Template Literals - Clean HTML Generation
  * 
- * This file demonstrates template literals in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC TEMPLATE LITERALS
+// TEMPLATE LITERAL HTML GENERATION DEMO
 // ============================================
 
-console.log("--- Basic Template Literals ---");
+const SAMPLE_ITEMS = ["JavaScript", "HTML", "CSS", "DOM", "Fetch API"];
 
-let name = "John";
-let age = 25;
-let city = "New York";
-
-let greeting = `Hello, ${name}! You are ${age} years old.`;
-console.log(greeting);
-
-// ============================================
-// EXPRESSIONS IN TEMPLATE LITERALS
-// ============================================
-
-console.log("\n--- Expressions in Template Literals ---");
-
-let a = 5;
-let b = 3;
-
-let mathResult = `5 + 3 = ${a + b}`;
-console.log(mathResult);
-
-let comparison = `5 > 3 is ${a > b}`;
-console.log(comparison);
-
-let conditional = `${a > b ? "5 is greater" : "5 is not greater"}`;
-console.log(conditional);
-
-// ============================================
-// FUNCTION CALLS IN TEMPLATE LITERALS
-// ============================================
-
-console.log("\n--- Function Calls in Template Literals ---");
-
-function greet(name) {
-    return "Hello " + name;
+function setOutput(html, color = "#f0c674") {
+    const out = document.getElementById("outputArea");
+    if (out) {
+        out.textContent = html;
+        out.style.color = color;
+    }
 }
 
-let message = `Greeting: ${greet("Alice")}`;
-console.log(message);
+function readInputs() {
+    const name = (document.getElementById("nameField").value || "Alice").trim();
+    const age = (document.getElementById("ageField").value || "28").trim();
+    const city = (document.getElementById("cityField").value || "Portland").trim();
+    const role = (document.getElementById("roleField").value || "Developer").trim();
+    return { name, age, city, role };
+}
 
-let upperName = `UPPERCASE: ${name.toUpperCase()}`;
-console.log(upperName);
+function generateCard() {
+    const { name, age, city, role } = readInputs();
 
-// ============================================
-// MULTI-LINE STRINGS
-// ============================================
+    const html = `<div class="user-card">
+  <h2>${name}</h2>
+  <p>Age: ${age}</p>
+  <p>City: ${city}</p>
+  <p>Role: ${role}</p>
+  <span class="tag">${role}</span>
+</div>`;
 
-console.log("\n--- Multi-line Strings ---");
+    const preview = document.getElementById("previewTarget");
+    if (preview) preview.innerHTML = html;
 
-let multiLine = `
-This is a
-multi-line
-string.
-`;
+    setOutput(html, "#f0c674");
+    console.log("Generated user card HTML:\n", html);
+}
 
-console.log(multiLine);
+function generateList() {
+    const { name } = readInputs();
 
-let html = `
-<div class="card">
-    <h2>${name}</h2>
-    <p>Age: ${age}</p>
-    <p>City: ${city}</p>
-</div>
-`;
+    const itemsHtml = SAMPLE_ITEMS
+        .map((item, i) => `    <li data-index="${i}">${item}</li>`)
+        .join("\n");
 
-console.log(html);
+    const html = `<div class="user-card">
+  <h2>${name}'s Skills</h2>
+  <ul>
+${itemsHtml}
+  </ul>
+</div>`;
 
-// ============================================
-// NESTED TEMPLATE LITERALS
-// ============================================
+    const preview = document.getElementById("previewTarget");
+    if (preview) preview.innerHTML = html;
 
-console.log("\n--- Nested Template Literals ---");
+    setOutput(html, "#7ec8e3");
+    console.log("Generated list HTML:\n", html);
+}
 
-let items = ["Apple", "Banana", "Orange"];
+function generateRaw() {
+    const { name, age, city, role } = readInputs();
 
-let list = `
-<ul>
-    ${items.map(item => `<li>${item}</li>`).join('')}
-</ul>
-`;
+    const html = `<div class="user-card">
+  <h2>${name}</h2>
+  <p>Age: ${age}</p>
+  <p>City: ${city}</p>
+  <p>Role: ${role}</p>
+</div>`;
 
-console.log(list);
+    setOutput(html, "#8ec07c");
+    console.log("Raw HTML string:", html);
+    console.log("String length:", html.length);
 
-// ============================================
-// TEMPLATE LITERALS WITH OBJECTS
-// ============================================
+    // Do NOT update preview in this mode
+}
 
-console.log("\n--- Template Literals with Objects ---");
-
-let user = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 25,
-    address: {
-        street: "123 Main St",
-        city: "New York",
-        zip: "10001"
+function clearPreview() {
+    const preview = document.getElementById("previewTarget");
+    if (preview) {
+        preview.innerHTML = '<span style="color: var(--text-muted); font-style: italic;">Click a button to render HTML...</span>';
     }
-};
+    setOutput("// The generated HTML string will appear here...", "#a3a3c2");
+    console.log("Preview cleared");
+}
 
-let userInfo = `
-Name: ${user.firstName} ${user.lastName}
-Age: ${user.age}
-Address: ${user.address.street}, ${user.address.city}, ${user.address.zip}
-`;
+// Typing animation + live input logging
+document.addEventListener("DOMContentLoaded", function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Template Literals & HTML';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-console.log(userInfo);
-
-// ============================================
-// TAGGED TEMPLATE LITERALS (ADVANCED)
-// ============================================
-
-console.log("\n--- Tagged Template Literals ---");
-
-function highlight(strings, ...values) {
-    let result = "";
-    for (let i = 0; i < strings.length; i++) {
-        result += strings[i];
-        if (i < values.length) {
-            result += `**${values[i]}**`;
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
         }
+        step();
+    } else if (el) {
+        el.textContent = text;
     }
-    return result;
-}
 
-let highlighted = highlight`Hello ${name}, you are ${age} years old.`;
-console.log(highlighted);
+    ["nameField", "ageField", "cityField", "roleField"].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.addEventListener("input", function() {
+                console.log(`${id} changed to:`, this.value);
+            });
+        }
+    });
+});
 
 // ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Template Literals — Clean HTML Generation)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What characters are used for template literals?',
+        question: 'What characters wrap a template literal?',
         options: [
             "Backticks (`)",
             "Single quotes (')",
             "Double quotes (\")",
-            "Angle brackets (<>)"
+            "Square brackets ([])"
         ],
         correct: 0,
-        explanation: 'Template literals use backticks (`) instead of quotes.'
+        explanation: 'Template literals are wrapped in backticks (`).'
     },
     {
         id: 2,
-        question: 'What syntax is used for embedding expressions in template literals?',
+        question: 'How do you embed a variable inside a template literal?',
         options: [
-            "${expression}",
-            "#{expression}",
-            "{{expression}}",
-            "$(expression)"
+            "${variable}",
+            "#{variable}",
+            "{{variable}}",
+            "$(variable)"
         ],
         correct: 0,
-        explanation: 'Use ${expression} to embed expressions in template literals.'
+        explanation: 'Use ${variable} to embed a variable or expression.'
     },
     {
         id: 3,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name}`);',
+        question: 'What is the output?<br><code>let n = "Alice";<br>console.log(`&lt;h1&gt;${n}&lt;/h1&gt;`);</code>',
         options: [
-            "Hello John",
-            "Hello ${name}",
-            "Hello name",
+            '&lt;h1&gt;Alice&lt;/h1&gt;',
+            '&lt;h1&gt;${n}&lt;/h1&gt;',
+            '&lt;h1&gt;n&lt;/h1&gt;',
             "Error"
         ],
         correct: 0,
-        explanation: 'The expression ${name} is replaced with "John", so output is "Hello John".'
+        explanation: '${n} is replaced with "Alice", producing &lt;h1&gt;Alice&lt;/h1&gt;.'
     },
     {
         id: 4,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let x = 5;<br/>&nbsp;&nbsp;console.log(`x + 3 = ${x + 3}`);',
+        question: 'Why are template literals better than concatenation for HTML?',
         options: [
-            "x + 3 = 8",
-            "x + 3 = ${x + 3}",
-            "x + 3 = 5 + 3",
-            "Error"
+            "They are more readable and support multi-line markup",
+            "They run faster",
+            "They are required in modern browsers",
+            "They automatically escape HTML"
         ],
         correct: 0,
-        explanation: 'The expression ${x + 3} is evaluated to 8, so output is "x + 3 = 8".'
+        explanation: 'Template literals are more readable and allow multi-line HTML without + signs.'
     },
     {
         id: 5,
-        question: 'Can template literals span multiple lines?',
+        question: 'How do you insert a list of array items into a template literal?',
         options: [
-            "Yes",
-            "No",
-            "Only with special characters",
-            "Only in Node.js"
+            'items.map(i => `&lt;li&gt;${i}&lt;/li&gt;`).join("")',
+            "items.join()",
+            "items.toString()",
+            "items.forEach()"
         ],
         correct: 0,
-        explanation: 'Yes, template literals can span multiple lines without any special characters.'
+        explanation: 'Use .map() to build each item and .join("") to concatenate them into one string.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name.toUpperCase()}`);',
-        options: [
-            "Hello JOHN",
-            "Hello John",
-            "Hello ${name.toUpperCase()}",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'The expression ${name.toUpperCase()} is evaluated to "JOHN".'
-    },
-    {
-        id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let a = 5;<br/>&nbsp;&nbsp;let b = 3;<br/>&nbsp;&nbsp;console.log(`${a} + ${b} = ${a + b}`);',
+        question: 'What is the output?<br><code>let a = 5;<br>let b = 3;<br>console.log(`${a} + ${b} = ${a + b}`);</code>',
         options: [
             "5 + 3 = 8",
             "5 + 3 = ${a + b}",
@@ -224,103 +196,115 @@ const QUIZ_QUESTIONS = [
             "Error"
         ],
         correct: 0,
-        explanation: 'All expressions are evaluated: ${a} = 5, ${b} = 3, ${a + b} = 8.'
+        explanation: 'All ${} expressions are evaluated: 5, 3, and 8.'
     },
     {
-        id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let items = ["A","B","C"];<br/>&nbsp;&nbsp;console.log(`${items.join(",")}`);',
+        id: 7,
+        question: 'Can a template literal span multiple lines?',
         options: [
-            "A,B,C",
-            "A, B, C",
-            "items.join",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'items.join(",") returns "A,B,C", which is embedded in the template.'
-    },
-    {
-        id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name}`);<br/>&nbsp;&nbsp;console.log(`Hello ${name}`);',
-        options: [
-            "Hello John (twice)",
-            "Hello John",
-            "Hello ${name}",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'Both template literals are evaluated, outputting "Hello John" twice.'
-    },
-    {
-        id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let x = 10;<br/>&nbsp;&nbsp;let y = 20;<br/>&nbsp;&nbsp;console.log(`${x} + ${y} = ${x + y}`);',
-        options: [
-            "10 + 20 = 30",
-            "10 + 20 = ${x + y}",
-            "${x} + ${y} = ${x + y}",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'All expressions are evaluated: ${x} = 10, ${y} = 20, ${x + y} = 30.'
-    },
-    {
-        id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let name = "John";<br/>&nbsp;&nbsp;console.log(`Hello ${name}!`.length);',
-        options: [
-            "11",
-            "10",
-            "12",
-            "Error"
-        ],
-        correct: 0,
-        explanation: '"Hello John!" has 11 characters (including the space and exclamation).'
-    },
-    {
-        id: 12,
-        question: 'Can you use template literals inside template literals?',
-        options: [
-            "Yes",
-            "No",
-            "Only if they are escaped",
+            "Yes, without any special characters",
+            "No, only one line",
+            "Only with \\n",
             "Only in Node.js"
         ],
         correct: 0,
-        explanation: 'Yes, you can nest template literals inside each other.'
+        explanation: 'Template literals naturally support multi-line strings.'
+    },
+    {
+        id: 8,
+        question: 'What is the output?<br><code>let html = `&lt;p&gt;${1 + 1}&lt;/p&gt;`;<br>console.log(html);</code>',
+        options: [
+            "&lt;p&gt;2&lt;/p&gt;",
+            "&lt;p&gt;1 + 1&lt;/p&gt;",
+            "&lt;p&gt;${1 + 1}&lt;/p&gt;",
+            "Error"
+        ],
+        correct: 0,
+        explanation: '${1 + 1} is evaluated to 2, producing &lt;p&gt;2&lt;/p&gt;.'
+    },
+    {
+        id: 9,
+        question: 'What property do you set to render a template literal as HTML?',
+        options: [
+            "element.innerHTML",
+            "element.textContent",
+            "element.value",
+            "element.style"
+        ],
+        correct: 0,
+        explanation: 'Assign the template string to element.innerHTML to render it as HTML.'
+    },
+    {
+        id: 10,
+        question: 'What is the output?<br><code>let items = ["A","B"];<br>let html = `&lt;ul&gt;${items.map(i => `&lt;li&gt;${i}&lt;/li&gt;`).join("")}&lt;/ul&gt;`;<br>console.log(html);</code>',
+        options: [
+            "&lt;ul&gt;&lt;li&gt;A&lt;/li&gt;&lt;li&gt;B&lt;/li&gt;&lt;/ul&gt;",
+            "&lt;ul&gt;A,B&lt;/ul&gt;",
+            "&lt;ul&gt;${items}&lt;/ul&gt;",
+            "Error"
+        ],
+        correct: 0,
+        explanation: 'Each item is wrapped in &lt;li&gt; and joined into a single string.'
+    },
+    {
+        id: 11,
+        question: 'What is the output?<br><code>let name = "Alice";<br>console.log(`Hello ${name}!`.length);</code>',
+        options: [
+            "12",
+            "11",
+            "13",
+            "Error"
+        ],
+        correct: 0,
+        explanation: '"Hello Alice!" has 12 characters, including the space and exclamation mark.'
+    },
+    {
+        id: 12,
+        question: 'Can you nest template literals inside ${}?',
+        options: [
+            "Yes, but they must use a different approach or carefully nested backticks",
+            "No, never",
+            "Only in Node.js",
+            "Only in strict mode"
+        ],
+        correct: 0,
+        explanation: 'You can nest template literals inside ${}, though deeply nested ones reduce readability.'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let result = `5 * 3 = ${5 * 3}`;<br/>&nbsp;&nbsp;console.log(result);',
+        question: 'What is the output?<br><code>let user = { name: "Alice", age: 28 };<br>console.log(`&lt;p&gt;${user.name} (${user.age})&lt;/p&gt;`);</code>',
         options: [
-            "5 * 3 = 15",
-            "5 * 3 = ${5 * 3}",
-            "5 * 3 = 5 * 3",
+            "&lt;p&gt;Alice (28)&lt;/p&gt;",
+            "&lt;p&gt;user.name (user.age)&lt;/p&gt;",
+            "&lt;p&gt;${user.name} (${user.age})&lt;/p&gt;",
             "Error"
         ],
         correct: 0,
-        explanation: 'The expression ${5 * 3} is evaluated to 15.'
+        explanation: 'The expressions ${user.name} and ${user.age} are evaluated, producing &lt;p&gt;Alice (28)&lt;/p&gt;.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;console.log(`Hello ${obj.name}`);',
+        question: 'Why is it common to call .join("") after .map() in a template literal?',
         options: [
-            "Hello John",
-            "Hello ${obj.name}",
-            "Hello obj.name",
-            "Error"
+            "Because .map() returns an array and template literals need a string",
+            "Because .map() mutates the array",
+            "Because .join() sorts the items",
+            "Because .map() only works on strings"
         ],
         correct: 0,
-        explanation: '${obj.name} accesses the name property, outputting "Hello John".'
+        explanation: '.map() returns an array; .join("") converts it into a single string for the template.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let a = 1;<br/>&nbsp;&nbsp;let b = 2;<br/>&nbsp;&nbsp;console.log(`${a} + ${b} = ${a + b}`);<br/>&nbsp;&nbsp;console.log(`${a + b} is the sum`);',
+        question: 'What is the output?<br><code>let x = 10;<br>let html = `&lt;div&gt;${x > 5 ? "big" : "small"}&lt;/div&gt;`;<br>console.log(html);</code>',
         options: [
-            "1 + 2 = 3 and 3 is the sum",
-            "1 + 2 = 3 and ${a + b} is the sum",
-            "${a} + ${b} = ${a + b} and ${a + b} is the sum",
+            "&lt;div&gt;big&lt;/div&gt;",
+            "&lt;div&gt;small&lt;/div&gt;",
+            "&lt;div&gt;${x &gt; 5 ? \"big\" : \"small\"}&lt;/div&gt;",
             "Error"
         ],
         correct: 0,
-        explanation: 'Both template literals evaluate their expressions correctly.'
+        explanation: '${x > 5 ? "big" : "small"} evaluates to "big" since 10 > 5, producing &lt;div&gt;big&lt;/div&gt;.'
     }
 ];
 
@@ -385,14 +369,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 63 Quiz</h2>
+                        ">Level 63 Quiz · Template Literals + HTML</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -418,7 +401,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -426,7 +408,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -585,9 +566,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -636,7 +615,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -703,7 +682,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -837,7 +816,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered template literals!';
+        message += ' 🌟 Perfect score! You\'ve mastered template literals for HTML!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -893,25 +872,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Template Literals';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

@@ -1,393 +1,300 @@
 /**
- * Level 58: Async/Await
+ * Level 58: Background Color Changer - DOM Project
  * 
- * This file demonstrates async/await in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC ASYNC/AWAIT
+// BACKGROUND COLOR CHANGER DEMO
 // ============================================
 
-console.log("--- Basic Async/Await ---");
+const PRESET_COLORS = [
+    "#f38ba8", // red
+    "#fab387", // peach
+    "#f9e2af", // yellow
+    "#a6e3a1", // green
+    "#89dceb", // sky
+    "#cba6f7", // mauve
+    "#94e2d5", // teal
+    "#b4befe"  // lavender
+];
 
-async function getPost(id) {
-    try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts/" + id);
-        
-        if (!response.ok) {
-            throw new Error("HTTP error! status: " + response.status);
+let currentColorIndex = -1;
+let originalBackground = null;
+
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("colorOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
+    }
+}
+
+function setTargetColor(color) {
+    const target = document.getElementById("colorTarget");
+    const display = document.getElementById("currentColorDisplay");
+    if (!target || !display) return;
+
+    if (originalBackground === null) {
+        originalBackground = getComputedStyle(target).backgroundColor;
+    }
+
+    target.style.backgroundColor = color;
+    display.textContent = color;
+    display.style.color = color === "#f9e2af" ? "#1a1a1a" : "#e9e9f5";
+
+    setOutput(`🎨 Background color set to <span class="highlight">${color}</span>`, "#8ec07c");
+    console.log("Set target background color to:", color);
+}
+
+function randomColor() {
+    // Generate a random hex color
+    const random = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0");
+    setTargetColor(random);
+    setOutput(`🎲 Random color generated: <span class="highlight">${random}</span>`, "#f0c674");
+    console.log("Random color:", random);
+}
+
+function cycleColors() {
+    currentColorIndex = (currentColorIndex + 1) % PRESET_COLORS.length;
+    const color = PRESET_COLORS[currentColorIndex];
+    setTargetColor(color);
+    setOutput(
+        `🔄 Cycled to color ${currentColorIndex + 1}/${PRESET_COLORS.length}: <span class="highlight">${color}</span>`,
+        "#7ec8e3"
+    );
+    console.log("Cycled to color:", color);
+}
+
+function changePageBackground() {
+    const random = "#" + Math.floor(Math.random() * 0x333333).toString(16).padStart(6, "0");
+    document.body.style.backgroundColor = random;
+    setOutput(`🖼️ Page background changed to <span class="highlight">${random}</span>`, "#b58aef");
+    console.log("Page background changed to:", random);
+}
+
+function resetColor() {
+    const target = document.getElementById("colorTarget");
+    const display = document.getElementById("currentColorDisplay");
+    if (target) {
+        target.style.backgroundColor = "";
+    }
+    if (display) {
+        display.textContent = "Default";
+        display.style.color = "#e9e9f5";
+    }
+    document.body.style.backgroundColor = "";
+    currentColorIndex = -1;
+    originalBackground = null;
+    setOutput("↺ Reset to default colors.", "#a3a3c2");
+    console.log("Colors reset to default");
+}
+
+// Typing animation + real-time logging
+document.addEventListener("DOMContentLoaded", function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Background Color Changer';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
         }
-        
-        let data = await response.json();
-        console.log("Post #" + id + ":", data.title);
-        return data;
-    } catch (error) {
-        console.error("Error:", error.message);
-        return null;
+        step();
+    } else if (el) {
+        el.textContent = text;
     }
-}
-
-// Call the async function
-getPost(1);
-
-// ============================================
-// AWAITING MULTIPLE REQUESTS
-// ============================================
-
-console.log("\n--- Awaiting Multiple Requests ---");
-
-async function getMultiplePosts() {
-    try {
-        console.log("Fetching multiple posts...");
-        
-        let post1 = await getPost(1);
-        let post2 = await getPost(2);
-        let post3 = await getPost(3);
-        
-        console.log("All posts fetched!");
-        console.log("Post 1:", post1?.title);
-        console.log("Post 2:", post2?.title);
-        console.log("Post 3:", post3?.title);
-        
-        return [post1, post2, post3];
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-
-getMultiplePosts();
-
-// ============================================
-// PARALLEL REQUESTS WITH PROMISE.ALL()
-// ============================================
-
-console.log("\n--- Parallel Requests with Promise.all() ---");
-
-async function getParallelPosts() {
-    try {
-        console.log("Fetching posts in parallel...");
-        let startTime = Date.now();
-        
-        let [post1, post2, post3] = await Promise.all([
-            fetch("https://jsonplaceholder.typicode.com/posts/1").then(r => r.json()),
-            fetch("https://jsonplaceholder.typicode.com/posts/2").then(r => r.json()),
-            fetch("https://jsonplaceholder.typicode.com/posts/3").then(r => r.json())
-        ]);
-        
-        let endTime = Date.now();
-        console.log("All posts fetched in", (endTime - startTime) + "ms");
-        console.log("Post 1:", post1.title);
-        console.log("Post 2:", post2.title);
-        console.log("Post 3:", post3.title);
-        
-        return [post1, post2, post3];
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-
-getParallelPosts();
-
-// ============================================
-// ASYNC FUNCTION WITH DELAY
-// ============================================
-
-console.log("\n--- Async Function with Delay ---");
-
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function delayedTask() {
-    console.log("Starting...");
-    await delay(1000);
-    console.log("After 1 second");
-    await delay(2000);
-    console.log("After 2 more seconds");
-    console.log("Done!");
-}
-
-delayedTask();
-
-// ============================================
-// ASYNC FUNCTION RETURN VALUE
-// ============================================
-
-console.log("\n--- Async Function Return Value ---");
-
-async function calculateSum() {
-    let result = 0;
-    for (let i = 1; i <= 5; i++) {
-        result += i;
-        await delay(100);
-        console.log("Step", i, "sum:", result);
-    }
-    return result;
-}
-
-calculateSum().then(result => {
-    console.log("Final sum:", result);
 });
 
 // ============================================
-// ERROR HANDLING WITH ASYNC/AWAIT
-// ============================================
-
-console.log("\n--- Error Handling with Async/Await ---");
-
-async function fetchWithErrorHandling(url) {
-    try {
-        console.log("Fetching:", url);
-        let response = await fetch(url);
-        
-        if (!response.ok) {
-            throw new Error("HTTP error! status: " + response.status);
-        }
-        
-        let data = await response.json();
-        console.log("Data:", data);
-        return data;
-    } catch (error) {
-        console.error("Caught error:", error.message);
-        return null;
-    }
-}
-
-// Test with valid URL
-fetchWithErrorHandling("https://jsonplaceholder.typicode.com/posts/5");
-
-// Test with invalid URL (will fail)
-fetchWithErrorHandling("https://jsonplaceholder.typicode.com/invalid");
-
-// ============================================
-// COMPARING PROMISE CHAINING VS ASYNC/AWAIT
-// ============================================
-
-console.log("\n--- Promise Chaining vs Async/Await ---");
-
-// Promise chaining
-function getDataWithPromise() {
-    console.log("Using Promise chaining:");
-    return fetch("https://jsonplaceholder.typicode.com/posts/1")
-        .then(response => response.json())
-        .then(data => {
-            console.log("Data:", data.title);
-            return fetch("https://jsonplaceholder.typicode.com/users/" + data.userId);
-        })
-        .then(response => response.json())
-        .then(user => {
-            console.log("User:", user.name);
-            return { post: data, user: user };
-        })
-        .catch(error => console.error("Error:", error));
-}
-
-// Async/await version
-async function getDataWithAsync() {
-    console.log("Using Async/Await:");
-    try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-        let post = await response.json();
-        console.log("Data:", post.title);
-        
-        let userResponse = await fetch("https://jsonplaceholder.typicode.com/users/" + post.userId);
-        let user = await userResponse.json();
-        console.log("User:", user.name);
-        
-        return { post, user };
-    } catch (error) {
-        console.error("Error:", error);
-    }
-}
-
-getDataWithPromise();
-getDataWithAsync();
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Background Color Changer)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does the async keyword do?',
+        question: 'How do you change the background color of an element in JavaScript?',
         options: [
-            "Declares an asynchronous function",
-            "Waits for a Promise",
-            "Handles errors",
-            "Returns a value"
+            'element.style.backgroundColor = "red"',
+            'element.background = "red"',
+            'element.color = "red"',
+            'element.bgColor = "red"'
         ],
         correct: 0,
-        explanation: 'The async keyword declares that a function is asynchronous and returns a Promise.'
+        explanation: 'Use element.style.backgroundColor = "color" to change the background color.'
     },
     {
         id: 2,
-        question: 'What does the await keyword do?',
+        question: 'Which CSS property is controlled by <code>element.style.backgroundColor</code>?',
         options: [
-            "Waits for a Promise to resolve",
-            "Declares a function",
-            "Handles errors",
-            "Creates a Promise"
+            "background-color",
+            "background",
+            "color",
+            "fill"
         ],
         correct: 0,
-        explanation: 'await pauses the execution of an async function until a Promise is resolved.'
+        explanation: 'element.style.backgroundColor maps to the CSS background-color property.'
     },
     {
         id: 3,
-        question: 'What does an async function return?',
+        question: 'What is the output?<br><code>let box = document.getElementById("box");<br>box.style.backgroundColor = "#a6e3a1";</code>',
         options: [
-            "A Promise",
-            "A value",
-            "Undefined",
-            "An error"
+            'The box turns green',
+            "The box turns red",
+            "The box disappears",
+            "Nothing happens"
         ],
         correct: 0,
-        explanation: 'Async functions always return a Promise, even if you return a value.'
+        explanation: '#a6e3a1 is a green color, so the box turns green.'
     },
     {
         id: 4,
-        question: 'What is the correct syntax for an async function?',
+        question: 'How do you add a click listener to a button?',
         options: [
-            "async function name() { }",
-            "function async name() { }",
-            "function name() async { }",
-            "async: function name() { }"
+            'button.addEventListener("click", fn)',
+            'button.onClick = fn',
+            'button.click(fn)',
+            'button.listen("click", fn)'
         ],
         correct: 0,
-        explanation: 'The correct syntax is "async function name() { }" or "const name = async function() { }".'
+        explanation: 'Use addEventListener("click", function) to run code on click.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return 5;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(test());',
+        question: 'What is the output?<br><code>let box = document.getElementById("box");<br>box.style.backgroundColor = "rgb(255, 0, 0)";</code>',
         options: [
-            "Logs a Promise",
-            "Logs 5",
-            "Logs undefined",
-            "Throws an error"
+            "The box turns red",
+            "The box turns blue",
+            "The box turns green",
+            "Invalid color"
         ],
         correct: 0,
-        explanation: 'async functions return a Promise, so test() logs a Promise object.'
+        explanation: 'rgb(255, 0, 0) is red, so the box turns red.'
     },
     {
         id: 6,
-        question: 'How do you handle errors in async functions?',
+        question: 'How do you generate a random hex color?',
         options: [
-            "try/catch",
-            "Error handling is automatic",
-            "Use .catch()",
-            "Use .then()"
+            'Math.floor(Math.random() * 16777215).toString(16)',
+            "Math.random().toString(16)",
+            "Math.color()",
+            "random.hex()"
         ],
         correct: 0,
-        explanation: 'Use try/catch blocks to handle errors in async functions.'
+        explanation: 'Multiply Math.random() by 16777215 (0xFFFFFF) and convert to base 16.'
     },
     {
         id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return 5;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test().then(data => console.log(data));',
+        question: 'What is the output?<br><code>Math.floor(Math.random() * 2)</code>',
         options: [
-            "5",
-            "Promise",
-            "undefined",
-            "Error"
+            "0 or 1",
+            "1 or 2",
+            "Any number",
+            "0 only"
         ],
         correct: 0,
-        explanation: 'The Promise resolves to 5, so .then() logs 5.'
+        explanation: 'Math.random() returns a value between 0 and 1, so Math.floor(random * 2) gives 0 or 1.'
     },
     {
         id: 8,
-        question: 'Can you use await without async?',
+        question: 'What does <code>element.style.backgroundColor = ""</code> do?',
         options: [
-            "No",
-            "Yes",
-            "Only in browsers",
-            "Only in Node.js"
+            "Resets the inline background color",
+            "Sets the color to black",
+            "Throws an error",
+            "Removes the element"
         ],
         correct: 0,
-        explanation: 'await can only be used inside functions declared with the async keyword.'
+        explanation: 'Assigning an empty string clears the inline style, so the CSS default applies.'
     },
     {
         id: 9,
-        question: 'What does Promise.all() do with await?',
+        question: 'Which of these is NOT a valid CSS color value for backgroundColor?',
         options: [
-            "Waits for all promises to resolve in parallel",
-            "Waits for promises one by one",
-            "Creates a new Promise",
-            "Handles errors"
+            "12345",
+            "#ff0000",
+            "rgb(255, 0, 0)",
+            "red"
         ],
         correct: 0,
-        explanation: 'Promise.all() with await waits for all promises to resolve in parallel.'
+        explanation: '12345 is a number, not a valid color string. Colors must be strings like "#ff0000" or "red".'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;await new Promise(r => setTimeout(r, 1000));<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Done");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log("Start");<br/>&nbsp;&nbsp;test();',
+        question: 'What is the output?<br><code>let c = "#" + (123456).toString(16);<br>console.log(c);</code>',
         options: [
-            "Start Done",
-            "Done Start",
-            "Start",
-            "Done"
-        ],
-        correct: 0,
-        explanation: '"Start" is logged first, then after 1 second, "Done" is logged.'
-    },
-    {
-        id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Failed");<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test().catch(e => console.log(e.message));',
-        options: [
-            "Failed",
-            "Error",
-            "undefined",
-            "Promise"
-        ],
-        correct: 0,
-        explanation: 'The error is caught and the message "Failed" is logged.'
-    },
-    {
-        id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let x = await 5;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(x);<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test();',
-        options: [
-            "5",
-            "undefined",
-            "Error",
-            "Promise"
-        ],
-        correct: 0,
-        explanation: 'await 5 resolves to 5, so console.log logs 5.'
-    },
-    {
-        id: 13,
-        question: 'What is the difference between async/await and Promise.then()?',
-        options: [
-            "Async/await is syntactic sugar for promises",
-            "They are completely different",
-            "Async/await is faster",
-            "Promise.then() is deprecated"
-        ],
-        correct: 0,
-        explanation: 'Async/await is syntactic sugar that makes Promise-based code more readable.'
-    },
-    {
-        id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;async function test() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return await 10;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;test().then(x => console.log(x));',
-        options: [
-            "10",
-            "Promise",
-            "undefined",
+            '"#1e240"',
+            '"#123456"',
+            '"#12345"',
             "Error"
         ],
         correct: 0,
-        explanation: 'await 10 resolves to 10, which is returned and logged.'
+        explanation: '123456 in hex is 1e240, so the string is "#1e240".'
+    },
+    {
+        id: 11,
+        question: 'How do you apply a smooth transition to a background color change?',
+        options: [
+            "Add a CSS transition property",
+            "Use a faster computer",
+            "Call setTimeout",
+            "Use an animation library only"
+        ],
+        correct: 0,
+        explanation: 'CSS transitions (e.g., transition: background-color 0.4s ease) make color changes smooth.'
+    },
+    {
+        id: 12,
+        question: 'What is the output?<br><code>let x = "#f38ba8";<br>document.getElementById("box").style.backgroundColor = x;</code>',
+        options: [
+            "The box gets a pink/red background",
+            "The box gets a blue background",
+            "The box turns white",
+            "Error"
+        ],
+        correct: 0,
+        explanation: '#f38ba8 is a pink/red color, so the box becomes pink/red.'
+    },
+    {
+        id: 13,
+        question: 'Which syntax correctly sets an inline style from JavaScript?',
+        options: [
+            'el.style.color = "red"',
+            "el.style-color = red",
+            'el.css("color", "red")',
+            'el.setStyle("color", "red")'
+        ],
+        correct: 0,
+        explanation: 'Use camelCase in JavaScript: el.style.color = "red".'
+    },
+    {
+        id: 14,
+        question: 'What is the output?<br><code>let n = 255;<br>console.log(n.toString(16));</code>',
+        options: [
+            '"ff"',
+            '"255"',
+            '"FF"',
+            "Error"
+        ],
+        correct: 0,
+        explanation: '255 in hexadecimal is "ff" (lowercase because toString returns lowercase letters).'
     },
     {
         id: 15,
-        question: 'What does the try block do in async functions?',
+        question: 'Why might you store the original color before changing it?',
         options: [
-            "Attempts to run code that might throw an error",
-            "Catches errors",
-            "Runs code after errors",
-            "Creates a Promise"
+            "To restore it later with a Reset button",
+            "To speed up the page",
+            "To prevent errors",
+            "Because CSS requires it"
         ],
         correct: 0,
-        explanation: 'The try block attempts to run code that might throw an error, which is caught in the catch block.'
+        explanation: 'Saving the original color lets you restore it later, e.g., with a Reset button.'
     }
 ];
 
@@ -452,14 +359,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 58 Quiz</h2>
+                        ">Level 58 Quiz · Color Changer</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -485,7 +391,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -493,7 +398,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -652,9 +556,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -703,7 +605,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -770,7 +672,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -904,7 +806,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered async/await!';
+        message += ' 🌟 Perfect score! You\'ve mastered DOM color changes!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -960,25 +862,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Async/Await';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

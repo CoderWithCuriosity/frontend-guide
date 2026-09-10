@@ -1,322 +1,295 @@
 /**
- * Level 53: Local Storage
+ * Level 53: Object CRUD - Creating & Reading Properties
  * 
- * This file demonstrates localStorage in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// SETTING AND GETTING DATA
+// OBJECT CRUD DEMO (Creating & Reading)
 // ============================================
 
-console.log("--- Setting and Getting Data ---");
-
-// Save data
-localStorage.setItem("name", "John Doe");
-localStorage.setItem("age", "25");
-localStorage.setItem("city", "New York");
-
-console.log("Data saved to localStorage!");
-
-// Retrieve data
-let name = localStorage.getItem("name");
-let age = localStorage.getItem("age");
-let city = localStorage.getItem("city");
-
-console.log("Name:", name);
-console.log("Age:", age);
-console.log("City:", city);
-
-// ============================================
-// CHECKING IF DATA EXISTS
-// ============================================
-
-console.log("\n--- Checking if Data Exists ---");
-
-let email = localStorage.getItem("email");
-console.log("email:", email);
-
-if (email === null) {
-    console.log("Email not found in localStorage");
-} else {
-    console.log("Email found:", email);
-}
-
-// ============================================
-// REMOVING DATA
-// ============================================
-
-console.log("\n--- Removing Data ---");
-
-localStorage.removeItem("age");
-console.log("Removed 'age' from localStorage");
-
-let ageCheck = localStorage.getItem("age");
-console.log("Age after removal:", ageCheck);
-
-// ============================================
-// UPDATING DATA
-// ============================================
-
-console.log("\n--- Updating Data ---");
-
-localStorage.setItem("name", "Jane Smith");
-let updatedName = localStorage.getItem("name");
-console.log("Updated name:", updatedName);
-
-// ============================================
-// STORING OBJECTS (JSON)
-// ============================================
-
-console.log("\n--- Storing Objects (JSON) ---");
-
-let user = {
-    name: "John",
-    age: 25,
-    city: "Boston",
-    isStudent: false
+let demoObject = {
+    name: "Alice",
+    age: 28,
+    city: "Portland",
+    hobby: "coding",
+    active: true,
+    score: 95
 };
 
-console.log("Object to store:", user);
-
-// Convert to JSON string
-let userJSON = JSON.stringify(user);
-localStorage.setItem("user", userJSON);
-console.log("Stored as JSON:", userJSON);
-
-// Retrieve and parse
-let storedUserJSON = localStorage.getItem("user");
-let storedUser = JSON.parse(storedUserJSON);
-console.log("Retrieved object:", storedUser);
-console.log("User name:", storedUser.name);
-
-// ============================================
-// STORING ARRAYS
-// ============================================
-
-console.log("\n--- Storing Arrays ---");
-
-let colors = ["red", "green", "blue", "yellow"];
-console.log("Array to store:", colors);
-
-let colorsJSON = JSON.stringify(colors);
-localStorage.setItem("colors", colorsJSON);
-
-let storedColors = JSON.parse(localStorage.getItem("colors"));
-console.log("Retrieved array:", storedColors);
-console.log("First color:", storedColors[0]);
-
-// ============================================
-// LOOPING THROUGH ALL DATA
-// ============================================
-
-console.log("\n--- Looping Through All Data ---");
-
-function showAllStorage() {
-    console.log("All localStorage data:");
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        let value = localStorage.getItem(key);
-        console.log("  " + key + " = " + value);
+function updateGrid() {
+    const keys = Object.keys(demoObject);
+    for (let i = 0; i < 6; i++) {
+        const el = document.getElementById(`objVal${i}`);
+        const keyEl = el ? el.parentElement.querySelector(".key") : null;
+        if (el && i < keys.length) {
+            const key = keys[i];
+            el.textContent = JSON.stringify(demoObject[key]);
+            if (keyEl) keyEl.textContent = key;
+        } else if (el) {
+            el.textContent = "undefined";
+            if (keyEl) keyEl.textContent = "—";
+        }
     }
 }
 
-showAllStorage();
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("objectOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
+    }
+}
+
+function readDot() {
+    const key = document.getElementById("keyInput").value.trim();
+    if (!key) {
+        setOutput("⚠️ Please enter a key.", "#f3a072");
+        return;
+    }
+    const value = demoObject[key];
+    if (value === undefined) {
+        setOutput(`obj.${key} → undefined  <span class="highlight">(property not found)</span>`, "#f3a072");
+    } else {
+        setOutput(`obj.${key} → ${JSON.stringify(value)}`, "#8ec07c");
+    }
+    console.log(`Read obj.${key}:`, value);
+    updateGrid();
+}
+
+function readBracket() {
+    const key = document.getElementById("keyInput").value.trim();
+    if (!key) {
+        setOutput("⚠️ Please enter a key.", "#f3a072");
+        return;
+    }
+    const value = demoObject[key];
+    if (value === undefined) {
+        setOutput(`obj["${key}"] → undefined  <span class="highlight">(property not found)</span>`, "#f3a072");
+    } else {
+        setOutput(`obj["${key}"] → ${JSON.stringify(value)}`, "#8ec07c");
+    }
+    console.log(`Read obj["${key}"]:`, value);
+    updateGrid();
+}
+
+function addProperty() {
+    const key = document.getElementById("newKeyInput").value.trim();
+    const val = document.getElementById("newValueInput").value.trim();
+    if (!key) {
+        setOutput("⚠️ Please enter a new key.", "#f3a072");
+        return;
+    }
+    if (!val) {
+        setOutput("⚠️ Please enter a value.", "#f3a072");
+        return;
+    }
+    const old = demoObject[key];
+    demoObject[key] = val;
+    const action = old === undefined ? "Added" : "Updated";
+    setOutput(`${action} obj["${key}"] = "${val}"  <span class="highlight">(previous: ${old !== undefined ? JSON.stringify(old) : 'undefined'})</span>`, "#8ec07c");
+    console.log(`${action} obj["${key}"] = "${val}"`);
+    updateGrid();
+}
+
+function resetObject() {
+    demoObject = {
+        name: "Alice",
+        age: 28,
+        city: "Portland",
+        hobby: "coding",
+        active: true,
+        score: 95
+    };
+    setOutput('Object reset to { name: "Alice", age: 28, city: "Portland", hobby: "coding", active: true, score: 95 }', "#a3a3c2");
+    console.log("Object reset");
+    updateGrid();
+}
+
+function showObject() {
+    const display = JSON.stringify(demoObject, null, 2);
+    setOutput(`Full object:\n${display}`, "#7ec8e3");
+    console.log("Object:", demoObject);
+}
+
+// Real-time input logging for demo object fields
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'Object CRUD: Create & Read';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    updateGrid();
+
+    // Demo object input logging
+    const keyInput = document.getElementById("keyInput");
+    const newKeyInput = document.getElementById("newKeyInput");
+    const newValueInput = document.getElementById("newValueInput");
+    if (keyInput) {
+        keyInput.addEventListener("input", function() {
+            console.log("Key field changed to:", this.value);
+        });
+    }
+    if (newKeyInput) {
+        newKeyInput.addEventListener("input", function() {
+            console.log("New key field changed to:", this.value);
+        });
+    }
+    if (newValueInput) {
+        newValueInput.addEventListener("input", function() {
+            console.log("New value field changed to:", this.value);
+        });
+    }
+});
 
 // ============================================
-// CLEARING ALL DATA
-// ============================================
-
-console.log("\n--- Clearing All Data ---");
-
-console.log("Clearing all localStorage data...");
-localStorage.clear();
-showAllStorage();
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Object CRUD: Creating & Reading)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'How do you save data to localStorage?',
-        options: [
-            "localStorage.setItem('key', 'value')",
-            "localStorage.save('key', 'value')",
-            "localStorage.store('key', 'value')",
-            "localStorage.put('key', 'value')"
-        ],
+        question: 'How do you read the "name" property of an object <code>person</code> using dot notation?',
+        options: ["person.name", "person->name", "person(name)", "person[name]"],
         correct: 0,
-        explanation: 'Use localStorage.setItem("key", "value") to save data to localStorage.'
+        explanation: 'Dot notation uses the literal property name: person.name.'
     },
     {
         id: 2,
-        question: 'How do you retrieve data from localStorage?',
-        options: [
-            "localStorage.getItem('key')",
-            "localStorage.get('key')",
-            "localStorage.retrieve('key')",
-            "localStorage.load('key')"
-        ],
+        question: 'How do you read the "age" property using bracket notation?',
+        options: ['person["age"]', "person[age]", "person{age}", "person(age)"],
         correct: 0,
-        explanation: 'Use localStorage.getItem("key") to retrieve data from localStorage.'
+        explanation: 'Bracket notation uses a string key: person["age"].'
     },
     {
         id: 3,
-        question: 'How do you remove data from localStorage?',
-        options: [
-            "localStorage.removeItem('key')",
-            "localStorage.delete('key')",
-            "localStorage.clearItem('key')",
-            "localStorage.remove('key')"
-        ],
+        question: 'What is the output?<br><code>let obj = { a: 1 }; console.log(obj.b);</code>',
+        options: ["undefined", "null", "0", "Error"],
         correct: 0,
-        explanation: 'Use localStorage.removeItem("key") to remove data from localStorage.'
+        explanation: 'Accessing a missing property returns undefined.'
     },
     {
         id: 4,
-        question: 'What does localStorage.getItem() return if the key doesn\'t exist?',
+        question: 'What does <code>obj["key"] = "value"</code> do?',
         options: [
-            "null",
-            "undefined",
-            "'' (empty string)",
-            "0"
+            "Adds or updates the property",
+            "Deletes the property",
+            "Reads the property",
+            "Throws an error"
         ],
         correct: 0,
-        explanation: 'localStorage.getItem() returns null if the key does not exist.'
+        explanation: 'Assigning to a property with bracket notation adds it if missing or updates it if it exists.'
     },
     {
         id: 5,
-        question: 'How do you clear all localStorage data?',
+        question: 'When should you use bracket notation instead of dot notation?',
         options: [
-            "localStorage.clear()",
-            "localStorage.removeAll()",
-            "localStorage.deleteAll()",
-            "localStorage.empty()"
+            "When the key is stored in a variable",
+            "When the key is a simple identifier",
+            "Only for numbers",
+            "Never"
         ],
         correct: 0,
-        explanation: 'Use localStorage.clear() to remove all data from localStorage.'
+        explanation: 'Bracket notation is required when the property name is dynamic (stored in a variable) or has special characters.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("name", "John");<br/>&nbsp;&nbsp;console.log(localStorage.getItem("name"));',
-        options: [
-            "John",
-            "name",
-            "null",
-            "undefined"
-        ],
+        question: 'What is the output?<br><code>let obj = { x: 10, y: 20 }; let k = "x"; console.log(obj[k]);</code>',
+        options: ["10", '"x"', "undefined", "Error"],
         correct: 0,
-        explanation: 'localStorage.getItem("name") retrieves the value "John".'
+        explanation: 'obj[k] uses the value of k ("x") as the key, so it returns 10.'
     },
     {
         id: 7,
-        question: 'Can localStorage store objects directly?',
-        options: [
-            "No, you need to use JSON.stringify()",
-            "Yes, directly",
-            "Only if they are small",
-            "Only if they are strings"
-        ],
+        question: 'How do you create an empty object?',
+        options: ["let obj = {}", "let obj = []", "let obj = ()", "let obj = null"],
         correct: 0,
-        explanation: 'localStorage stores strings only. You need to use JSON.stringify() for objects.'
+        explanation: 'Curly braces {} create a new empty object.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("key", "value");<br/>&nbsp;&nbsp;localStorage.removeItem("key");<br/>&nbsp;&nbsp;console.log(localStorage.getItem("key"));',
-        options: [
-            "null",
-            "value",
-            "undefined",
-            "''"
-        ],
+        question: 'What is the output?<br><code>let obj = { name: "Sam" }; obj.name = "Alex"; console.log(obj.name);</code>',
+        options: ["Alex", "Sam", "undefined", "Error"],
         correct: 0,
-        explanation: 'After removeItem, getItem returns null.'
+        explanation: 'Assigning to an existing property updates its value, so it becomes "Alex".'
     },
     {
         id: 9,
-        question: 'What does JSON.parse() do?',
-        options: [
-            "Converts a JSON string to an object",
-            "Converts an object to a JSON string",
-            "Creates a new JSON object",
-            "Deletes a JSON object"
-        ],
+        question: 'What is the output?<br><code>let obj = { a: 1, b: 2 }; console.log(obj["a"] + obj["b"]);</code>',
+        options: ["3", "12", "ab", "undefined"],
         correct: 0,
-        explanation: 'JSON.parse() converts a JSON string back into a JavaScript object.'
+        explanation: 'obj["a"] is 1 and obj["b"] is 2, so 1 + 2 = 3.'
     },
     {
         id: 10,
-        question: 'What does JSON.stringify() do?',
+        question: 'Which syntax correctly reads a property with a space in its name, like <code>"first name"</code>?',
         options: [
-            "Converts an object to a JSON string",
-            "Converts a JSON string to an object",
-            "Creates a new JSON object",
-            "Deletes a JSON object"
+            'obj["first name"]',
+            "obj.first name",
+            "obj.first-name",
+            "obj(first name)"
         ],
         correct: 0,
-        explanation: 'JSON.stringify() converts a JavaScript object into a JSON string.'
+        explanation: 'Bracket notation is required for keys with spaces: obj["first name"].'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("name", "John");<br/>&nbsp;&nbsp;localStorage.setItem("name", "Jane");<br/>&nbsp;&nbsp;console.log(localStorage.getItem("name"));',
-        options: [
-            "Jane",
-            "John",
-            "null",
-            "undefined"
-        ],
+        question: 'What is the output?<br><code>let obj = {}; obj["x"] = 5; console.log(obj.x);</code>',
+        options: ["5", "undefined", "null", "Error"],
         correct: 0,
-        explanation: 'The second setItem overwrites the first, so "Jane" is returned.'
+        explanation: 'Bracket notation and dot notation access the same property, so obj.x is 5.'
     },
     {
         id: 12,
-        question: 'What is localStorage?',
+        question: 'How do you check if a property exists in an object?',
         options: [
-            "A way to store data in the browser",
-            "A database server",
-            "A file system",
-            "A network protocol"
+            'obj.hasOwnProperty("key")',
+            "obj.exists(key)",
+            "obj.contains(key)",
+            "obj.has(key)"
         ],
         correct: 0,
-        explanation: 'localStorage is a browser API for storing data locally on the user\'s device.'
+        explanation: 'Use obj.hasOwnProperty("key") or the "in" operator to check property existence.'
     },
     {
         id: 13,
-        question: 'How do you check the number of items in localStorage?',
-        options: [
-            "localStorage.length",
-            "localStorage.count",
-            "localStorage.size",
-            "localStorage.total"
-        ],
+        question: 'What is the output?<br><code>let obj = { a: 1 }; let key = "a"; console.log(obj.key);</code>',
+        options: ["undefined", "1", '"a"', "Error"],
         correct: 0,
-        explanation: 'localStorage.length returns the number of items stored.'
+        explanation: 'obj.key looks for a property literally named "key", not the variable key. Use obj[key] instead.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let obj = { name: "John" };<br/>&nbsp;&nbsp;localStorage.setItem("user", JSON.stringify(obj));<br/>&nbsp;&nbsp;console.log(localStorage.getItem("user"));',
+        question: 'What is the difference between <code>obj.name</code> and <code>obj["name"]</code>?',
         options: [
-            '{"name":"John"}',
-            '{ name: "John" }',
-            'John',
-            'null'
+            "They read the same property",
+            "obj.name only works for numbers",
+            "obj[\"name\"] creates a new property",
+            "obj.name deletes the property"
         ],
         correct: 0,
-        explanation: 'JSON.stringify() converts the object to a JSON string, which is stored.'
+        explanation: 'Both read the same property when the key is a simple string; the syntax differs.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;localStorage.setItem("key", "value");<br/>&nbsp;&nbsp;console.log(localStorage.key(0));',
-        options: [
-            "key",
-            "value",
-            "null",
-            "undefined"
-        ],
+        question: 'What is the output?<br><code>let obj = { count: 0 }; console.log(obj.count);</code>',
+        options: ["0", "undefined", "null", "Error"],
         correct: 0,
-        explanation: 'localStorage.key(0) returns the key at index 0, which is "key".'
+        explanation: 'The property count exists with value 0, so it returns 0.'
     }
 ];
 
@@ -381,14 +354,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 53 Quiz</h2>
+                        ">Level 53 Quiz · Object CRUD</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -414,7 +386,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -422,7 +393,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -632,7 +602,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -699,7 +669,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -833,7 +803,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered local storage!';
+        message += ' 🌟 Perfect score! You\'ve mastered object reading and creating!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -889,25 +859,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Local Storage';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

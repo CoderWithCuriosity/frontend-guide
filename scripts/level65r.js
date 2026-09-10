@@ -1,321 +1,393 @@
 /**
- * Level 65: Classes Basics
+ * Level 65: Mini-Project - Simple Memory List
  * 
- * This file demonstrates classes in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the memory list app and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC CLASS
+// MEMORY LIST APP
 // ============================================
 
-console.log("--- Basic Class ---");
+const STORAGE_KEY = "level65_items";
 
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
+// State: array of { id, text, createdAt }
+let items = [];
 
-    greet() {
-        return `Hello, my name is ${this.name}`;
-    }
+// ---------- Persistence ----------
 
-    getBirthYear() {
-        return 2024 - this.age;
+function saveItems() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    } catch (error) {
+        console.error("Could not save items:", error);
+        setStatus("❌ Could not save to localStorage.", "error");
     }
 }
 
-let john = new Person("John", 25);
-let jane = new Person("Jane", 30);
-
-console.log("John:", john.name, john.age);
-console.log("Jane:", jane.name, jane.age);
-console.log("John says:", john.greet());
-console.log("John's birth year:", john.getBirthYear());
-
-// ============================================
-// CLASS WITH METHODS
-// ============================================
-
-console.log("\n--- Class with Methods ---");
-
-class Car {
-    constructor(brand, model, year) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.isRunning = false;
-    }
-
-    start() {
-        this.isRunning = true;
-        return `${this.brand} ${this.model} is now running!`;
-    }
-
-    stop() {
-        this.isRunning = false;
-        return `${this.brand} ${this.model} has stopped.`;
-    }
-
-    getInfo() {
-        return `${this.brand} ${this.model} (${this.year})`;
+function loadItems() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        console.error("Could not parse saved items:", error);
+        return [];
     }
 }
 
-let car1 = new Car("Toyota", "Camry", 2020);
-let car2 = new Car("Tesla", "Model 3", 2022);
+// ---------- Status ----------
 
-console.log("Car 1:", car1.getInfo());
-console.log("Car 2:", car2.getInfo());
-console.log("Start car 1:", car1.start());
-console.log("Is running:", car1.isRunning);
-console.log("Stop car 1:", car1.stop());
-console.log("Is running:", car1.isRunning);
-
-// ============================================
-// MULTIPLE INSTANCES
-// ============================================
-
-console.log("\n--- Multiple Instances ---");
-
-class Book {
-    constructor(title, author, year) {
-        this.title = title;
-        this.author = author;
-        this.year = year;
-    }
-
-    getInfo() {
-        return `"${this.title}" by ${this.author} (${this.year})`;
-    }
-
-    isOld() {
-        return (2024 - this.year) > 50;
-    }
+function setStatus(message, type = "info") {
+    const el = document.getElementById("statusMsg");
+    if (!el) return;
+    el.textContent = message;
+    el.classList.remove("success", "error", "info");
+    el.classList.add(type);
 }
 
-let books = [
-    new Book("1984", "George Orwell", 1949),
-    new Book("The Hobbit", "J.R.R. Tolkien", 1937),
-    new Book("Dune", "Frank Herbert", 1965)
-];
+// ---------- Rendering ----------
 
-books.forEach((book, index) => {
-    console.log(`Book ${index + 1}:`, book.getInfo());
-    console.log(`  Is old?`, book.isOld());
+function escapeHtml(str) {
+    // Basic HTML escaping so user text cannot break the layout
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function render() {
+    const list = document.getElementById("memoryList");
+    const countEl = document.getElementById("itemCount");
+    if (!list) return;
+
+    // Update the count badge
+    if (countEl) {
+        countEl.textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+    }
+
+    // Empty state
+    if (items.length === 0) {
+        list.innerHTML = '<li class="empty-state">✨ Your list is empty. Add something above!</li>';
+        return;
+    }
+
+    // Build the list using template literals + .map().join("")
+    list.innerHTML = items
+        .map(item => `
+            <li class="memory-item" data-id="${item.id}">
+                <span class="item-text">${escapeHtml(item.text)}</span>
+                <div class="item-actions">
+                    <button class="btn-icon" title="Delete" onclick="deleteItem(${item.id})">🗑️</button>
+                </div>
+            </li>
+        `)
+        .join("");
+}
+
+// ---------- Actions ----------
+
+function addItem() {
+    const input = document.getElementById("itemInput");
+    if (!input) return;
+
+    const text = input.value.trim();
+
+    if (text === "") {
+        setStatus("⚠️ Please type something before adding.", "error");
+        input.focus();
+        return;
+    }
+
+    // Create a new item object with a unique id
+    const newItem = {
+        id: Date.now(),
+        text: text,
+        createdAt: new Date().toISOString()
+    };
+
+    // Array CRUD: add to the end
+    items.push(newItem);
+
+    // Persist + re-render
+    saveItems();
+    render();
+
+    // Clear the input and refocus
+    input.value = "";
+    input.focus();
+
+    setStatus(`✅ Added "${newItem.text}"`, "success");
+    console.log("Added item:", newItem);
+}
+
+function deleteItem(id) {
+    const item = items.find(i => i.id === id);
+    if (!item) return;
+
+    // Array CRUD: remove by id using filter
+    items = items.filter(i => i.id !== id);
+
+    // Persist + re-render
+    saveItems();
+    render();
+
+    setStatus(`🗑️ Deleted "${item.text}"`, "info");
+    console.log("Deleted item:", item);
+}
+
+function clearAll() {
+    if (items.length === 0) {
+        setStatus("ℹ️ The list is already empty.", "info");
+        return;
+    }
+
+    const confirmed = confirm(`Delete all ${items.length} items? This cannot be undone.`);
+    if (!confirmed) return;
+
+    items = [];
+    saveItems();
+    render();
+
+    setStatus("🧹 All items cleared.", "info");
+    console.log("Cleared all items");
+}
+
+// ---------- Init ----------
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'Simple Memory List';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    // Load from localStorage
+    items = loadItems();
+    render();
+
+    if (items.length > 0) {
+        setStatus(`📂 Loaded ${items.length} saved item${items.length === 1 ? "" : "s"}.`, "info");
+    } else {
+        setStatus("💡 Type something and click Add to begin.", "info");
+    }
+
+    // Press Enter in the input to add
+    const input = document.getElementById("itemInput");
+    if (input) {
+        input.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                addItem();
+            }
+        });
+
+        // Live logging
+        input.addEventListener("input", function() {
+            console.log("Input changed to:", this.value);
+        });
+    }
 });
 
 // ============================================
-// CLASS WITH DEFAULT VALUES
-// ============================================
-
-console.log("\n--- Class with Default Values ---");
-
-class User {
-    constructor(name, age = 18, city = "Unknown") {
-        this.name = name;
-        this.age = age;
-        this.city = city;
-        this.createdAt = new Date();
-    }
-
-    getInfo() {
-        return `${this.name} (${this.age}) from ${this.city}`;
-    }
-}
-
-let user1 = new User("Alice", 25, "New York");
-let user2 = new User("Bob"); // Uses default values
-
-console.log("User 1:", user1.getInfo());
-console.log("User 2:", user2.getInfo());
-console.log("User 1 created:", user1.createdAt);
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Mini-Project: Simple Memory List)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What keyword is used to define a class?',
+        question: 'How do you read the value typed into an input?',
         options: [
-            "class",
-            "function",
-            "object",
-            "new"
+            "document.getElementById(\"id\").value",
+            "document.getElementById(\"id\").text",
+            "document.getValue(\"id\")",
+            "input.read()"
         ],
         correct: 0,
-        explanation: 'The "class" keyword is used to define a class in JavaScript.'
+        explanation: 'Use document.getElementById("id").value to read an input value.'
     },
     {
         id: 2,
-        question: 'What is the constructor method used for?',
+        question: 'Why call .trim() on the input value before checking if it\'s empty?',
         options: [
-            "Initializing new instances",
-            "Creating methods",
-            "Deleting instances",
-            "Returning values"
+            "To treat a field with only spaces as empty",
+            "To convert the value to a number",
+            "To sort the string",
+            "To speed up the code"
         ],
         correct: 0,
-        explanation: 'The constructor method is called when creating a new instance of a class.'
+        explanation: '.trim() removes whitespace so "   " is treated as empty.'
     },
     {
         id: 3,
-        question: 'What keyword is used to create a new instance of a class?',
+        question: 'Which method adds a new item to the end of an array?',
         options: [
-            "new",
-            "create",
-            "instance",
-            "make"
+            ".push()",
+            ".pop()",
+            ".shift()",
+            ".unshift()"
         ],
         correct: 0,
-        explanation: 'The "new" keyword is used to create a new instance of a class.'
+        explanation: '.push() adds one or more elements to the end of an array.'
     },
     {
         id: 4,
-        question: 'What does "this" refer to in a class?',
+        question: 'Which method removes elements from an array by condition?',
         options: [
-            "The current instance",
-            "The class itself",
-            "The global object",
-            "The constructor"
+            ".filter()",
+            ".map()",
+            ".find()",
+            ".reduce()"
         ],
         correct: 0,
-        explanation: '"this" refers to the current instance of the class.'
+        explanation: '.filter() returns a new array with only elements that pass the test — great for deleting.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Person {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let p = new Person("John");<br/>&nbsp;&nbsp;console.log(p.name);',
+        question: 'How do you convert an array or object to a string for localStorage?',
         options: [
-            "John",
-            "name",
-            "undefined",
-            "Error"
+            "JSON.stringify(value)",
+            "JSON.parse(value)",
+            "value.toString() only",
+            "String.save(value)"
         ],
         correct: 0,
-        explanation: 'p.name accesses the name property, which is "John".'
+        explanation: 'JSON.stringify() converts an array or object to a string for localStorage.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Dog {<br/>&nbsp;&nbsp;&nbsp;&nbsp;bark() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Woof";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let d = new Dog();<br/>&nbsp;&nbsp;console.log(d.bark());',
+        question: 'How do you convert the string from localStorage back into an array/object?',
         options: [
-            "Woof",
-            "undefined",
-            "Error",
-            "null"
+            "JSON.parse(value)",
+            "JSON.stringify(value)",
+            "value.toArray()",
+            "localStorage.decode(value)"
         ],
         correct: 0,
-        explanation: 'd.bark() calls the bark method, which returns "Woof".'
+        explanation: 'JSON.parse() converts the saved string back into an array or object.'
     },
     {
         id: 7,
-        question: 'Can a class have multiple methods?',
+        question: 'What does localStorage.getItem("key") return if the key does not exist?',
         options: [
-            "Yes",
-            "No",
-            "Only if they are static",
-            "Only if they are private"
+            "null",
+            "undefined",
+            "[]",
+            "\"\""
         ],
         correct: 0,
-        explanation: 'Yes, a class can have multiple methods.'
+        explanation: 'getItem returns null when the key is missing, so guard before parsing.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Car {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(brand) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.brand = brand;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let c = new Car("Toyota");<br/>&nbsp;&nbsp;console.log(c.brand);',
+        question: 'Why does each item get its own unique id (e.g. Date.now())?',
         options: [
-            "Toyota",
-            "brand",
-            "undefined",
-            "Error"
+            "So we can reliably find and delete the right item",
+            "To make the code longer",
+            "Because localStorage requires it",
+            "To sort alphabetically"
         ],
         correct: 0,
-        explanation: 'c.brand accesses the brand property, which is "Toyota".'
+        explanation: 'A unique id lets you target a specific item for deletion or editing.'
     },
     {
         id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class User {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let u1 = new User("Alice");<br/>&nbsp;&nbsp;let u2 = new User("Bob");<br/>&nbsp;&nbsp;console.log(u1.name + " " + u2.name);',
+        question: 'What does the following code do?<br><code>items = items.filter(i => i.id !== id);</code>',
         options: [
-            "Alice Bob",
-            "Alice",
-            "Bob",
-            "undefined"
+            "Removes the item with matching id",
+            "Adds a new item",
+            "Finds the item with matching id",
+            "Sorts the array"
         ],
         correct: 0,
-        explanation: 'u1.name is "Alice" and u2.name is "Bob", so the output is "Alice Bob".'
+        explanation: 'filter returns a new array excluding the item whose id matches, effectively deleting it.'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Person {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;greet() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Hello";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let p = new Person("John");<br/>&nbsp;&nbsp;console.log(p.greet());',
+        question: 'Why do we call render() after every change to the items array?',
         options: [
-            "Hello",
-            "Hello John",
-            "undefined",
-            "Error"
+            "So the page reflects the current state of the array",
+            "Because the browser requires it",
+            "To save to localStorage",
+            "To clear the input"
         ],
         correct: 0,
-        explanation: 'p.greet() calls the greet method, which returns "Hello".'
+        explanation: 'Rendering after each change keeps the visible list in sync with the data.'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Animal {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(type) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.type = type;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let a = new Animal("Dog");<br/>&nbsp;&nbsp;console.log(a.type);',
+        question: 'What does the following code do?<br><code>const raw = localStorage.getItem("items");<br>items = JSON.parse(raw) || [];</code>',
         options: [
-            "Dog",
-            "type",
-            "undefined",
-            "Error"
+            "Loads saved items or falls back to an empty array",
+            "Saves items to localStorage",
+            "Deletes all items",
+            "Throws an error if empty"
         ],
         correct: 0,
-        explanation: 'a.type accesses the type property, which is "Dog".'
+        explanation: 'The || [] provides a safe fallback when nothing is saved yet.'
     },
     {
         id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Product {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name, price) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.price = price;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let p = new Product("Laptop", 999);<br/>&nbsp;&nbsp;console.log(p.name + " $" + p.price);',
+        question: 'What is the output?<br><code>let a = [1,2,3];<br>a.push(4);<br>console.log(a);</code>',
         options: [
-            "Laptop $999",
-            "Laptop",
-            "999",
-            "undefined"
+            "[1,2,3,4]",
+            "[4,1,2,3]",
+            "[1,2,3]",
+            "4"
         ],
         correct: 0,
-        explanation: 'p.name is "Laptop" and p.price is 999, so the output is "Laptop $999".'
+        explanation: '.push(4) adds 4 to the end, producing [1,2,3,4].'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Student {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let s = new Student("John");<br/>&nbsp;&nbsp;console.log(s.name + " is a student");',
+        question: 'What is the output?<br><code>let a = [1,2,3,4];<br>let b = a.filter(n => n % 2 === 0);<br>console.log(b);</code>',
         options: [
-            "John is a student",
-            "name is a student",
-            "undefined is a student",
-            "Error"
+            "[2,4]",
+            "[1,3]",
+            "[1,2,3,4]",
+            "[4]"
         ],
         correct: 0,
-        explanation: 's.name is "John", so the output is "John is a student".'
+        explanation: 'filter keeps even numbers: [2,4].'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Book {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(title) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.title = title;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let b = new Book("1984");<br/>&nbsp;&nbsp;console.log(b.title);',
+        question: 'How do you keep the input focused after adding an item?',
         options: [
-            "1984",
-            "title",
-            "undefined",
-            "Error"
+            "Call input.focus() after clearing the input",
+            "Use input.autofocus on every render",
+            "Set input.value = null",
+            "Reload the page"
         ],
         correct: 0,
-        explanation: 'b.title accesses the title property, which is "1984".'
+        explanation: 'input.focus() puts the cursor back so the user can type the next item quickly.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;class Animal {<br/>&nbsp;&nbsp;&nbsp;&nbsp;constructor(name) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;speak() {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "I am an animal";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;let a = new Animal("Dog");<br/>&nbsp;&nbsp;console.log(a.speak());',
+        question: 'What does this render snippet do?<br><code>list.innerHTML = items.map(i => `&lt;li&gt;${i.text}&lt;/li&gt;`).join("");</code>',
         options: [
-            "I am an animal",
-            "I am a Dog",
-            "undefined",
-            "Error"
+            "Builds the list HTML from the items array",
+            "Deletes all items",
+            "Saves items to localStorage",
+            "Clears the input"
         ],
         correct: 0,
-        explanation: 'a.speak() calls the speak method, which returns "I am an animal".'
+        explanation: 'It maps each item to an <li> and joins them into one HTML string.'
     }
 ];
 
@@ -380,14 +452,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 65 Quiz</h2>
+                        ">Level 65 Quiz · Memory List</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -413,7 +484,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -421,7 +491,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -580,9 +649,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -631,7 +698,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -698,7 +765,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -832,7 +899,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered classes basics!';
+        message += ' 🌟 Perfect score! You\'ve completed the Memory List project!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -888,25 +955,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Classes Basics';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

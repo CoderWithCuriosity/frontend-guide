@@ -1,335 +1,290 @@
 /**
- * Level 56: Fetch API (GET)
+ * Level 56: Basic Form Input Access
  * 
- * This file demonstrates the Fetch API in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC FETCH REQUEST
+// FORM INPUT ACCESS DEMO
 // ============================================
 
-console.log("--- Basic Fetch Request ---");
-
-fetch("https://jsonplaceholder.typicode.com/posts/1")
-    .then(response => {
-        console.log("Response status:", response.status);
-        console.log("Response ok:", response.ok);
-        return response.json();
-    })
-    .then(data => {
-        console.log("Data received:", data);
-        console.log("Title:", data.title);
-        console.log("Body:", data.body);
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
-
-// ============================================
-// FETCH WITH ERROR HANDLING
-// ============================================
-
-console.log("\n--- Fetch with Error Handling ---");
-
-function fetchWithErrorHandling(url) {
-    console.log("Fetching:", url);
-    
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error! status: " + response.status);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Data:", data);
-        })
-        .catch(error => {
-            console.error("Fetch error:", error.message);
-        });
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("formOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
+    }
 }
 
-// Test with valid URL
-fetchWithErrorHandling("https://jsonplaceholder.typicode.com/posts/2");
+function readName() {
+    const name = document.getElementById("nameField").value;
+    if (name.trim() === "") {
+        setOutput('nameField.value → ""  <span class="highlight">(empty input)</span>', "#f3a072");
+    } else {
+        setOutput(`nameField.value → "${name}"`, "#8ec07c");
+    }
+    console.log('nameField.value:', name);
+}
 
-// Test with invalid URL (will fail)
-fetchWithErrorHandling("https://jsonplaceholder.typicode.com/invalid");
+function readAge() {
+    const age = document.getElementById("ageField").value;
+    if (age.trim() === "") {
+        setOutput('ageField.value → ""  <span class="highlight">(empty input)</span>', "#f3a072");
+    } else {
+        setOutput(`ageField.value → "${age}"  <span class="highlight">(a string! typeof: ${typeof age})</span>`, "#8ec07c");
+    }
+    console.log('ageField.value:', age, "| typeof:", typeof age);
+}
 
-// ============================================
-// FETCHING MULTIPLE USERS
-// ============================================
+function readEmail() {
+    const email = document.getElementById("emailField").value;
+    if (email.trim() === "") {
+        setOutput('emailField.value → ""  <span class="highlight">(empty input)</span>', "#f3a072");
+    } else {
+        setOutput(`emailField.value → "${email}"`, "#8ec07c");
+    }
+    console.log('emailField.value:', email);
+}
 
-console.log("\n--- Fetching Multiple Users ---");
+function readAll() {
+    const name = document.getElementById("nameField").value;
+    const age = document.getElementById("ageField").value;
+    const email = document.getElementById("emailField").value;
 
-fetch("https://jsonplaceholder.typicode.com/users")
-    .then(response => response.json())
-    .then(users => {
-        console.log("Total users:", users.length);
-        users.slice(0, 3).forEach(user => {
-            console.log("  User:", user.name, "| Email:", user.email);
-        });
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
+    const display = `Read all three fields:\n` +
+        `  name  → "${name}"\n` +
+        `  age   → "${age}"  (typeof: ${typeof age})\n` +
+        `  email → "${email}"`;
 
-// ============================================
-// FETCHING POSTS
-// ============================================
+    setOutput(display, "#7ec8e3");
+    console.log("All fields:", { name, age, email });
+}
 
-console.log("\n--- Fetching Posts ---");
+function clearFields() {
+    document.getElementById("nameField").value = "";
+    document.getElementById("ageField").value = "";
+    document.getElementById("emailField").value = "";
+    setOutput("🧹 Fields cleared!", "#a3a3c2");
+    console.log("Fields cleared");
+}
 
-fetch("https://jsonplaceholder.typicode.com/posts?_limit=3")
-    .then(response => response.json())
-    .then(posts => {
-        console.log("Recent posts:");
-        posts.forEach(post => {
-            console.log("  #" + post.id + ":", post.title);
-        });
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
+// Real-time logging as the user types
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'Form Input Access';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ============================================
-// FETCH WITH ASYNC/AWAIT (ES8)
-// ============================================
-
-console.log("\n--- Fetch with Async/Await ---");
-
-async function getPost(id) {
-    try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/posts/" + id);
-        
-        if (!response.ok) {
-            throw new Error("HTTP error! status: " + response.status);
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
         }
-        
-        let data = await response.json();
-        console.log("Post #" + id + ":", data.title);
-        return data;
-    } catch (error) {
-        console.error("Error fetching post:", error.message);
-        return null;
+        step();
+    } else if (el) {
+        el.textContent = text;
     }
-}
 
-// Call the async function
-getPost(3);
+    // Real-time input event logging
+    const nameField = document.getElementById("nameField");
+    const ageField = document.getElementById("ageField");
+    const emailField = document.getElementById("emailField");
 
-// ============================================
-// FETCHING COMMENTS
-// ============================================
-
-console.log("\n--- Fetching Comments ---");
-
-async function getPostWithComments(postId) {
-    try {
-        let postResponse = await fetch("https://jsonplaceholder.typicode.com/posts/" + postId);
-        let post = await postResponse.json();
-        
-        let commentsResponse = await fetch("https://jsonplaceholder.typicode.com/posts/" + postId + "/comments");
-        let comments = await commentsResponse.json();
-        
-        console.log("Post:", post.title);
-        console.log("Comments (" + comments.length + "):");
-        comments.slice(0, 3).forEach(comment => {
-            console.log("  -", comment.name);
+    if (nameField) {
+        nameField.addEventListener("input", function() {
+            console.log("nameField changed to:", this.value);
         });
-        
-        return { post, comments };
-    } catch (error) {
-        console.error("Error:", error);
     }
-}
-
-getPostWithComments(1);
+    if (ageField) {
+        ageField.addEventListener("input", function() {
+            console.log("ageField changed to:", this.value);
+        });
+    }
+    if (emailField) {
+        emailField.addEventListener("input", function() {
+            console.log("emailField changed to:", this.value);
+        });
+    }
+});
 
 // ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Basic Form Input Access)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does fetch() do?',
+        question: 'How do you get the value of a text input with id "username"?',
         options: [
-            "Makes an HTTP request",
-            "Creates a new object",
-            "Deletes data",
-            "Updates the DOM"
+            'document.getElementById("username").value',
+            'document.getElementById("username").text',
+            'document.getElementById("username").innerHTML',
+            'document.getValue("username")'
         ],
         correct: 0,
-        explanation: 'fetch() is used to make HTTP requests to servers.'
+        explanation: 'Use document.getElementById("username").value to read the input value.'
     },
     {
         id: 2,
-        question: 'What does response.json() do?',
+        question: 'What type of data does <code>input.value</code> always return?',
         options: [
-            "Parses the response as JSON",
-            "Converts JSON to string",
-            "Sends JSON data",
-            "Deletes JSON data"
+            "A string",
+            "A number",
+            "A boolean",
+            "An object"
         ],
         correct: 0,
-        explanation: 'response.json() parses the response body as JSON.'
+        explanation: 'input.value always returns a string, even for number inputs.'
     },
     {
         id: 3,
-        question: 'What is the correct syntax for a fetch request?',
+        question: 'What does an empty text input return?',
         options: [
-            "fetch(url).then(response => response.json())",
-            "fetch(url, response => response.json())",
-            "fetch(url).json()",
-            "fetch(url).then(json())"
+            '"" (empty string)',
+            "null",
+            "undefined",
+            "0"
         ],
         correct: 0,
-        explanation: 'The correct syntax is fetch(url).then(response => response.json())'
+        explanation: 'An empty input returns an empty string "".'
     },
     {
         id: 4,
-        question: 'What does .catch() do in a fetch chain?',
+        question: 'What is the output?<br><code>let x = document.getElementById("age").value;<br>console.log(typeof x);</code>',
         options: [
-            "Handles errors",
-            "Handles success",
-            "Sends data",
-            "Parses JSON"
+            '"string"',
+            '"number"',
+            '"undefined"',
+            '"object"'
         ],
         correct: 0,
-        explanation: '.catch() is used to handle errors in the fetch chain.'
+        explanation: 'Even if the input is type="number", .value returns a string.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("https://api.example.com")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data));',
+        question: 'How do you check if an input is empty?',
         options: [
-            "Logs the parsed JSON data",
-            "Logs the raw response",
-            "Throws an error",
-            "Logs undefined"
+            'input.value === ""',
+            "input.value === null",
+            "input.value === undefined",
+            "input.value.isEmpty()"
         ],
         correct: 0,
-        explanation: 'The code logs the parsed JSON data from the response.'
+        explanation: 'Check if input.value === "" to see if it is empty.'
     },
     {
         id: 6,
-        question: 'What does response.ok indicate?',
+        question: 'How do you convert an input value to a number?',
         options: [
-            "The request was successful (status 200-299)",
-            "The request failed",
-            "The response is empty",
-            "The response is JSON"
+            "Number(input.value)",
+            "input.value.toNumber()",
+            "input.getNumber()",
+            "input.value.number"
         ],
         correct: 0,
-        explanation: 'response.ok is true if the status is in the 200-299 range.'
+        explanation: 'Use Number(input.value) or parseInt() to convert the string to a number.'
     },
     {
         id: 7,
-        question: 'What HTTP method does fetch() use by default?',
-        options: [
-            "GET",
-            "POST",
-            "PUT",
-            "DELETE"
-        ],
+        question: 'What is the output?<br><code>let v = document.getElementById("name").value;<br>console.log(v.length);</code><br>if the input contains "Hello"?',
+        options: ["5", "4", "6", "0"],
         correct: 0,
-        explanation: 'fetch() uses GET by default.'
+        explanation: '"Hello" has 5 characters, so v.length is 5.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("invalid.url")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.catch(error => console.log(error));',
+        question: 'Which event fires every time the user types in an input?',
         options: [
-            "Logs an error message",
-            "Logs undefined",
-            "Throws an error",
-            "Returns null"
+            "input",
+            "click",
+            "mouseover",
+            "keyup only"
         ],
         correct: 0,
-        explanation: 'The .catch() block logs the error message.'
+        explanation: 'The input event fires on every change, including each keystroke.'
     },
     {
         id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let response = await fetch(url);<br/>&nbsp;&nbsp;let data = await response.json();<br/>&nbsp;&nbsp;console.log(data);',
+        question: 'What is the output?<br><code>let a = "5";<br>let b = Number("5");<br>console.log(a === b);</code>',
         options: [
-            "Logs the parsed JSON data",
-            "Logs the raw response",
-            "Throws an error",
-            "Logs undefined"
+            "false",
+            "true",
+            "undefined",
+            "Error"
         ],
         correct: 0,
-        explanation: 'The code waits for the response, parses it as JSON, and logs the data.'
+        explanation: '"5" is a string and 5 is a number, so === returns false (strict equality).'
     },
     {
         id: 10,
-        question: 'What does async/await do in fetch?',
+        question: 'How do you set an input value to empty?',
         options: [
-            "Makes asynchronous code look synchronous",
-            "Makes code run faster",
-            "Converts JSON to string",
-            "Handles errors automatically"
+            'input.value = ""',
+            "input.value = null",
+            'input.value = "empty"',
+            "input.clear()"
         ],
         correct: 0,
-        explanation: 'async/await makes asynchronous code easier to read and write.'
+        explanation: 'Assign an empty string: input.value = "".'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch(url)<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(response.status);<br/>&nbsp;&nbsp;&nbsp;&nbsp;});',
+        question: 'What is the output?<br><code>let v = "42";<br>console.log(v + 1);</code>',
         options: [
-            "Logs the HTTP status code",
-            "Logs the response body",
-            "Throws an error",
-            "Logs undefined"
+            '"421"',
+            "43",
+            "42",
+            "Error"
         ],
         correct: 0,
-        explanation: 'response.status logs the HTTP status code of the response.'
+        explanation: 'String + number causes concatenation, so "42" + 1 = "421".'
     },
     {
         id: 12,
-        question: 'What does the second .then() receive in fetch(url).then(r => r.json()).then(data => ...)?',
+        question: 'What is the output?<br><code>let v = "42";<br>console.log(Number(v) + 1);</code>',
         options: [
-            "The parsed JSON data",
-            "The raw response",
-            "The status code",
-            "An error"
+            "43",
+            '"421"',
+            "42",
+            "Error"
         ],
         correct: 0,
-        explanation: 'The second .then() receives the parsed JSON data from the first .then().'
+        explanation: 'Number("42") converts to 42, then 42 + 1 = 43.'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("https://jsonplaceholder.typicode.com/posts/1")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data.id));',
+        question: 'Which is the correct way to read an input inside a function?',
         options: [
-            "Logs the post ID (1)",
-            "Logs the entire post",
-            "Throws an error",
-            "Logs undefined"
+            'let val = document.getElementById("myInput").value;',
+            'let val = myInput.value;',
+            'let val = document.myInput;',
+            'let val = input.value("myInput");'
         ],
         correct: 0,
-        explanation: 'The code logs the id property of the fetched post, which is 1.'
+        explanation: 'Use document.getElementById("myInput").value to read the input.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("invalid.url")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => console.log("Success"));',
-        options: [
-            "Does nothing (error)",
-            "Logs 'Success'",
-            "Throws an error",
-            "Logs undefined"
-        ],
+        question: 'What is the output?<br><code>let v = "";<br>console.log(v.length);</code>',
+        options: ["0", "1", "undefined", "null"],
         correct: 0,
-        explanation: 'The fetch fails, so the .then() is not executed.'
+        explanation: 'An empty string has length 0.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;fetch("https://jsonplaceholder.typicode.com/posts/1")<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br/>&nbsp;&nbsp;&nbsp;&nbsp;.then(data => console.log(data.userId));',
+        question: 'What is the output?<br><code>let v = "  hi  ";<br>console.log(v.trim());</code>',
         options: [
-            "Logs the userId (1)",
-            "Logs the entire post",
-            "Throws an error",
-            "Logs undefined"
+            '"hi"',
+            '"  hi  "',
+            '"hi  "',
+            "Error"
         ],
         correct: 0,
-        explanation: 'The code logs the userId property of the fetched post, which is 1.'
+        explanation: '.trim() removes whitespace from both ends, returning "hi".'
     }
 ];
 
@@ -394,14 +349,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 56 Quiz</h2>
+                        ">Level 56 Quiz · Form Input Access</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -427,7 +381,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -435,7 +388,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -594,9 +546,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -645,7 +595,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -712,7 +662,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -846,7 +796,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered fetch GET requests!';
+        message += ' 🌟 Perfect score! You\'ve mastered reading form inputs!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -902,25 +852,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Fetch API (GET)';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

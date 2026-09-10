@@ -1,130 +1,107 @@
 /**
- * Level 64: Arrow Functions
+ * Level 64: Simple Arrow Functions
  * 
- * This file demonstrates arrow functions in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC ARROW FUNCTIONS
+// ARROW FUNCTION DEMO
 // ============================================
 
-console.log("--- Basic Arrow Functions ---");
+function setOutput(msg, color = "#f0c674") {
+    const out = document.getElementById("outputArea");
+    if (out) {
+        out.textContent = msg;
+        out.style.color = color;
+    }
+}
+
+function readNumbers() {
+    const a = Number(document.getElementById("numA").value) || 0;
+    const b = Number(document.getElementById("numB").value) || 0;
+    return { a, b };
+}
 
 // Traditional function
-function add(a, b) {
+function addTraditional(a, b) {
     return a + b;
 }
 
-// Arrow function
-let arrowAdd = (a, b) => {
+// Arrow function with block body
+const addArrowBlock = (a, b) => {
     return a + b;
 };
 
 // Arrow function with implicit return
-let implicitAdd = (a, b) => a + b;
+const addArrowImplicit = (a, b) => a + b;
 
-console.log("Traditional:", add(5, 3));
-console.log("Arrow (with braces):", arrowAdd(5, 3));
-console.log("Arrow (implicit):", implicitAdd(5, 3));
+function runTraditional() {
+    const { a, b } = readNumbers();
+    const result = addTraditional(a, b);
+    setOutput(
+        `🕰️ Traditional function\nfunction addTraditional(a, b) {\n  return a + b;\n}\n\naddTraditional(${a}, ${b}) = ${result}`,
+        "#f3a072"
+    );
+    console.log("Traditional:", result);
+}
 
-// ============================================
-// SINGLE PARAMETER (NO PARENTHESES)
-// ============================================
+function runArrowBlock() {
+    const { a, b } = readNumbers();
+    const result = addArrowBlock(a, b);
+    setOutput(
+        `➡️ Arrow function (with block)\nconst addArrowBlock = (a, b) => {\n  return a + b;\n};\n\naddArrowBlock(${a}, ${b}) = ${result}`,
+        "#8ec07c"
+    );
+    console.log("Arrow (block):", result);
+}
 
-console.log("\n--- Single Parameter ---");
+function runArrowImplicit() {
+    const { a, b } = readNumbers();
+    const result = addArrowImplicit(a, b);
+    setOutput(
+        `⚡ Arrow function (implicit return)\nconst addArrowImplicit = (a, b) => a + b;\n\naddArrowImplicit(${a}, ${b}) = ${result}`,
+        "#7ec8e3"
+    );
+    console.log("Arrow (implicit):", result);
+}
 
-// With parentheses
-let double = (x) => x * 2;
+function clearOutput() {
+    setOutput("// Click a button to compare function styles...", "#a3a3c2");
+    console.log("Output cleared");
+}
 
-// Without parentheses (single parameter only)
-let doubleShort = x => x * 2;
+// Typing animation + live input logging
+document.addEventListener("DOMContentLoaded", function() {
+    const el = document.getElementById('typedTitle');
+    const text = 'Simple Arrow Functions';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-console.log("double(5):", double(5));
-console.log("doubleShort(5):", doubleShort(5));
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
 
-// ============================================
-// NO PARAMETERS (EMPTY PARENTHESES)
-// ============================================
-
-console.log("\n--- No Parameters ---");
-
-let getRandom = () => Math.floor(Math.random() * 10);
-let getGreeting = () => "Hello World!";
-
-console.log("Random:", getRandom());
-console.log("Greeting:", getGreeting());
-
-// ============================================
-// MULTIPLE EXPRESSIONS (WITH BRACES)
-// ============================================
-
-console.log("\n--- Multiple Expressions ---");
-
-let multiplyAndAdd = (a, b, c) => {
-    let product = a * b;
-    let result = product + c;
-    return result;
-};
-
-console.log("multiplyAndAdd(2, 3, 4):", multiplyAndAdd(2, 3, 4));
-
-// ============================================
-// ARROW FUNCTIONS WITH ARRAY METHODS
-// ============================================
-
-console.log("\n--- Arrow Functions with Array Methods ---");
-
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-// map - transform each element
-let doubled = numbers.map(n => n * 2);
-console.log("Doubled:", doubled);
-
-// filter - keep elements that pass test
-let evens = numbers.filter(n => n % 2 === 0);
-console.log("Evens:", evens);
-
-// reduce - accumulate to single value
-let sum = numbers.reduce((acc, n) => acc + n, 0);
-console.log("Sum:", sum);
-
-// find - get first match
-let firstEven = numbers.find(n => n % 2 === 0);
-console.log("First even:", firstEven);
+    ["numA", "numB"].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.addEventListener("input", function() {
+                console.log(`${id} changed to:`, this.value);
+            });
+        }
+    });
+});
 
 // ============================================
-// ARROW FUNCTIONS WITH OBJECTS
-// ============================================
-
-console.log("\n--- Arrow Functions with Objects ---");
-
-let users = [
-    { name: "John", age: 25 },
-    { name: "Jane", age: 30 },
-    { name: "Bob", age: 22 },
-    { name: "Alice", age: 28 }
-];
-
-// Get all names
-let names = users.map(user => user.name);
-console.log("Names:", names);
-
-// Get adults
-let adults = users.filter(user => user.age >= 18);
-console.log("Adults:", adults);
-
-// Get average age
-let totalAge = users.reduce((acc, user) => acc + user.age, 0);
-let averageAge = totalAge / users.length;
-console.log("Average age:", averageAge);
-
-// Find a user
-let foundUser = users.find(user => user.name === "Jane");
-console.log("Found user:", foundUser);
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Simple Arrow Functions)
 // ============================================
 
 const QUIZ_QUESTIONS = [
@@ -132,17 +109,29 @@ const QUIZ_QUESTIONS = [
         id: 1,
         question: 'What is the arrow function syntax?',
         options: [
-            "() => {}",
-            "function() => {}",
-            "() -> {}",
-            "() = {}"
+            "const fn = () => {}",
+            "const fn = function() {}",
+            "const fn = => {}",
+            "const fn = function => {}"
         ],
         correct: 0,
-        explanation: 'Arrow functions use the => syntax: () => {}.'
+        explanation: 'Arrow functions use the syntax const fn = () => {}.'
     },
     {
         id: 2,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let add = (a, b) => a + b;<br/>&nbsp;&nbsp;console.log(add(5, 3));',
+        question: 'Rewrite this traditional function as an arrow function:<br><code>function double(x) { return x * 2; }</code>',
+        options: [
+            "const double = x => x * 2;",
+            "const double = x -> x * 2;",
+            "const double = function(x) => x * 2;",
+            "const double = (x) -> x * 2;"
+        ],
+        correct: 0,
+        explanation: 'The arrow version is: const double = x => x * 2;'
+    },
+    {
+        id: 3,
+        question: 'What is the output?<br><code>const add = (a, b) => a + b;<br>console.log(add(5, 3));</code>',
         options: [
             "8",
             "53",
@@ -153,56 +142,56 @@ const QUIZ_QUESTIONS = [
         explanation: 'add(5, 3) returns 5 + 3 = 8.'
     },
     {
-        id: 3,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let double = x => x * 2;<br/>&nbsp;&nbsp;console.log(double(4));',
-        options: [
-            "8",
-            "4",
-            "2",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'double(4) returns 4 * 2 = 8.'
-    },
-    {
         id: 4,
-        question: 'Do you need parentheses for a single parameter in an arrow function?',
+        question: 'Do you need parentheses for a single parameter?',
         options: [
-            "No",
-            "Yes",
-            "Only if it\'s a string",
-            "Only if it\'s a number"
+            "No, they are optional",
+            "Yes, always",
+            "Only if the parameter is a string",
+            "Only if the parameter is a number"
         ],
         correct: 0,
         explanation: 'For a single parameter, parentheses are optional: x => x * 2.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let greet = () => "Hello";<br/>&nbsp;&nbsp;console.log(greet());',
+        question: 'What does implicit return mean?',
         options: [
-            "Hello",
-            "undefined",
-            "Error",
-            "Hello World"
+            "Omitting braces and the return keyword for a single expression",
+            "Returning undefined",
+            "Returning before the function ends",
+            "Using return without a value"
         ],
         correct: 0,
-        explanation: 'greet() returns "Hello".'
+        explanation: 'Implicit return means you can write `x => x * 2` without braces or the return keyword.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let add = (a, b) => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;let c = a + b;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return c;<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(add(5, 3));',
+        question: 'What is the output?<br><code>const square = x => x * x;<br>console.log(square(4));</code>',
         options: [
+            "16",
             "8",
-            "5 + 3",
-            "Error",
-            "undefined"
+            "4",
+            "Error"
         ],
         correct: 0,
-        explanation: 'The function adds a + b and returns the result, which is 8.'
+        explanation: 'square(4) returns 4 * 4 = 16.'
     },
     {
         id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3].map(n => n * 2)',
+        question: 'Rewrite this traditional function:<br><code>function greet() { return "Hello!"; }</code>',
+        options: [
+            'const greet = () => "Hello!";',
+            'const greet = () => { "Hello!" };',
+            "const greet = => \"Hello!\";",
+            "const greet = function() -> \"Hello!\";"
+        ],
+        correct: 0,
+        explanation: 'No parameters means empty parentheses: const greet = () => "Hello!";'
+    },
+    {
+        id: 8,
+        question: 'What is the output?<br><code>[1,2,3].map(n => n * 2)</code>',
         options: [
             "[2,4,6]",
             "[1,2,3]",
@@ -210,11 +199,59 @@ const QUIZ_QUESTIONS = [
             "[1,4,9]"
         ],
         correct: 0,
-        explanation: 'map() doubles each element: [2,4,6].'
+        explanation: 'map() with an arrow function doubles each element: [2,4,6].'
     },
     {
-        id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].filter(n => n > 2)',
+        id: 9,
+        question: 'When do you need braces and the return keyword?',
+        options: [
+            "When the arrow function has multiple statements",
+            "Always",
+            "Never",
+            "Only for single parameters"
+        ],
+        correct: 0,
+        explanation: 'Use braces and explicit return for multiple statements.'
+    },
+    {
+        id: 10,
+        question: 'What is the output?<br><code>const add = (a, b) => {<br>&nbsp;&nbsp;const sum = a + b;<br>&nbsp;&nbsp;return sum * 2;<br>};<br>console.log(add(2, 3));</code>',
+        options: [
+            "10",
+            "5",
+            "23",
+            "Error"
+        ],
+        correct: 0,
+        explanation: 'sum = 2 + 3 = 5, then return sum * 2 = 10.'
+    },
+    {
+        id: 11,
+        question: 'Do arrow functions have their own <code>this</code>?',
+        options: [
+            "No, they inherit this from the surrounding scope",
+            "Yes, always",
+            "Only inside classes",
+            "Only in strict mode"
+        ],
+        correct: 0,
+        explanation: 'Arrow functions do not have their own this; they inherit it from the surrounding scope.'
+    },
+    {
+        id: 12,
+        question: 'What is the output?<br><code>const double = x => x * 2;<br>console.log(double(7));</code>',
+        options: [
+            "14",
+            "7",
+            "49",
+            "Error"
+        ],
+        correct: 0,
+        explanation: 'double(7) returns 7 * 2 = 14.'
+    },
+    {
+        id: 13,
+        question: 'What is the output?<br><code>[1,2,3,4].filter(n => n > 2)</code>',
         options: [
             "[3,4]",
             "[1,2]",
@@ -222,91 +259,31 @@ const QUIZ_QUESTIONS = [
             "[2,3,4]"
         ],
         correct: 0,
-        explanation: 'filter() keeps elements greater than 2: [3,4].'
-    },
-    {
-        id: 9,
-        question: 'Can arrow functions have multiple statements?',
-        options: [
-            "Yes, with braces and return",
-            "No",
-            "Only if they are short",
-            "Only in Node.js"
-        ],
-        correct: 0,
-        explanation: 'Yes, with braces {} and an explicit return statement.'
-    },
-    {
-        id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let square = x => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return x * x;<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(square(5));',
-        options: [
-            "25",
-            "10",
-            "5",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'square(5) returns 5 * 5 = 25.'
-    },
-    {
-        id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let getGreeting = () => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Hi";<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(getGreeting());',
-        options: [
-            "Hi",
-            "Hello",
-            "undefined",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'getGreeting() returns "Hi".'
-    },
-    {
-        id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let add = (a, b) => a + b;<br/>&nbsp;&nbsp;console.log(add(10, 20));',
-        options: [
-            "30",
-            "1020",
-            "10 + 20",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'add(10, 20) returns 10 + 20 = 30.'
-    },
-    {
-        id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let process = (x) => {<br/>&nbsp;&nbsp;&nbsp;&nbsp;if (x > 5) return "Big";<br/>&nbsp;&nbsp;&nbsp;&nbsp;return "Small";<br/>&nbsp;&nbsp;};<br/>&nbsp;&nbsp;console.log(process(10));',
-        options: [
-            "Big",
-            "Small",
-            "undefined",
-            "Error"
-        ],
-        correct: 0,
-        explanation: '10 > 5, so the function returns "Big".'
+        explanation: 'filter() with an arrow function keeps elements greater than 2: [3,4].'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;[1,2,3,4].reduce((acc, n) => acc + n, 0)',
+        question: 'Are arrow functions hoisted like regular functions?',
         options: [
-            "10",
-            "6",
-            "0",
-            "1"
+            "No, they are not hoisted the same way",
+            "Yes, always",
+            "Only in modules",
+            "Only in strict mode"
         ],
         correct: 0,
-        explanation: '1 + 2 + 3 + 4 = 10.'
+        explanation: 'Arrow functions are not hoisted the same way. You must define them before use.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let multiply = (a, b) => a * b;<br/>&nbsp;&nbsp;console.log(multiply(5, 5));',
+        question: 'What is the output?<br><code>const multiply = (a, b) => a * b;<br>console.log(multiply(4, 5));</code>',
         options: [
-            "25",
-            "10",
-            "5",
+            "20",
+            "9",
+            "45",
             "Error"
         ],
         correct: 0,
-        explanation: 'multiply(5, 5) returns 5 * 5 = 25.'
+        explanation: 'multiply(4, 5) returns 4 * 5 = 20.'
     }
 ];
 
@@ -371,14 +348,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 64 Quiz</h2>
+                        ">Level 64 Quiz · Simple Arrow Functions</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -404,7 +380,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -412,7 +387,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -571,9 +545,7 @@ function createQuizModal() {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        #quizModal::-webkit-scrollbar {
-            width: 6px;
-        }
+        #quizModal::-webkit-scrollbar { width: 6px; }
         #quizModal::-webkit-scrollbar-track {
             background: var(--bg-base-2, #1b1b29);
             border-radius: 3px;
@@ -622,7 +594,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -689,7 +661,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -879,25 +851,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Arrow Functions';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }

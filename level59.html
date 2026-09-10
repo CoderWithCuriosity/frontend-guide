@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 59: Error Handling (try/catch)</title>
+    <title>Level 59: Text Content Switcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,15 +105,9 @@
             border-radius: 50%;
             display: block;
         }
-        .terminal-dots span:nth-child(1) {
-            background: #ec6a5e;
-        }
-        .terminal-dots span:nth-child(2) {
-            background: #f4bf4f;
-        }
-        .terminal-dots span:nth-child(3) {
-            background: #61c454;
-        }
+        .terminal-dots span:nth-child(1) { background: #ec6a5e; }
+        .terminal-dots span:nth-child(2) { background: #f4bf4f; }
+        .terminal-dots span:nth-child(3) { background: #61c454; }
 
         .terminal-tab {
             font-family: var(--font-mono);
@@ -150,9 +144,7 @@
             animation: blink 1s step-end infinite;
         }
         @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            50% { opacity: 0; }
         }
 
         .hero-sub {
@@ -178,12 +170,9 @@
             color: var(--chip-c, var(--text-secondary));
             background: color-mix(in srgb, var(--chip-c, var(--border)) 12%, transparent);
         }
-        .chip.js {
-            --chip-c: var(--accent-js);
-        }
-        .chip.level {
-            --chip-c: var(--accent-sql);
-        }
+        .chip.js { --chip-c: var(--accent-js); }
+        .chip.level { --chip-c: var(--accent-sql); }
+        .chip.dom { --chip-c: var(--accent-react); }
 
         .panel {
             background: var(--bg-panel);
@@ -221,84 +210,52 @@
             margin-bottom: 14px;
         }
 
-        .demo-area {
-            background: var(--bg-panel-alt);
-            border: 1px solid var(--border);
+        .display-box {
+            background: var(--bg-base-2);
+            border: 2px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 24px;
-            margin: 16px 0;
+            padding: 32px 24px;
+            text-align: center;
+            margin: 20px 0;
+            transition: border-color 0.3s ease;
         }
 
-        .demo-area .form-group {
+        .display-box .display-label {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             margin-bottom: 12px;
         }
 
-        .demo-area label {
-            display: block;
+        #mainText {
             font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-        }
-
-        .demo-area input,
-        .demo-area textarea {
-            width: 100%;
-            padding: 10px 14px;
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: 700;
             color: var(--text-primary);
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            transition: border-color 0.2s ease;
+            transition: color 0.3s ease;
+            min-height: 1.6em;
         }
 
-        .demo-area input:focus {
-            outline: none;
-            border-color: var(--accent-css);
-        }
-
-        .demo-area .result-area {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            padding: 16px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            min-height: 80px;
-            max-height: 200px;
-            overflow-y: auto;
-            margin-top: 12px;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-
-        .demo-area .result-area .success {
-            color: var(--accent-sql);
-        }
-
-        .demo-area .result-area .error {
-            color: var(--accent-html);
-        }
-
-        .demo-area .result-area .info {
-            color: var(--accent-css);
+        .button-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
         }
 
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin: 4px 4px 4px 0;
         }
 
         .btn-demo:hover {
@@ -306,25 +263,42 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
+        .btn-demo.secondary {
             background: var(--accent-js);
             color: #1a1a1a;
         }
 
-        .btn-demo.info {
-            background: var(--accent-css);
-            color: #1a1a1a;
+        .btn-demo.ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
         }
 
-        .btn-demo:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
+        .btn-demo.ghost:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
         }
+
+        .btn-demo.active {
+            border-color: var(--accent-css);
+            box-shadow: 0 0 0 2px rgba(126, 200, 227, 0.2);
+        }
+
+        .output-area {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+            margin-top: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            min-height: 52px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .output-area .highlight { color: var(--accent-js); }
 
         .console-output {
             background: var(--bg-base-2);
@@ -337,11 +311,6 @@
             overflow-x: auto;
         }
 
-        .console-output .log {
-            color: var(--accent-js);
-            margin-bottom: 4px;
-        }
-
         .console-output .comment {
             color: var(--text-muted);
             font-style: italic;
@@ -352,21 +321,9 @@
             margin-right: 8px;
         }
 
-        .console-output .keyword {
-            color: var(--accent-css);
-        }
-
-        .console-output .value {
-            color: var(--accent-html);
-        }
-
-        .console-output .output {
-            color: var(--accent-sql);
-        }
-
-        .console-output .error {
-            color: var(--accent-html);
-        }
+        .console-output .keyword { color: var(--accent-css); }
+        .console-output .value { color: var(--accent-html); }
+        .console-output .output { color: var(--accent-sql); }
 
         .info-box {
             background: var(--bg-panel-alt);
@@ -394,9 +351,7 @@
             color: var(--text-secondary);
             margin-bottom: 7px;
         }
-        .info-box li strong {
-            color: var(--text-primary);
-        }
+        .info-box li strong { color: var(--text-primary); }
 
         .challenge-box {
             background: var(--bg-panel-alt);
@@ -414,29 +369,6 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-        }
-
-        .syntax-box {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin: 16px 0;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            overflow-x: auto;
-        }
-
-        .syntax-box .keyword {
-            color: var(--accent-css);
-        }
-
-        .syntax-box .value {
-            color: var(--accent-html);
-        }
-
-        .syntax-box .comment {
-            color: var(--text-muted);
         }
 
         .quiz-status {
@@ -508,30 +440,14 @@
             transform: translateY(-2px);
         }
 
-        .btn svg {
-            flex-shrink: 0;
-        }
-
-        .text-muted {
-            color: var(--text-muted);
-        }
+        .btn svg { flex-shrink: 0; }
 
         @media (max-width: 768px) {
-            body {
-                padding: 16px 12px 40px;
-            }
-            .terminal-body {
-                padding: 24px 20px 28px;
-            }
-            .panel {
-                padding: 20px;
-            }
-            .nav-row {
-                flex-direction: column;
-            }
-            .nav-row .btn {
-                width: 100%;
-            }
+            body { padding: 16px 12px 40px; }
+            .terminal-body { padding: 24px 20px 28px; }
+            .panel { padding: 20px; }
+            .nav-row { flex-direction: column; }
+            .nav-row .btn { width: 100%; }
         }
     </style>
 </head>
@@ -545,16 +461,17 @@
                 <div class="terminal-tab">level59.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 59: Error Handling (try/catch)</p>
+                <p class="terminal-comment">// Level 59: Text Content Switcher — DOM Project</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Error Handling (try/catch)</span><span class="cursor">_</span>
+                    <span id="typedTitle">Text Content Switcher</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Learn how to handle errors gracefully using try/catch blocks.
-                    Prevent your program from crashing when errors occur.
+                    Update dynamic text on the screen when different buttons are clicked.
+                    Practice <code>element.textContent</code> and a simple state variable.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip dom">DOM</span>
                     <span class="chip level">Level 59</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -562,272 +479,107 @@
         </div>
 
         <div class="panel">
-            <h1>Error Handling (try/catch)</h1>
+            <h1>Text Content Switcher</h1>
             <p>
-                Error handling allows you to catch and handle errors without crashing your program.
-                Use try/catch to gracefully handle unexpected situations.
+                In this project you'll change the text inside an element using
+                <code>element.textContent</code>. A small state variable keeps track
+                of what's currently shown so you can update it with buttons.
             </p>
 
-            <h2>Try It Yourself</h2>
+            <h2>Interactive Playground</h2>
 
-            <div class="demo-area">
-                <div class="form-group">
-                    <label for="testInput">Test Value</label>
-                    <input type="text" id="testInput" placeholder="Enter a number or 'error'" value="42">
-                </div>
-                
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-demo" onclick="testTryCatch()">🧪 Test try/catch</button>
-                    <button class="btn-demo info" onclick="testFetchError()">🌐 Test Fetch Error</button>
-                    <button class="btn-demo danger" onclick="testThrowError()">💥 Throw Error</button>
-                    <button class="btn-demo reset" onclick="clearResult()">🧹 Clear</button>
-                </div>
-                
-                <div class="result-area" id="resultArea">
-                    <div class="info">// Click a button to test error handling</div>
-                </div>
+            <div class="display-box" id="displayBox">
+                <div class="display-label">Current Text</div>
+                <div id="mainText">Hello, world!</div>
             </div>
 
-            <h2>Syntax</h2>
-
-            <div class="syntax-box">
-                <span class="keyword">try</span> {<br>
-                &nbsp;&nbsp;<span class="comment">// Code that might throw an error</span><br>
-                &nbsp;&nbsp;<span class="keyword">let</span> result = riskyOperation();<br>
-                } <span class="keyword">catch</span> (error) {<br>
-                &nbsp;&nbsp;<span class="comment">// Code to handle the error</span><br>
-                &nbsp;&nbsp;console.<span class="keyword">log</span>(error.<span class="keyword">message</span>);<br>
-                } <span class="keyword">finally</span> {<br>
-                &nbsp;&nbsp;<span class="comment">// Code that always runs</span><br>
-                &nbsp;&nbsp;console.<span class="keyword">log</span>(<span class="value">"Cleanup"</span>);<br>
-                }
+            <div class="button-row" id="buttonRow">
+                <button class="btn-demo" data-text="Hello, world!" onclick="setText('Hello, world!')">Hello</button>
+                <button class="btn-demo" data-text="Welcome to Level 59!" onclick="setText('Welcome to Level 59!')">Welcome</button>
+                <button class="btn-demo" data-text="You are learning JavaScript!" onclick="setText('You are learning JavaScript!')">Learning</button>
+                <button class="btn-demo" data-text="DOM manipulation is fun!" onclick="setText('DOM manipulation is fun!')">Fun</button>
+                <button class="btn-demo secondary" onclick="nextMessage()">Next Message →</button>
+                <button class="btn-demo ghost" onclick="randomMessage()">🎲 Random</button>
+                <button class="btn-demo ghost" onclick="resetText()">↺ Reset</button>
             </div>
 
-            <h2>Console Output</h2>
-
-            <div class="console-output">
-                <div class="comment">// try/catch Examples</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">let</span> x = JSON.<span class="keyword">parse</span>(<span class="value">"invalid json"</span>);</div>
-                <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(error.<span class="keyword">message</span>);</div>
-                <div><span class="arrow">&gt;</span> }</div>
-                <div class="error">  Unexpected token i in JSON at position 0</div>
-                <br>
-                <div class="comment">// Custom error with throw</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
-                <div><span class="arrow">&gt;</span>   <span class="keyword">if</span> (age < 18) {</div>
-                <div><span class="arrow">&gt;</span>     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Error</span>(<span class="value">"Must be 18 or older"</span>);</div>
-                <div><span class="arrow">&gt;</span>   }</div>
-                <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(error.<span class="keyword">message</span>);</div>
-                <div><span class="arrow">&gt;</span> }</div>
-                <div class="error">  Must be 18 or older</div>
-                <br>
-                <div class="comment">// finally block</div>
-                <div><span class="arrow">&gt;</span> <span class="keyword">try</span> {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Try block"</span>);</div>
-                <div><span class="arrow">&gt;</span> } <span class="keyword">catch</span> (error) {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(error);</div>
-                <div><span class="arrow">&gt;</span> } <span class="keyword">finally</span> {</div>
-                <div><span class="arrow">&gt;</span>   console.<span class="keyword">log</span>(<span class="value">"Always runs"</span>);</div>
-                <div><span class="arrow">&gt;</span> }</div>
-                <div class="output">  Try block</div>
-                <div class="output">  Always runs</div>
-            </div>
-
-            <div class="info-box">
-                <h4>Key Takeaways</h4>
-                <ul>
-                    <li><strong>try</strong> - Wraps code that might throw an error</li>
-                    <li><strong>catch</strong> - Catches and handles errors</li>
-                    <li><strong>finally</strong> - Code that always runs (optional)</li>
-                    <li><strong>throw</strong> - Creates a custom error</li>
-                    <li><strong>Error object</strong> - Contains error details (.message, .name, .stack)</li>
-                    <li><strong>Graceful handling</strong> - Prevents program crashes</li>
-                </ul>
-            </div>
-
-            <div class="challenge-box">
-                <h4>Your Challenge</h4>
-                <p>Create a new file named <code>level[level].html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and place your solution for this level within the script. <br/>error handling:</p>
-                <ul style="margin-left: 20px; color: var(--text-secondary);">
-                    <li>Create a try/catch that handles invalid JSON</li>
-                    <li>Throw a custom error with a message</li>
-                    <li>Use finally to clean up resources</li>
-                    <li>Catch different types of errors</li>
-                    <li>Log the full error stack trace</li>
-                </ul>
-            </div>
-
-            <div class="quiz-status">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                Pass the 10-question quiz to unlock Level 60
-            </div>
-
-            <div class="nav-row">
-                <a href="level58.html" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="15 18 9 12 15 6"/>
-                    </svg>
-                    Previous Level
-                </a>
-                <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                    Take Quiz
-                </a>
-                <a href="level60.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
-                    Next Level
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <polyline points="9 18 15 12 9 6"/>
-                    </svg>
-                </a>
+            <div class="output-area" id="textOutput">
+                // Click a button to change the text above...
             </div>
         </div>
+
+        <h2>Console Output</h2>
+
+        <div class="console-output">
+            <div class="comment">// Change text content directly</div>
+            <div><span class="arrow">&gt;</span> <span class="keyword">let</span> heading = document.<span class="keyword">getElementById</span>(<span class="value">"mainText"</span>);</div>
+            <div><span class="arrow">&gt;</span> heading.<span class="keyword">textContent</span> = <span class="value">"New text here"</span>;</div>
+            <br>
+            <div class="comment">// Track state with a variable</div>
+            <div><span class="arrow">&gt;</span> <span class="keyword">let</span> currentIndex = 0;</div>
+            <div><span class="arrow">&gt;</span> <span class="keyword">const</span> messages = [<span class="value">"One"</span>, <span class="value">"Two"</span>, <span class="value">"Three"</span>];</div>
+            <div><span class="arrow">&gt;</span> heading.<span class="keyword">textContent</span> = messages[currentIndex];</div>
+            <div class="output">  "One"</div>
+            <br>
+            <div class="comment">// Cycle to the next message</div>
+            <div><span class="arrow">&gt;</span> currentIndex = (currentIndex + 1) % messages.length;</div>
+            <div><span class="arrow">&gt;</span> heading.<span class="keyword">textContent</span> = messages[currentIndex];</div>
+            <div class="output">  "Two"</div>
+        </div>
+
+        <div class="info-box">
+            <h4>Key Takeaways</h4>
+            <ul>
+                <li><strong>element.textContent</strong> — replaces the text inside an element.</li>
+                <li><strong>State variable</strong> — store the current index in a variable.</li>
+                <li><strong>Modulo (%)</strong> — wrap around the array: <code>(i + 1) % arr.length</code>.</li>
+                <li><strong>Button clicks</strong> — use <code>onclick</code> or <code>addEventListener</code>.</li>
+                <li><strong>Array of messages</strong> — a simple way to store multiple texts.</li>
+                <li><strong>Immediate feedback</strong> — the page updates the instant you click.</li>
+            </ul>
+        </div>
+
+        <div class="challenge-box">
+            <h4>Your Challenge</h4>
+            <p>Create a new file named <code>level59.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
+            <ul style="margin-left: 20px; color: var(--text-secondary);">
+                <li>Add a heading element and three buttons to your HTML.</li>
+                <li>Each button sets the heading to a different text.</li>
+                <li>Add a "Next" button that cycles through an array of messages.</li>
+                <li>Use a state variable to track which message is showing.</li>
+                <li>Log the new text to the console every time it changes.</li>
+            </ul>
+        </div>
+
+        <div class="quiz-status">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Pass the 10-question quiz to unlock Level 60
+        </div>
+
+        <div class="nav-row">
+            <a href="level58.html" class="btn btn-ghost">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+                Previous Level
+            </a>
+            <a href="#" class="btn btn-primary" onclick="startQuiz(event)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                Take Quiz
+            </a>
+            <a href="level60.html" class="btn btn-secondary" id="nextLevelBtn" style="opacity:0.5;pointer-events:none;">
+                Next Level
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </a>
+        </div>
     </div>
-
-    <script>
-        // ============================================
-        // ERROR HANDLING DEMO FUNCTIONS
-        // ============================================
-
-        function logToResult(message, type) {
-            let area = document.getElementById("resultArea");
-            let className = type || "";
-            area.innerHTML += `<div class="${className}">${message}</div>`;
-            area.scrollTop = area.scrollHeight;
-        }
-
-        function clearResult() {
-            let area = document.getElementById("resultArea");
-            area.innerHTML = `<div class="info">// Click a button to test error handling</div>`;
-        }
-
-        function testTryCatch() {
-            let input = document.getElementById("testInput").value;
-            let area = document.getElementById("resultArea");
-            area.innerHTML = '';
-
-            logToResult("📝 Testing try/catch with input: " + input, "info");
-
-            try {
-                logToResult("🔵 Entering try block...", "info");
-                
-                // Try to parse as JSON
-                let parsed = JSON.parse(input);
-                logToResult("✅ Successfully parsed JSON: " + JSON.stringify(parsed), "success");
-                
-                // Try to do math
-                if (typeof parsed === "number") {
-                    let result = parsed * 2;
-                    logToResult("🧮 Math result: " + parsed + " * 2 = " + result, "success");
-                }
-                
-            } catch (error) {
-                logToResult("❌ Caught error: " + error.message, "error");
-                logToResult("📋 Error type: " + error.name, "info");
-                
-                // Try alternative handling
-                try {
-                    logToResult("🔄 Trying alternative handling...", "info");
-                    let num = Number(input);
-                    if (!isNaN(num)) {
-                        logToResult("✅ Converted to number: " + num, "success");
-                    } else {
-                        logToResult("📝 It's a string: " + input, "info");
-                    }
-                } catch (altError) {
-                    logToResult("❌ Alternative also failed: " + altError.message, "error");
-                }
-            } finally {
-                logToResult("🏁 Finally block always runs", "info");
-            }
-        }
-
-        function testFetchError() {
-            let area = document.getElementById("resultArea");
-            area.innerHTML = '';
-
-            logToResult("🌐 Testing fetch with error handling...", "info");
-
-            try {
-                logToResult("📡 Attempting to fetch invalid URL...", "info");
-                
-                fetch("https://this-url-does-not-exist-12345.com")
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("HTTP error! status: " + response.status);
-                        }
-                        return response.json();
-                    })
-                    .catch(error => {
-                        logToResult("❌ Fetch caught error: " + error.message, "error");
-                        logToResult("💡 This error was handled in the .catch()", "info");
-                    });
-                    
-                logToResult("⏳ Request sent, waiting for response...", "info");
-                
-            } catch (error) {
-                logToResult("❌ Error in try block: " + error.message, "error");
-            }
-        }
-
-        function testThrowError() {
-            let input = document.getElementById("testInput").value;
-            let area = document.getElementById("resultArea");
-            area.innerHTML = '';
-
-            logToResult("💥 Testing custom error throwing...", "info");
-
-            try {
-                logToResult("🔵 Entering try block...", "info");
-                
-                // Check if input is a number
-                let num = Number(input);
-                
-                if (isNaN(num)) {
-                    throw new Error("Input is not a valid number!");
-                }
-                
-                if (num < 0) {
-                    throw new RangeError("Number must be positive!");
-                }
-                
-                if (num > 100) {
-                    throw new RangeError("Number must be 100 or less!");
-                }
-                
-                logToResult("✅ Input is valid: " + num, "success");
-                logToResult("📊 Double is: " + num * 2, "success");
-                
-            } catch (error) {
-                logToResult("❌ Caught error: " + error.message, "error");
-                logToResult("📋 Error type: " + error.name, "info");
-                
-                if (error instanceof RangeError) {
-                    logToResult("⚠️ This is a RangeError - value is out of range", "info");
-                } else if (error instanceof TypeError) {
-                    logToResult("⚠️ This is a TypeError - wrong data type", "info");
-                } else {
-                    logToResult("⚠️ This is a generic Error", "info");
-                }
-            } finally {
-                logToResult("🏁 Finally block completed", "info");
-            }
-        }
-
-        // Auto-run demo on page load
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(() => {
-                testTryCatch();
-            }, 500);
-        });
-    </script>
 
     <script src="./scripts/level59.js"></script>
 </body>

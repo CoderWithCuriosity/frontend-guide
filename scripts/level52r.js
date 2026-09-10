@@ -1,328 +1,309 @@
 /**
- * Level 52: Form Validation
+ * Level 52: Array CRUD - Updating & Deleting with .splice()
  * 
- * This file demonstrates form validation in JavaScript.
- * All code here will run when the page loads.
+ * This file contains the interactive demo and quiz logic.
+ * It runs when the page loads.
  */
 
 // ============================================
-// BASIC VALIDATION FUNCTIONS
+// ARRAY CRUD DEMO (Updating & Deleting)
 // ============================================
 
-console.log("--- Basic Validation Functions ---");
+let demoArray = ["apple", "banana", "cherry", "date"];
 
-function isRequired(value) {
-    return value.trim().length > 0;
+function updateGrid() {
+    for (let i = 0; i < 4; i++) {
+        const el = document.getElementById(`gridVal${i}`);
+        if (el) {
+            el.textContent = i < demoArray.length ? `"${demoArray[i]}"` : "undefined";
+        }
+    }
 }
 
-function minLength(value, min) {
-    return value.length >= min;
+function setOutput(msg, color = "#a3a3c2") {
+    const out = document.getElementById("arrayOutput");
+    if (out) {
+        out.innerHTML = msg;
+        out.style.color = color;
+    }
 }
 
-function isValidEmail(email) {
-    return email.includes("@") && email.includes(".");
-}
-
-function passwordsMatch(pw1, pw2) {
-    return pw1 === pw2;
-}
-
-// ============================================
-// TESTING VALIDATION FUNCTIONS
-// ============================================
-
-console.log("\n--- Testing Validation Functions ---");
-
-console.log('isRequired("Hello"):', isRequired("Hello"));
-console.log('isRequired(""):', isRequired(""));
-console.log('minLength("Hello", 3):', minLength("Hello", 3));
-console.log('minLength("Hi", 3):', minLength("Hi", 3));
-console.log('isValidEmail("test@test.com"):', isValidEmail("test@test.com"));
-console.log('isValidEmail("test.com"):', isValidEmail("test.com"));
-console.log('passwordsMatch("pass", "pass"):', passwordsMatch("pass", "pass"));
-console.log('passwordsMatch("pass", "word"):', passwordsMatch("pass", "word"));
-
-// ============================================
-// VALIDATING USER INPUT
-// ============================================
-
-console.log("\n--- Validating User Input ---");
-
-function validateField(input, rules) {
-    let errors = [];
-    
-    if (rules.required && !isRequired(input.value)) {
-        errors.push("This field is required");
-    }
-    
-    if (rules.minLength && !minLength(input.value, rules.minLength)) {
-        errors.push("Minimum length is " + rules.minLength);
-    }
-    
-    if (rules.email && !isValidEmail(input.value)) {
-        errors.push("Please enter a valid email");
-    }
-    
-    return errors;
-}
-
-// ============================================
-// VALIDATING ALL FORM FIELDS
-// ============================================
-
-console.log("\n--- Validating Form Fields ---");
-
-let usernameInput = document.getElementById("username");
-let emailInput = document.getElementById("email");
-let passwordInput = document.getElementById("password");
-let confirmInput = document.getElementById("confirmPassword");
-
-function validateForm() {
-    let errors = [];
-    
-    // Username validation
-    if (!isRequired(usernameInput.value)) {
-        errors.push("Username is required");
-    } else if (!minLength(usernameInput.value, 3)) {
-        errors.push("Username must be at least 3 characters");
-    }
-    
-    // Email validation
-    if (!isRequired(emailInput.value)) {
-        errors.push("Email is required");
-    } else if (!isValidEmail(emailInput.value)) {
-        errors.push("Email is invalid");
-    }
-    
-    // Password validation
-    if (!isRequired(passwordInput.value)) {
-        errors.push("Password is required");
-    } else if (!minLength(passwordInput.value, 6)) {
-        errors.push("Password must be at least 6 characters");
-    }
-    
-    // Confirm password validation
-    if (!passwordsMatch(passwordInput.value, confirmInput.value)) {
-        errors.push("Passwords do not match");
-    }
-    
-    return errors;
-}
-
-// ============================================
-// DISPLAYING VALIDATION ERRORS
-// ============================================
-
-console.log("\n--- Displaying Validation Errors ---");
-
-function displayErrors(errors) {
-    if (errors.length === 0) {
-        console.log("✅ All fields are valid!");
+function readElement() {
+    const index = parseInt(document.getElementById("indexInput").value, 10);
+    if (isNaN(index) || index < 0) {
+        setOutput("⚠️ Please enter a valid non-negative index.", "#f3a072");
         return;
     }
-    
-    console.log("❌ Validation errors:");
-    errors.forEach((error, index) => {
-        console.log("  " + (index + 1) + ". " + error);
-    });
+    const value = demoArray[index];
+    if (value === undefined) {
+        setOutput(`arr[${index}] → undefined  <span class="highlight">(index out of bounds)</span>`, "#f3a072");
+    } else {
+        setOutput(`arr[${index}] → "${value}"`, "#8ec07c");
+    }
+    console.log(`Read arr[${index}]:`, value);
+    updateGrid();
 }
 
-// Test validation
-let testErrors = validateForm();
-displayErrors(testErrors);
+function updateElement() {
+    const index = parseInt(document.getElementById("indexInput").value, 10);
+    const val = document.getElementById("valueInput").value.trim();
+    if (isNaN(index) || index < 0) {
+        setOutput("⚠️ Please enter a valid non-negative index.", "#f3a072");
+        return;
+    }
+    if (!val) {
+        setOutput("⚠️ Please enter a value to assign.", "#f3a072");
+        return;
+    }
+    if (index >= demoArray.length) {
+        setOutput(`⚠️ Index ${index} is out of bounds. Array length is ${demoArray.length}.`, "#f3a072");
+        return;
+    }
+    const old = demoArray[index];
+    demoArray[index] = val;
+    setOutput(`arr[${index}] = "${val}"  <span class="highlight">(previous: "${old}")</span>`, "#8ec07c");
+    console.log(`Updated arr[${index}] from "${old}" to "${val}"`);
+    updateGrid();
+}
+
+function deleteElement() {
+    const index = parseInt(document.getElementById("indexInput").value, 10);
+    if (isNaN(index) || index < 0) {
+        setOutput("⚠️ Please enter a valid non-negative index.", "#f3a072");
+        return;
+    }
+    if (index >= demoArray.length) {
+        setOutput(`⚠️ Index ${index} is out of bounds. Array length is ${demoArray.length}.`, "#f3a072");
+        return;
+    }
+    const removed = demoArray.splice(index, 1);
+    setOutput(
+        `splice(${index}, 1) removed "${removed[0]}" → new length: ${demoArray.length}`,
+        "#f3a072"
+    );
+    console.log(`Deleted arr[${index}]:`, removed[0]);
+    updateGrid();
+}
+
+function resetArray() {
+    demoArray = ["apple", "banana", "cherry", "date"];
+    setOutput('Array reset to ["apple", "banana", "cherry", "date"]', "#a3a3c2");
+    console.log("Array reset");
+    updateGrid();
+}
+
+function showArray() {
+    const display = JSON.stringify(demoArray);
+    setOutput(`Full array: ${display}  (length: ${demoArray.length})`, "#7ec8e3");
+    console.log("Array:", demoArray);
+}
+
+// Real-time input logging for demo array fields
+document.addEventListener("DOMContentLoaded", function() {
+    // Typing animation for hero title
+    const el = document.getElementById('typedTitle');
+    const text = 'Array CRUD: Update & Delete';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && el) {
+        let i = 0;
+        el.textContent = '';
+        function step() {
+            el.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(step, 35);
+        }
+        step();
+    } else if (el) {
+        el.textContent = text;
+    }
+
+    updateGrid();
+
+    // Demo array input logging
+    const idxInput = document.getElementById("indexInput");
+    const valInput = document.getElementById("valueInput");
+    if (idxInput) {
+        idxInput.addEventListener("input", function() {
+            console.log("Index field changed to:", this.value);
+        });
+    }
+    if (valInput) {
+        valInput.addEventListener("input", function() {
+            console.log("Value field changed to:", this.value);
+        });
+    }
+});
 
 // ============================================
-// REAL-TIME VALIDATION (already in HTML)
-// ============================================
-
-console.log("\n--- Real-time Validation ---");
-console.log("Real-time validation is set up in the HTML file.");
-console.log("Try typing in the form fields to see it in action!");
-
-// ============================================
-// QUIZ SYSTEM
+// QUIZ SYSTEM (Array CRUD: Updating & Deleting)
 // ============================================
 
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does form validation do?',
+        question: 'How do you update an existing element in an array?',
         options: [
-            "Ensures user input is correct",
-            "Submits the form automatically",
-            "Deletes the form",
-            "Styles the form"
+            "arr[index] = newValue",
+            "arr.update(index, value)",
+            "arr.set(index, value)",
+            "arr.change(index, value)"
         ],
         correct: 0,
-        explanation: 'Form validation ensures that user input meets the required criteria before submission.'
+        explanation: 'Assigning a new value to an existing index updates that element: arr[index] = newValue.'
     },
     {
         id: 2,
-        question: 'How do you check if a field is empty?',
+        question: 'What does <code>arr.splice(2, 1)</code> do?',
         options: [
-            "input.value === ''",
-            "input.value === null",
-            "input.value === undefined",
-            "input.isEmpty()"
+            "Removes 1 element at index 2",
+            "Removes 2 elements at index 1",
+            "Adds 1 element at index 2",
+            "Removes 1 element from the end"
         ],
         correct: 0,
-        explanation: 'Check if input.value === "" to see if the field is empty.'
+        explanation: '.splice(startIndex, deleteCount) removes deleteCount elements starting at startIndex.'
     },
     {
         id: 3,
-        question: 'How do you check minimum length?',
+        question: 'What does <code>.splice()</code> return?',
         options: [
-            "input.value.length >= min",
-            "input.value.length > min",
-            "input.length >= min",
-            "input.minLength(min)"
-        ],
-        correct: 0,
-        explanation: 'Use input.value.length >= min to check minimum length.'
-    },
-    {
-        id: 4,
-        question: 'What is a valid email format?',
-        options: [
-            "Contains @ and .",
-            "Contains only letters",
-            "Contains only numbers",
-            "Contains a space"
-        ],
-        correct: 0,
-        explanation: 'A valid email should contain both @ and . symbols.'
-    },
-    {
-        id: 5,
-        question: 'How do you compare two passwords?',
-        options: [
-            "password1 === password2",
-            "password1 == password2",
-            "password1.equals(password2)",
-            "password1.compare(password2)"
-        ],
-        correct: 0,
-        explanation: 'Use === to strictly compare two password strings.'
-    },
-    {
-        id: 6,
-        question: 'What event is best for real-time validation?',
-        options: [
-            "click",
-            "input",
-            "mouseover",
-            "keydown"
-        ],
-        correct: 1,
-        explanation: 'The input event fires on every change, making it best for real-time validation.'
-    },
-    {
-        id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;function validate(value) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return value.length > 0;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(validate(""));',
-        options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
-        ],
-        correct: 1,
-        explanation: 'validate("") returns false because an empty string has length 0.'
-    },
-    {
-        id: 8,
-        question: 'What CSS class is commonly used to show invalid input?',
-        options: [
-            "invalid",
-            "error",
-            "wrong",
-            "bad"
-        ],
-        correct: 0,
-        explanation: 'The "invalid" class is commonly used to style invalid inputs.'
-    },
-    {
-        id: 9,
-        question: 'Why is validation important?',
-        options: [
-            "Prevents bad data from being submitted",
-            "Makes the form look better",
-            "Speeds up the form",
-            "All of the above"
-        ],
-        correct: 0,
-        explanation: 'Validation is important to prevent bad or malicious data from being submitted.'
-    },
-    {
-        id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let str = "Hello";<br/>&nbsp;&nbsp;console.log(str.length);',
-        options: [
-            "5",
-            "6",
-            "0",
+            "An array of the removed elements",
+            "The new array length",
+            "The modified array",
             "undefined"
         ],
         correct: 0,
-        explanation: '"Hello" has 5 characters, so length is 5.'
+        explanation: '.splice() returns an array containing the removed element(s).'
+    },
+    {
+        id: 4,
+        question: 'Does <code>.splice()</code> mutate the original array?',
+        options: [
+            "Yes, it modifies the original array in place",
+            "No, it returns a new array",
+            "Only if you pass a third argument",
+            "It depends on the array type"
+        ],
+        correct: 0,
+        explanation: '.splice() is a mutating method — it changes the original array directly.'
+    },
+    {
+        id: 5,
+        question: 'What is <code>arr.length</code> after <code>let arr = ["a","b","c"]; arr.splice(1, 1);</code>?',
+        options: ["2", "3", "1", "4"],
+        correct: 0,
+        explanation: 'Removing one element reduces the length from 3 to 2.'
+    },
+    {
+        id: 6,
+        question: 'What is the output?<br><code>let a = [10, 20, 30]; a[1] = 99; console.log(a);</code>',
+        options: [
+            "[10, 99, 30]",
+            "[10, 20, 30]",
+            "[99, 20, 30]",
+            "[10, 20, 99]"
+        ],
+        correct: 0,
+        explanation: 'Setting a[1] = 99 replaces the element at index 1 (which was 20).'
+    },
+    {
+        id: 7,
+        question: 'How do you remove the FIRST element of an array using .splice()?',
+        options: [
+            "arr.splice(0, 1)",
+            "arr.splice(1, 0)",
+            "arr.splice(0, 0)",
+            "arr.splice(-1, 1)"
+        ],
+        correct: 0,
+        explanation: 'arr.splice(0, 1) removes 1 element starting at index 0 (the first element).'
+    },
+    {
+        id: 8,
+        question: 'How do you remove the LAST element using .splice()?',
+        options: [
+            "arr.splice(arr.length - 1, 1)",
+            "arr.splice(0, 1)",
+            "arr.splice(-1, 0)",
+            "arr.splice(arr.length, 1)"
+        ],
+        correct: 0,
+        explanation: 'The last element is at index arr.length - 1, so arr.splice(arr.length - 1, 1) removes it.'
+    },
+    {
+        id: 9,
+        question: 'What is the output?<br><code>let a = ["x","y","z"]; let r = a.splice(0, 1); console.log(r);</code>',
+        options: [
+            '["x"]',
+            '"x"',
+            '["y","z"]',
+            "undefined"
+        ],
+        correct: 0,
+        explanation: '.splice() always returns an array of the removed elements, so r is ["x"].'
+    },
+    {
+        id: 10,
+        question: 'After <code>arr.splice(1, 1)</code>, what happens to the elements after the removed one?',
+        options: [
+            "They shift down by one index",
+            "They stay at the same index",
+            "They shift up by one index",
+            "They are also removed"
+        ],
+        correct: 0,
+        explanation: 'When an element is removed, all elements after it shift down by one index to fill the gap.'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let email = "test@test.com";<br/>&nbsp;&nbsp;console.log(email.includes("@"));',
-        options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
-        ],
+        question: 'What is <code>arr[1]</code> after <code>let arr = ["a","b","c"]; arr.splice(1, 1);</code>?',
+        options: ['"c"', '"b"', '"a"', "undefined"],
         correct: 0,
-        explanation: 'email.includes("@") returns true because the string contains @.'
+        explanation: 'After removing "b" at index 1, "c" shifts down to index 1.'
     },
     {
         id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let pw1 = "pass";<br/>&nbsp;&nbsp;let pw2 = "word";<br/>&nbsp;&nbsp;console.log(pw1 === pw2);',
+        question: 'Which method removes an element from an array?',
         options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
+            ".splice()",
+            ".slice()",
+            ".split()",
+            ".trim()"
         ],
-        correct: 1,
-        explanation: 'pw1 and pw2 are different strings, so "pass" === "word" is false.'
+        correct: 0,
+        explanation: '.splice() removes (and optionally adds) elements. .slice() only copies a portion.'
     },
     {
         id: 13,
-        question: 'What does the required attribute do in HTML?',
-        options: [
-            "Makes the field required for validation",
-            "Makes the field optional",
-            "Sets a default value",
-            "Disables the field"
-        ],
+        question: 'What is the output?<br><code>let a = [1,2,3]; a.splice(0,1); console.log(a.length);</code>',
+        options: ["2", "3", "1", "0"],
         correct: 0,
-        explanation: 'The required attribute makes the field mandatory for form submission.'
+        explanation: 'Removing one element from a 3-element array leaves 2 elements.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;function validate(input) {<br/>&nbsp;&nbsp;&nbsp;&nbsp;return input !== "";<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;console.log(validate("Hello"));',
+        question: 'What is the difference between <code>arr[1] = "x"</code> and <code>arr.splice(1, 1)</code>?',
         options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
+            "Assignment updates; splice removes",
+            "Assignment removes; splice updates",
+            "Both remove the element",
+            "Both update the element"
         ],
         correct: 0,
-        explanation: 'validate("Hello") returns true because "Hello" !== "" is true.'
+        explanation: 'Bracket assignment updates a value at an index; .splice() removes (or adds) elements.'
     },
     {
         id: 15,
-        question: 'How do you show an error message?',
+        question: 'What is the output?<br><code>let a = ["a","b","c","d"]; a.splice(2, 1); console.log(a);</code>',
         options: [
-            "errorElement.classList.add('show')",
-            "errorElement.show()",
-            "errorElement.display = 'block'",
-            "errorElement.visible = true"
+            '["a", "b", "d"]',
+            '["a", "b", "c"]',
+            '["a", "c", "d"]',
+            '["a", "b", "c", "d"]'
         ],
         correct: 0,
-        explanation: 'Use classList.add("show") to display an error message element.'
+        explanation: 'splice(2, 1) removes "c" at index 2, leaving ["a", "b", "d"].'
     }
 ];
 
@@ -387,14 +368,13 @@ function createQuizModal() {
                     border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
                 ">
                     <div style="display: flex; align-items: center; gap: 12px;">
-                        
                         <h2 style="
                             font-family: var(--font-mono, monospace);
                             font-size: 1.1rem;
                             font-weight: 600;
                             color: var(--text-primary, #e9e9f5);
                             margin: 0;
-                        ">Level 52 Quiz</h2>
+                        ">Level 52 Quiz · Array CRUD</h2>
                     </div>
                     <button id="closeQuizBtn" style="
                         background: none;
@@ -420,7 +400,6 @@ function createQuizModal() {
                         color: var(--text-secondary, #a3a3c2);
                     ">
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="timerDisplay" style="
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
@@ -428,7 +407,6 @@ function createQuizModal() {
                             ">2:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
-                            
                             <span id="progressDisplay">1 / 10</span>
                         </div>
                     </div>
@@ -638,7 +616,7 @@ function startQuiz(event) {
         timer: null
     };
 
-    const modal = createQuizModal();
+    createQuizModal();
     const overlay = document.getElementById('quizOverlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -705,7 +683,7 @@ function renderQuestion() {
         optionDiv.appendChild(letterSpan);
 
         const textSpan = document.createElement('span');
-        textSpan.textContent = option;
+        textSpan.innerHTML = option;
         optionDiv.appendChild(textSpan);
 
         optionDiv.addEventListener('click', () => selectOption(index));
@@ -839,7 +817,7 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered form validation!';
+        message += ' 🌟 Perfect score! You\'ve mastered array updating and deleting!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
@@ -895,25 +873,7 @@ function retryQuiz() {
     startTimer();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const el = document.getElementById('typedTitle');
-    const text = 'Form Validation';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduceMotion) {
-        el.textContent = text;
-        return;
-    }
-
-    let i = 0;
-    function step() {
-        el.textContent = text.slice(0, i);
-        i++;
-        if (i <= text.length) setTimeout(step, 35);
-    }
-    step();
-});
-
+// Export for potential module use (optional)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { startQuiz, QUIZ_QUESTIONS };
 }
