@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 71: Password Generator</title>
+    <title>Level 71: POST Request</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,161 +221,28 @@
             margin-bottom: 14px;
         }
 
-        .password-app {
-            background: var(--bg-panel-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            margin: 16px 0;
-        }
-
-        .password-app .password-display {
-            background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            padding: 16px 20px;
-            margin-bottom: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .password-app .password-display .password-text {
-            font-family: var(--font-mono);
-            font-size: 1.4rem;
-            color: var(--accent-js);
-            word-break: break-all;
-            flex: 1;
-        }
-
-        .password-app .password-display .copy-btn {
-            background: transparent;
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            color: var(--text-muted);
-            padding: 6px 12px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            white-space: nowrap;
-        }
-
-        .password-app .password-display .copy-btn:hover {
-            border-color: var(--text-muted);
-            color: var(--text-primary);
-        }
-
-        .password-app .password-display .copy-btn.copied {
-            border-color: var(--accent-sql);
-            color: var(--accent-sql);
-        }
-
-        .password-app .options-group {
-            margin: 16px 0;
-        }
-
-        .password-app .options-group .option-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .password-app .options-group .option-row:last-child {
-            border-bottom: none;
-        }
-
-        .password-app .options-group .option-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .password-app .options-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--accent-sql);
-            cursor: pointer;
-        }
-
-        .password-app .options-group input[type="range"] {
-            width: 150px;
-            accent-color: var(--accent-sql);
-            cursor: pointer;
-        }
-
-        .password-app .options-group .range-value {
-            font-family: var(--font-mono);
-            color: var(--accent-js);
-            min-width: 40px;
-            text-align: right;
-        }
-
-        .password-app .strength-meter {
-            margin: 16px 0;
-            padding: 8px 0;
-            border-top: 1px solid var(--border-soft);
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .password-app .strength-meter .strength-label {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .password-app .strength-meter .strength-bar {
-            margin-top: 4px;
-            height: 4px;
-            background: var(--bg-base-2);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .password-app .strength-meter .strength-bar .strength-fill {
-            height: 100%;
-            border-radius: 4px;
-            transition: width 0.3s ease;
-            width: 0%;
-        }
-
-        .password-app .strength-meter .strength-bar .strength-fill.weak {
-            background: var(--accent-html);
-        }
-
-        .password-app .strength-meter .strength-bar .strength-fill.medium {
-            background: var(--accent-js);
-        }
-
-        .password-app .strength-meter .strength-bar .strength-fill.strong {
-            background: var(--accent-sql);
-        }
-
-        .password-app .generate-btn {
-            width: 100%;
-            padding: 12px;
+        .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
+            padding: 10px 20px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
-            margin-top: 8px;
         }
 
-        .password-app .generate-btn:hover {
+        .btn-demo:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
+        }
+
+        .btn-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
         }
 
         .info-box {
@@ -495,24 +362,253 @@
             .panel {
                 padding: 20px;
             }
-            .password-app .options-group .option-row {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .password-app .options-group input[type="range"] {
-                width: 100px;
-            }
-            .password-app .password-display {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 8px;
-            }
             .nav-row {
                 flex-direction: column;
             }
             .nav-row .btn {
                 width: 100%;
             }
+        }
+
+        /* ---------- shared: lesson blocks ---------- */
+        code {
+            overflow-wrap: anywhere; /* long URLs wrap on phones */
+        }
+
+        .code-block {
+            background: var(--bg-base);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin: 12px 0 18px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            white-space: pre;
+        }
+        .code-block code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+        .code-block .cm {
+            color: var(--text-muted);
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step;
+            margin: 12px 0 18px;
+        }
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent-js);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .steps li strong {
+            color: var(--text-primary);
+        }
+
+        .demo-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin: 16px 0;
+        }
+        .demo-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .input {
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+            min-width: 0;
+        }
+        .input:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+        .input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .control-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .cheat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 18px;
+            font-size: 0.88rem;
+        }
+        .cheat-table th,
+        .cheat-table td {
+            text-align: left;
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--border-soft);
+            vertical-align: top;
+        }
+        .cheat-table th {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cheat-table td {
+            color: var(--text-secondary);
+        }
+        .cheat-table td:first-child {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .control-row > * {
+                flex: 1 1 auto;
+            }
+            .cheat-table td:first-child {
+                white-space: normal;
+            }
+        }
+
+        /* ---------- student challenge (same as levels 31–65) ---------- */
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .challenge-box ul {
+            margin-left: 20px;
+        }
+        .challenge-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .mini-label {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .fetch-status {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-base-2);
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+        .fetch-status.loading {
+            color: var(--accent-js);
+        }
+        .fetch-status.success {
+            color: var(--accent-sql);
+        }
+        .fetch-status.error {
+            color: var(--accent-html);
+        }
+
+        #postForm .mini-label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        .input.full {
+            width: 100%;
+            margin-bottom: 12px;
+            resize: vertical;
+        }
+        .reply-box {
+            margin-top: 0;
+            max-height: 200px;
+        }
+        .created-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 0.9rem;
+        }
+        .created-list li {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            color: var(--text-secondary);
+        }
+        .created-id {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-sql);
+            margin-right: 6px;
         }
     </style>
 </head>
@@ -526,16 +622,16 @@
                 <div class="terminal-tab">level71.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 71: Password Generator</p>
+                <p class="terminal-comment">// Level 71: POST Request</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Password Generator</span><span class="cursor">_</span>
+                    <span id="typedTitle">POST Request</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Build a secure password generator with customizable options.
-                    Generate strong passwords with letters, numbers, and symbols.
+                    Send new data TO a server with <code>fetch()</code> using the POST method, a JSON body and the right headers.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip js">fetch() POST</span>
                     <span class="chip level">Level 71</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -543,65 +639,92 @@
         </div>
 
         <div class="panel">
-            <h1>Password Generator</h1>
+            <h1>GET vs POST</h1>
             <p>
-                Create strong, secure passwords with customizable length and character types.
-                Copy passwords to your clipboard with one click.
+                In Level 70 you used a <strong>GET</strong> request to <strong>get</strong> data from a server.
+                A <strong>POST</strong> request does the opposite: it <strong>sends</strong> new data to the server,
+                like when you sign up, post a comment or submit a form.
             </p>
+            <table class="cheat-table">
+                <thead><tr><th>Method</th><th>What it does</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td><code>GET</code></td><td>Get data from the server</td><td>Load a list of posts</td></tr>
+                    <tr><td><code>POST</code></td><td>Send new data to the server</td><td>Create a new post</td></tr>
+                </tbody>
+            </table>
 
-            <div class="password-app" id="passwordApp">
-                <div class="password-display">
-                    <span class="password-text" id="passwordDisplay">Click Generate</span>
-                    <button class="copy-btn" id="copyBtn">📋 Copy</button>
-                </div>
+            <h2>Writing a POST request</h2>
+            <p>For a POST you give <code>fetch()</code> a second argument: an object with 3 things.</p>
+            <ol class="steps">
+                <li><strong>method</strong> — set it to <code>"POST"</code>.</li>
+                <li><strong>headers</strong> — tell the server you are sending JSON.</li>
+                <li><strong>body</strong> — the data, turned into text with <code>JSON.stringify()</code>.</li>
+            </ol>
 
-                <div class="options-group">
-                    <div class="option-row">
-                        <span class="option-label">Password Length</span>
-                        <div style="display: flex; align-items: center; gap: 12px;">
-                            <input type="range" id="lengthSlider" min="4" max="32" value="12">
-                            <span class="range-value" id="lengthDisplay">12</span>
-                        </div>
-                    </div>
-                    <div class="option-row">
-                        <span class="option-label">Include Uppercase</span>
-                        <input type="checkbox" id="includeUppercase" checked>
-                    </div>
-                    <div class="option-row">
-                        <span class="option-label">Include Lowercase</span>
-                        <input type="checkbox" id="includeLowercase" checked>
-                    </div>
-                    <div class="option-row">
-                        <span class="option-label">Include Numbers</span>
-                        <input type="checkbox" id="includeNumbers" checked>
-                    </div>
-                    <div class="option-row">
-                        <span class="option-label">Include Symbols</span>
-                        <input type="checkbox" id="includeSymbols" checked>
-                    </div>
-                </div>
+<pre class="code-block"><code>let newPost = {
+    title: "My first post",
+    body: "Hello world!",
+    userId: 1
+};
 
-                <div class="strength-meter">
-                    <div class="strength-label">
-                        <span>Password Strength</span>
-                        <span id="strengthText">Strong</span>
-                    </div>
-                    <div class="strength-bar">
-                        <div class="strength-fill strong" id="strengthFill" style="width: 100%;"></div>
-                    </div>
-                </div>
+fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newPost)
+})
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+        console.log(data); <span class="cm">// the server sends back the post with a new id</span>
+    })
+    .catch(error =&gt; {
+        console.log("Something went wrong");
+    });</code></pre>
 
-                <button class="generate-btn" id="generateBtn">🔄 Generate Password</button>
+            <h2>Try it</h2>
+            <div class="demo-box">
+                <div class="demo-label">POST /posts</div>
+                <form id="postForm">
+                    <label class="mini-label" for="postTitle">Title</label>
+                    <input class="input full" type="text" id="postTitle" placeholder="My first post" required>
+                    <label class="mini-label" for="postBodyInput">Body</label>
+                    <textarea class="input full" id="postBodyInput" rows="3" placeholder="Write something..." required></textarea>
+                    <button class="btn-demo" type="submit" id="sendPostBtn">Send POST</button>
+                </form>
+
+                <div class="fetch-status" id="postStatus" style="margin-top: 14px;">Fill in the form and click "Send POST"</div>
+
+                <div class="demo-label" style="margin-top: 14px;">What the server sent back</div>
+                <pre class="code-block reply-box" id="replyBox">// nothing yet</pre>
+
+                <div class="demo-label">Posts you created</div>
+                <ul class="created-list" id="createdList">
+                    <li class="text-muted">None yet</li>
+                </ul>
             </div>
 
             <div class="info-box">
-                <h4>Features</h4>
+                <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>Custom length</strong> - Choose password length from 4-32 characters</li>
-                    <li><strong>Character types</strong> - Toggle uppercase, lowercase, numbers, and symbols</li>
-                    <li><strong>Strength meter</strong> - Visual indicator of password strength</li>
-                    <li><strong>Copy to clipboard</strong> - One-click copy with feedback</li>
-                    <li><strong>Instant generation</strong> - Generates a new password every time</li>
+                    <li><strong>POST</strong> sends new data to the server.</li>
+                    <li><strong>method: "POST"</strong> — without it, fetch sends a GET.</li>
+                    <li><strong>headers</strong> — <code>"Content-Type": "application/json"</code> says the body is JSON.</li>
+                    <li><strong>body</strong> must be text, so use <code>JSON.stringify(object)</code>.</li>
+                    <li><strong>Status 201</strong> means "Created" — the server made your new item.</li>
+                    <li><strong>JSONPlaceholder is fake:</strong> it replies like a real server (new <code>id: 101</code>) but does not really save your post.</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level71.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
+                <ul>
+                    <li>Make a small form with a "Todo title" input and an "Add Todo" button.</li>
+                    <li>When the form is submitted, stop the page from reloading with <code>e.preventDefault()</code>.</li>
+                    <li>Send a POST request to <code>https://jsonplaceholder.typicode.com/todos</code> with <code>title</code>, <code>completed: false</code> and <code>userId: 1</code>.</li>
+                    <li>Show the todo the server sends back (with its new <code>id</code>) in a list on the page.</li>
+                    <li>Log the response status (<code>response.status</code>) to the console. It should be 201.</li>
                 </ul>
             </div>
 

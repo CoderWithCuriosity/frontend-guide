@@ -1,300 +1,205 @@
 /**
- * Level 75: Accordion Menu
- * 
- * This file implements an accordion menu component.
+ * Level 75: HTML Review Quiz
+ *
+ * A 20-question quiz on the HTML tags from Levels 1–30.
  * All code here will run when the page loads.
  */
-
-// ============================================
-// ACCORDION MENU COMPONENT
-// ============================================
-
-class Accordion {
-    constructor() {
-        this.items = document.querySelectorAll(".accordion-item");
-        this.headers = document.querySelectorAll(".accordion-header");
-        this.setupEventListeners();
-        console.log("Accordion initialized with", this.items.length, "items");
-    }
-
-    setupEventListeners() {
-        // Add click handlers to headers
-        this.headers.forEach(header => {
-            header.addEventListener("click", (e) => {
-                const item = header.closest(".accordion-item");
-                this.toggleItem(item);
-            });
-
-            // Keyboard support
-            header.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    const item = header.closest(".accordion-item");
-                    this.toggleItem(item);
-                }
-            });
-
-            // Make headers focusable
-            header.setAttribute("tabindex", "0");
-            header.setAttribute("role", "button");
-        });
-
-        // Expand all button
-        document.getElementById("expandAllBtn").addEventListener("click", () => {
-            this.expandAll();
-        });
-
-        // Collapse all button
-        document.getElementById("collapseAllBtn").addEventListener("click", () => {
-            this.collapseAll();
-        });
-    }
-
-    toggleItem(item) {
-        if (!item) return;
-        item.classList.toggle("active");
-        console.log("Toggled accordion item:", item.querySelector(".accordion-title")?.textContent || "Unknown");
-    }
-
-    expandAll() {
-        this.items.forEach(item => {
-            item.classList.add("active");
-        });
-        console.log("Expanded all accordion items");
-    }
-
-    collapseAll() {
-        this.items.forEach(item => {
-            item.classList.remove("active");
-        });
-        console.log("Collapsed all accordion items");
-    }
-
-    openItem(index) {
-        if (index >= 0 && index < this.items.length) {
-            this.items[index].classList.add("active");
-            console.log("Opened item", index);
-        }
-    }
-
-    closeItem(index) {
-        if (index >= 0 && index < this.items.length) {
-            this.items[index].classList.remove("active");
-            console.log("Closed item", index);
-        }
-    }
-
-    isOpen(index) {
-        if (index >= 0 && index < this.items.length) {
-            return this.items[index].classList.contains("active");
-        }
-        return false;
-    }
-
-    getOpenCount() {
-        let count = 0;
-        this.items.forEach(item => {
-            if (item.classList.contains("active")) count++;
-        });
-        return count;
-    }
-}
-
-// ============================================
-// INITIALIZE APP
-// ============================================
-
-let accordion;
-
-document.addEventListener("DOMContentLoaded", function() {
-    accordion = new Accordion();
-    console.log("Accordion component initialized!");
-});
 
 // ============================================
 // QUIZ SYSTEM
 // ============================================
 
+const QUIZ_LENGTH = 20;   // questions per attempt
+const QUIZ_TIME = 300;    // seconds
+
+// 25 easy HTML questions from Levels 1–30. 20 are picked each attempt.
+// In every question "correct" points to the right option.
+// Options are shuffled when the quiz starts.
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does the toggleItem() method do?',
-        options: [
-            "Toggles the active state of an accordion item",
-            "Expands all items",
-            "Collapses all items",
-            "Opens an item"
-        ],
+        question: 'What should be the very first line of an HTML page?',
+        options: ["<!DOCTYPE html>", "<html>", "<head>", "<body>"],
         correct: 0,
-        explanation: 'toggleItem() toggles the active class on an accordion item.'
+        explanation: '<!DOCTYPE html> tells the browser the page uses HTML5. It always comes first.'
     },
     {
         id: 2,
-        question: 'What does the expandAll() method do?',
-        options: [
-            "Expands all accordion items",
-            "Collapses all items",
-            "Toggles one item",
-            "Opens an item"
-        ],
+        question: 'Which tag holds everything you can SEE on the page?',
+        options: ["<body>", "<head>", "<title>", "<meta>"],
         correct: 0,
-        explanation: 'expandAll() adds the active class to all accordion items.'
+        explanation: 'Everything visible goes inside <body>. The <head> holds info about the page.'
     },
     {
         id: 3,
-        question: 'What does the collapseAll() method do?',
-        options: [
-            "Collapses all accordion items",
-            "Expands all items",
-            "Toggles one item",
-            "Opens an item"
-        ],
+        question: 'Which tag sets the text shown on the browser tab?',
+        options: ["<title>", "<h1>", "<header>", "<tab>"],
         correct: 0,
-        explanation: 'collapseAll() removes the active class from all accordion items.'
+        explanation: 'The <title> tag (inside <head>) sets the browser tab text.'
     },
     {
         id: 4,
-        question: 'What keyboard keys can toggle an accordion item?',
-        options: [
-            "Enter or Space",
-            "Escape",
-            "Tab",
-            "Arrow keys"
-        ],
+        question: 'Which is the biggest, most important heading?',
+        options: ["<h1>", "<h6>", "<heading>", "<head>"],
         correct: 0,
-        explanation: 'Press Enter or Space to toggle an accordion item.'
+        explanation: 'Headings go from <h1> (biggest) to <h6> (smallest).'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;console.log(acc.items.length);',
-        options: [
-            "4",
-            "5",
-            "3",
-            "0"
-        ],
+        question: 'Which tag makes a paragraph?',
+        options: ["<p>", "<para>", "<text>", "<pg>"],
         correct: 0,
-        explanation: 'There are 4 accordion items in the demo.'
+        explanation: '<p> is for paragraphs of text.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.expandAll();<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
-        options: [
-            "4",
-            "0",
-            "3",
-            "5"
-        ],
+        question: 'Which tag adds a line break?',
+        options: ["<br>", "<lb>", "<break>", "<hr>"],
         correct: 0,
-        explanation: 'After expanding all, all 4 items are open.'
+        explanation: '<br> moves the text to a new line. It has no closing tag.'
     },
     {
         id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.collapseAll();<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
-        options: [
-            "0",
-            "4",
-            "3",
-            "5"
-        ],
+        question: 'Which tag makes text bold and important?',
+        options: ["<strong>", "<em>", "<u>", "<big>"],
         correct: 0,
-        explanation: 'After collapsing all, 0 items are open.'
+        explanation: '<strong> makes text bold and marks it as important.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.openItem(0);<br/>&nbsp;&nbsp;console.log(acc.isOpen(0));',
-        options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
-        ],
+        question: 'Which tag makes text italic for emphasis?',
+        options: ["<em>", "<strong>", "<italic>", "<mark>"],
         correct: 0,
-        explanation: 'openItem(0) opens the first item, so isOpen(0) returns true.'
+        explanation: '<em> shows text in italics to add emphasis.'
     },
     {
         id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.closeItem(1);<br/>&nbsp;&nbsp;console.log(acc.isOpen(1));',
-        options: [
-            "false",
-            "true",
-            "undefined",
-            "Error"
-        ],
+        question: 'Which tag makes a list with bullet points?',
+        options: ["<ul>", "<ol>", "<li>", "<list>"],
         correct: 0,
-        explanation: 'closeItem(1) closes the second item, so isOpen(1) returns false.'
+        explanation: '<ul> means unordered list. It shows bullet points.'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
-        options: [
-            "1",
-            "0",
-            "4",
-            "3"
-        ],
+        question: 'Which tag makes a numbered list (1, 2, 3)?',
+        options: ["<ol>", "<ul>", "<nl>", "<dl>"],
         correct: 0,
-        explanation: 'Initially, only the first item is open, so count is 1.'
+        explanation: '<ol> means ordered list. It numbers each item.'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.openItem(2);<br/>&nbsp;&nbsp;console.log(acc.isOpen(2));',
-        options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
-        ],
+        question: 'Which tag is used for each item inside a list?',
+        options: ["<li>", "<item>", "<ul>", "<i>"],
         correct: 0,
-        explanation: 'openItem(2) opens the third item, so isOpen(2) returns true.'
+        explanation: 'Every list item goes inside an <li> tag.'
     },
     {
         id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.openItem(2);<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
-        options: [
-            "2",
-            "1",
-            "3",
-            "4"
-        ],
+        question: 'Which tag creates a link?',
+        options: ["<a>", "<link>", "<href>", "<url>"],
         correct: 0,
-        explanation: 'Initially one item is open, opening another makes 2 open.'
+        explanation: 'The <a> (anchor) tag creates clickable links.'
     },
     {
         id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.collapseAll();<br/>&nbsp;&nbsp;acc.openItem(0);<br/>&nbsp;&nbsp;console.log(acc.getOpenCount());',
-        options: [
-            "1",
-            "0",
-            "4",
-            "3"
-        ],
+        question: 'Which attribute tells a link where to go?',
+        options: ["href", "src", "alt", "link"],
         correct: 0,
-        explanation: 'After collapsing all and opening one, only 1 item is open.'
+        explanation: 'href holds the address, like <a href="about.html">.'
     },
     {
         id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;console.log(acc.items[0].classList.contains("active"));',
-        options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
-        ],
+        question: 'How do you make a link open in a new tab?',
+        options: ['target="_blank"', 'new="tab"', 'open="new"', 'tab="true"'],
         correct: 0,
-        explanation: 'The first item has the active class by default.'
+        explanation: 'Add target="_blank" to the <a> tag.'
     },
     {
         id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let acc = new Accordion();<br/>&nbsp;&nbsp;acc.toggleItem(acc.items[0]);<br/>&nbsp;&nbsp;console.log(acc.isOpen(0));',
+        question: 'Which tag shows an image?',
+        options: ["<img>", "<image>", "<pic>", "<src>"],
+        correct: 0,
+        explanation: '<img src="photo.jpg" alt="..."> shows an image.'
+    },
+    {
+        id: 16,
+        question: 'What is the <code>alt</code> attribute on an image for?',
         options: [
-            "false",
-            "true",
-            "undefined",
-            "Error"
+            "Text that describes the image",
+            "The size of the image",
+            "The image border",
+            "Where the image links to"
         ],
         correct: 0,
-        explanation: 'Toggling the first item closes it, so isOpen(0) returns false.'
+        explanation: 'alt describes the image for screen readers and shows if the image cannot load.'
+    },
+    {
+        id: 17,
+        question: 'Which attribute gives the image file path on <code>&lt;img&gt;</code>?',
+        options: ["src", "href", "path", "file"],
+        correct: 0,
+        explanation: 'src (source) tells the browser where the image file is.'
+    },
+    {
+        id: 18,
+        question: 'Which tag is a block box used to group other elements?',
+        options: ["<div>", "<span>", "<br>", "<b>"],
+        correct: 0,
+        explanation: '<div> is a block-level container for grouping elements.'
+    },
+    {
+        id: 19,
+        question: 'Which tag is an INLINE box for a small piece of text?',
+        options: ["<span>", "<div>", "<section>", "<p>"],
+        correct: 0,
+        explanation: '<span> sits inside a line of text without starting a new line.'
+    },
+    {
+        id: 20,
+        question: 'Which tag should wrap your main navigation links?',
+        options: ["<nav>", "<menu-bar>", "<links>", "<navigation>"],
+        correct: 0,
+        explanation: '<nav> is the meaning-rich tag for a group of navigation links.'
+    },
+    {
+        id: 21,
+        question: 'Which tag is used for the bottom section of a page?',
+        options: ["<footer>", "<bottom>", "<end>", "<foot>"],
+        correct: 0,
+        explanation: '<footer> holds things like copyright and contact links at the bottom.'
+    },
+    {
+        id: 22,
+        question: 'Which tag makes a one-line text box for typing?',
+        options: ['<input type="text">', "<textarea>", "<text>", "<type>"],
+        correct: 0,
+        explanation: '<input type="text"> gives a single-line text field.'
+    },
+    {
+        id: 23,
+        question: 'Which tag makes a big box for many lines of text?',
+        options: ["<textarea>", '<input type="text">', "<bigtext>", "<p>"],
+        correct: 0,
+        explanation: '<textarea> lets users type several lines, like a message.'
+    },
+    {
+        id: 24,
+        question: 'A <code>&lt;label for="email"&gt;</code> connects to the input with...',
+        options: ['id="email"', 'name="label"', 'class="for"', 'type="email"'],
+        correct: 0,
+        explanation: 'The label\'s for value must match the input\'s id.'
+    },
+    {
+        id: 25,
+        question: 'Which tag makes the page fit nicely on phones?',
+        options: [
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+            '<phone>',
+            '<meta charset="UTF-8">',
+            '<mobile>'
+        ],
+        correct: 0,
+        explanation: 'The viewport meta tag tells phones to use the real screen width.'
     }
 ];
 
@@ -303,7 +208,7 @@ let quizState = {
     currentQuestion: 0,
     score: 0,
     answered: false,
-    timeLeft: 120,
+    timeLeft: QUIZ_TIME,
     timer: null
 };
 
@@ -314,6 +219,19 @@ function shuffleArray(array) {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+}
+
+// Picks random questions and shuffles each question's options,
+// so the right answer is not always in the same spot.
+function prepareQuestions() {
+    return shuffleArray(QUIZ_QUESTIONS).slice(0, QUIZ_LENGTH).map(q => {
+        const order = shuffleArray(q.options.map((_, i) => i));
+        return {
+            ...q,
+            options: order.map(i => q.options[i]),
+            correct: order.indexOf(q.correct)
+        };
+    });
 }
 
 function createQuizModal() {
@@ -397,11 +315,11 @@ function createQuizModal() {
                                 font-weight: 600;
                                 color: var(--accent-js, #f0c674);
                                 font-size: 1.1rem;
-                            ">2:00</span>
+                            ">5:00</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             
-                            <span id="progressDisplay">1 / 10</span>
+                            <span id="progressDisplay">1 / 20</span>
                         </div>
                     </div>
 
@@ -429,7 +347,7 @@ function createQuizModal() {
                             color: var(--text-muted, #6c6c8c);
                             margin-bottom: 8px;
                             letter-spacing: 0.5px;
-                        ">QUESTION <span id="questionNumber">1</span>/10</div>
+                        ">QUESTION <span id="questionNumber">1</span>/20</div>
                         <h3 id="questionText" style="
                             font-family: var(--font-sans, sans-serif);
                             font-size: 1.05rem;
@@ -600,13 +518,12 @@ function startQuiz(event) {
         return;
     }
 
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -762,7 +679,7 @@ function nextQuestion() {
 function startTimer() {
     if (quizState.timer) clearInterval(quizState.timer);
     
-    quizState.timeLeft = 120;
+    quizState.timeLeft = QUIZ_TIME;
     updateTimerDisplay();
 
     quizState.timer = setInterval(() => {
@@ -811,11 +728,11 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered the Accordion Menu!';
+        message += ' 🌟 Perfect score! Your HTML basics are rock solid!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
-        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+        message += ` Need ${total}/${total} to pass. Review the API documentation and try again!`;
     }
 
     document.getElementById('resultEmoji').textContent = emoji;
@@ -849,13 +766,12 @@ function closeQuiz() {
 }
 
 function retryQuiz() {
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -869,7 +785,7 @@ function retryQuiz() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const el = document.getElementById('typedTitle');
-    const text = 'Accordion Menu';
+    const text = 'HTML Review Quiz';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduceMotion) {

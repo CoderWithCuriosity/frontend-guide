@@ -1,469 +1,225 @@
 /**
- * Level 72: Image Gallery
- * 
- * This file implements an image gallery application.
+ * Level 72: Fetch with async/await
+ *
+ * Loads a list of users from JSONPlaceholder using async/await,
+ * with a loading state, error handling and a name filter.
  * All code here will run when the page loads.
  */
 
 // ============================================
-// IMAGE GALLERY
+// FETCH WITH ASYNC / AWAIT
 // ============================================
 
-class ImageGallery {
-    constructor() {
-        this.images = [];
-        this.currentImageIndex = 0;
-        this.maxStorageSize = 10 * 1024 * 1024; // 10MB max
-        
-        this.loadImages();
-        this.setupEventListeners();
-        this.renderGallery();
-    }
+const USERS_URL = "https://jsonplaceholder.typicode.com/users";
+const BAD_URL = "https://jsonplaceholder.typicode.com/userz"; // typo on purpose, gives a 404
 
-    loadImages() {
-        let saved = localStorage.getItem("galleryImages");
-        if (saved) {
-            try {
-                this.images = JSON.parse(saved);
-            } catch (e) {
-                this.images = [];
-            }
-        }
-        console.log("Loaded", this.images.length, "images");
-    }
+let allUsers = [];
 
-    saveImages() {
-        localStorage.setItem("galleryImages", JSON.stringify(this.images));
-    }
+async function loadUsers(url) {
+    let status = document.getElementById("usersStatus");
+    let grid = document.getElementById("userGrid");
+    let loadBtn = document.getElementById("loadUsersBtn");
+    let search = document.getElementById("userSearch");
 
-    addImage(dataUrl, name) {
-        // Check storage limit
-        let totalSize = this.images.reduce((sum, img) => sum + img.data.length, 0);
-        if (totalSize + dataUrl.length > this.maxStorageSize) {
-            alert("Storage limit exceeded. Please remove some images first.");
-            return false;
+    // Loading state
+    loadBtn.disabled = true;
+    status.textContent = `GET ${url} ...`;
+    status.className = "fetch-status loading";
+    grid.innerHTML = '<div class="skeleton"></div>'.repeat(4);
+
+    try {
+        // await waits for the Promise to finish
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`Request failed: ${response.status}`);
         }
 
-        this.images.push({
-            id: Date.now() + Math.random(),
-            data: dataUrl,
-            name: name || "image_" + (this.images.length + 1),
-            date: new Date().toLocaleDateString()
-        });
-        
-        this.saveImages();
-        this.renderGallery();
-        console.log("Added image:", name);
-        return true;
-    }
+        const users = await response.json();
 
-    removeImage(id) {
-        this.images = this.images.filter(img => img.id !== id);
-        this.saveImages();
-        this.renderGallery();
-        console.log("Removed image:", id);
-    }
-
-    clearGallery() {
-        if (confirm("Are you sure you want to clear all images?")) {
-            this.images = [];
-            this.saveImages();
-            this.renderGallery();
-            console.log("Gallery cleared");
-        }
-    }
-
-    renderGallery() {
-        let grid = document.getElementById("galleryGrid");
-        
-        if (this.images.length === 0) {
-            grid.innerHTML = `
-                <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px 0;">
-                    No images yet. Upload some or click "Add Sample Images"!
-                </div>
-            `;
-            return;
-        }
-
-        let html = "";
-        this.images.forEach((image, index) => {
-            html += `
-                <div class="image-item" data-index="${index}">
-                    <img src="${image.data}" alt="${image.name}">
-                    <div class="image-label">${image.name}</div>
-                </div>
-            `;
-        });
-        grid.innerHTML = html;
-
-        // Add click handlers for lightbox
-        grid.querySelectorAll(".image-item").forEach(item => {
-            item.addEventListener("click", () => {
-                let index = parseInt(item.dataset.index);
-                this.openLightbox(index);
-            });
-        });
-    }
-
-    openLightbox(index) {
-        this.currentImageIndex = index;
-        let image = this.images[index];
-        let modal = document.getElementById("modalOverlay");
-        let modalImg = document.getElementById("modalImage");
-        let modalInfo = document.getElementById("modalInfo");
-
-        modalImg.src = image.data;
-        modalInfo.textContent = `${image.name} • ${image.date} • ${(index + 1)}/${this.images.length}`;
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-    }
-
-    closeLightbox() {
-        let modal = document.getElementById("modalOverlay");
-        modal.classList.remove("active");
-        document.body.style.overflow = "";
-    }
-
-    addSampleImages() {
-        // Create sample images using canvas
-        let sampleData = [
-            { name: "Mountain", color: "#2d4a5e", text: "🏔️" },
-            { name: "Ocean", color: "#1a6b8a", text: "🌊" },
-            { name: "Forest", color: "#2d5e3a", text: "🌲" },
-            { name: "Sunset", color: "#c46a3a", text: "🌅" },
-            { name: "Night", color: "#1a1a3a", text: "🌙" },
-            { name: "Flower", color: "#8a3a5e", text: "🌸" }
-        ];
-
-        let added = 0;
-        sampleData.forEach(sample => {
-            let canvas = document.createElement("canvas");
-            canvas.width = 400;
-            canvas.height = 400;
-            let ctx = canvas.getContext("2d");
-            
-            // Background
-            ctx.fillStyle = sample.color;
-            ctx.fillRect(0, 0, 400, 400);
-            
-            // Emoji
-            ctx.font = "100px Arial";
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.fillStyle = "rgba(255,255,255,0.3)";
-            ctx.fillText(sample.text, 200, 200);
-            
-            // Text
-            ctx.font = "24px 'JetBrains Mono', monospace";
-            ctx.fillStyle = "rgba(255,255,255,0.5)";
-            ctx.fillText(sample.name, 200, 350);
-            
-            let dataUrl = canvas.toDataURL("image/png");
-            if (this.addImage(dataUrl, sample.name)) {
-                added++;
-            }
-        });
-        
-        console.log("Added", added, "sample images");
-    }
-
-    setupEventListeners() {
-        // File input
-        let fileInput = document.getElementById("fileInput");
-        let uploadArea = document.getElementById("uploadArea");
-
-        fileInput.addEventListener("change", (e) => {
-            let files = e.target.files;
-            this.handleFiles(files);
-            fileInput.value = "";
-        });
-
-        // Upload area click
-        uploadArea.addEventListener("click", () => {
-            fileInput.click();
-        });
-
-        // Drag and drop
-        uploadArea.addEventListener("dragover", (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = "var(--accent-css)";
-            uploadArea.style.background = "var(--bg-panel)";
-        });
-
-        uploadArea.addEventListener("dragleave", (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = "var(--border)";
-            uploadArea.style.background = "transparent";
-        });
-
-        uploadArea.addEventListener("drop", (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = "var(--border)";
-            uploadArea.style.background = "transparent";
-            let files = e.dataTransfer.files;
-            this.handleFiles(files);
-        });
-
-        // Add sample images
-        document.getElementById("addSampleBtn").addEventListener("click", () => {
-            this.addSampleImages();
-        });
-
-        // Clear gallery
-        document.getElementById("clearGalleryBtn").addEventListener("click", () => {
-            this.clearGallery();
-        });
-
-        // Modal close
-        document.getElementById("modalClose").addEventListener("click", () => {
-            this.closeLightbox();
-        });
-
-        document.getElementById("modalOverlay").addEventListener("click", (e) => {
-            if (e.target === e.currentTarget) {
-                this.closeLightbox();
-            }
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener("keydown", (e) => {
-            let modal = document.getElementById("modalOverlay");
-            if (!modal.classList.contains("active")) return;
-
-            if (e.key === "Escape") {
-                this.closeLightbox();
-            } else if (e.key === "ArrowLeft") {
-                this.navigateLightbox(-1);
-            } else if (e.key === "ArrowRight") {
-                this.navigateLightbox(1);
-            }
-        });
-    }
-
-    handleFiles(files) {
-        let added = 0;
-        let validTypes = ["image/png", "image/jpeg", "image/gif", "image/webp", "image/svg+xml"];
-
-        Array.from(files).forEach(file => {
-            if (!validTypes.includes(file.type)) {
-                alert(`"${file.name}" is not a supported image type.`);
-                return;
-            }
-
-            let reader = new FileReader();
-            reader.onload = (e) => {
-                let dataUrl = e.target.result;
-                if (this.addImage(dataUrl, file.name)) {
-                    added++;
-                }
-            };
-            reader.readAsDataURL(file);
-        });
-    }
-
-    navigateLightbox(direction) {
-        let newIndex = this.currentImageIndex + direction;
-        if (newIndex < 0) newIndex = this.images.length - 1;
-        if (newIndex >= this.images.length) newIndex = 0;
-        this.openLightbox(newIndex);
+        allUsers = users;
+        status.textContent = `Loaded ${users.length} users`;
+        status.className = "fetch-status success";
+        search.disabled = false;
+        search.value = "";
+        renderUsers(users);
+    } catch (error) {
+        allUsers = [];
+        status.textContent = error.message;
+        status.className = "fetch-status error";
+        search.disabled = true;
+        grid.innerHTML = "";
+    } finally {
+        // Runs whether it worked or not
+        loadBtn.disabled = false;
     }
 }
 
-// ============================================
-// INITIALIZE APP
-// ============================================
+function renderUsers(users) {
+    let grid = document.getElementById("userGrid");
 
-let gallery;
+    if (users.length === 0) {
+        grid.innerHTML = '<p class="text-muted" style="margin:0;">No users match your search.</p>';
+        return;
+    }
+
+    grid.innerHTML = users.map(user => `
+        <div class="user-card">
+            <div class="user-avatar">${user.name.charAt(0)}</div>
+            <div>
+                <div class="user-name">${user.name}</div>
+                <div class="user-info">${user.email}</div>
+                <div class="user-info">City: ${user.address.city}</div>
+            </div>
+        </div>
+    `).join("");
+}
 
 document.addEventListener("DOMContentLoaded", function() {
-    gallery = new ImageGallery();
-    console.log("Image Gallery initialized!");
+    document.getElementById("loadUsersBtn").addEventListener("click", () => {
+        loadUsers(USERS_URL);
+    });
+
+    document.getElementById("badUrlBtn").addEventListener("click", () => {
+        loadUsers(BAD_URL);
+    });
+
+    // Filter the users we already have (no new request needed)
+    document.getElementById("userSearch").addEventListener("input", (e) => {
+        let term = e.target.value.toLowerCase().trim();
+        let filtered = allUsers.filter(user => user.name.toLowerCase().includes(term));
+        renderUsers(filtered);
+    });
 });
 
 // ============================================
 // QUIZ SYSTEM
 // ============================================
 
+const QUIZ_LENGTH = 10;   // questions per attempt
+const QUIZ_TIME = 120;    // seconds
+
+// In every question "correct" points to the right option.
+// Options are shuffled when the quiz starts.
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does the addImage() method do?',
-        options: [
-            "Adds an image to the gallery",
-            "Removes an image from the gallery",
-            "Clears all images",
-            "Opens the lightbox"
-        ],
+        question: 'What keyword must go before a function so you can use <code>await</code> inside it?',
+        options: ["async", "await", "promise", "wait"],
         correct: 0,
-        explanation: 'addImage() adds a new image to the gallery.'
+        explanation: 'Mark the function with async, then you can use await inside it.'
     },
     {
         id: 2,
-        question: 'What does the removeImage() method do?',
+        question: 'What does <code>await</code> do?',
         options: [
-            "Removes an image from the gallery",
-            "Adds an image to the gallery",
-            "Clears all images",
-            "Opens the lightbox"
+            "Pauses the function until the Promise is finished",
+            "Stops the whole website",
+            "Sends the request twice",
+            "Turns data into JSON"
         ],
         correct: 0,
-        explanation: 'removeImage() removes a specific image from the gallery.'
+        explanation: 'await pauses only that async function until the Promise finishes, then gives you the result.'
     },
     {
         id: 3,
-        question: 'What is the maximum storage size for images?',
-        options: [
-            "10MB",
-            "5MB",
-            "20MB",
-            "1MB"
-        ],
+        question: 'With async/await, what do we use to handle errors?',
+        options: ["try / catch", "if / else", "for loop", "switch"],
         correct: 0,
-        explanation: 'The maximum storage size is 10MB.'
+        explanation: 'Put the awaited code in try { } and handle problems in catch (error) { }.'
     },
     {
         id: 4,
-        question: 'What happens when you click on an image in the gallery?',
+        question: 'When does the <code>finally</code> block run?',
         options: [
-            "Opens the lightbox",
-            "Deletes the image",
-            "Downloads the image",
-            "Opens in new tab"
+            "Always — after try or catch finishes",
+            "Only when there is an error",
+            "Only when there is no error",
+            "Never"
         ],
         correct: 0,
-        explanation: 'Clicking on an image opens it in the lightbox.'
+        explanation: 'finally always runs at the end, so it is a good place to turn off loading states.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;console.log(gallery.images.length);',
-        options: [
-            "0",
-            "1",
-            "5",
-            "undefined"
-        ],
+        question: 'What does an <code>async</code> function always return?',
+        options: ["A Promise", "A string", "undefined", "An array"],
         correct: 0,
-        explanation: 'Initially, the gallery has no images.'
+        explanation: 'Every async function returns a Promise, even if you return a normal value.'
     },
     {
         id: 6,
-        question: 'Where are images saved?',
+        question: 'Which line gets the JSON data after fetching?',
         options: [
-            "localStorage",
-            "sessionStorage",
-            "A database",
-            "A file system"
+            "const users = await response.json();",
+            "const users = response;",
+            "const users = await fetch.json();",
+            "const users = JSON(response);"
         ],
         correct: 0,
-        explanation: 'Images are saved in localStorage.'
+        explanation: 'response.json() returns a Promise, so we await it to get the actual data.'
     },
     {
         id: 7,
-        question: 'What keyboard shortcut closes the lightbox?',
-        options: [
-            "Escape",
-            "Enter",
-            "Space",
-            "Tab"
-        ],
+        question: 'How many users does <code>jsonplaceholder.typicode.com/users</code> return?',
+        options: ["10", "100", "5", "1"],
         correct: 0,
-        explanation: 'Pressing Escape closes the lightbox.'
+        explanation: 'The /users endpoint returns an array of 10 users.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;gallery.addImage("data:image/png;base64,...", "test");<br/>&nbsp;&nbsp;console.log(gallery.images.length);',
+        question: 'What happens if you forget <code>await</code> before <code>fetch(url)</code>?',
         options: [
-            "1",
-            "0",
-            "undefined",
-            "Error"
+            "You get a Promise instead of the response",
+            "The page crashes",
+            "It works the same",
+            "The request is never sent"
         ],
         correct: 0,
-        explanation: 'After adding an image, the length becomes 1.'
+        explanation: 'Without await you store the Promise itself, not the finished response.'
     },
     {
         id: 9,
-        question: 'What does the handleFiles() method do?',
+        question: 'Why do we disable the "Load Users" button while loading?',
         options: [
-            "Processes uploaded files",
-            "Adds sample images",
-            "Clears the gallery",
-            "Opens the lightbox"
+            "So the user cannot send many requests at once",
+            "To make the page faster",
+            "Because fetch needs it",
+            "To delete the old users"
         ],
         correct: 0,
-        explanation: 'handleFiles() processes files uploaded by the user.'
+        explanation: 'Disabling the button stops double clicks from sending extra requests.'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;gallery.clearGallery();<br/>&nbsp;&nbsp;console.log(gallery.images.length);',
+        question: 'In this level, how does the name filter work?',
         options: [
-            "0",
-            "1",
-            "5",
-            "undefined"
+            "It uses .filter() on users we already loaded",
+            "It sends a new request for every letter",
+            "It reloads the page",
+            "It uses localStorage"
         ],
         correct: 0,
-        explanation: 'clearGallery() removes all images, making the length 0.'
+        explanation: 'The users are already in an array, so .filter() picks matching names without a new request.'
     },
     {
         id: 11,
-        question: 'What does the openLightbox() method do?',
+        question: 'Where can you use <code>await</code> in normal scripts?',
         options: [
-            "Shows an image in full size",
-            "Adds an image",
-            "Removes an image",
-            "Clears the gallery"
+            "Inside an async function",
+            "Inside any if statement",
+            "Only inside for loops",
+            "Inside CSS"
         ],
         correct: 0,
-        explanation: 'openLightbox() displays an image in full size.'
+        explanation: 'In a normal script, await must be inside an async function.'
     },
     {
         id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;console.log(gallery.maxStorageSize);',
-        options: [
-            "10485760",
-            "1024",
-            "1048576",
-            "10000000"
-        ],
+        question: 'Our "bad URL" ends with <code>/userz</code>. What status does the server send?',
+        options: ["404 (Not Found)", "200 (OK)", "500 (Server Error)", "301 (Moved)"],
         correct: 0,
-        explanation: '10MB = 10 * 1024 * 1024 = 10485760 bytes.'
-    },
-    {
-        id: 13,
-        question: 'What does the addSampleImages() method do?',
-        options: [
-            "Adds sample images to the gallery",
-            "Removes all images",
-            "Clears the gallery",
-            "Opens the lightbox"
-        ],
-        correct: 0,
-        explanation: 'addSampleImages() adds sample images to the gallery.'
-    },
-    {
-        id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gallery = new ImageGallery();<br/>&nbsp;&nbsp;gallery.addImage("data", "test");<br/>&nbsp;&nbsp;console.log(gallery.images[0].name);',
-        options: [
-            "test",
-            "data",
-            "image_1",
-            "undefined"
-        ],
-        correct: 0,
-        explanation: 'The name of the first image is "test".'
-    },
-    {
-        id: 15,
-        question: 'What does the navigateLightbox() method do?',
-        options: [
-            "Moves to the next/previous image",
-            "Opens the lightbox",
-            "Closes the lightbox",
-            "Adds an image"
-        ],
-        correct: 0,
-        explanation: 'navigateLightbox() moves to the next or previous image in the lightbox.'
+        explanation: 'That path does not exist, so the server replies 404 and we throw an error.'
     }
 ];
 
@@ -472,7 +228,7 @@ let quizState = {
     currentQuestion: 0,
     score: 0,
     answered: false,
-    timeLeft: 120,
+    timeLeft: QUIZ_TIME,
     timer: null
 };
 
@@ -483,6 +239,19 @@ function shuffleArray(array) {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+}
+
+// Picks random questions and shuffles each question's options,
+// so the right answer is not always in the same spot.
+function prepareQuestions() {
+    return shuffleArray(QUIZ_QUESTIONS).slice(0, QUIZ_LENGTH).map(q => {
+        const order = shuffleArray(q.options.map((_, i) => i));
+        return {
+            ...q,
+            options: order.map(i => q.options[i]),
+            correct: order.indexOf(q.correct)
+        };
+    });
 }
 
 function createQuizModal() {
@@ -769,13 +538,12 @@ function startQuiz(event) {
         return;
     }
 
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -931,7 +699,7 @@ function nextQuestion() {
 function startTimer() {
     if (quizState.timer) clearInterval(quizState.timer);
     
-    quizState.timeLeft = 120;
+    quizState.timeLeft = QUIZ_TIME;
     updateTimerDisplay();
 
     quizState.timer = setInterval(() => {
@@ -980,11 +748,11 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered the Image Gallery!';
+        message += ' 🌟 Perfect score! You have mastered async/await fetching!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
-        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+        message += ` Need ${total}/${total} to pass. Review the API documentation and try again!`;
     }
 
     document.getElementById('resultEmoji').textContent = emoji;
@@ -1018,13 +786,12 @@ function closeQuiz() {
 }
 
 function retryQuiz() {
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -1038,7 +805,7 @@ function retryQuiz() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const el = document.getElementById('typedTitle');
-    const text = 'Image Gallery';
+    const text = 'Fetch with async/await';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduceMotion) {

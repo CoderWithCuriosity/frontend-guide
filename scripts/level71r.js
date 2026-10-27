@@ -1,406 +1,225 @@
 /**
- * Level 71: Password Generator
- * 
- * This file implements a password generator application.
+ * Level 71: POST Request
+ *
+ * Sends a new post to the free JSONPlaceholder API using fetch() with
+ * method "POST", a JSON header and a JSON body.
  * All code here will run when the page loads.
  */
 
 // ============================================
-// PASSWORD GENERATOR
+// POST REQUEST
 // ============================================
 
-class PasswordGenerator {
-    constructor() {
-        this.charSets = {
-            uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            lowercase: "abcdefghijklmnopqrstuvwxyz",
-            numbers: "0123456789",
-            symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?/~"
-        };
-        
-        this.setupEventListeners();
-        this.generatePassword();
-    }
+const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
 
-    setupEventListeners() {
-        // Generate button
-        document.getElementById("generateBtn").addEventListener("click", () => {
-            this.generatePassword();
+let createdPosts = [];
+
+function sendPost(title, body) {
+    let status = document.getElementById("postStatus");
+    let replyBox = document.getElementById("replyBox");
+    let sendBtn = document.getElementById("sendPostBtn");
+
+    let newPost = {
+        title: title,
+        body: body,
+        userId: 1
+    };
+
+    status.textContent = "Sending...";
+    status.className = "fetch-status loading";
+    sendBtn.disabled = true;
+
+    let statusCode;
+
+    fetch(POSTS_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newPost)
+    })
+        .then(response => {
+            statusCode = response.status; // 201 means "Created"
+            return response.json();
+        })
+        .then(data => {
+            status.textContent = `POST ${POSTS_URL} — status ${statusCode} (Created)`;
+            status.className = "fetch-status success";
+            replyBox.textContent = JSON.stringify(data, null, 2);
+
+            createdPosts.push(data);
+            renderCreatedPosts();
+
+            document.getElementById("postForm").reset();
+            console.log(data);
+        })
+        .catch(error => {
+            status.textContent = "Something went wrong. Check your internet connection.";
+            status.className = "fetch-status error";
+        })
+        .finally(() => {
+            sendBtn.disabled = false;
         });
-
-        // Length slider
-        document.getElementById("lengthSlider").addEventListener("input", (e) => {
-            document.getElementById("lengthDisplay").textContent = e.target.value;
-            this.generatePassword();
-        });
-
-        // Checkboxes
-        document.querySelectorAll("#includeUppercase, #includeLowercase, #includeNumbers, #includeSymbols").forEach(checkbox => {
-            checkbox.addEventListener("change", () => {
-                this.generatePassword();
-            });
-        });
-
-        // Copy button
-        document.getElementById("copyBtn").addEventListener("click", () => {
-            this.copyToClipboard();
-        });
-    }
-
-    generatePassword() {
-        let length = parseInt(document.getElementById("lengthSlider").value);
-        let includeUppercase = document.getElementById("includeUppercase").checked;
-        let includeLowercase = document.getElementById("includeLowercase").checked;
-        let includeNumbers = document.getElementById("includeNumbers").checked;
-        let includeSymbols = document.getElementById("includeSymbols").checked;
-
-        // Build character pool
-        let charPool = "";
-        if (includeUppercase) charPool += this.charSets.uppercase;
-        if (includeLowercase) charPool += this.charSets.lowercase;
-        if (includeNumbers) charPool += this.charSets.numbers;
-        if (includeSymbols) charPool += this.charSets.symbols;
-
-        // Ensure at least one character type is selected
-        if (charPool.length === 0) {
-            document.getElementById("passwordDisplay").textContent = "Select at least one option";
-            document.getElementById("strengthFill").style.width = "0%";
-            document.getElementById("strengthText").textContent = "None";
-            return;
-        }
-
-        // Generate password
-        let password = "";
-        for (let i = 0; i < length; i++) {
-            let randomIndex = Math.floor(Math.random() * charPool.length);
-            password += charPool[randomIndex];
-        }
-
-        // Ensure at least one character from each selected type
-        password = this.ensureCharTypes(password, includeUppercase, includeLowercase, includeNumbers, includeSymbols, charPool, length);
-
-        // Display password
-        document.getElementById("passwordDisplay").textContent = password;
-
-        // Calculate and display strength
-        this.updateStrength(password, length, includeUppercase, includeLowercase, includeNumbers, includeSymbols);
-
-        // Reset copy button
-        let copyBtn = document.getElementById("copyBtn");
-        copyBtn.textContent = "📋 Copy";
-        copyBtn.classList.remove("copied");
-    }
-
-    ensureCharTypes(password, includeUppercase, includeLowercase, includeNumbers, includeSymbols, charPool, length) {
-        let types = [];
-        if (includeUppercase) types.push(this.charSets.uppercase);
-        if (includeLowercase) types.push(this.charSets.lowercase);
-        if (includeNumbers) types.push(this.charSets.numbers);
-        if (includeSymbols) types.push(this.charSets.symbols);
-
-        // Check if each required type is present
-        let passwordArray = password.split("");
-        let needsFix = false;
-
-        types.forEach(typeSet => {
-            let hasChar = passwordArray.some(char => typeSet.includes(char));
-            if (!hasChar) {
-                needsFix = true;
-                // Replace a random character with one from this type
-                let randomIndex = Math.floor(Math.random() * passwordArray.length);
-                let randomChar = typeSet[Math.floor(Math.random() * typeSet.length)];
-                passwordArray[randomIndex] = randomChar;
-            }
-        });
-
-        if (needsFix) {
-            return passwordArray.join("");
-        }
-
-        return password;
-    }
-
-    updateStrength(password, length, includeUppercase, includeLowercase, includeNumbers, includeSymbols) {
-        let strength = 0;
-        let maxStrength = 4;
-
-        // Length score
-        if (length >= 8) strength += 1;
-        if (length >= 12) strength += 1;
-
-        // Character variety score
-        if (includeUppercase) strength += 0.5;
-        if (includeLowercase) strength += 0.5;
-        if (includeNumbers) strength += 0.5;
-        if (includeSymbols) strength += 0.5;
-
-        // Cap at max
-        if (strength > maxStrength) strength = maxStrength;
-
-        // Determine strength level
-        let level = "Weak";
-        let color = "weak";
-        let width = 25;
-
-        if (strength >= 3.5) {
-            level = "Strong";
-            color = "strong";
-            width = 100;
-        } else if (strength >= 2.5) {
-            level = "Medium";
-            color = "medium";
-            width = 65;
-        } else if (strength >= 1.5) {
-            level = "Weak";
-            color = "weak";
-            width = 35;
-        } else {
-            level = "Very Weak";
-            color = "weak";
-            width = 15;
-        }
-
-        // Update UI
-        let fill = document.getElementById("strengthFill");
-        fill.className = "strength-fill " + color;
-        fill.style.width = width + "%";
-        document.getElementById("strengthText").textContent = level;
-    }
-
-    copyToClipboard() {
-        let password = document.getElementById("passwordDisplay").textContent;
-        let copyBtn = document.getElementById("copyBtn");
-
-        if (password === "Click Generate" || password === "Select at least one option") {
-            return;
-        }
-
-        navigator.clipboard.writeText(password).then(() => {
-            copyBtn.textContent = "✅ Copied!";
-            copyBtn.classList.add("copied");
-            console.log("Password copied to clipboard");
-        }).catch(err => {
-            console.error("Failed to copy:", err);
-            // Fallback for older browsers
-            this.fallbackCopy(password);
-        });
-    }
-
-    fallbackCopy(text) {
-        let textArea = document.createElement("textarea");
-        textArea.value = text;
-        textArea.style.position = "fixed";
-        textArea.style.left = "-9999px";
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand("copy");
-            let copyBtn = document.getElementById("copyBtn");
-            copyBtn.textContent = "✅ Copied!";
-            copyBtn.classList.add("copied");
-            console.log("Password copied (fallback)");
-        } catch (err) {
-            console.error("Fallback copy failed:", err);
-        }
-        document.body.removeChild(textArea);
-    }
 }
 
-// ============================================
-// INITIALIZE APP
-// ============================================
+function renderCreatedPosts() {
+    let list = document.getElementById("createdList");
+    list.innerHTML = "";
 
-let passwordGen;
+    createdPosts.forEach(post => {
+        let li = document.createElement("li");
+        li.innerHTML = `<span class="created-id">id ${post.id}</span> `;
+        li.appendChild(document.createTextNode(post.title));
+        list.appendChild(li);
+    });
+}
 
 document.addEventListener("DOMContentLoaded", function() {
-    passwordGen = new PasswordGenerator();
-    console.log("Password Generator initialized!");
+    document.getElementById("postForm").addEventListener("submit", (e) => {
+        e.preventDefault(); // stop the page from reloading
+
+        let title = document.getElementById("postTitle").value.trim();
+        let body = document.getElementById("postBodyInput").value.trim();
+
+        if (title && body) {
+            sendPost(title, body);
+        }
+    });
 });
 
 // ============================================
 // QUIZ SYSTEM
 // ============================================
 
+const QUIZ_LENGTH = 10;   // questions per attempt
+const QUIZ_TIME = 120;    // seconds
+
+// In every question "correct" points to the right option.
+// Options are shuffled when the quiz starts.
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password);',
+        question: 'What is a POST request used for?',
         options: [
-            "A string of characters",
-            "undefined",
-            "Error",
-            "null"
+            "Sending new data to the server",
+            "Getting data from the server",
+            "Deleting the web page",
+            "Refreshing the page"
         ],
         correct: 0,
-        explanation: 'generatePassword() generates a password string.'
+        explanation: 'POST sends new data, like a new post, comment or sign-up form.'
     },
     {
         id: 2,
-        question: 'What does the copyToClipboard() method do?',
+        question: 'How do you tell <code>fetch()</code> to send a POST?',
         options: [
-            "Copies the password to clipboard",
-            "Generates a new password",
-            "Shows the password",
-            "Checks password strength"
+            'Add method: "POST" in the options object',
+            'Write fetchPost() instead',
+            'Add ?post to the URL',
+            'It always sends POST'
         ],
         correct: 0,
-        explanation: 'copyToClipboard() copies the generated password to the clipboard.'
+        explanation: 'Pass a second argument to fetch with method: "POST". Without it, fetch sends a GET.'
     },
     {
         id: 3,
-        question: 'What is the default password length?',
-        options: [
-            "12",
-            "8",
-            "16",
-            "20"
-        ],
+        question: 'What goes in the <code>body</code> of a POST request?',
+        options: ["The data you are sending", "The page HTML", "The URL", "The status code"],
         correct: 0,
-        explanation: 'The default password length is 12 characters.'
+        explanation: 'body holds the data you want to send to the server.'
     },
     {
         id: 4,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.uppercase.length);',
+        question: 'Why do we use <code>JSON.stringify()</code> on the body?',
         options: [
-            "26",
-            "52",
-            "10",
-            "32"
+            "The body must be text, so we turn the object into a JSON string",
+            "To make the object bigger",
+            "To read the server reply",
+            "To delete the object"
         ],
         correct: 0,
-        explanation: 'There are 26 uppercase letters in the alphabet.'
+        explanation: 'You cannot send a JavaScript object directly. JSON.stringify turns it into JSON text.'
     },
     {
         id: 5,
-        question: 'Which character type is NOT included by default?',
+        question: 'Which header says the body is JSON?',
         options: [
-            "All are included",
-            "Symbols",
-            "Numbers",
-            "Uppercase"
+            '"Content-Type": "application/json"',
+            '"Body-Type": "json"',
+            '"Accept": "html"',
+            '"Format": "object"'
         ],
         correct: 0,
-        explanation: 'All character types are included by default.'
+        explanation: 'The Content-Type header tells the server what kind of data is in the body.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(typeof gen.password);',
-        options: [
-            "string",
-            "object",
-            "number",
-            "boolean"
-        ],
+        question: 'What status code means "Created"?',
+        options: ["201", "200", "404", "500"],
         correct: 0,
-        explanation: 'The password is a string.'
+        explanation: '201 means the server created the new item. 200 is a normal OK.'
     },
     {
         id: 7,
-        question: 'What does the fallbackCopy() method do?',
-        options: [
-            "Copies using an alternative method",
-            "Generates a new password",
-            "Shows the password",
-            "Checks password strength"
-        ],
+        question: 'What <code>id</code> does JSONPlaceholder give a new post?',
+        options: ["101", "1", "0", "It gives no id"],
         correct: 0,
-        explanation: 'fallbackCopy() provides an alternative copy method for older browsers.'
+        explanation: 'There are already 100 posts, so the new one gets id 101.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.charSets.numbers = "123";<br/>&nbsp;&nbsp;console.log(gen.charSets.numbers);',
+        question: 'Does JSONPlaceholder really save your new post?',
         options: [
-            "123",
-            "0123456789",
-            "undefined",
-            "Error"
+            "No — it is a fake API that only pretends to save",
+            "Yes, forever",
+            "Yes, but only for 1 hour",
+            "Only if you log in"
         ],
         correct: 0,
-        explanation: 'The numbers character set can be modified.'
+        explanation: 'JSONPlaceholder replies as if it saved your post, but nothing is really stored.'
     },
     {
         id: 9,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.symbols.length);',
+        question: 'Why do we call <code>e.preventDefault()</code> in the form submit event?',
         options: [
-            "26",
-            "20",
-            "32",
-            "10"
+            "To stop the page from reloading",
+            "To send the request",
+            "To clear the form",
+            "To show an error"
         ],
-        correct: 1,
-        explanation: 'The symbols string has 26 characters.'
+        correct: 0,
+        explanation: 'Submitting a form normally reloads the page. preventDefault() stops that.'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password.length);',
-        options: [
-            "12",
-            "8",
-            "16",
-            "20"
-        ],
+        question: 'If you leave out <code>method</code>, what request does fetch send?',
+        options: ["GET", "POST", "PUT", "Nothing"],
         correct: 0,
-        explanation: 'By default, the password length is 12.'
+        explanation: 'GET is the default method.'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.lowercase);',
+        question: 'Which of these is a good example of a POST request?',
         options: [
-            "abcdefghijklmnopqrstuvwxyz",
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            "0123456789",
-            "!@#$%^&*()_+-=[]{}|;:,.<>?/~"
+            "Submitting a sign-up form",
+            "Loading a list of products",
+            "Reading a blog post",
+            "Showing a user profile"
         ],
         correct: 0,
-        explanation: 'lowercase contains all lowercase letters.'
+        explanation: 'Sign-up sends new data to the server. The others only read data (GET).'
     },
     {
         id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password !== "");',
+        question: 'Where do you put the options object in <code>fetch()</code>?',
         options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
+            "As the second argument: fetch(url, { ... })",
+            "As the first argument: fetch({ ... }, url)",
+            "Inside .then()",
+            "Inside .catch()"
         ],
         correct: 0,
-        explanation: 'The generated password is not empty.'
-    },
-    {
-        id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.uppercase[0]);',
-        options: [
-            "A",
-            "a",
-            "Z",
-            "z"
-        ],
-        correct: 0,
-        explanation: 'The first character in uppercase is "A".'
-    },
-    {
-        id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;gen.generatePassword();<br/>&nbsp;&nbsp;console.log(gen.password);',
-        options: [
-            "A string of characters",
-            "undefined",
-            "Error",
-            "null"
-        ],
-        correct: 0,
-        explanation: 'generatePassword() generates a string password.'
-    },
-    {
-        id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let gen = new PasswordGenerator();<br/>&nbsp;&nbsp;console.log(gen.charSets.numbers[0]);',
-        options: [
-            "0",
-            "1",
-            "9",
-            "A"
-        ],
-        correct: 0,
-        explanation: 'The first character in numbers is "0".'
+        explanation: 'fetch takes the URL first and the options object second.'
     }
 ];
 
@@ -409,7 +228,7 @@ let quizState = {
     currentQuestion: 0,
     score: 0,
     answered: false,
-    timeLeft: 120,
+    timeLeft: QUIZ_TIME,
     timer: null
 };
 
@@ -420,6 +239,19 @@ function shuffleArray(array) {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+}
+
+// Picks random questions and shuffles each question's options,
+// so the right answer is not always in the same spot.
+function prepareQuestions() {
+    return shuffleArray(QUIZ_QUESTIONS).slice(0, QUIZ_LENGTH).map(q => {
+        const order = shuffleArray(q.options.map((_, i) => i));
+        return {
+            ...q,
+            options: order.map(i => q.options[i]),
+            correct: order.indexOf(q.correct)
+        };
+    });
 }
 
 function createQuizModal() {
@@ -706,13 +538,12 @@ function startQuiz(event) {
         return;
     }
 
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -868,7 +699,7 @@ function nextQuestion() {
 function startTimer() {
     if (quizState.timer) clearInterval(quizState.timer);
     
-    quizState.timeLeft = 120;
+    quizState.timeLeft = QUIZ_TIME;
     updateTimerDisplay();
 
     quizState.timer = setInterval(() => {
@@ -917,11 +748,11 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered the Password Generator!';
+        message += ' 🌟 Perfect score! You can now send data to an API!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
-        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+        message += ` Need ${total}/${total} to pass. Review the API documentation and try again!`;
     }
 
     document.getElementById('resultEmoji').textContent = emoji;
@@ -955,13 +786,12 @@ function closeQuiz() {
 }
 
 function retryQuiz() {
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -975,7 +805,7 @@ function retryQuiz() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const el = document.getElementById('typedTitle');
-    const text = 'Password Generator';
+    const text = 'POST Request';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduceMotion) {

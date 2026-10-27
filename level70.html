@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 70: Quiz Game</title>
+    <title>Level 70: Simple GET Request</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,165 +221,11 @@
             margin-bottom: 14px;
         }
 
-        .quiz-app {
-            background: var(--bg-panel-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            margin: 16px 0;
-        }
-
-        .quiz-app .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-soft);
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .quiz-app .quiz-header .score {
-            color: var(--accent-js);
-        }
-
-        .quiz-app .question-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            min-height: 60px;
-        }
-
-        .quiz-app .options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .quiz-app .options .option-btn {
-            padding: 12px 16px;
-            background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            color: var(--text-secondary);
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            text-align: left;
-        }
-
-        .quiz-app .options .option-btn:hover:not(.disabled) {
-            background: var(--bg-panel);
-            border-color: var(--border);
-            transform: translateX(4px);
-        }
-
-        .quiz-app .options .option-btn.correct {
-            border-color: var(--accent-sql);
-            background: rgba(142, 192, 124, 0.15);
-            color: var(--accent-sql);
-        }
-
-        .quiz-app .options .option-btn.wrong {
-            border-color: var(--accent-html);
-            background: rgba(243, 160, 114, 0.15);
-            color: var(--accent-html);
-        }
-
-        .quiz-app .options .option-btn.disabled {
-            cursor: default;
-            opacity: 0.7;
-        }
-
-        .quiz-app .options .option-btn.selected {
-            border-color: var(--accent-css);
-        }
-
-        .quiz-app .quiz-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 16px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border-soft);
-        }
-
-        .quiz-app .quiz-footer .progress {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .quiz-app .quiz-footer .feedback {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .quiz-app .quiz-footer .feedback.correct {
-            color: var(--accent-sql);
-        }
-
-        .quiz-app .quiz-footer .feedback.wrong {
-            color: var(--accent-html);
-        }
-
-        .quiz-app .result-screen {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .quiz-app .result-screen .result-score {
-            font-family: var(--font-mono);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent-js);
-        }
-
-        .quiz-app .result-screen .result-text {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin: 12px 0 20px;
-        }
-
-        .quiz-app .result-screen .result-details {
-            text-align: left;
-            margin: 16px 0;
-            padding: 12px 16px;
-            background: var(--bg-base-2);
-            border-radius: var(--radius-sm);
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .quiz-app .result-screen .result-details .detail-item {
-            padding: 4px 0;
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .quiz-app .result-screen .result-details .detail-item:last-child {
-            border-bottom: none;
-        }
-
-        .quiz-app .result-screen .result-details .detail-item .correct-mark {
-            color: var(--accent-sql);
-        }
-
-        .quiz-app .result-screen .result-details .detail-item .wrong-mark {
-            color: var(--accent-html);
-        }
-
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 10px 24px;
+            padding: 10px 20px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
             font-size: 0.85rem;
@@ -391,15 +237,6 @@
         .btn-demo:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
-        }
-
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
-            background: var(--accent-js);
-            color: #1a1a1a;
         }
 
         .btn-demo:disabled {
@@ -525,23 +362,241 @@
             .panel {
                 padding: 20px;
             }
-            .quiz-app .quiz-header {
-                flex-direction: column;
-                gap: 4px;
-                align-items: flex-start;
-            }
-            .quiz-app .quiz-footer {
-                flex-direction: column;
-                gap: 8px;
-                align-items: stretch;
-                text-align: center;
-            }
             .nav-row {
                 flex-direction: column;
             }
             .nav-row .btn {
                 width: 100%;
             }
+        }
+
+        /* ---------- shared: lesson blocks ---------- */
+        code {
+            overflow-wrap: anywhere; /* long URLs wrap on phones */
+        }
+
+        .code-block {
+            background: var(--bg-base);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin: 12px 0 18px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            white-space: pre;
+        }
+        .code-block code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+        .code-block .cm {
+            color: var(--text-muted);
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step;
+            margin: 12px 0 18px;
+        }
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent-js);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .steps li strong {
+            color: var(--text-primary);
+        }
+
+        .demo-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin: 16px 0;
+        }
+        .demo-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .input {
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+            min-width: 0;
+        }
+        .input:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+        .input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .control-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .cheat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 18px;
+            font-size: 0.88rem;
+        }
+        .cheat-table th,
+        .cheat-table td {
+            text-align: left;
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--border-soft);
+            vertical-align: top;
+        }
+        .cheat-table th {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cheat-table td {
+            color: var(--text-secondary);
+        }
+        .cheat-table td:first-child {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .control-row > * {
+                flex: 1 1 auto;
+            }
+            .cheat-table td:first-child {
+                white-space: normal;
+            }
+        }
+
+        /* ---------- student challenge (same as levels 31–65) ---------- */
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .challenge-box ul {
+            margin-left: 20px;
+        }
+        .challenge-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .mini-label {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .fetch-status {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-base-2);
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+        .fetch-status.loading {
+            color: var(--accent-js);
+        }
+        .fetch-status.success {
+            color: var(--accent-sql);
+        }
+        .fetch-status.error {
+            color: var(--accent-html);
+        }
+
+        .post-card {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-left: 3px solid var(--accent-css);
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
+        }
+        .post-meta {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .post-title {
+            margin: 0 0 8px;
+            text-transform: capitalize;
+        }
+        .post-body {
+            margin: 0;
+            font-size: 0.92rem;
         }
     </style>
 </head>
@@ -555,16 +610,16 @@
                 <div class="terminal-tab">level70.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 70: Quiz Game</p>
+                <p class="terminal-comment">// Level 70: Simple GET Request</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Quiz Game</span><span class="cursor">_</span>
+                    <span id="typedTitle">Simple GET Request</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Build an interactive quiz game with multiple-choice questions.
-                    Test your knowledge and track your score.
+                    Ask a server for data with <code>fetch()</code>, turn the reply into JSON, and show it on the page.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip js">fetch() GET</span>
                     <span class="chip level">Level 70</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -572,46 +627,72 @@
         </div>
 
         <div class="panel">
-            <h1>Quiz Game</h1>
+            <h1>What is fetch()?</h1>
             <p>
-                Test your JavaScript knowledge with this interactive quiz game.
-                Answer 10 questions and see how well you score!
+                <code>fetch()</code> is a built-in JavaScript function that asks a server for data.
+                Many websites share data through an <strong>API</strong> — a URL that returns data
+                (usually <strong>JSON</strong>) instead of a web page.
+            </p>
+            <p>
+                Asking for data is called a <strong>GET request</strong>. In this level we use
+                <strong>JSONPlaceholder</strong>, a free fake API made for practice. It needs no sign-up and no API key.
             </p>
 
-            <div class="quiz-app" id="quizApp">
-                <div class="quiz-header">
-                    <span>Question <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span></span>
-                    <span class="score">⭐ Score: <span id="scoreDisplay">0</span></span>
+            <h2>The 3 steps of a GET request</h2>
+            <ol class="steps">
+                <li><strong>Send the request</strong> with <code>fetch(url)</code>.</li>
+                <li><strong>Turn the reply into data</strong> with <code>response.json()</code>.</li>
+                <li><strong>Use the data</strong> in the next <code>.then()</code> — show it on the page.</li>
+            </ol>
+
+<pre class="code-block"><code>fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+        console.log(data.title);
+    })
+    .catch(error =&gt; {
+        console.log("Something went wrong");
+    });</code></pre>
+
+            <p>The <code>.catch()</code> at the end runs only if something goes wrong, for example when there is no internet.</p>
+
+            <h2>Try it</h2>
+            <div class="demo-box">
+                <div class="demo-label">GET /posts/:id</div>
+                <div class="control-row">
+                    <label class="mini-label" for="postIdInput">Post ID (1–100)</label>
+                    <input class="input" type="number" id="postIdInput" min="1" max="100" value="1" style="width: 100px;">
+                    <button class="btn-demo" id="getPostBtn">Get Post</button>
                 </div>
-                
-                <div class="question-text" id="questionText">Loading questions...</div>
-                
-                <div class="options" id="optionsContainer">
-                    <!-- Options will be rendered here -->
-                </div>
-                
-                <div class="quiz-footer">
-                    <span class="progress" id="progressDisplay">Progress: 0%</span>
-                    <span class="feedback" id="feedback"></span>
-                    <button class="btn-demo" id="nextBtn">Next Question →</button>
-                </div>
-                
-                <div class="result-screen" id="resultScreen" style="display: none;">
-                    <div class="result-score" id="finalScore">0/10</div>
-                    <div class="result-text" id="resultMessage">Great job!</div>
-                    <div class="result-details" id="resultDetails"></div>
-                    <button class="btn-demo" id="restartBtn">🔄 Play Again</button>
+
+                <div class="fetch-status" id="fetchStatus">Click "Get Post" to send a GET request</div>
+                <div class="post-card" id="postCard" hidden>
+                    <div class="post-meta" id="postMeta"></div>
+                    <h3 class="post-title" id="postTitle"></h3>
+                    <p class="post-body" id="postBody"></p>
                 </div>
             </div>
 
             <div class="info-box">
-                <h4>Features</h4>
+                <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>Multiple choice</strong> - 4 options per question</li>
-                    <li><strong>Instant feedback</strong> - See if you're right or wrong</li>
-                    <li><strong>Score tracking</strong> - Keep track of your progress</li>
-                    <li><strong>Final results</strong> - See your score and review answers</li>
-                    <li><strong>Play again</strong> - Restart the quiz anytime</li>
+                    <li><strong>fetch(url)</strong> sends a <code>GET</code> request by default.</li>
+                    <li><strong>response.json()</strong> turns the reply into a JavaScript object.</li>
+                    <li><strong>.then()</strong> runs when the data is ready.</li>
+                    <li><strong>.catch()</strong> runs when something goes wrong.</li>
+                    <li><strong>Practice API:</strong> <code>https://jsonplaceholder.typicode.com</code></li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level70.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
+                <ul>
+                    <li>Add a button with the text "Get User".</li>
+                    <li>When it is clicked, fetch <code>https://jsonplaceholder.typicode.com/users/1</code>.</li>
+                    <li>Show the user's <code>name</code>, <code>email</code> and <code>phone</code> on the page.</li>
+                    <li>Log the whole user object to the console.</li>
+                    <li>Add a <code>.catch()</code> that shows "Could not load user" if the request fails.</li>
                 </ul>
             </div>
 

@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 74: Modal Popup</title>
+    <title>Level 74: Adding Icons</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
         :root {
             --bg-base: #15151f;
@@ -52,7 +53,7 @@
         }
 
         .page {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -221,143 +222,11 @@
             margin-bottom: 14px;
         }
 
-        .modal-app {
-            background: var(--bg-panel-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            margin: 16px 0;
-            text-align: center;
-        }
-
-        .modal-app .modal-triggers {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .modal-app .trigger-btn {
-            padding: 12px 24px;
-            background: var(--bg-base-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .modal-app .trigger-btn:hover {
-            border-color: var(--text-muted);
-            transform: translateY(-2px);
-        }
-
-        .modal-app .trigger-btn.primary:hover {
-            border-color: var(--accent-sql);
-        }
-
-        .modal-app .trigger-btn.danger:hover {
-            border-color: var(--accent-html);
-        }
-
-        .modal-app .trigger-btn.info:hover {
-            border-color: var(--accent-css);
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(21, 21, 31, 0.92);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            animation: fadeIn 0.25s ease;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-overlay .modal-content {
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-overlay .modal-content .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .modal-overlay .modal-content .modal-header .modal-title {
-            font-family: var(--font-mono);
-            font-size: 1.1rem;
-            color: var(--text-primary);
-        }
-
-        .modal-overlay .modal-content .modal-header .modal-close {
-            background: none;
+        .btn-demo {
+            background: var(--accent-sql);
+            color: #0e1410;
             border: none;
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: var(--radius-sm);
-            transition: all 0.15s ease;
-            line-height: 1;
-        }
-
-        .modal-overlay .modal-content .modal-header .modal-close:hover {
-            color: var(--accent-html);
-        }
-
-        .modal-overlay .modal-content .modal-body {
-            padding: 20px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .modal-overlay .modal-content .modal-body .modal-icon {
-            font-size: 3rem;
-            text-align: center;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .modal-overlay .modal-content .modal-body .modal-message {
-            text-align: center;
-            font-size: 1.05rem;
-        }
-
-        .modal-overlay .modal-content .modal-footer {
-            padding: 12px 20px;
-            border-top: 1px solid var(--border-soft);
-            display: flex;
-            justify-content: flex-end;
-            gap: 8px;
-        }
-
-        .modal-overlay .modal-content .modal-footer .modal-btn {
-            padding: 8px 20px;
-            border: none;
+            padding: 10px 20px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
             font-size: 0.85rem;
@@ -366,40 +235,15 @@
             transition: all 0.15s ease;
         }
 
-        .modal-overlay .modal-content .modal-footer .modal-btn:hover {
+        .btn-demo:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
         }
 
-        .modal-overlay .modal-content .modal-footer .modal-btn.primary {
-            background: var(--accent-sql);
-            color: #0e1410;
-        }
-
-        .modal-overlay .modal-content .modal-footer .modal-btn.danger {
-            background: var(--accent-html);
-            color: #0e1410;
-        }
-
-        .modal-overlay .modal-content .modal-footer .modal-btn.secondary {
-            background: var(--bg-base-2);
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-        }
-
-        .modal-overlay .modal-content .modal-footer .modal-btn.secondary:hover {
-            border-color: var(--text-muted);
-            color: var(--text-primary);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .btn-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
         }
 
         .info-box {
@@ -525,10 +369,312 @@
             .nav-row .btn {
                 width: 100%;
             }
-            .modal-overlay .modal-content {
-                max-width: 95%;
-                margin: 10px;
+        }
+
+        /* ---------- shared: lesson blocks ---------- */
+        code {
+            overflow-wrap: anywhere; /* long URLs wrap on phones */
+        }
+
+        .code-block {
+            background: var(--bg-base);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin: 12px 0 18px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            white-space: pre;
+        }
+        .code-block code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+        .code-block .cm {
+            color: var(--text-muted);
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step;
+            margin: 12px 0 18px;
+        }
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent-js);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .steps li strong {
+            color: var(--text-primary);
+        }
+
+        .demo-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin: 16px 0;
+        }
+        .demo-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .input {
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+            min-width: 0;
+        }
+        .input:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+        .input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .control-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .cheat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 18px;
+            font-size: 0.88rem;
+        }
+        .cheat-table th,
+        .cheat-table td {
+            text-align: left;
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--border-soft);
+            vertical-align: top;
+        }
+        .cheat-table th {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cheat-table td {
+            color: var(--text-secondary);
+        }
+        .cheat-table td:first-child {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .control-row > * {
+                flex: 1 1 auto;
             }
+            .cheat-table td:first-child {
+                white-space: normal;
+            }
+        }
+
+        /* ---------- student challenge (same as levels 31–65) ---------- */
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .challenge-box ul {
+            margin-left: 20px;
+        }
+        .challenge-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .mini-label {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .style-toggle {
+            display: inline-flex;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 9px 14px;
+            cursor: pointer;
+        }
+        .toggle-btn.active {
+            background: var(--accent-css);
+            color: #0b1a20;
+            font-weight: 600;
+        }
+        #sizeRange {
+            accent-color: var(--accent-css);
+            flex: 1;
+            min-width: 100px;
+        }
+        #colorPicker {
+            width: 40px;
+            height: 32px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--bg-base-2);
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+            gap: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 2px;
+        }
+        .icon-tile {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 12px 4px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: all 0.15s ease;
+        }
+        .icon-tile:hover {
+            border-color: var(--accent-css);
+            transform: translateY(-2px);
+        }
+        .icon-tile.copied {
+            border-color: var(--accent-sql);
+        }
+        .icon-tile i {
+            line-height: 1;
+        }
+        .icon-tile span {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            color: var(--text-muted);
+            text-align: center;
+            word-break: break-all;
+        }
+
+        .copy-box {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--accent-sql);
+            background: var(--bg-base);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            word-break: break-all;
+        }
+
+        .like-demo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .like-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            border-radius: 30px;
+            padding: 9px 18px;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .like-btn i {
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+        .like-btn[aria-pressed="true"] {
+            border-color: #ec6a5e;
+        }
+        .like-btn[aria-pressed="true"] i {
+            color: #ec6a5e;
+            animation: pop 0.3s ease;
+        }
+        @keyframes pop {
+            50% { transform: scale(1.35); }
         }
     </style>
 </head>
@@ -542,16 +688,16 @@
                 <div class="terminal-tab">level74.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 74: Modal Popup</p>
+                <p class="terminal-comment">// Level 74: Adding Icons</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Modal Popup</span><span class="cursor">_</span>
+                    <span id="typedTitle">Adding Icons</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Build a reusable modal popup component with different content types.
-                    Learn to create interactive overlays for alerts, confirmations, and forms.
+                    Add free icons to any page with the Remix Icon CDN — one <code>&lt;link&gt;</code> tag and an <code>&lt;i&gt;</code> tag per icon.
                 </p>
                 <div class="chip-row">
-                    <span class="chip js">JavaScript</span>
+                    <span class="chip js">HTML</span>
+                    <span class="chip js">Remix Icon CDN</span>
                     <span class="chip level">Level 74</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -559,30 +705,89 @@
         </div>
 
         <div class="panel">
-            <h1>Modal Popup</h1>
+            <h1>Icons with Remix Icon</h1>
             <p>
-                A modal is a dialog box that appears on top of the page content.
-                It's used for alerts, confirmations, forms, and displaying additional information.
+                <strong>Remix Icon</strong> is a free set of 3,000+ icons. Each icon is a character in a
+                special font, so you style it just like text — with <code>font-size</code> and <code>color</code>.
+                You load it from a <strong>CDN</strong> (a link to a file on the internet), so there is nothing to download.
             </p>
 
-            <div class="modal-app">
-                <h3 style="margin-bottom: 12px; color: var(--text-secondary); font-weight: 400;">Try the modal:</h3>
-                <div class="modal-triggers">
-                    <button class="trigger-btn primary" id="alertBtn">📢 Alert</button>
-                    <button class="trigger-btn info" id="confirmBtn">❓ Confirm</button>
-                    <button class="trigger-btn" id="formBtn">📝 Form</button>
-                    <button class="trigger-btn danger" id="customBtn">🎨 Custom</button>
+            <h2>How to use it</h2>
+            <ol class="steps">
+                <li><strong>Add the CDN link</strong> inside your <code>&lt;head&gt;</code>.</li>
+                <li><strong>Add an icon</strong> with an <code>&lt;i&gt;</code> tag and the icon's class name, like <code>ri-home-line</code>.</li>
+                <li><strong>Style it</strong> with <code>font-size</code> to change the size and <code>color</code> to change the color.</li>
+            </ol>
+
+<pre class="code-block"><code>&lt;head&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+          rel="stylesheet"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;i class="ri-home-line"&gt;&lt;/i&gt;     <span class="cm">&lt;!-- outline --&gt;</span>
+    &lt;i class="ri-home-fill"&gt;&lt;/i&gt;     <span class="cm">&lt;!-- filled  --&gt;</span>
+
+    &lt;button&gt;
+        &lt;i class="ri-download-line"&gt;&lt;/i&gt; Download
+    &lt;/button&gt;
+&lt;/body&gt;</code></pre>
+
+            <h2>Icon picker</h2>
+            <div class="demo-box">
+                <div class="control-row">
+                    <input class="input" type="text" id="iconSearch" placeholder="Search icons... (heart, mail, user)" aria-label="Search icons" style="flex: 1;">
+                    <div class="style-toggle" role="group" aria-label="Icon style">
+                        <button class="toggle-btn active" data-style="line">line</button>
+                        <button class="toggle-btn" data-style="fill">fill</button>
+                    </div>
                 </div>
+                <div class="control-row">
+                    <label class="mini-label" for="sizeRange">Size <span id="sizeValue">28px</span></label>
+                    <input type="range" id="sizeRange" min="16" max="48" value="28">
+                    <label class="mini-label" for="colorPicker">Color</label>
+                    <input type="color" id="colorPicker" value="#e9e9f5">
+                </div>
+
+                <div class="icon-grid" id="iconGrid"></div>
+
+                <div class="demo-label" style="margin-top: 14px;">Click an icon to copy its code</div>
+                <div class="copy-box" id="copyBox">&lt;i class="ri-home-line"&gt;&lt;/i&gt;</div>
             </div>
 
+            <h2>Change an icon with JavaScript</h2>
+            <p>Icons are just classes, so you can swap them with <code>classList</code>. Click the heart:</p>
+            <div class="demo-box like-demo">
+                <button class="like-btn" id="likeBtn" aria-pressed="false">
+                    <i class="ri-heart-line" id="likeIcon" aria-hidden="true"></i>
+                    <span id="likeText">Like</span>
+                </button>
+                <span class="text-muted" id="likeCount">12 likes</span>
+            </div>
+<pre class="code-block"><code>likeBtn.addEventListener("click", () =&gt; {
+    likeIcon.classList.toggle("ri-heart-line");
+    likeIcon.classList.toggle("ri-heart-fill");
+});</code></pre>
+
             <div class="info-box">
-                <h4>Features</h4>
+                <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>Different types</strong> - Alert, confirm, form, and custom modals</li>
-                    <li><strong>Keyboard support</strong> - Close with ESC key</li>
-                    <li><strong>Backdrop click</strong> - Click outside to close</li>
-                    <li><strong>Animations</strong> - Smooth fade and slide transitions</li>
-                    <li><strong>Reusable</strong> - Create any modal content with the same system</li>
+                    <li><strong>Find icons:</strong> <a href="https://remixicon.com" target="_blank" rel="noopener" style="color: var(--accent-css);">remixicon.com</a> — click any icon to copy its class name.</li>
+                    <li><strong>Every class starts with</strong> <code>ri-</code> and most end with <code>-line</code> or <code>-fill</code>.</li>
+                    <li><strong>Decoration only?</strong> Add <code>aria-hidden="true"</code> so screen readers skip it.</li>
+                    <li><strong>Icon-only button?</strong> Add <code>aria-label</code> so people know what it does.</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level74.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
+                <ul>
+                    <li>Add the Remix Icon CDN <code>&lt;link&gt;</code> inside your <code>&lt;head&gt;</code>.</li>
+                    <li>Build a navigation bar with 4 links: Home, Profile, Messages and Settings. Put an icon before each one.</li>
+                    <li>Make the icons 22px and give them a different color from the text.</li>
+                    <li>Add 3 social media icon links (GitHub, Instagram, YouTube) in a footer.</li>
+                    <li>Add a bookmark button that switches between <code>ri-bookmark-line</code> and <code>ri-bookmark-fill</code> when clicked.</li>
                 </ul>
             </div>
 

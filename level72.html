@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 72: Image Gallery</title>
+    <title>Level 72: Fetch with async/await</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
         }
 
         .page {
-            max-width: 900px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -221,142 +221,6 @@
             margin-bottom: 14px;
         }
 
-        .gallery-app {
-            background: var(--bg-panel-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            margin: 16px 0;
-        }
-
-        .gallery-app .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 12px;
-            margin: 16px 0;
-        }
-
-        .gallery-app .gallery-grid .image-item {
-            aspect-ratio: 1;
-            background: var(--bg-base-2);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            position: relative;
-        }
-
-        .gallery-app .gallery-grid .image-item:hover {
-            border-color: var(--border);
-            transform: scale(1.03);
-            z-index: 1;
-        }
-
-        .gallery-app .gallery-grid .image-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-app .gallery-grid .image-item .image-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 4px 8px;
-            background: rgba(21, 21, 31, 0.8);
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
-        .gallery-app .upload-area {
-            border: 2px dashed var(--border);
-            border-radius: var(--radius-sm);
-            padding: 24px;
-            text-align: center;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.15s ease;
-            margin-bottom: 16px;
-        }
-
-        .gallery-app .upload-area:hover {
-            border-color: var(--accent-css);
-            background: var(--bg-panel);
-        }
-
-        .gallery-app .upload-area input[type="file"] {
-            display: none;
-        }
-
-        .gallery-app .upload-area .upload-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .gallery-app .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(21, 21, 31, 0.95);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .gallery-app .modal-overlay.active {
-            display: flex;
-        }
-
-        .gallery-app .modal-overlay .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .gallery-app .modal-overlay .modal-content img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: var(--radius-md);
-            display: block;
-        }
-
-        .gallery-app .modal-overlay .modal-content .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .gallery-app .modal-overlay .modal-content .modal-close:hover {
-            color: var(--accent-html);
-        }
-
-        .gallery-app .modal-overlay .modal-content .modal-info {
-            position: absolute;
-            bottom: -40px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-        }
-
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
@@ -375,20 +239,10 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
-            background: var(--accent-js);
-            color: #1a1a1a;
-        }
-
-        .gallery-app .gallery-controls {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
+        .btn-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
         }
 
         .info-box {
@@ -508,9 +362,6 @@
             .panel {
                 padding: 20px;
             }
-            .gallery-app .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            }
             .nav-row {
                 flex-direction: column;
             }
@@ -519,10 +370,260 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .gallery-app .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        /* ---------- shared: lesson blocks ---------- */
+        code {
+            overflow-wrap: anywhere; /* long URLs wrap on phones */
+        }
+
+        .code-block {
+            background: var(--bg-base);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin: 12px 0 18px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            white-space: pre;
+        }
+        .code-block code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+        .code-block .cm {
+            color: var(--text-muted);
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step;
+            margin: 12px 0 18px;
+        }
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent-js);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .steps li strong {
+            color: var(--text-primary);
+        }
+
+        .demo-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin: 16px 0;
+        }
+        .demo-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .input {
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+            min-width: 0;
+        }
+        .input:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+        .input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .control-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .cheat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 18px;
+            font-size: 0.88rem;
+        }
+        .cheat-table th,
+        .cheat-table td {
+            text-align: left;
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--border-soft);
+            vertical-align: top;
+        }
+        .cheat-table th {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cheat-table td {
+            color: var(--text-secondary);
+        }
+        .cheat-table td:first-child {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .control-row > * {
+                flex: 1 1 auto;
             }
+            .cheat-table td:first-child {
+                white-space: normal;
+            }
+        }
+
+        /* ---------- student challenge (same as levels 31–65) ---------- */
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .challenge-box ul {
+            margin-left: 20px;
+        }
+        .challenge-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .mini-label {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .fetch-status {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-base-2);
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+        .fetch-status.loading {
+            color: var(--accent-js);
+        }
+        .fetch-status.success {
+            color: var(--accent-sql);
+        }
+        .fetch-status.error {
+            color: var(--accent-html);
+        }
+
+        .user-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+        }
+        .user-card {
+            background: var(--bg-base-2);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .user-avatar {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: color-mix(in srgb, var(--accent-css) 20%, transparent);
+            color: var(--accent-css);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .user-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+        .user-info {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            word-break: break-word;
+        }
+        .skeleton {
+            height: 68px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(90deg, var(--bg-base-2), var(--bg-elevated), var(--bg-base-2));
+            background-size: 200% 100%;
+            animation: shimmer 1.2s linear infinite;
+        }
+        @keyframes shimmer {
+            from { background-position: 200% 0; }
+            to { background-position: -200% 0; }
         }
     </style>
 </head>
@@ -536,16 +637,16 @@
                 <div class="terminal-tab">level72.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 72: Image Gallery</p>
+                <p class="terminal-comment">// Level 72: Fetch with async/await</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Image Gallery</span><span class="cursor">_</span>
+                    <span id="typedTitle">Fetch with async/await</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Build an interactive image gallery with upload, display, and lightbox features.
-                    Add images and view them in full size.
+                    Write the same kind of fetch request in a cleaner way using <code>async</code> and <code>await</code>, with loading and error states.
                 </p>
                 <div class="chip-row">
                     <span class="chip js">JavaScript</span>
+                    <span class="chip js">async/await</span>
                     <span class="chip level">Level 72</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -553,48 +654,69 @@
         </div>
 
         <div class="panel">
-            <h1>Image Gallery</h1>
+            <h1>Same fetch, cleaner code</h1>
             <p>
-                Upload images to create your own gallery. Click on any image to view it full-size
-                in a lightbox modal. Images are saved in localStorage.
+                In Level 70 you chained <code>.then()</code> calls. <code>async</code> and <code>await</code>
+                let you write the exact same request so it reads from top to bottom, like normal code.
             </p>
 
-            <div class="gallery-app" id="galleryApp">
-                <div class="upload-area" id="uploadArea">
-                    <span class="upload-icon">📷</span>
-                    <div>Click or drag to upload images</div>
-                    <div style="font-size: 0.8rem; margin-top: 4px;">PNG, JPG, GIF, WebP</div>
-                    <input type="file" id="fileInput" accept="image/*" multiple>
+            <h2>.then() vs async/await</h2>
+<pre class="code-block"><code><span class="cm">// Level 70 way</span>
+fetch(url)
+    .then(response =&gt; response.json())
+    .then(users =&gt; showUsers(users))
+    .catch(error =&gt; showError(error));
+
+<span class="cm">// This level's way</span>
+async function loadUsers() {
+    try {
+        const response = await fetch(url);
+        const users = await response.json();
+        showUsers(users);
+    } catch (error) {
+        showError(error);
+    }
+}</code></pre>
+
+            <ol class="steps">
+                <li>Put <code>async</code> before <code>function</code>. Now you can use <code>await</code> inside it.</li>
+                <li><code>await</code> <strong>pauses</strong> the function until the Promise is done, then gives you the result.</li>
+                <li>Wrap it in <code>try { } catch { }</code> to handle errors.</li>
+                <li><code>finally { }</code> runs at the end <strong>no matter what</strong> — great for hiding a loading message.</li>
+            </ol>
+
+            <h2>Try it</h2>
+            <div class="demo-box">
+                <div class="demo-label">GET /users</div>
+                <div class="control-row">
+                    <button class="btn-demo" id="loadUsersBtn">Load Users</button>
+                    <button class="btn-outline" id="badUrlBtn">Try a bad URL</button>
+                    <input class="input" type="text" id="userSearch" placeholder="Filter by name..." aria-label="Filter users by name" style="flex: 1;" disabled>
                 </div>
 
-                <div class="gallery-controls">
-                    <button class="btn-demo" id="addSampleBtn">📸 Add Sample Images</button>
-                    <button class="btn-demo danger" id="clearGalleryBtn">🗑️ Clear Gallery</button>
-                </div>
-
-                <div class="gallery-grid" id="galleryGrid">
-                    <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px 0;">
-                        No images yet. Upload some or click "Add Sample Images"!
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-overlay" id="modalOverlay">
-                <div class="modal-content">
-                    <button class="modal-close" id="modalClose">✕</button>
-                    <img id="modalImage" src="" alt="">
-                    <div class="modal-info" id="modalInfo"></div>
-                </div>
+                <div class="fetch-status" id="usersStatus">Click "Load Users" to fetch 10 users</div>
+                <div class="user-grid" id="userGrid"></div>
             </div>
 
             <div class="info-box">
-                <h4>Features</h4>
+                <h4>Key Takeaways</h4>
                 <ul>
-                    <li><strong>Upload images</strong> - Upload multiple images at once</li>
-                    <li><strong>Lightbox view</strong> - Click any image to view it full-size</li>
-                    <li><strong>Local storage</strong> - Images are saved in localStorage</li>
-                    <li><strong>Drag and drop</strong> - Drag images onto the upload area</li>
-                    <li><strong>Sample images</strong> - Add sample images to test the gallery</li>
+                    <li><strong>Endpoint:</strong> <code>https://jsonplaceholder.typicode.com/users</code> returns an array of 10 users.</li>
+                    <li><strong>await</strong> only works inside an <code>async</code> function.</li>
+                    <li>An <code>async</code> function always returns a <strong>Promise</strong>.</li>
+                    <li>Forget <code>await</code> and you get a Promise instead of the data.</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level72.html</code>. Inside it, add a <code>&lt;script&gt;</code> tag and write your solution for this level within the script.</p>
+                <ul>
+                    <li>Add a "Load Todos" button.</li>
+                    <li>Write an <code>async</code> function that uses <code>await fetch()</code> to get <code>https://jsonplaceholder.typicode.com/todos?_limit=10</code>.</li>
+                    <li>Show a "Loading..." message while you wait, and hide it in a <code>finally</code> block.</li>
+                    <li>Show each todo title in a list. Put a line through the ones where <code>completed</code> is <code>true</code>.</li>
+                    <li>Use <code>try/catch</code> to show "Could not load todos" if something goes wrong.</li>
                 </ul>
             </div>
 

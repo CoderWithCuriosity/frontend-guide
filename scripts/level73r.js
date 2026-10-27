@@ -1,409 +1,256 @@
 /**
- * Level 73: Shopping Cart
- * 
- * This file implements a shopping cart application.
+ * Level 73: Modal Popup
+ *
+ * One reusable modal that can show different content.
+ * Closes with the X button, Cancel, a click on the overlay, or the Escape key.
  * All code here will run when the page loads.
  */
 
 // ============================================
-// SHOPPING CART
+// MODAL POPUP
 // ============================================
 
-class ShoppingCart {
-    constructor() {
-        this.products = [
-            { id: 1, name: "Laptop", price: 999.99, emoji: "💻" },
-            { id: 2, name: "Mouse", price: 29.99, emoji: "🖱️" },
-            { id: 3, name: "Keyboard", price: 79.99, emoji: "⌨️" },
-            { id: 4, name: "Monitor", price: 299.99, emoji: "🖥️" },
-            { id: 5, name: "Headphones", price: 49.99, emoji: "🎧" },
-            { id: 6, name: "Speaker", price: 89.99, emoji: "🔊" },
-            { id: 7, name: "USB Cable", price: 9.99, emoji: "🔌" },
-            { id: 8, name: "Mouse Pad", price: 14.99, emoji: "🟦" }
-        ];
-
-        this.cart = [];
-        this.loadCart();
-        this.renderProducts();
-        this.renderCart();
-        this.setupEventListeners();
+// Content for each kind of modal
+const MODALS = {
+    welcome: {
+        title: "Welcome back!",
+        text: "This is a modal popup. Click outside the box or press Escape to close it.",
+        confirmText: "Got it",
+        danger: false,
+        hasInput: false
+    },
+    newsletter: {
+        title: "Join the newsletter",
+        text: "Get one short coding tip every week.",
+        confirmText: "Subscribe",
+        danger: false,
+        hasInput: true
+    },
+    delete: {
+        title: "Delete this item?",
+        text: "This cannot be undone. Are you sure?",
+        confirmText: "Delete",
+        danger: true,
+        hasInput: false
     }
+};
 
-    loadCart() {
-        let saved = localStorage.getItem("shoppingCart");
-        if (saved) {
-            try {
-                this.cart = JSON.parse(saved);
-            } catch (e) {
-                this.cart = [];
-            }
-        }
-        console.log("Loaded cart:", this.cart.length, "items");
-    }
+let overlay;
+let currentModal = null;
 
-    saveCart() {
-        localStorage.setItem("shoppingCart", JSON.stringify(this.cart));
-    }
+function openModal(name) {
+    let data = MODALS[name];
+    currentModal = name;
 
-    addToCart(productId) {
-        let product = this.products.find(p => p.id === productId);
-        if (!product) return;
+    document.getElementById("modalTitle").textContent = data.title;
+    document.getElementById("modalText").textContent = data.text;
 
-        let existing = this.cart.find(item => item.id === productId);
-        if (existing) {
-            existing.quantity++;
-        } else {
-            this.cart.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                quantity: 1,
-                emoji: product.emoji
-            });
-        }
+    let confirmBtn = document.getElementById("modalConfirmBtn");
+    confirmBtn.textContent = data.confirmText;
+    confirmBtn.classList.toggle("danger", data.danger);
 
-        this.saveCart();
-        this.renderCart();
-        console.log("Added to cart:", product.name);
-    }
+    let extra = document.getElementById("modalExtra");
+    extra.innerHTML = data.hasInput
+        ? '<input class="input" type="email" id="modalEmail" placeholder="you@example.com" aria-label="Email address">'
+        : "";
 
-    removeFromCart(productId) {
-        this.cart = this.cart.filter(item => item.id !== productId);
-        this.saveCart();
-        this.renderCart();
-        console.log("Removed from cart:", productId);
-    }
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden"; // stop the page from scrolling
 
-    updateQuantity(productId, change) {
-        let item = this.cart.find(item => item.id === productId);
-        if (!item) return;
+    // Move keyboard focus into the modal
+    let firstInput = document.getElementById("modalEmail");
+    (firstInput || confirmBtn).focus();
 
-        item.quantity += change;
-        if (item.quantity <= 0) {
-            this.removeFromCart(productId);
-            return;
-        }
-
-        this.saveCart();
-        this.renderCart();
-        console.log("Updated quantity:", productId, item.quantity);
-    }
-
-    clearCart() {
-        if (this.cart.length === 0) return;
-        if (confirm("Are you sure you want to clear your cart?")) {
-            this.cart = [];
-            this.saveCart();
-            this.renderCart();
-            console.log("Cart cleared");
-        }
-    }
-
-    getTotalItems() {
-        return this.cart.reduce((sum, item) => sum + item.quantity, 0);
-    }
-
-    getSubtotal() {
-        return this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    }
-
-    getTotal() {
-        return this.getSubtotal();
-    }
-
-    renderProducts() {
-        let grid = document.getElementById("productGrid");
-        grid.innerHTML = "";
-
-        this.products.forEach(product => {
-            let div = document.createElement("div");
-            div.className = "product-item";
-            div.innerHTML = `
-                <div style="font-size: 2rem;">${product.emoji}</div>
-                <div class="product-name">${product.name}</div>
-                <div class="product-price">$${product.price.toFixed(2)}</div>
-                <button class="add-btn" data-id="${product.id}">Add to Cart</button>
-            `;
-            grid.appendChild(div);
-
-            div.querySelector(".add-btn").addEventListener("click", () => {
-                this.addToCart(product.id);
-            });
-        });
-    }
-
-    renderCart() {
-        let container = document.getElementById("cartItems");
-        let subtotalEl = document.getElementById("subtotal");
-        let totalEl = document.getElementById("totalPrice");
-        let checkoutBtn = document.getElementById("checkoutBtn");
-
-        if (this.cart.length === 0) {
-            container.innerHTML = `<div class="cart-empty">Your cart is empty</div>`;
-            subtotalEl.textContent = "$0.00";
-            totalEl.textContent = "$0.00";
-            checkoutBtn.disabled = true;
-            return;
-        }
-
-        let html = "";
-        this.cart.forEach(item => {
-            html += `
-                <div class="cart-item" data-id="${item.id}">
-                    <div class="item-info">
-                        <div class="item-name">${item.emoji} ${item.name}</div>
-                        <div class="item-price">$${item.price.toFixed(2)}</div>
-                    </div>
-                    <div class="item-qty">
-                        <button class="qty-dec" data-id="${item.id}">−</button>
-                        <span class="qty">${item.quantity}</span>
-                        <button class="qty-inc" data-id="${item.id}">+</button>
-                    </div>
-                    <button class="remove-btn" data-id="${item.id}">✕</button>
-                </div>
-            `;
-        });
-        container.innerHTML = html;
-
-        // Add event listeners for quantity buttons
-        container.querySelectorAll(".qty-dec").forEach(btn => {
-            btn.addEventListener("click", () => {
-                let id = parseInt(btn.dataset.id);
-                this.updateQuantity(id, -1);
-            });
-        });
-
-        container.querySelectorAll(".qty-inc").forEach(btn => {
-            btn.addEventListener("click", () => {
-                let id = parseInt(btn.dataset.id);
-                this.updateQuantity(id, 1);
-            });
-        });
-
-        container.querySelectorAll(".remove-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                let id = parseInt(btn.dataset.id);
-                this.removeFromCart(id);
-            });
-        });
-
-        // Update totals
-        let subtotal = this.getSubtotal();
-        let total = this.getTotal();
-        subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-        totalEl.textContent = `$${total.toFixed(2)}`;
-        checkoutBtn.disabled = false;
-    }
-
-    setupEventListeners() {
-        document.getElementById("clearCartBtn").addEventListener("click", () => {
-            this.clearCart();
-        });
-
-        document.getElementById("checkoutBtn").addEventListener("click", () => {
-            let total = this.getTotal();
-            let items = this.getTotalItems();
-            alert(`✅ Checkout complete!\nItems: ${items}\nTotal: $${total.toFixed(2)}\n\nThank you for shopping!`);
-            this.clearCart();
-        });
-    }
+    logEvent(`Opened the "${name}" modal`);
 }
 
-// ============================================
-// INITIALIZE APP
-// ============================================
+function closeModal(reason) {
+    if (!overlay.classList.contains("open")) return;
 
-let cart;
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+    logEvent(`Closed with: ${reason}`);
+    currentModal = null;
+}
+
+function confirmModal() {
+    if (currentModal === "newsletter") {
+        let email = document.getElementById("modalEmail").value.trim();
+        if (!email.includes("@")) {
+            document.getElementById("modalEmail").focus();
+            logEvent("Please type a valid email first");
+            return;
+        }
+        closeModal(`Subscribe (${email})`);
+        return;
+    }
+    closeModal(document.getElementById("modalConfirmBtn").textContent + " button");
+}
+
+function logEvent(message) {
+    document.getElementById("eventLog").textContent = message;
+}
 
 document.addEventListener("DOMContentLoaded", function() {
-    cart = new ShoppingCart();
-    console.log("Shopping Cart initialized!");
+    overlay = document.getElementById("modalOverlay");
+
+    // Every button with data-modal opens that modal
+    document.querySelectorAll("[data-modal]").forEach(btn => {
+        btn.addEventListener("click", () => openModal(btn.dataset.modal));
+    });
+
+    document.getElementById("modalCloseBtn").addEventListener("click", () => closeModal("X button"));
+    document.getElementById("modalCancelBtn").addEventListener("click", () => closeModal("Cancel button"));
+    document.getElementById("modalConfirmBtn").addEventListener("click", confirmModal);
+
+    // Only close when the dark overlay itself is clicked, not the box
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal("click outside");
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal("Escape key");
+    });
 });
 
 // ============================================
 // QUIZ SYSTEM
 // ============================================
 
+const QUIZ_LENGTH = 10;   // questions per attempt
+const QUIZ_TIME = 120;    // seconds
+
+// In every question "correct" points to the right option.
+// Options are shuffled when the quiz starts.
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does the addToCart() method do?',
-        options: [
-            "Adds a product to the cart",
-            "Removes a product from the cart",
-            "Updates product quantity",
-            "Clears the cart"
-        ],
+        question: 'Which CSS <code>position</code> makes the overlay cover the screen even when you scroll?',
+        options: ["fixed", "static", "relative", "sticky"],
         correct: 0,
-        explanation: 'addToCart() adds a product to the shopping cart.'
+        explanation: 'position: fixed sticks the element to the screen, so it stays in place while scrolling.'
     },
     {
         id: 2,
-        question: 'What does the removeFromCart() method do?',
+        question: 'How do we show the modal in this level?',
         options: [
-            "Removes a product from the cart",
-            "Adds a product to the cart",
-            "Updates product quantity",
-            "Clears the cart"
+            'overlay.classList.add("open")',
+            'overlay.remove()',
+            'overlay.innerHTML = ""',
+            'overlay.style.color = "open"'
         ],
         correct: 0,
-        explanation: 'removeFromCart() removes a product from the shopping cart.'
+        explanation: 'Adding the "open" class switches the CSS to opacity: 1 and visibility: visible.'
     },
     {
         id: 3,
-        question: 'What does the updateQuantity() method do?',
+        question: 'How do we hide the modal again?',
         options: [
-            "Changes the quantity of an item",
-            "Adds a new item",
-            "Removes an item",
-            "Clears the cart"
+            'overlay.classList.remove("open")',
+            'overlay.classList.add("open")',
+            'overlay.hide()',
+            'document.close()'
         ],
         correct: 0,
-        explanation: 'updateQuantity() changes the quantity of an item in the cart.'
+        explanation: 'Removing the "open" class sends the modal back to its hidden style.'
     },
     {
         id: 4,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;console.log(cart.products.length);',
+        question: 'How do we know the user clicked the dark overlay and NOT the box?',
         options: [
-            "8",
-            "6",
-            "10",
-            "0"
+            "e.target === overlay",
+            "e.key === overlay",
+            "e.type === 'box'",
+            "overlay.clicked === true"
         ],
         correct: 0,
-        explanation: 'There are 8 products in the product list.'
+        explanation: 'e.target is the exact element clicked. If it is the overlay itself, the click was outside the box.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;console.log(cart.cart.length);',
-        options: [
-            "1",
-            "0",
-            "2",
-            "undefined"
-        ],
+        question: 'Which key should close a modal?',
+        options: ["Escape", "Enter", "Space", "Tab"],
         correct: 0,
-        explanation: 'After adding one product, the cart length is 1.'
+        explanation: 'Users expect Escape to close popups. We check e.key === "Escape".'
     },
     {
         id: 6,
-        question: 'Where is the cart saved?',
+        question: 'Why set <code>document.body.style.overflow = "hidden"</code> while the modal is open?',
         options: [
-            "localStorage",
-            "sessionStorage",
-            "A database",
-            "A file"
+            "To stop the page behind from scrolling",
+            "To hide the modal",
+            "To make text bold",
+            "To delete the page"
         ],
         correct: 0,
-        explanation: 'The cart is saved in localStorage.'
+        explanation: 'It locks the page scroll so only the modal gets attention.'
     },
     {
         id: 7,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;console.log(cart.cart[0].quantity);',
-        options: [
-            "2",
-            "1",
-            "3",
-            "0"
-        ],
+        question: 'Which CSS property puts the modal on top of other elements?',
+        options: ["z-index", "font-size", "margin", "line-height"],
         correct: 0,
-        explanation: 'Adding the same product twice increases the quantity to 2.'
+        explanation: 'A higher z-index puts an element above elements with a lower z-index.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(2);<br/>&nbsp;&nbsp;console.log(cart.getTotalItems());',
+        question: 'What does <code>inset: 0</code> mean?',
         options: [
-            "2",
-            "1",
-            "3",
-            "0"
+            "top, right, bottom and left are all 0",
+            "No padding",
+            "No margin",
+            "Width is 0"
         ],
         correct: 0,
-        explanation: 'Two items added, total items is 2.'
+        explanation: 'inset is a shortcut for top, right, bottom and left, so the overlay fills the screen.'
     },
     {
         id: 9,
-        question: 'What does the clearCart() method do?',
+        question: 'Why use <code>opacity</code> + <code>visibility</code> instead of <code>display: none</code>?',
         options: [
-            "Removes all items from the cart",
-            "Removes one item",
-            "Adds sample items",
-            "Checks out"
+            "So we can animate a smooth fade in and out",
+            "Because display: none does not work",
+            "To make the modal bigger",
+            "It loads faster"
         ],
         correct: 0,
-        explanation: 'clearCart() removes all items from the cart.'
+        explanation: 'display cannot be animated with transition, but opacity can, so the modal fades smoothly.'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.updateQuantity(1, -1);<br/>&nbsp;&nbsp;console.log(cart.cart.length);',
+        question: 'Which CSS centers the box inside the overlay in this level?',
         options: [
-            "0",
-            "1",
-            "2",
-            "undefined"
+            "display: flex; justify-content: center; align-items: center;",
+            "text-align: right;",
+            "float: left;",
+            "position: static;"
         ],
         correct: 0,
-        explanation: 'Decreasing quantity to 0 removes the item, length becomes 0.'
+        explanation: 'Flexbox with justify-content and align-items set to center puts the box in the middle.'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;console.log(cart.getSubtotal());',
+        question: 'What does <code>rgba(0, 0, 0, 0.6)</code> give the overlay?',
         options: [
-            "999.99",
-            "999.99",
-            "0",
-            "undefined"
+            "A see-through dark background",
+            "A solid white background",
+            "A red border",
+            "No background"
         ],
         correct: 0,
-        explanation: 'The subtotal is the price of the item: 999.99.'
+        explanation: 'rgba is black (0,0,0) with 0.6 opacity, so you can still faintly see the page behind.'
     },
     {
         id: 12,
-        question: 'What does the getTotal() method do?',
+        question: 'In this level, how do the demo buttons tell <code>openModal()</code> which modal to show?',
         options: [
-            "Returns the total cost of the cart",
-            "Returns the number of items",
-            "Returns the subtotal",
-            "Returns the product list"
+            "With a data-modal attribute read through btn.dataset.modal",
+            "With the button's color",
+            "With localStorage",
+            "With a fetch request"
         ],
         correct: 0,
-        explanation: 'getTotal() returns the total cost of all items in the cart.'
-    },
-    {
-        id: 13,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(2);<br/>&nbsp;&nbsp;cart.removeFromCart(1);<br/>&nbsp;&nbsp;console.log(cart.cart.length);',
-        options: [
-            "1",
-            "2",
-            "0",
-            "undefined"
-        ],
-        correct: 0,
-        explanation: 'Adding two items then removing one leaves 1 item.'
-    },
-    {
-        id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.updateQuantity(1, 2);<br/>&nbsp;&nbsp;console.log(cart.cart[0].quantity);',
-        options: [
-            "3",
-            "2",
-            "1",
-            "0"
-        ],
-        correct: 0,
-        explanation: 'Adding 1 then increasing by 2 gives quantity 3.'
-    },
-    {
-        id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let cart = new ShoppingCart();<br/>&nbsp;&nbsp;cart.addToCart(1);<br/>&nbsp;&nbsp;cart.addToCart(2);<br/>&nbsp;&nbsp;cart.addToCart(3);<br/>&nbsp;&nbsp;console.log(cart.getTotalItems());',
-        options: [
-            "3",
-            "2",
-            "1",
-            "0"
-        ],
-        correct: 0,
-        explanation: 'Three items added, total items is 3.'
+        explanation: 'Each button has data-modal="welcome" (etc.), and btn.dataset.modal reads that value.'
     }
 ];
 
@@ -412,7 +259,7 @@ let quizState = {
     currentQuestion: 0,
     score: 0,
     answered: false,
-    timeLeft: 120,
+    timeLeft: QUIZ_TIME,
     timer: null
 };
 
@@ -423,6 +270,19 @@ function shuffleArray(array) {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+}
+
+// Picks random questions and shuffles each question's options,
+// so the right answer is not always in the same spot.
+function prepareQuestions() {
+    return shuffleArray(QUIZ_QUESTIONS).slice(0, QUIZ_LENGTH).map(q => {
+        const order = shuffleArray(q.options.map((_, i) => i));
+        return {
+            ...q,
+            options: order.map(i => q.options[i]),
+            correct: order.indexOf(q.correct)
+        };
+    });
 }
 
 function createQuizModal() {
@@ -709,13 +569,12 @@ function startQuiz(event) {
         return;
     }
 
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -871,7 +730,7 @@ function nextQuestion() {
 function startTimer() {
     if (quizState.timer) clearInterval(quizState.timer);
     
-    quizState.timeLeft = 120;
+    quizState.timeLeft = QUIZ_TIME;
     updateTimerDisplay();
 
     quizState.timer = setInterval(() => {
@@ -920,11 +779,11 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered the Shopping Cart!';
+        message += ' 🌟 Perfect score! You can build modals like a pro!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
-        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+        message += ` Need ${total}/${total} to pass. Review the API documentation and try again!`;
     }
 
     document.getElementById('resultEmoji').textContent = emoji;
@@ -958,13 +817,12 @@ function closeQuiz() {
 }
 
 function retryQuiz() {
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -978,7 +836,7 @@ function retryQuiz() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const el = document.getElementById('typedTitle');
-    const text = 'Shopping Cart';
+    const text = 'Modal Popup';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduceMotion) {

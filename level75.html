@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 75: Accordion Menu</title>
+    <title>Level 75: HTML Review Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
         }
 
         .page {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -221,100 +221,11 @@
             margin-bottom: 14px;
         }
 
-        .accordion-app {
-            background: var(--bg-panel-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 20px;
-            margin: 16px 0;
-        }
-
-        .accordion-item {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-sm);
-            margin-bottom: 8px;
-            overflow: hidden;
-            transition: all 0.15s ease;
-        }
-
-        .accordion-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .accordion-item:hover {
-            border-color: var(--border);
-        }
-
-        .accordion-item .accordion-header {
-            padding: 14px 18px;
-            background: var(--bg-base-2);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.15s ease;
-            user-select: none;
-        }
-
-        .accordion-item .accordion-header:hover {
-            background: var(--bg-panel);
-        }
-
-        .accordion-item .accordion-header .accordion-title {
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .accordion-item .accordion-header .accordion-icon {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-            font-family: var(--font-mono);
-        }
-
-        .accordion-item.active .accordion-header .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        .accordion-item .accordion-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            padding: 0 18px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .accordion-item.active .accordion-body {
-            max-height: 500px;
-            padding: 14px 18px 18px;
-        }
-
-        .accordion-item .accordion-body code {
-            background: var(--bg-base-2);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            color: var(--accent-js);
-        }
-
-        .accordion-controls {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border-soft);
-        }
-
         .btn-demo {
             background: var(--accent-sql);
             color: #0e1410;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: var(--radius-sm);
             font-family: var(--font-mono);
             font-size: 0.85rem;
@@ -328,13 +239,10 @@
             transform: translateY(-2px);
         }
 
-        .btn-demo.danger {
-            background: var(--accent-html);
-        }
-
-        .btn-demo.reset {
-            background: var(--accent-js);
-            color: #1a1a1a;
+        .btn-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
         }
 
         .info-box {
@@ -461,6 +369,197 @@
                 width: 100%;
             }
         }
+
+        /* ---------- shared: lesson blocks ---------- */
+        code {
+            overflow-wrap: anywhere; /* long URLs wrap on phones */
+        }
+
+        .code-block {
+            background: var(--bg-base);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin: 12px 0 18px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            white-space: pre;
+        }
+        .code-block code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+        .code-block .cm {
+            color: var(--text-muted);
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step;
+            margin: 12px 0 18px;
+        }
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent-js);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .steps li strong {
+            color: var(--text-primary);
+        }
+
+        .demo-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin: 16px 0;
+        }
+        .demo-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .input {
+            padding: 10px 14px;
+            background: var(--bg-base-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+            min-width: 0;
+        }
+        .input:focus {
+            outline: none;
+            border-color: var(--accent-css);
+        }
+        .input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .control-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .cheat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 18px;
+            font-size: 0.88rem;
+        }
+        .cheat-table th,
+        .cheat-table td {
+            text-align: left;
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--border-soft);
+            vertical-align: top;
+        }
+        .cheat-table th {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cheat-table td {
+            color: var(--text-secondary);
+        }
+        .cheat-table td:first-child {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .control-row > * {
+                flex: 1 1 auto;
+            }
+            .cheat-table td:first-child {
+                white-space: normal;
+            }
+        }
+
+        /* ---------- student challenge (same as levels 31–65) ---------- */
+        .challenge-box {
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-sql);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 18px 0;
+        }
+        .challenge-box h4 {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--accent-sql);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .challenge-box ul {
+            margin-left: 20px;
+        }
+        .challenge-box li {
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+        }
+
+        .mini-label {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .page {
+            max-width: 680px;
+        }
     </style>
 </head>
 <body>
@@ -473,16 +572,16 @@
                 <div class="terminal-tab">level75.js</div>
             </div>
             <div class="terminal-body">
-                <p class="terminal-comment">// Level 75: Accordion Menu</p>
+                <p class="terminal-comment">// Level 75: HTML Review Quiz</p>
                 <h1 class="hero-title">
-                    <span id="typedTitle">Accordion Menu</span><span class="cursor">_</span>
+                    <span id="typedTitle">HTML Review Quiz</span><span class="cursor">_</span>
                 </h1>
                 <p class="hero-sub">
-                    Build a collapsible accordion menu with smooth animations.
-                    Perfect for FAQs, documentation, and organizing content.
+                    Time to check what you remember from Levels 1–30. Review the HTML tags below, then answer 20 easy questions.
                 </p>
                 <div class="chip-row">
-                    <span class="chip js">JavaScript</span>
+                    <span class="chip js">HTML</span>
+                    <span class="chip js">Review</span>
                     <span class="chip level">Level 75</span>
                     <span class="chip js">Quiz Required</span>
                 </div>
@@ -490,96 +589,84 @@
         </div>
 
         <div class="panel">
-            <h1>Accordion Menu</h1>
+            <h1>HTML review</h1>
             <p>
-                An accordion is a vertically stacked list of items that can be expanded
-                or collapsed. Each item has a header that toggles the visibility of its content.
+                This level has no new project. Read through the tags you used in Levels 1–30,
+                then take the quiz. It has <strong>20 easy questions</strong> and you have <strong>5 minutes</strong>.
             </p>
 
-            <div class="accordion-app" id="accordionApp">
-                <div class="accordion-item active">
-                    <div class="accordion-header" data-target="1">
-                        <span class="accordion-title">📚 What is an Accordion?</span>
-                        <span class="accordion-icon">▼</span>
-                    </div>
-                    <div class="accordion-body" id="body1">
-                        An accordion is a UI component that organizes content into collapsible sections. 
-                        Users can click on headers to expand or collapse content, making it ideal for 
-                        FAQs, navigation menus, and information dense interfaces.
-                        <br><br>
-                        <code>Click the header to toggle this section!</code>
-                    </div>
-                </div>
+            <h2>Page structure</h2>
+            <table class="cheat-table">
+                <thead><tr><th>Tag</th><th>What it does</th></tr></thead>
+                <tbody>
+                    <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Tells the browser this is an HTML5 page. Always the first line.</td></tr>
+                    <tr><td><code>&lt;html&gt;</code></td><td>Wraps the whole page.</td></tr>
+                    <tr><td><code>&lt;head&gt;</code></td><td>Info about the page: title, CSS links, meta tags.</td></tr>
+                    <tr><td><code>&lt;title&gt;</code></td><td>Text shown on the browser tab.</td></tr>
+                    <tr><td><code>&lt;meta name="viewport"&gt;</code></td><td>Makes the page fit phone screens (responsive design).</td></tr>
+                    <tr><td><code>&lt;body&gt;</code></td><td>Everything you can see on the page.</td></tr>
+                </tbody>
+            </table>
 
-                <div class="accordion-item">
-                    <div class="accordion-header" data-target="2">
-                        <span class="accordion-title">🚀 Why Use an Accordion?</span>
-                        <span class="accordion-icon">▼</span>
-                    </div>
-                    <div class="accordion-body" id="body2">
-                        Accordions help save space on your page while still providing access to 
-                        all content. They're perfect for:
-                        <ul style="margin-left: 20px; margin-top: 8px;">
-                            <li>Frequently Asked Questions (FAQs)</li>
-                            <li>Product features and specifications</li>
-                            <li>Documentation and guides</li>
-                            <li>Mobile navigation menus</li>
-                            <li>Settings and preferences panels</li>
-                        </ul>
-                    </div>
-                </div>
+            <h2>Text</h2>
+            <table class="cheat-table">
+                <thead><tr><th>Tag</th><th>What it does</th></tr></thead>
+                <tbody>
+                    <tr><td><code>&lt;h1&gt;</code> – <code>&lt;h6&gt;</code></td><td>Headings. <code>h1</code> is the biggest and most important.</td></tr>
+                    <tr><td><code>&lt;p&gt;</code></td><td>A paragraph.</td></tr>
+                    <tr><td><code>&lt;strong&gt;</code> / <code>&lt;b&gt;</code></td><td>Bold text (<code>strong</code> also means "important").</td></tr>
+                    <tr><td><code>&lt;em&gt;</code> / <code>&lt;i&gt;</code></td><td>Italic text (<code>em</code> also means "emphasis").</td></tr>
+                    <tr><td><code>&lt;u&gt;</code> / <code>&lt;mark&gt;</code></td><td>Underlined / highlighted text.</td></tr>
+                    <tr><td><code>&lt;br&gt;</code></td><td>Line break (no closing tag).</td></tr>
+                    <tr><td><code>&lt;hr&gt;</code></td><td>A horizontal line.</td></tr>
+                </tbody>
+            </table>
 
-                <div class="accordion-item">
-                    <div class="accordion-header" data-target="3">
-                        <span class="accordion-title">⚡ How It Works</span>
-                        <span class="accordion-icon">▼</span>
-                    </div>
-                    <div class="accordion-body" id="body3">
-                        The accordion uses JavaScript to toggle the <code>active</code> class on each item.
-                        CSS transitions handle the smooth animation of the content height.
-                        <br><br>
-                        <strong>Key features:</strong>
-                        <ul style="margin-left: 20px; margin-top: 8px;">
-                            <li>Click a header to expand/collapse</li>
-                            <li>Smooth height transitions</li>
-                            <li>Keyboard accessible</li>
-                            <li>Multiple items can be open at once</li>
-                            <li>Customizable styling</li>
-                        </ul>
-                    </div>
-                </div>
+            <h2>Lists, links &amp; images</h2>
+            <table class="cheat-table">
+                <thead><tr><th>Tag</th><th>What it does</th></tr></thead>
+                <tbody>
+                    <tr><td><code>&lt;ul&gt;</code></td><td>Unordered list (bullets).</td></tr>
+                    <tr><td><code>&lt;ol&gt;</code></td><td>Ordered list (1, 2, 3).</td></tr>
+                    <tr><td><code>&lt;li&gt;</code></td><td>One item inside a list.</td></tr>
+                    <tr><td><code>&lt;a href=""&gt;</code></td><td>A link. <code>href</code> is where it goes. <code>target="_blank"</code> opens a new tab.</td></tr>
+                    <tr><td><code>&lt;img src="" alt=""&gt;</code></td><td>An image. <code>alt</code> describes it if it can't load.</td></tr>
+                </tbody>
+            </table>
 
-                <div class="accordion-item">
-                    <div class="accordion-header" data-target="4">
-                        <span class="accordion-title">🎨 Customization Options</span>
-                        <span class="accordion-icon">▼</span>
-                    </div>
-                    <div class="accordion-body" id="body4">
-                        You can customize the accordion in many ways:
-                        <ul style="margin-left: 20px; margin-top: 8px;">
-                            <li><strong>Colors:</strong> Match your brand or design system</li>
-                            <li><strong>Animation speed:</strong> Control the expand/collapse duration</li>
-                            <li><strong>Icons:</strong> Use different icons for open/closed states</li>
-                            <li><strong>Behavior:</strong> Allow multiple open sections or only one</li>
-                            <li><strong>Content:</strong> Add images, forms, or any HTML content</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-controls">
-                    <button class="btn-demo" id="expandAllBtn">📂 Expand All</button>
-                    <button class="btn-demo reset" id="collapseAllBtn">📁 Collapse All</button>
-                </div>
-            </div>
+            <h2>Layout &amp; forms</h2>
+            <table class="cheat-table">
+                <thead><tr><th>Tag</th><th>What it does</th></tr></thead>
+                <tbody>
+                    <tr><td><code>&lt;div&gt;</code></td><td>A block box for grouping things.</td></tr>
+                    <tr><td><code>&lt;span&gt;</code></td><td>An inline box for a small piece of text.</td></tr>
+                    <tr><td><code>&lt;header&gt;</code> / <code>&lt;nav&gt;</code> / <code>&lt;footer&gt;</code></td><td>Top section / navigation links / bottom section.</td></tr>
+                    <tr><td><code>&lt;form&gt;</code></td><td>Wraps inputs that get submitted.</td></tr>
+                    <tr><td><code>&lt;label for="id"&gt;</code></td><td>Text for an input. <code>for</code> matches the input's <code>id</code>.</td></tr>
+                    <tr><td><code>&lt;input&gt;</code></td><td>A field. <code>type</code> can be text, email, password, checkbox...</td></tr>
+                    <tr><td><code>&lt;textarea&gt;</code></td><td>A big box for many lines of text.</td></tr>
+                    <tr><td><code>&lt;button&gt;</code></td><td>A clickable button.</td></tr>
+                </tbody>
+            </table>
 
             <div class="info-box">
-                <h4>Features</h4>
+                <h4>Quiz Rules</h4>
                 <ul>
-                    <li><strong>Collapsible sections</strong> - Toggle content visibility</li>
-                    <li><strong>Smooth animations</strong> - CSS transitions for height</li>
-                    <li><strong>Keyboard accessible</strong> - Use Enter/Space to toggle</li>
-                    <li><strong>Expand/Collapse All</strong> - Control all sections at once</li>
-                    <li><strong>Customizable</strong> - Easy to style and extend</li>
+                    <li><strong>20 questions</strong> picked at random from the review above.</li>
+                    <li><strong>5 minutes</strong> on the clock.</li>
+                    <li>Get <strong>all 20</strong> right to unlock Level 76. You can retry as many times as you like.</li>
+                </ul>
+            </div>
+
+            <div class="challenge-box">
+                <h4>Your Challenge</h4>
+                <p>Create a new file named <code>level75.html</code>. Write your solution for this level in it.</p>
+                <ul>
+                    <li>Build a simple "About Me" page using only the tags from the review above.</li>
+                    <li>Use a <code>&lt;header&gt;</code> with an <code>&lt;h1&gt;</code> and a <code>&lt;nav&gt;</code> with 3 links.</li>
+                    <li>Add a photo with <code>&lt;img&gt;</code> and a good <code>alt</code> text.</li>
+                    <li>Add a <code>&lt;ul&gt;</code> of your hobbies and an <code>&lt;ol&gt;</code> of your top 3 favorite foods.</li>
+                    <li>Add a contact form with a <code>&lt;label&gt;</code>, an <code>&lt;input&gt;</code>, a <code>&lt;textarea&gt;</code> and a <code>&lt;button&gt;</code>, and finish with a <code>&lt;footer&gt;</code>.</li>
                 </ul>
             </div>
 
@@ -588,7 +675,7 @@
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                Pass the 10-question quiz to unlock Level 76
+                Pass the 20-question quiz to unlock Level 76
             </div>
 
             <div class="nav-row">

@@ -1,510 +1,188 @@
 /**
- * Level 70: Quiz Game
- * 
- * This file implements a quiz game application.
+ * Level 70: Simple GET Request
+ *
+ * Gets one post from the free JSONPlaceholder API using fetch() and .then().
  * All code here will run when the page loads.
  */
 
 // ============================================
-// QUIZ GAME
+// SIMPLE GET REQUEST
 // ============================================
 
-class QuizGame {
-    constructor() {
-        this.questions = [];
-        this.currentIndex = 0;
-        this.score = 0;
-        this.answered = false;
-        this.results = [];
-        this.totalQuestions = 10;
-        
-        this.loadQuestions();
-        this.setupEventListeners();
-        this.renderQuestion();
-    }
+const API_URL = "https://jsonplaceholder.typicode.com/posts";
 
-    loadQuestions() {
-        // JavaScript knowledge questions
-        this.questions = [
-            {
-                question: 'What does the "typeof" operator return for an array?',
-                options: ['"array"', '"object"', '"Array"', '"undefined"'],
-                correct: 1,
-                explanation: 'typeof [] returns "object" because arrays are a type of object in JavaScript.'
-            },
-            {
-                question: 'Which method adds an element to the end of an array?',
-                options: ['push()', 'pop()', 'shift()', 'unshift()'],
-                correct: 0,
-                explanation: 'push() adds one or more elements to the end of an array.'
-            },
-            {
-                question: 'What is the result of 5 + "5" in JavaScript?',
-                options: ['10', '"55"', '55', 'Error'],
-                correct: 1,
-                explanation: 'When adding a number and a string, JavaScript converts the number to a string and concatenates them, resulting in "55".'
-            },
-            {
-                question: 'Which keyword is used to declare a constant variable?',
-                options: ['let', 'var', 'const', 'static'],
-                correct: 2,
-                explanation: 'const is used to declare variables that cannot be reassigned.'
-            },
-            {
-                question: 'What does the === operator check?',
-                options: ['Only value', 'Only type', 'Value and type', 'Reference equality'],
-                correct: 2,
-                explanation: '=== checks both value and type equality (strict equality).'
-            },
-            {
-                question: 'Which method removes the last element from an array?',
-                options: ['push()', 'pop()', 'shift()', 'unshift()'],
-                correct: 1,
-                explanation: 'pop() removes the last element from an array and returns it.'
-            },
-            {
-                question: 'What is the output of typeof null?',
-                options: ['"null"', '"undefined"', '"object"', '"number"'],
-                correct: 2,
-                explanation: 'typeof null returns "object" (this is a well-known bug in JavaScript).'
-            },
-            {
-                question: 'Which function is used to parse JSON data?',
-                options: ['JSON.parse()', 'JSON.stringify()', 'JSON.convert()', 'JSON.toObject()'],
-                correct: 0,
-                explanation: 'JSON.parse() converts a JSON string into a JavaScript object.'
-            },
-            {
-                question: 'What is the output of 3 + 4 * 2?',
-                options: ['14', '11', '10', '8'],
-                correct: 1,
-                explanation: 'Multiplication happens before addition: 4 * 2 = 8, then 3 + 8 = 11.'
-            },
-            {
-                question: 'Which event fires when a user clicks an element?',
-                options: ['mouseover', 'click', 'keydown', 'change'],
-                correct: 1,
-                explanation: 'The click event fires when a user clicks on an element.'
+function getPost(id) {
+    let status = document.getElementById("fetchStatus");
+    let card = document.getElementById("postCard");
+
+    status.textContent = `Loading post ${id}...`;
+    status.className = "fetch-status loading";
+    card.hidden = true;
+
+    // Step 1: send the request
+    fetch(`${API_URL}/${id}`)
+        // Step 2: turn the reply into data
+        .then(response => response.json())
+        // Step 3: use the data
+        .then(post => {
+            if (!post.id) {
+                status.textContent = `Post ${id} does not exist. Try a number from 1 to 100.`;
+                status.className = "fetch-status error";
+                return;
             }
-        ];
-        
-        // Shuffle and limit questions
-        this.questions = this.shuffleArray(this.questions).slice(0, this.totalQuestions);
-        this.results = new Array(this.questions.length).fill(null);
-    }
 
-    shuffleArray(array) {
-        let shuffled = [...array];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled;
-    }
+            status.textContent = `GET ${API_URL}/${id} — done`;
+            status.className = "fetch-status success";
 
-    setupEventListeners() {
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            this.nextQuestion();
+            document.getElementById("postMeta").textContent = `Post #${post.id} · by user #${post.userId}`;
+            document.getElementById("postTitle").textContent = post.title;
+            document.getElementById("postBody").textContent = post.body;
+            card.hidden = false;
+
+            console.log(post);
+        })
+        // Runs only if something goes wrong (like no internet)
+        .catch(error => {
+            status.textContent = "Something went wrong. Check your internet connection.";
+            status.className = "fetch-status error";
         });
-
-        document.getElementById("restartBtn").addEventListener("click", () => {
-            this.restartQuiz();
-        });
-    }
-
-    renderQuestion() {
-        if (this.currentIndex >= this.questions.length) {
-            this.showResults();
-            return;
-        }
-
-        let question = this.questions[this.currentIndex];
-        let container = document.getElementById("optionsContainer");
-        let questionText = document.getElementById("questionText");
-        let feedback = document.getElementById("feedback");
-        let nextBtn = document.getElementById("nextBtn");
-        
-        // Update header
-        document.getElementById("currentQuestion").textContent = this.currentIndex + 1;
-        document.getElementById("totalQuestions").textContent = this.questions.length;
-        document.getElementById("scoreDisplay").textContent = this.score;
-        
-        // Update progress
-        let progress = Math.round(((this.currentIndex) / this.questions.length) * 100);
-        document.getElementById("progressDisplay").textContent = `Progress: ${progress}%`;
-        
-        // Show question
-        questionText.textContent = question.question;
-        
-        // Render options
-        container.innerHTML = "";
-        question.options.forEach((option, index) => {
-            let btn = document.createElement("button");
-            btn.className = "option-btn";
-            btn.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
-            btn.dataset.index = index;
-            btn.addEventListener("click", () => {
-                this.selectAnswer(index);
-            });
-            container.appendChild(btn);
-        });
-        
-        // Reset state
-        this.answered = false;
-        feedback.textContent = "";
-        feedback.className = "feedback";
-        nextBtn.textContent = "Next Question →";
-        nextBtn.disabled = true;
-        
-        // Hide result screen
-        document.getElementById("resultScreen").style.display = "none";
-        document.querySelector(".quiz-header").style.display = "flex";
-        document.getElementById("questionText").style.display = "block";
-        document.getElementById("optionsContainer").style.display = "flex";
-        document.getElementById("quiz-footer").style.display = "flex";
-    }
-
-    selectAnswer(index) {
-        if (this.answered) return;
-        this.answered = true;
-        
-        let question = this.questions[this.currentIndex];
-        let isCorrect = index === question.correct;
-        let buttons = document.querySelectorAll(".option-btn");
-        let feedback = document.getElementById("feedback");
-        let nextBtn = document.getElementById("nextBtn");
-        
-        // Disable all buttons
-        buttons.forEach(btn => {
-            btn.classList.add("disabled");
-        });
-        
-        // Highlight correct and wrong answers
-        buttons.forEach((btn, i) => {
-            if (i === question.correct) {
-                btn.classList.add("correct");
-            }
-            if (i === index && !isCorrect) {
-                btn.classList.add("wrong");
-            }
-            if (i === index) {
-                btn.classList.add("selected");
-            }
-        });
-        
-        // Update score and feedback
-        if (isCorrect) {
-            this.score++;
-            feedback.textContent = "✅ Correct! " + question.explanation;
-            feedback.className = "feedback correct";
-        } else {
-            feedback.textContent = "❌ Wrong. " + question.explanation;
-            feedback.className = "feedback wrong";
-        }
-        
-        // Store result
-        this.results[this.currentIndex] = {
-            question: question.question,
-            selected: index,
-            correct: question.correct,
-            isCorrect: isCorrect
-        };
-        
-        // Update score display
-        document.getElementById("scoreDisplay").textContent = this.score;
-        
-        // Enable next button
-        nextBtn.disabled = false;
-        
-        // If last question, change button text
-        if (this.currentIndex === this.questions.length - 1) {
-            nextBtn.textContent = "See Results 🎯";
-        }
-    }
-
-    nextQuestion() {
-        if (this.currentIndex < this.questions.length - 1) {
-            this.currentIndex++;
-            this.renderQuestion();
-        } else {
-            this.showResults();
-        }
-    }
-
-    showResults() {
-        let resultScreen = document.getElementById("resultScreen");
-        let quizContent = document.querySelector(".quiz-header");
-        let questionText = document.getElementById("questionText");
-        let optionsContainer = document.getElementById("optionsContainer");
-        let quizFooter = document.getElementById("quiz-footer");
-        let finalScore = document.getElementById("finalScore");
-        let resultMessage = document.getElementById("resultMessage");
-        let resultDetails = document.getElementById("resultDetails");
-        
-        // Hide quiz content
-        quizContent.style.display = "none";
-        questionText.style.display = "none";
-        optionsContainer.style.display = "none";
-        quizFooter.style.display = "none";
-        
-        // Show results
-        resultScreen.style.display = "block";
-        
-        let total = this.questions.length;
-        let percentage = Math.round((this.score / total) * 100);
-        
-        finalScore.textContent = `${this.score}/${total}`;
-        
-        let message = "";
-        let emoji = "";
-        if (percentage === 100) {
-            message = "🎉 Perfect score! You're a JavaScript master!";
-            emoji = "🌟";
-        } else if (percentage >= 80) {
-            message = "👏 Excellent! You really know your JavaScript!";
-            emoji = "⭐";
-        } else if (percentage >= 60) {
-            message = "💪 Good job! Keep practicing to improve!";
-            emoji = "📚";
-        } else if (percentage >= 40) {
-            message = "📖 Not bad! Review the basics and try again!";
-            emoji = "🤔";
-        } else {
-            message = "Don't give up! Review the material and try again!";
-            emoji = "💪";
-        }
-        
-        resultMessage.textContent = `${emoji} ${message}`;
-        
-        // Show detailed results
-        let detailsHTML = "";
-        this.results.forEach((result, index) => {
-            if (!result) return;
-            let mark = result.isCorrect ? '<span class="correct-mark">✅</span>' : '<span class="wrong-mark">❌</span>';
-            let q = result.question.length > 50 ? result.question.substring(0, 50) + "..." : result.question;
-            detailsHTML += `
-                <div class="detail-item">
-                    ${mark} Q${index + 1}: ${q}
-                </div>
-            `;
-        });
-        resultDetails.innerHTML = detailsHTML;
-        
-        // Log results
-        console.log("Quiz results:", {
-            score: this.score,
-            total: total,
-            percentage: percentage,
-            results: this.results
-        });
-    }
-
-    restartQuiz() {
-        this.currentIndex = 0;
-        this.score = 0;
-        this.results = [];
-        this.answered = false;
-        this.loadQuestions();
-        this.renderQuestion();
-        console.log("Quiz restarted!");
-    }
 }
 
-// ============================================
-// INITIALIZE APP
-// ============================================
-
-let quiz;
-
 document.addEventListener("DOMContentLoaded", function() {
-    quiz = new QuizGame();
-    console.log("Quiz Game initialized!");
+    let input = document.getElementById("postIdInput");
+
+    document.getElementById("getPostBtn").addEventListener("click", () => {
+        getPost(input.value || 1);
+    });
+
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") getPost(input.value || 1);
+    });
 });
 
 // ============================================
 // QUIZ SYSTEM
 // ============================================
 
+const QUIZ_LENGTH = 10;   // questions per attempt
+const QUIZ_TIME = 120;    // seconds
+
+// In every question "correct" points to the right option.
+// Options are shuffled when the quiz starts.
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What is the output: let quiz = new QuizGame(); console.log(quiz.questions.length);',
+        question: 'What does <code>fetch()</code> do?',
         options: [
-            "10",
-            "5",
-            "0",
-            "Error"
+            "Asks a server for data",
+            "Changes the page color",
+            "Saves data in localStorage",
+            "Creates a new HTML file"
         ],
         correct: 0,
-        explanation: 'The quiz loads 10 questions by default.'
+        explanation: 'fetch() sends a request to a URL and gets data back.'
     },
     {
         id: 2,
-        question: 'What does the selectAnswer() method do?',
-        options: [
-            "Records the user\'s answer and updates score",
-            "Loads the next question",
-            "Shows the results",
-            "Restarts the quiz"
-        ],
+        question: 'Asking a server for data is called a...',
+        options: ["GET request", "POST request", "DELETE request", "SAVE request"],
         correct: 0,
-        explanation: 'selectAnswer() records the user\'s answer, updates the score, and provides feedback.'
+        explanation: 'A GET request asks the server to give you data.'
     },
     {
         id: 3,
-        question: 'What does the showResults() method do?',
-        options: [
-            "Displays the final score and results",
-            "Loads the next question",
-            "Records an answer",
-            "Restarts the quiz"
-        ],
+        question: 'What HTTP method does <code>fetch(url)</code> use by default?',
+        options: ["GET", "POST", "PUT", "DELETE"],
         correct: 0,
-        explanation: 'showResults() displays the final score and detailed results.'
+        explanation: 'Without any options, fetch() sends a GET request.'
     },
     {
         id: 4,
-        question: 'What is the output: let quiz = new QuizGame(); quiz.score = 8; console.log(quiz.score);',
-        options: [
-            "8",
-            "0",
-            "undefined",
-            "Error"
-        ],
+        question: 'Which method turns the response into a JavaScript object?',
+        options: ["response.json()", "response.text()", "JSON.stringify()", "response.object()"],
         correct: 0,
-        explanation: 'score is a property that can be set and accessed.'
+        explanation: 'response.json() reads the reply and turns the JSON into a JavaScript object.'
     },
     {
         id: 5,
-        question: 'What happens when you answer a question correctly?',
+        question: 'What is <code>.then()</code> used for?',
         options: [
-            "The score increases by 1",
-            "The score stays the same",
-            "The score decreases by 1",
-            "The quiz ends"
+            "To run code when the data is ready",
+            "To stop the request",
+            "To catch errors",
+            "To reload the page"
         ],
         correct: 0,
-        explanation: 'Each correct answer increases the score by 1.'
+        explanation: 'The data takes time to arrive. .then() runs your code once it is ready.'
     },
     {
         id: 6,
-        question: 'What is the output: let quiz = new QuizGame(); console.log(quiz.totalQuestions);',
-        options: [
-            "10",
-            "5",
-            "0",
-            "undefined"
-        ],
+        question: 'What is <code>.catch()</code> used for?',
+        options: ["Handling errors", "Sending the request", "Turning data into JSON", "Repeating the request"],
         correct: 0,
-        explanation: 'totalQuestions is set to 10 by default.'
+        explanation: '.catch() runs when something goes wrong, like no internet.'
     },
     {
         id: 7,
-        question: 'What does the restartQuiz() method do?',
+        question: 'What is JSONPlaceholder?',
         options: [
-            "Resets the quiz to the beginning",
-            "Shows the results",
-            "Loads the next question",
-            "Records an answer"
+            "A free fake API for practice",
+            "A paid weather service",
+            "A JavaScript library you install",
+            "A database on your computer"
         ],
         correct: 0,
-        explanation: 'restartQuiz() resets the quiz to the beginning with new questions.'
+        explanation: 'JSONPlaceholder is a free fake API with posts, users and todos. No key needed.'
     },
     {
         id: 8,
-        question: 'What is the output: let quiz = new QuizGame(); quiz.questions = []; console.log(quiz.questions.length);',
+        question: 'What URL gets the post with ID 5 from JSONPlaceholder?',
         options: [
-            "0",
-            "10",
-            "undefined",
-            "Error"
+            "https://jsonplaceholder.typicode.com/posts/5",
+            "https://jsonplaceholder.typicode.com/5/posts",
+            "https://jsonplaceholder.typicode.com/posts?5",
+            "https://jsonplaceholder.typicode.com/post5"
         ],
         correct: 0,
-        explanation: 'The questions array can be modified.'
+        explanation: 'The ID goes at the end of the path: /posts/5.'
     },
     {
         id: 9,
-        question: 'What is the output: let quiz = new QuizGame(); quiz.currentIndex = 3; console.log(quiz.currentIndex);',
-        options: [
-            "3",
-            "0",
-            "undefined",
-            "Error"
-        ],
+        question: 'What format does most API data come in?',
+        options: ["JSON", "CSV", "MP3", "PNG"],
         correct: 0,
-        explanation: 'currentIndex is a property that can be set.'
+        explanation: 'Most web APIs send data as JSON, which looks a lot like JavaScript objects.'
     },
     {
         id: 10,
-        question: 'What is the output: let quiz = new QuizGame(); console.log(typeof quiz.questions);',
-        options: [
-            "object",
-            "array",
-            "string",
-            "number"
-        ],
+        question: 'After <code>.then(post =&gt; ...)</code>, how do you get the post title?',
+        options: ["post.title", "post[title]", "title.post", "post.get(title)"],
         correct: 0,
-        explanation: 'questions is an array, which is a type of object.'
+        explanation: 'The data is a normal object, so you read its properties with a dot: post.title.'
     },
     {
         id: 11,
-        question: 'What is the output: let quiz = new QuizGame(); quiz.answered = true; console.log(quiz.answered);',
+        question: 'What does API stand for?',
         options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
+            "Application Programming Interface",
+            "Apple Phone Internet",
+            "Advanced Page Index",
+            "Auto Program Install"
         ],
         correct: 0,
-        explanation: 'answered is a boolean property that can be set to true.'
+        explanation: 'API means Application Programming Interface — a way for programs to talk to each other.'
     },
     {
         id: 12,
-        question: 'What is the output: let quiz = new QuizGame(); console.log(quiz.results.length);',
+        question: 'Which is the correct order?',
         options: [
-            "10",
-            "0",
-            "5",
-            "undefined"
+            "fetch → response.json() → use the data",
+            "use the data → fetch → response.json()",
+            "response.json() → fetch → use the data",
+            "fetch → use the data → response.json()"
         ],
         correct: 0,
-        explanation: 'results is initialized with the same length as questions (10).'
-    },
-    {
-        id: 13,
-        question: 'What is the output: let quiz = new QuizGame(); quiz.score = 5; console.log(quiz.score);',
-        options: [
-            "5",
-            "0",
-            "undefined",
-            "Error"
-        ],
-        correct: 0,
-        explanation: 'score is a property that can be modified.'
-    },
-    {
-        id: 14,
-        question: 'What is the output: let quiz = new QuizGame(); console.log(quiz.currentIndex);',
-        options: [
-            "0",
-            "1",
-            "10",
-            "undefined"
-        ],
-        correct: 0,
-        explanation: 'currentIndex starts at 0.'
-    },
-    {
-        id: 15,
-        question: 'What is the output: let quiz = new QuizGame(); quiz.showResults(); console.log("Results shown");',
-        options: [
-            "Results shown",
-            "Error",
-            "undefined",
-            "null"
-        ],
-        correct: 0,
-        explanation: 'showResults() displays the results and the code continues.'
+        explanation: 'First send the request, then turn the reply into data, then use it.'
     }
 ];
 
@@ -513,7 +191,7 @@ let quizState = {
     currentQuestion: 0,
     score: 0,
     answered: false,
-    timeLeft: 120,
+    timeLeft: QUIZ_TIME,
     timer: null
 };
 
@@ -524,6 +202,19 @@ function shuffleArray(array) {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+}
+
+// Picks random questions and shuffles each question's options,
+// so the right answer is not always in the same spot.
+function prepareQuestions() {
+    return shuffleArray(QUIZ_QUESTIONS).slice(0, QUIZ_LENGTH).map(q => {
+        const order = shuffleArray(q.options.map((_, i) => i));
+        return {
+            ...q,
+            options: order.map(i => q.options[i]),
+            correct: order.indexOf(q.correct)
+        };
+    });
 }
 
 function createQuizModal() {
@@ -810,13 +501,12 @@ function startQuiz(event) {
         return;
     }
 
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -972,7 +662,7 @@ function nextQuestion() {
 function startTimer() {
     if (quizState.timer) clearInterval(quizState.timer);
     
-    quizState.timeLeft = 120;
+    quizState.timeLeft = QUIZ_TIME;
     updateTimerDisplay();
 
     quizState.timer = setInterval(() => {
@@ -1021,11 +711,11 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered the Quiz Game!';
+        message += ' 🌟 Perfect score! You can now fetch data from an API!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
-        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+        message += ` Need ${total}/${total} to pass. Review the API documentation and try again!`;
     }
 
     document.getElementById('resultEmoji').textContent = emoji;
@@ -1059,13 +749,12 @@ function closeQuiz() {
 }
 
 function retryQuiz() {
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -1079,7 +768,7 @@ function retryQuiz() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const el = document.getElementById('typedTitle');
-    const text = 'Quiz Game';
+    const text = 'Simple GET Request';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduceMotion) {

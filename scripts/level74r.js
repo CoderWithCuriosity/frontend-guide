@@ -1,459 +1,232 @@
 /**
- * Level 74: Modal Popup
- * 
- * This file implements a modal popup component.
+ * Level 74: Adding Icons
+ *
+ * Shows how to use Remix Icon from a CDN: an icon picker with search,
+ * line/fill style, size and color, plus a like button that swaps icons.
  * All code here will run when the page loads.
  */
 
 // ============================================
-// MODAL POPUP COMPONENT
+// ICON PICKER
 // ============================================
 
-class Modal {
-    constructor() {
-        this.isOpen = false;
-        this.createModalStructure();
-        this.setupEventListeners();
-        this.setupTriggerButtons();
+// Icon names without the "ri-" prefix and "-line"/"-fill" ending
+const ICONS = [
+    "home", "user", "search", "heart", "star", "settings-3", "mail", "phone",
+    "map-pin", "calendar", "camera", "image", "music", "video", "lock", "eye",
+    "eye-off", "shopping-cart", "delete-bin", "edit", "download", "upload",
+    "share", "notification", "chat-3", "thumb-up", "sun", "moon", "cloud",
+    "time", "bookmark", "folder", "file", "github", "instagram", "youtube",
+    "global", "code", "terminal-box", "lightbulb"
+];
+
+let iconStyle = "line";   // "line" or "fill"
+let iconSize = 28;
+let iconColor = "#e9e9f5";
+
+function iconClass(name) {
+    return `ri-${name}-${iconStyle}`;
+}
+
+function renderIcons() {
+    let grid = document.getElementById("iconGrid");
+    let term = document.getElementById("iconSearch").value.toLowerCase().trim();
+    let matches = ICONS.filter(name => name.includes(term));
+
+    if (matches.length === 0) {
+        grid.innerHTML = '<p class="text-muted" style="margin:0; grid-column: 1 / -1;">No icons found. Try "heart" or "mail".</p>';
+        return;
     }
 
-    createModalStructure() {
-        // Check if modal already exists
-        if (document.getElementById("modalOverlay")) {
-            this.overlay = document.getElementById("modalOverlay");
-            return;
-        }
+    grid.innerHTML = matches.map(name => `
+        <button class="icon-tile" data-name="${name}" title="${iconClass(name)}">
+            <i class="${iconClass(name)}" style="font-size:${iconSize}px; color:${iconColor};" aria-hidden="true"></i>
+            <span>${name}</span>
+        </button>
+    `).join("");
+}
 
-        const overlay = document.createElement("div");
-        overlay.id = "modalOverlay";
-        overlay.className = "modal-overlay";
-        overlay.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="modal-title" id="modalTitle">Modal Title</span>
-                    <button class="modal-close" id="modalCloseBtn">✕</button>
-                </div>
-                <div class="modal-body" id="modalBody">
-                    <span class="modal-icon" id="modalIcon"></span>
-                    <div class="modal-message" id="modalMessage">Modal content goes here.</div>
-                </div>
-                <div class="modal-footer" id="modalFooter">
-                    <button class="modal-btn secondary" id="modalCancelBtn">Cancel</button>
-                    <button class="modal-btn primary" id="modalConfirmBtn">OK</button>
-                </div>
-            </div>
-        `;
+function copyIconCode(name, tile) {
+    let code = `<i class="${iconClass(name)}"></i>`;
+    document.getElementById("copyBox").textContent = code + "  (copied)";
 
-        document.body.appendChild(overlay);
-        this.overlay = overlay;
-        this.content = overlay.querySelector(".modal-content");
-        this.title = document.getElementById("modalTitle");
-        this.body = document.getElementById("modalBody");
-        this.icon = document.getElementById("modalIcon");
-        this.message = document.getElementById("modalMessage");
-        this.footer = document.getElementById("modalFooter");
-        this.closeBtn = document.getElementById("modalCloseBtn");
-        this.cancelBtn = document.getElementById("modalCancelBtn");
-        this.confirmBtn = document.getElementById("modalConfirmBtn");
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).catch(() => {});
     }
 
-    setupEventListeners() {
-        // Close button
-        this.closeBtn.addEventListener("click", () => this.close());
-
-        // Cancel button
-        this.cancelBtn.addEventListener("click", () => this.close());
-
-        // Confirm button
-        this.confirmBtn.addEventListener("click", () => {
-            if (this.onConfirm) {
-                this.onConfirm();
-            }
-            this.close();
-        });
-
-        // Click outside to close
-        this.overlay.addEventListener("click", (e) => {
-            if (e.target === this.overlay) {
-                this.close();
-            }
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && this.isOpen) {
-                this.close();
-            }
-        });
-    }
-
-    setupTriggerButtons() {
-        document.getElementById("alertBtn").addEventListener("click", () => {
-            this.showAlert("📢", "This is an alert modal!", "Alert Message");
-        });
-
-        document.getElementById("confirmBtn").addEventListener("click", () => {
-            this.showConfirm(
-                "❓",
-                "Are you sure you want to proceed?",
-                "Confirm Action",
-                () => {
-                    this.showAlert("✅", "You confirmed the action!", "Confirmed");
-                }
-            );
-        });
-
-        document.getElementById("formBtn").addEventListener("click", () => {
-            this.showForm();
-        });
-
-        document.getElementById("customBtn").addEventListener("click", () => {
-            this.showCustom();
-        });
-    }
-
-    open(content, title, footer = null) {
-        this.isOpen = true;
-
-        if (title) {
-            this.title.textContent = title;
-        }
-
-        // Update body
-        if (typeof content === "string") {
-            this.body.innerHTML = content;
-        } else {
-            this.body.innerHTML = "";
-            this.body.appendChild(content);
-        }
-
-        // Update footer
-        if (footer) {
-            this.footer.innerHTML = footer;
-        } else {
-            this.footer.innerHTML = `
-                <button class="modal-btn secondary" id="modalCancelBtn">Cancel</button>
-                <button class="modal-btn primary" id="modalConfirmBtn">OK</button>
-            `;
-            // Re-bind events
-            this.cancelBtn = document.getElementById("modalCancelBtn");
-            this.confirmBtn = document.getElementById("modalConfirmBtn");
-            this.cancelBtn.addEventListener("click", () => this.close());
-            this.confirmBtn.addEventListener("click", () => {
-                if (this.onConfirm) {
-                    this.onConfirm();
-                }
-                this.close();
-            });
-        }
-
-        this.overlay.classList.add("active");
-        document.body.style.overflow = "hidden";
-    }
-
-    close() {
-        this.isOpen = false;
-        this.overlay.classList.remove("active");
-        document.body.style.overflow = "";
-        this.onConfirm = null;
-    }
-
-    showAlert(icon, message, title = "Alert") {
-        this.icon.textContent = icon || "📢";
-        this.message.textContent = message;
-        this.footer.innerHTML = `
-            <button class="modal-btn primary" id="modalConfirmBtn">OK</button>
-        `;
-
-        this.open(`<span class="modal-icon">${icon || "📢"}</span><div class="modal-message">${message}</div>`, title);
-
-        // Re-bind confirm button
-        this.confirmBtn = document.getElementById("modalConfirmBtn");
-        this.confirmBtn.addEventListener("click", () => {
-            this.close();
-        });
-    }
-
-    showConfirm(icon, message, title = "Confirm", onConfirm) {
-        this.icon.textContent = icon || "❓";
-        this.message.textContent = message;
-        this.onConfirm = onConfirm;
-        this.footer.innerHTML = `
-            <button class="modal-btn secondary" id="modalCancelBtn">Cancel</button>
-            <button class="modal-btn primary" id="modalConfirmBtn">Yes, proceed</button>
-        `;
-
-        this.open(`<span class="modal-icon">${icon || "❓"}</span><div class="modal-message">${message}</div>`, title);
-
-        this.cancelBtn = document.getElementById("modalCancelBtn");
-        this.confirmBtn = document.getElementById("modalConfirmBtn");
-        this.cancelBtn.addEventListener("click", () => this.close());
-        this.confirmBtn.addEventListener("click", () => {
-            if (this.onConfirm) {
-                this.onConfirm();
-            }
-            this.close();
-        });
-    }
-
-    showForm() {
-        let formContent = `
-            <div style="text-align: left;">
-                <div style="margin-bottom: 12px;">
-                    <label style="display: block; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px;">Name</label>
-                    <input type="text" id="modalName" placeholder="Enter your name" style="width: 100%; padding: 8px 12px; background: var(--bg-base-2); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.95rem;">
-                </div>
-                <div style="margin-bottom: 12px;">
-                    <label style="display: block; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px;">Email</label>
-                    <input type="email" id="modalEmail" placeholder="Enter your email" style="width: 100%; padding: 8px 12px; background: var(--bg-base-2); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.95rem;">
-                </div>
-            </div>
-        `;
-
-        this.footer.innerHTML = `
-            <button class="modal-btn secondary" id="modalCancelBtn">Cancel</button>
-            <button class="modal-btn primary" id="modalConfirmBtn">Submit</button>
-        `;
-
-        this.open(formContent, "📝 Contact Form");
-
-        this.cancelBtn = document.getElementById("modalCancelBtn");
-        this.confirmBtn = document.getElementById("modalConfirmBtn");
-        this.cancelBtn.addEventListener("click", () => this.close());
-        this.confirmBtn.addEventListener("click", () => {
-            let name = document.getElementById("modalName")?.value || "No name";
-            let email = document.getElementById("modalEmail")?.value || "No email";
-            this.showAlert("📨", `Form submitted!\nName: ${name}\nEmail: ${email}`, "Submission Successful");
-            this.close();
-        });
-    }
-
-    showCustom() {
-        let customContent = `
-            <div style="text-align: center;">
-                <span style="font-size: 3rem; display: block; margin-bottom: 8px;">🎨</span>
-                <h3 style="color: var(--text-primary); margin-bottom: 8px;">Custom Modal</h3>
-                <p style="color: var(--text-secondary);">This modal has custom content and styling.</p>
-                <div style="display: flex; justify-content: center; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                    <span style="padding: 4px 12px; background: var(--bg-base-2); border-radius: 20px; font-size: 0.8rem;">✨ Custom</span>
-                    <span style="padding: 4px 12px; background: var(--bg-base-2); border-radius: 20px; font-size: 0.8rem; color: var(--accent-sql);">✅ Flexible</span>
-                    <span style="padding: 4px 12px; background: var(--bg-base-2); border-radius: 20px; font-size: 0.8rem; color: var(--accent-js);">🚀 Powerful</span>
-                </div>
-            </div>
-        `;
-
-        this.footer.innerHTML = `
-            <button class="modal-btn secondary" id="modalCancelBtn">Close</button>
-            <button class="modal-btn danger" id="modalConfirmBtn">Awesome!</button>
-        `;
-
-        this.open(customContent, "🎨 Custom Modal");
-
-        this.cancelBtn = document.getElementById("modalCancelBtn");
-        this.confirmBtn = document.getElementById("modalConfirmBtn");
-        this.cancelBtn.addEventListener("click", () => this.close());
-        this.confirmBtn.addEventListener("click", () => {
-            this.showAlert("🎉", "You clicked the Awesome button!", "Awesome!");
-            this.close();
-        });
-    }
+    tile.classList.add("copied");
+    setTimeout(() => tile.classList.remove("copied"), 800);
 }
 
 // ============================================
-// INITIALIZE APP
+// LIKE BUTTON (swap icons with classList)
 // ============================================
 
-let modal;
+let liked = false;
+let likes = 12;
+
+function toggleLike() {
+    let btn = document.getElementById("likeBtn");
+    let icon = document.getElementById("likeIcon");
+
+    liked = !liked;
+    likes += liked ? 1 : -1;
+
+    icon.classList.toggle("ri-heart-line");
+    icon.classList.toggle("ri-heart-fill");
+
+    btn.setAttribute("aria-pressed", liked);
+    document.getElementById("likeText").textContent = liked ? "Liked" : "Like";
+    document.getElementById("likeCount").textContent = `${likes} likes`;
+}
 
 document.addEventListener("DOMContentLoaded", function() {
-    modal = new Modal();
-    console.log("Modal component initialized!");
+    renderIcons();
+
+    document.getElementById("iconSearch").addEventListener("input", renderIcons);
+
+    document.querySelectorAll(".toggle-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".toggle-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            iconStyle = btn.dataset.style;
+            renderIcons();
+        });
+    });
+
+    document.getElementById("sizeRange").addEventListener("input", (e) => {
+        iconSize = e.target.value;
+        document.getElementById("sizeValue").textContent = `${iconSize}px`;
+        renderIcons();
+    });
+
+    document.getElementById("colorPicker").addEventListener("input", (e) => {
+        iconColor = e.target.value;
+        renderIcons();
+    });
+
+    // One listener on the grid handles clicks on every tile
+    document.getElementById("iconGrid").addEventListener("click", (e) => {
+        let tile = e.target.closest(".icon-tile");
+        if (tile) copyIconCode(tile.dataset.name, tile);
+    });
+
+    document.getElementById("likeBtn").addEventListener("click", toggleLike);
 });
 
 // ============================================
 // QUIZ SYSTEM
 // ============================================
 
+const QUIZ_LENGTH = 10;   // questions per attempt
+const QUIZ_TIME = 120;    // seconds
+
+// In every question "correct" points to the right option.
+// Options are shuffled when the quiz starts.
 const QUIZ_QUESTIONS = [
     {
         id: 1,
-        question: 'What does the showAlert() method do?',
+        question: 'Which tag loads the Remix Icon CDN?',
         options: [
-            "Shows an alert modal",
-            "Shows a confirm modal",
-            "Shows a form modal",
-            "Closes the modal"
+            '<link href="...remixicon.css" rel="stylesheet">',
+            '<script src="...remixicon.css"></script>',
+            '<img src="...remixicon.css">',
+            '<a href="...remixicon.css"></a>'
         ],
         correct: 0,
-        explanation: 'showAlert() displays an alert modal with a message.'
+        explanation: 'Remix Icon is a CSS file, so you load it with a <link rel="stylesheet"> tag.'
     },
     {
         id: 2,
-        question: 'What does the showConfirm() method do?',
-        options: [
-            "Shows a confirm modal with yes/no",
-            "Shows an alert modal",
-            "Shows a form modal",
-            "Closes the modal"
-        ],
+        question: 'Where should you put the Remix Icon <code>&lt;link&gt;</code> tag?',
+        options: ["Inside <head>", "At the very end of the page", "Inside <footer>", "Inside <i>"],
         correct: 0,
-        explanation: 'showConfirm() displays a confirmation modal with Cancel and Confirm buttons.'
+        explanation: 'Stylesheet links go inside the <head> so icons are ready when the page shows.'
     },
     {
         id: 3,
-        question: 'What keyboard shortcut closes the modal?',
-        options: [
-            "Escape",
-            "Enter",
-            "Space",
-            "Tab"
-        ],
+        question: 'Which tag is usually used to show a Remix icon?',
+        options: ["<i>", "<icon>", "<img>", "<span-icon>"],
         correct: 0,
-        explanation: 'Pressing the Escape key closes the modal.'
+        explanation: 'We write <i class="ri-home-line"></i>. The class picks the icon.'
     },
     {
         id: 4,
-        question: 'What happens when you click outside the modal?',
-        options: [
-            "The modal closes",
-            "Nothing happens",
-            "The modal refreshes",
-            "An error occurs"
-        ],
+        question: 'All Remix Icon class names start with...',
+        options: ["ri-", "icon-", "fa-", "remix-"],
         correct: 0,
-        explanation: 'Clicking outside the modal closes it.'
+        explanation: 'Every Remix Icon class starts with ri-, for example ri-heart-line.'
     },
     {
         id: 5,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Alert Message");<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
+        question: 'What is the difference between <code>ri-heart-line</code> and <code>ri-heart-fill</code>?',
         options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
+            "line is an outline, fill is solid",
+            "line is bigger than fill",
+            "fill is animated",
+            "There is no difference"
         ],
         correct: 0,
-        explanation: 'After showing a modal, isOpen becomes true.'
+        explanation: 'The -line version is only the outline. The -fill version is filled in.'
     },
     {
         id: 6,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.close();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
-        options: [
-            "false",
-            "true",
-            "undefined",
-            "Error"
-        ],
+        question: 'How do you make a Remix icon bigger?',
+        options: ["font-size", "width only", "zoom-icon", "icon-size"],
         correct: 0,
-        explanation: 'After closing the modal, isOpen becomes false.'
+        explanation: 'Icons are font characters, so font-size controls their size.'
     },
     {
         id: 7,
-        question: 'What does the showForm() method do?',
-        options: [
-            "Shows a form modal",
-            "Shows an alert modal",
-            "Shows a confirm modal",
-            "Closes the modal"
-        ],
+        question: 'How do you change the color of a Remix icon?',
+        options: ["color", "background-image", "fill-color", "border-color"],
         correct: 0,
-        explanation: 'showForm() displays a modal with a contact form.'
+        explanation: 'Use the color property, the same way you color text.'
     },
     {
         id: 8,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;console.log(modal.overlay);',
+        question: 'What is a CDN?',
         options: [
-            "The overlay element",
-            "undefined",
-            "null",
-            "Error"
+            "A link to a file hosted on the internet that you can use",
+            "A type of HTML tag",
+            "A JavaScript loop",
+            "A CSS color"
         ],
         correct: 0,
-        explanation: 'The overlay property holds the modal overlay element.'
+        explanation: 'A CDN hosts files online so you can link to them instead of downloading them.'
     },
     {
         id: 9,
-        question: 'What does the close() method do?',
-        options: [
-            "Closes the modal",
-            "Opens the modal",
-            "Shows an alert",
-            "Shows a confirm"
-        ],
+        question: 'Which website lets you search all Remix icons?',
+        options: ["remixicon.com", "icons.google.com", "remix.run", "fontawesome.com"],
         correct: 0,
-        explanation: 'close() closes the currently open modal.'
+        explanation: 'Go to remixicon.com, search for an icon and click it to copy the class name.'
     },
     {
         id: 10,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showCustom();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
+        question: 'How does the like button swap the empty heart for a full heart?',
         options: [
-            "true",
-            "false",
-            "undefined",
-            "Error"
+            "By toggling the ri-heart-line and ri-heart-fill classes",
+            "By loading a new image",
+            "By reloading the page",
+            "By changing the font family"
         ],
         correct: 0,
-        explanation: 'After showing a custom modal, isOpen becomes true.'
+        explanation: 'classList.toggle removes one class and adds the other, so the icon changes.'
     },
     {
         id: 11,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;modal.close();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
-        options: [
-            "false",
-            "true",
-            "undefined",
-            "Error"
-        ],
+        question: 'Which attribute tells screen readers to skip a decorative icon?',
+        options: ['aria-hidden="true"', 'alt=""', 'hidden-icon', 'skip="yes"'],
         correct: 0,
-        explanation: 'After closing the modal, isOpen becomes false.'
+        explanation: 'aria-hidden="true" hides the icon from screen readers when it is only decoration.'
     },
     {
         id: 12,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;console.log(modal.isOpen);',
-        options: [
-            "false",
-            "true",
-            "undefined",
-            "Error"
-        ],
+        question: 'Is Remix Icon free to use?',
+        options: ["Yes, it is free and open source", "No, it needs a paid plan", "Only for 7 days", "Only on phones"],
         correct: 0,
-        explanation: 'Initially, the modal is not open, so isOpen is false.'
-    },
-    {
-        id: 13,
-        question: 'What does the showCustom() method do?',
-        options: [
-            "Shows a custom content modal",
-            "Shows an alert modal",
-            "Shows a confirm modal",
-            "Shows a form modal"
-        ],
-        correct: 0,
-        explanation: 'showCustom() displays a modal with custom content.'
-    },
-    {
-        id: 14,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;console.log(typeof modal.overlay);',
-        options: [
-            "object",
-            "string",
-            "number",
-            "boolean"
-        ],
-        correct: 0,
-        explanation: 'The overlay property is an HTML element, which is of type object.'
-    },
-    {
-        id: 15,
-        question: 'What is the output?<br/>&nbsp;&nbsp;let modal = new Modal();<br/>&nbsp;&nbsp;modal.showAlert("Test", "Message");<br/>&nbsp;&nbsp;modal.close();<br/>&nbsp;&nbsp;console.log(typeof modal.isOpen);',
-        options: [
-            "boolean",
-            "string",
-            "number",
-            "object"
-        ],
-        correct: 0,
-        explanation: 'isOpen is a boolean property.'
+        explanation: 'Remix Icon is free and open source, even for commercial projects.'
     }
 ];
 
@@ -462,7 +235,7 @@ let quizState = {
     currentQuestion: 0,
     score: 0,
     answered: false,
-    timeLeft: 120,
+    timeLeft: QUIZ_TIME,
     timer: null
 };
 
@@ -473,6 +246,19 @@ function shuffleArray(array) {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+}
+
+// Picks random questions and shuffles each question's options,
+// so the right answer is not always in the same spot.
+function prepareQuestions() {
+    return shuffleArray(QUIZ_QUESTIONS).slice(0, QUIZ_LENGTH).map(q => {
+        const order = shuffleArray(q.options.map((_, i) => i));
+        return {
+            ...q,
+            options: order.map(i => q.options[i]),
+            correct: order.indexOf(q.correct)
+        };
+    });
 }
 
 function createQuizModal() {
@@ -759,13 +545,12 @@ function startQuiz(event) {
         return;
     }
 
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -921,7 +706,7 @@ function nextQuestion() {
 function startTimer() {
     if (quizState.timer) clearInterval(quizState.timer);
     
-    quizState.timeLeft = 120;
+    quizState.timeLeft = QUIZ_TIME;
     updateTimerDisplay();
 
     quizState.timer = setInterval(() => {
@@ -970,11 +755,11 @@ function endQuiz(timeUp = false) {
     let message = `You scored ${score}/${total}!`;
     
     if (passed) {
-        message += ' 🌟 Perfect score! You\'ve mastered the Modal Popup!';
+        message += ' 🌟 Perfect score! You know how to use icons!';
     } else if (timeUp) {
         message += ` ⏱️ You ran out of time. Need ${total}/${total} to pass.`;
     } else {
-        message += ` Need ${total}/${total} to pass. Review the material and try again!`;
+        message += ` Need ${total}/${total} to pass. Review the API documentation and try again!`;
     }
 
     document.getElementById('resultEmoji').textContent = emoji;
@@ -1008,13 +793,12 @@ function closeQuiz() {
 }
 
 function retryQuiz() {
-    const shuffledQuestions = shuffleArray(QUIZ_QUESTIONS);
-    quizState = {
-        questions: shuffledQuestions.slice(0, 10),
+        quizState = {
+        questions: prepareQuestions(),
         currentQuestion: 0,
         score: 0,
         answered: false,
-        timeLeft: 120,
+        timeLeft: QUIZ_TIME,
         timer: null
     };
 
@@ -1028,7 +812,7 @@ function retryQuiz() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const el = document.getElementById('typedTitle');
-    const text = 'Modal Popup';
+    const text = 'Adding Icons';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduceMotion) {
